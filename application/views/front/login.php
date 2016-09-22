@@ -8,7 +8,7 @@
 				<hr>
 				<div class="col s12">
 					<div class="row">
-						<form class="col s12">
+						<?php echo form_open('', array("class" => "col s12"));?>
 							<div class="row">
 								<div class="input-field col s12">
 									<i class="material-icons prefix">account_circle</i>
@@ -24,7 +24,7 @@
 							<div class="col s12 center-align">
 								<button class=" col s12 btn btn-large waves-effect teal white-text" type="submit">Login</button>
 							</div>
-						</form>
+						<?php echo form_close();?>
 					</div>
 				</div>
 				<hr>

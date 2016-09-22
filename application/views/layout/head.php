@@ -8,9 +8,12 @@
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/materialize.min.css">	
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/custom.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/pace.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	   
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	 
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/swal.css">	  
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/pace.js"></script>
+    <script src="<?php echo base_url();?>assets/js/swal.js"></script>
     <script>
 	    paceOptions = {
 	      elements: true

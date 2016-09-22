@@ -35,7 +35,7 @@
 		</div>
 	</footer>
 	<!-- end footer -->
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
 <script src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
 <script>
 	$(document).ready(function(){

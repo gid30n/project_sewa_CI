@@ -37,12 +37,6 @@ class Signup extends CI_Controller {
 		$acc_email = $this->input->post("acc_email", TRUE);
 		$acc_pass = $this->input->post("acc_pass", TRUE);
 		$re_acc_pass = $this->input->post("re-acc_pass", TRUE);
-		$brand_name = $this->input->post("brand_name", TRUE);
-		$type_service = $this->input->post("jenis_service", TRUE);
-		$address = $this->input->post("alamat_usaha", TRUE);
-		$province = $this->input->post("provinsi", TRUE);
-		$region = $this->input->post("kabupaten", TRUE);
-		$descript = $this->input->post("des_usaha", TRUE);
 		$term = $this->input->post("term", TRUE);
 
 		if($term === "on"){
@@ -59,132 +53,18 @@ class Signup extends CI_Controller {
 
 								if($acc_pass === $re_acc_pass){
 
-									if(!empty($brand_name)){
+									/*Melakukan insert ke database dengan memanggil model*/
+									/*Insert data user*/
+									$data_user = array(
+										"first_name" => $first_name,
+										"last_name" => $last_name,
+										"email" => $acc_email,
+										"password" => $acc_pass,
+										);
+									$this->signup_model->insert_user($data_user);
 
-										if(!empty($type_service)){
-
-											if(!empty($address)){
-
-												if(!empty($province)){
-
-													if(!empty($region)){
-
-														/*Melakukan insert ke database dengan memanggil model*/
-														/*Insert data user*/
-														$data_user = array(
-															"first_name" => $first_name,
-															"last_name" => $last_name,
-															"email" => $acc_email,
-															"password" => $acc_pass,
-															);
-														$user_id = $this->signup_model->insert_user($data_user);
-
-														/*Insert data business*/
-														$data_business = array(
-															"brand_name" => $brand_name,
-															"type_service" => $type_service,
-															"address" => $address,
-															"id_province" => $province,
-															"id_region" => $region,
-															"description" => $descript,
-															"id_user" => $user_id,
-															);
-														$business_user = $this->signup_model->insert_business($data_business);
-
-													}else{
-														$data = array(
-															"first_name" => $first_name,
-															"last_name" => $last_name,
-															"acc_email" => $acc_email,
-															"acc_pass" => $acc_pass,
-															"re_acc_pass" => $re_acc_pass,
-															"brand_name" => $brand_name,
-															"type_service" => $type_service,
-															"address" => $address,
-															"province" => $province,
-															"region" => $region,
-															"descript" => $descript,
-															);
-														$this->session->set_userdata('data_signup', $data);
-														$this->session->set_userdata('msg_signup', 'Silakan pilih Kabupaten!.');
-														redirect('signup','refresh');
-													}
-
-												}else{
-													$data = array(
-														"first_name" => $first_name,
-														"last_name" => $last_name,
-														"acc_email" => $acc_email,
-														"acc_pass" => $acc_pass,
-														"re_acc_pass" => $re_acc_pass,
-														"brand_name" => $brand_name,
-														"type_service" => $type_service,
-														"address" => $address,
-														"province" => $province,
-														"region" => $region,
-														"descript" => $descript,
-														);
-													$this->session->set_userdata('data_signup', $data);
-													$this->session->set_userdata('msg_signup', 'Silakan pilih provinsi!.');
-													redirect('signup','refresh');
-												}
-
-											}else{
-												$data = array(
-													"first_name" => $first_name,
-													"last_name" => $last_name,
-													"acc_email" => $acc_email,
-													"acc_pass" => $acc_pass,
-													"re_acc_pass" => $re_acc_pass,
-													"brand_name" => $brand_name,
-													"type_service" => $type_service,
-													"address" => $address,
-													"province" => $province,
-													"region" => $region,
-													"descript" => $descript,
-													);
-												$this->session->set_userdata('data_signup', $data);
-												$this->session->set_userdata('msg_signup', 'Silakan isi Alamat Usaha!.');
-												redirect('signup','refresh');
-											}
-
-										}else{
-											$data = array(
-												"first_name" => $first_name,
-												"last_name" => $last_name,
-												"acc_email" => $acc_email,
-												"acc_pass" => $acc_pass,
-												"re_acc_pass" => $re_acc_pass,
-												"brand_name" => $brand_name,
-												"type_service" => $type_service,
-												"address" => $address,
-												"province" => $province,
-												"region" => $region,
-												"descript" => $descript,
-												);
-											$this->session->set_userdata('data_signup', $data);
-											$this->session->set_userdata('msg_signup', 'Silakan isi Jenis Jasa!.');
-											redirect('signup','refresh');
-										}
-
-									}else{
-										$data = array(
-											"first_name" => $first_name,
-											"last_name" => $last_name,
-											"acc_email" => $acc_email,
-											"acc_pass" => $acc_pass,
-											"re_acc_pass" => $re_acc_pass,
-											"brand_name" => $brand_name,
-											"type_service" => $type_service,
-											"address" => $address,
-											"province" => $province,
-											"region" => $region,
-											"descript" => $descript,
-											);
-										$this->session->set_userdata('data_signup', $data);
-										$this->session->set_userdata('msg_signup', 'Silakan isi Nama Brand!.');
-										redirect('signup','refresh');
-									}
+									$this->session->set_userdata('msg_signup', array('msg' => 'Login Success.', 'status' => true));
+									redirect('signup','refresh');
 
 								}else{
 									$data = array(
@@ -193,15 +73,9 @@ class Signup extends CI_Controller {
 										"acc_email" => $acc_email,
 										"acc_pass" => $acc_pass,
 										"re_acc_pass" => $re_acc_pass,
-										"brand_name" => $brand_name,
-										"type_service" => $type_service,
-										"address" => $address,
-										"province" => $province,
-										"region" => $region,
-										"descript" => $descript,
 										);
 									$this->session->set_userdata('data_signup', $data);
-									$this->session->set_userdata('msg_signup', 'Konfirmasi Password salah!.');
+									$this->session->set_userdata('msg_signup', array('msg' => 'Konfirmasi Password salah!.', 'status' => false));
 									redirect('signup','refresh');
 								}
 
@@ -212,15 +86,9 @@ class Signup extends CI_Controller {
 									"acc_email" => $acc_email,
 									"acc_pass" => $acc_pass,
 									"re_acc_pass" => $re_acc_pass,
-									"brand_name" => $brand_name,
-									"type_service" => $type_service,
-									"address" => $address,
-									"province" => $province,
-									"region" => $region,
-									"descript" => $descript,
 									);
 								$this->session->set_userdata('data_signup', $data);
-								$this->session->set_userdata('msg_signup', 'Silakan isi password!.');
+								$this->session->set_userdata('msg_signup', array('msg' => 'Silakan isi password!.', 'status' => false));
 								redirect('signup','refresh');
 							}
 						}else{
@@ -230,15 +98,9 @@ class Signup extends CI_Controller {
 								"acc_email" => $acc_email,
 								"acc_pass" => $acc_pass,
 								"re_acc_pass" => $re_acc_pass,
-								"brand_name" => $brand_name,
-								"type_service" => $type_service,
-								"address" => $address,
-								"province" => $province,
-								"region" => $region,
-								"descript" => $descript,
 								);
 							$this->session->set_userdata('data_signup', $data);
-							$this->session->set_userdata('msg_signup', 'Silakan menggunakan email yang valid!.');
+							$this->session->set_userdata('msg_signup', array('msg' => 'Silakan menggunakan email yang valid!.', 'status' => false));
 							redirect('signup','refresh');
 						}
 
@@ -249,15 +111,9 @@ class Signup extends CI_Controller {
 							"acc_email" => $acc_email,
 							"acc_pass" => $acc_pass,
 							"re_acc_pass" => $re_acc_pass,
-							"brand_name" => $brand_name,
-							"type_service" => $type_service,
-							"address" => $address,
-							"province" => $province,
-							"region" => $region,
-							"descript" => $descript,
 							);
 						$this->session->set_userdata('data_signup', $data);
-						$this->session->set_userdata('msg_signup', 'Silakan isi Email!.');
+						$this->session->set_userdata('msg_signup', array('msg' => 'Silakan isi Email!.', 'status' => false));
 						redirect('signup','refresh');
 					}
 
@@ -268,15 +124,9 @@ class Signup extends CI_Controller {
 						"acc_email" => $acc_email,
 						"acc_pass" => $acc_pass,
 						"re_acc_pass" => $re_acc_pass,
-						"brand_name" => $brand_name,
-						"type_service" => $type_service,
-						"address" => $address,
-						"province" => $province,
-						"region" => $region,
-						"descript" => $descript,
 						);
 					$this->session->set_userdata('data_signup', $data);
-					$this->session->set_userdata('msg_signup', 'Silakan isi Nama Belakang!.');
+					$this->session->set_userdata('msg_signup', array('msg' => 'Silakan isi Nama Belakang!.', 'status' => false));
 					redirect('signup','refresh');
 				}
 
@@ -287,15 +137,9 @@ class Signup extends CI_Controller {
 					"acc_email" => $acc_email,
 					"acc_pass" => $acc_pass,
 					"re_acc_pass" => $re_acc_pass,
-					"brand_name" => $brand_name,
-					"type_service" => $type_service,
-					"address" => $address,
-					"province" => $province,
-					"region" => $region,
-					"descript" => $descript,
 					);
 				$this->session->set_userdata('data_signup', $data);
-				$this->session->set_userdata('msg_signup', 'Silakan isi Nama Depan!.');
+				$this->session->set_userdata('msg_signup', array('msg' => 'Silakan isi Nama Depan!.', 'status' => false));
 				redirect('signup','refresh');
 			}
 
@@ -306,15 +150,9 @@ class Signup extends CI_Controller {
 				"acc_email" => $acc_email,
 				"acc_pass" => $acc_pass,
 				"re_acc_pass" => $re_acc_pass,
-				"brand_name" => $brand_name,
-				"type_service" => $type_service,
-				"address" => $address,
-				"province" => $province,
-				"region" => $region,
-				"descript" => $descript,
 				);
 			$this->session->set_userdata('data_signup', $data);
-			$this->session->set_userdata('msg_signup', 'Silakan menyetujui peraturan main.');
+			$this->session->set_userdata('msg_signup', array('msg' => 'Silakan menyetujui peraturan main.', 'status'=> false));
 			redirect('signup','refresh');
 		}
 	}
