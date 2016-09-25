@@ -14,6 +14,8 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/pace.js"></script>
     <script src="<?php echo base_url();?>assets/js/swal.js"></script>
+    <!-- bxSlider CSS file -->
+	<link href="<?php echo base_url();?>assets/css/bxslider.css" rel="stylesheet" />
     <script>
 	    paceOptions = {
 	      elements: true
