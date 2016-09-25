@@ -53,5 +53,16 @@
 		$('.modal-trigger').leanModal();
 	});
 </script>
+<!-- bxSlider Javascript file --> 
+<script src="<?php echo base_url();?>assets/js/bxslider.min.js"></script> 
+<script>
+$(document).ready(function(){
+	$('.bxslider').bxSlider({
+		pagerCustom: '#bx-pager'
+	});
+	$('.bx-prev').text("");
+	$('.bx-next').text("");
+});
+</script> 
 </body>
 </html>
