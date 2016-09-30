@@ -5,17 +5,71 @@ class Login extends CI_Controller {
 	/*
 		Disini untuk yang login menu.
 	*/
+	public function __construct()
+	{
+		// Call the CI_Model constructor
+		parent::__construct();
+		$this->load->model('login_model');
+	}
 	public function index()
 	{
 		$data = array(
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
-			'content' => "front/login", 
+			'content' => "front/login",
+			'msg_login' => $this->session->userdata('msg_login')
 			);
 		$this->load->view('layout/wrapper', $data);
 	}
 
 	public function valid()
 	{
+		$username = $this->input->post("uname", TRUE);
+		$password = $this->input->post("upass", TRUE);
+
+		if(!empty($username)){
+
+			if(!empty($password)){
+
+				$this->login_model->check_username($username);
+
+			}else{
+				$this->session->set_userdata('msg_login', array('msg' => 'Silakan mengisikan password!.', 'status' => false));
+				redirect('login','refresh');
+			}
+
+		}else{
+			$this->session->set_userdata('msg_login', array('msg' => 'Silakan mengisikan username!.', 'status' => false));
+			redirect('login','refresh');
+		}
 		
+	}
+
+	public function forgot_pass(){
+		$data = array(
+			'title' => "Sewania - Sewa Peralatan Pesta Online",
+			'content' => "front/forgot-pass", 
+			);
+		$this->load->view('layout/wrapper', $data);
+	}
+
+	public function process_forgot(){
+		$email = $this->input->post("email", TRUE);
+		if(!empty($email)){
+			if(check_valid_email_with_mailgun($email)){
+
+				/*
+				** True condition
+				*/
+
+
+
+			}else{
+				$this->session->set_userdata('msg_forgot', array('msg' => 'Email anda tidak valid!.', 'status' => false));
+				redirect('forgot-pass','refresh');
+			}
+		}else{
+			$this->session->set_userdata('msg_forgot', array('msg' => 'Silakan mengisikan email!.', 'status' => false));
+			redirect('forgot-pass','refresh');
+		}
 	}
 }

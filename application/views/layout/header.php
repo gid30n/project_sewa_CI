@@ -1,5 +1,4 @@
 <body class="grey lighten-3">
-	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 	<!-- menu atas -->
 	<div class="navbar-fixed">
 	<nav class="white">

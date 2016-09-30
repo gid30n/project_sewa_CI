@@ -59,7 +59,7 @@ class Signup extends CI_Controller {
 										"first_name" => $first_name,
 										"last_name" => $last_name,
 										"email" => $acc_email,
-										"password" => $acc_pass,
+										"password" => $this->encryption->encrypt($acc_pass),
 										);
 									$this->signup_model->insert_user($data_user);
 
