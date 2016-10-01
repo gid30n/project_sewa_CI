@@ -23,7 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://127.0.0.1/front-end/project_sewa_CI/';
+$config['base_url'] = 'http://sewania.dev/';
+// $config['base_url'] = 'http://127.0.0.1/front-end/project_sewa_CI/';
 // $config['base_url'] = 'http://3ed5f055.ngrok.io/sewania/';
 
 /*
@@ -371,7 +372,7 @@ $config['encryption_key'] = 'Dewa Raja CTF';
 |
 */
 $config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'ci_session';
+$config['sess_cookie_name'] = 'erico';
 $config['sess_expiration'] = 7200;
 $config['sess_save_path'] = sys_get_temp_dir();;
 $config['sess_match_ip'] = FALSE;

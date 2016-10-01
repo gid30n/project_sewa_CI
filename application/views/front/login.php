@@ -52,8 +52,23 @@ if(isset($msg_login)){
 	if(isset($msg_login['status'])){
 		if($msg_login['status']){
 			?><script>sweetAlert('Congratulations!', '<?php echo $msg_login["msg"];?>', 'success');</script><?php
+			if($msg_login['admin']){
+				?><script>
+				function redirect(){
+					window.location = "<?php echo base_url();?>dashboard"
+				}
+				setTimeout(redirect, 5000);
+				</script><?php
+			}else{
+				?><script>
+				function redirect(){
+					window.location = "<?php echo base_url();?>dashboard-cus"
+				}
+				setTimeout(redirect, 5000);
+				</script><?php
+			}
 		}else{
-			?><script>sweetAlert('Congratulations!', '<?php echo $msg_login["msg"];?>', 'error');</script><?php
+			?><script>sweetAlert('Ups!', '<?php echo $msg_login["msg"];?>', 'error');</script><?php
 		}
 	}
 	$this->session->unset_userdata('msg_login');

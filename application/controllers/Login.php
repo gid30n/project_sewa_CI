@@ -16,7 +16,7 @@ class Login extends CI_Controller {
 		$data = array(
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
 			'content' => "front/login",
-			'msg_login' => $this->session->userdata('msg_login')
+			'msg_login' => $this->session->userdata('msg_login'),
 			);
 		$this->load->view('layout/wrapper', $data);
 	}
@@ -35,10 +35,12 @@ class Login extends CI_Controller {
 					if(isset($res_login)){
 						if($res_login['admin']){
 							$this->session->set_userdata( 'user', array( 'id_user' => $res_login['id_user'], 'admin' => $res_login['admin']));
-							redirect('dashboard','refresh');
+							$this->session->set_userdata('msg_login', array('msg' => 'Success !.', 'status' => true));
+							redirect('login','refresh');
 						}else{
 							$this->session->set_userdata( 'user', array( 'id_user' => $res_login['id_user'], 'admin' => $res_login['admin']));
-							redirect('dashboard-cus','refresh');
+							$this->session->set_userdata('msg_login', array('msg' => 'Success !.', 'status' => true));
+							redirect('login','refresh');
 						}
 					}else{
 						$this->session->set_userdata('msg_login', array('msg' => 'Password anda salah !.', 'status' => false));
