@@ -6,29 +6,29 @@
 			<li>
 				<img src="<?php echo base_url();?>assets/img/slide/1.jpg">
 				<div class="caption center-align bening">
-					<h3>This is our big Tagline!</h3>
-					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					<h3>Wujudkan Pesta Impian Anda</h3>
+					<h5 class="light grey-text text-lighten-3">Tempat Terbaik Untuk mencari Perlengkapan Pesa dan Paket Pesta</h5>
 				</div>
 			</li>
 			<li>
 				<img src="<?php echo base_url();?>assets/img/slide/2.jpg">
 				<div class="caption center-align bening">
-					<h3>Left Aligned Caption</h3>
-					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					<h3>Profesional & Berpengalaman</h3>
+					<h5 class="light grey-text text-lighten-3">Kami memilih Vendor yang Memang Benar-Benar Ahli di Bidangnya</h5>
 				</div>
 			</li>
 			<li>
 				<img src="<?php echo base_url();?>assets/img/slide/3.jpg">
 				<div class="caption center-align bening">
-					<h3>Left Aligned Caption</h3>
-					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					<h3>Tersebar Di Seluruh Kota</h3>
+					<h5 class="light grey-text text-lighten-3">Temukan Kebutuhan Pesta anda di setiap Kota di Bali</h5>
 				</div>
 			</li>
 			<li>
 				<img src="<?php echo base_url();?>assets/img/slide/4.jpg">
 				<div class="caption center-align bening">
-					<h3>Left Aligned Caption</h3>
-					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					<h3>Kepuasan Anda Prioritas Kami</h3>
+					<h5 class="light grey-text text-lighten-3">Pesan Sekarang dan buat momen pestamu berkesan</h5>
 				</div>
 			</li>
 		</ul>
@@ -232,7 +232,7 @@
 		    			<div class="col s12 daftarkan center-align">
 		    				<h4 class="white-text bening">Anda Penyedia Peralatan Pesta ?</h4>
 		    				<br>
-		    				<a href="#!" class="btn btn-large waves-effect"><b>Daftarkan Usaha Anda</b></a>
+		    				<a href="<?php echo base_url("signup-patner"); ?>" class="btn btn-large waves-effect"><b>Daftarkan Usaha Anda</b></a>
 		    			</div>		    					    			
 		    		</div>		    		
 		    	</div>
