@@ -60,19 +60,19 @@ class Signup extends CI_Controller {
 										"last_name" => $last_name,
 										"email" => $acc_email,
 										"password" => $this->encryption->encrypt($acc_pass),
+										"joined" => date('Y-m-d H:i:s'),
+										"admin" => FALSE
 										);
 									$this->signup_model->insert_user($data_user);
 
-									$this->session->set_userdata('msg_signup', array('msg' => 'Login Success.', 'status' => true));
-									redirect('signup','refresh');
+									// $this->session->set_userdata('msg_signup', array('msg' => 'Login Success.', 'status' => true));
+									// redirect('signup','refresh');
 
 								}else{
 									$data = array(
 										"first_name" => $first_name,
 										"last_name" => $last_name,
 										"acc_email" => $acc_email,
-										"acc_pass" => $acc_pass,
-										"re_acc_pass" => $re_acc_pass,
 										);
 									$this->session->set_userdata('data_signup', $data);
 									$this->session->set_userdata('msg_signup', array('msg' => 'Konfirmasi Password salah!.', 'status' => false));
@@ -84,8 +84,6 @@ class Signup extends CI_Controller {
 									"first_name" => $first_name,
 									"last_name" => $last_name,
 									"acc_email" => $acc_email,
-									"acc_pass" => $acc_pass,
-									"re_acc_pass" => $re_acc_pass,
 									);
 								$this->session->set_userdata('data_signup', $data);
 								$this->session->set_userdata('msg_signup', array('msg' => 'Silakan isi password!.', 'status' => false));
@@ -95,7 +93,6 @@ class Signup extends CI_Controller {
 							$data = array(
 								"first_name" => $first_name,
 								"last_name" => $last_name,
-								"acc_email" => $acc_email,
 								"acc_pass" => $acc_pass,
 								"re_acc_pass" => $re_acc_pass,
 								);
@@ -108,7 +105,6 @@ class Signup extends CI_Controller {
 						$data = array(
 							"first_name" => $first_name,
 							"last_name" => $last_name,
-							"acc_email" => $acc_email,
 							"acc_pass" => $acc_pass,
 							"re_acc_pass" => $re_acc_pass,
 							);
@@ -120,7 +116,6 @@ class Signup extends CI_Controller {
 				}else{
 					$data = array(
 						"first_name" => $first_name,
-						"last_name" => $last_name,
 						"acc_email" => $acc_email,
 						"acc_pass" => $acc_pass,
 						"re_acc_pass" => $re_acc_pass,
@@ -132,7 +127,6 @@ class Signup extends CI_Controller {
 
 			}else{
 				$data = array(
-					"first_name" => $first_name,
 					"last_name" => $last_name,
 					"acc_email" => $acc_email,
 					"acc_pass" => $acc_pass,

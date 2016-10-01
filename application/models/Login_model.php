@@ -11,13 +11,28 @@ class Login_model extends CI_Model {
         public function check_username($username)
         {
 
-                $query = $this->db->get_where("tb_users", array("username", $username));
-                $res = $query->result_array();
-                var_dump($res);
+                $query = $this->db->get_where("tb_users", array("email" => $username));
+                $res = $query->row_array();
+                if(!empty($res['id_user'])){
+                        return TRUE;
+                }else{
+                        return FALSE;
+                }
+                
         }
 
         public function check_password($username, $password){
-
+                $query = $this->db->get_where("tb_users", array("email" => $username));
+                $res = $query->row_array();
+                if(!empty($res['id_user'])){
+                        if($this->encryption->decrypt($res['password']) === $password){
+                                return $res;
+                        }else{
+                                return FALSE;
+                        }
+                }else{
+                        return FALSE;
+                }
         }
 }
 ?>
