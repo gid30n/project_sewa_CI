@@ -8,7 +8,7 @@
 				<hr>
 				<div class="col s12">
 					<div class="row">
-						<form class="col s12">
+						<?php echo form_open('valid', array("class" => "col s12"));?>
 							<div class="row">
 								<div class="input-field col s12">
 									<i class="material-icons prefix">account_circle</i>
@@ -24,7 +24,7 @@
 							<div class="col s12 center-align">
 								<button class=" col s12 btn btn-large waves-effect teal white-text" type="submit">Login</button>
 							</div>
-						</form>
+						<?php echo form_close();?>
 					</div>
 				</div>
 				<hr>
@@ -47,3 +47,15 @@
 		</div>						
 	</div>
 </div>
+<?php 
+if(isset($msg_login)){
+	if(isset($msg_login['status'])){
+		if($msg_login['status']){
+			?><script>sweetAlert('Congratulations!', '<?php echo $msg_login["msg"];?>', 'success');</script><?php
+		}else{
+			?><script>sweetAlert('Congratulations!', '<?php echo $msg_login["msg"];?>', 'error');</script><?php
+		}
+	}
+	$this->session->unset_userdata('msg_login');
+}
+?>

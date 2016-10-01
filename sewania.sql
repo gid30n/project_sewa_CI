@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
--- Inang: localhost
--- Waktu pembuatan: 12 Sep 2016 pada 09.15
--- Versi Server: 5.5.50-0ubuntu0.14.04.1
--- Versi PHP: 5.5.9-1ubuntu4.19
+-- Host: localhost
+-- Generation Time: 30 Sep 2016 pada 19.56
+-- Versi Server: 10.1.17-MariaDB
+-- PHP Version: 5.6.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,11 +14,41 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Basis data: `sewania`
+-- Database: `sewania`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_ads`
+--
+
+CREATE TABLE `tb_ads` (
+  `id_ads` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `descript` tinytext NOT NULL,
+  `ranting` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `date_publish` datetime NOT NULL,
+  `id_business_profile` int(11) NOT NULL,
+  `id_kategori` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_banner`
+--
+
+CREATE TABLE `tb_banner` (
+  `id_banner` int(11) NOT NULL,
+  `path` text NOT NULL,
+  `title` text NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -26,17 +56,16 @@ SET time_zone = "+00:00";
 -- Struktur dari tabel `tb_business_profile`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_business_profile` (
-  `id_business_profile` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tb_business_profile` (
+  `id_business_profile` int(11) NOT NULL,
   `brand_name` varchar(255) NOT NULL,
   `type_service` text NOT NULL,
   `address` text NOT NULL,
   `id_province` int(11) NOT NULL,
   `id_region` int(11) NOT NULL,
   `description` text NOT NULL,
-  `id_user` int(11) NOT NULL,
-  PRIMARY KEY (`id_business_profile`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_business_profile`
@@ -48,14 +77,24 @@ INSERT INTO `tb_business_profile` (`id_business_profile`, `brand_name`, `type_se
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_kategori`
+--
+
+CREATE TABLE `tb_kategori` (
+  `id_kategori` int(11) NOT NULL,
+  `title` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_province`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_province` (
-  `id_province` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_province`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+CREATE TABLE `tb_province` (
+  `id_province` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_province`
@@ -71,12 +110,11 @@ INSERT INTO `tb_province` (`id_province`, `name`) VALUES
 -- Struktur dari tabel `tb_region`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_region` (
-  `id_region` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tb_region` (
+  `id_region` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `id_province` int(11) NOT NULL,
-  PRIMARY KEY (`id_region`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+  `id_province` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_region`
@@ -103,22 +141,110 @@ INSERT INTO `tb_region` (`id_region`, `name`, `id_province`) VALUES
 -- Struktur dari tabel `tb_users`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_users` (
-  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tb_users` (
+  `id_user` int(11) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `password` text NOT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `joined` datetime NOT NULL,
+  `last_login` datetime NOT NULL,
+  `ip_last` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_users`
 --
 
-INSERT INTO `tb_users` (`id_user`, `first_name`, `last_name`, `email`, `password`) VALUES
-(2, 'Anu', 'Uik', 'suryadana80@gmail.com', 'tes');
+INSERT INTO `tb_users` (`id_user`, `first_name`, `last_name`, `email`, `username`, `password`, `joined`, `last_login`, `ip_last`) VALUES
+(2, 'Anu', 'Uik', 'suryadana80@gmail.com', 'uik', 'tes', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tb_ads`
+--
+ALTER TABLE `tb_ads`
+  ADD PRIMARY KEY (`id_ads`);
+
+--
+-- Indexes for table `tb_banner`
+--
+ALTER TABLE `tb_banner`
+  ADD PRIMARY KEY (`id_banner`);
+
+--
+-- Indexes for table `tb_business_profile`
+--
+ALTER TABLE `tb_business_profile`
+  ADD PRIMARY KEY (`id_business_profile`);
+
+--
+-- Indexes for table `tb_kategori`
+--
+ALTER TABLE `tb_kategori`
+  ADD PRIMARY KEY (`id_kategori`);
+
+--
+-- Indexes for table `tb_province`
+--
+ALTER TABLE `tb_province`
+  ADD PRIMARY KEY (`id_province`);
+
+--
+-- Indexes for table `tb_region`
+--
+ALTER TABLE `tb_region`
+  ADD PRIMARY KEY (`id_region`);
+
+--
+-- Indexes for table `tb_users`
+--
+ALTER TABLE `tb_users`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tb_ads`
+--
+ALTER TABLE `tb_ads`
+  MODIFY `id_ads` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tb_banner`
+--
+ALTER TABLE `tb_banner`
+  MODIFY `id_banner` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tb_business_profile`
+--
+ALTER TABLE `tb_business_profile`
+  MODIFY `id_business_profile` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tb_kategori`
+--
+ALTER TABLE `tb_kategori`
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tb_province`
+--
+ALTER TABLE `tb_province`
+  MODIFY `id_province` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tb_region`
+--
+ALTER TABLE `tb_region`
+  MODIFY `id_region` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `tb_users`
+--
+ALTER TABLE `tb_users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
