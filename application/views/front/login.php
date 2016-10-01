@@ -57,14 +57,14 @@ if(isset($msg_login)){
 				function redirect(){
 					window.location = "<?php echo base_url();?>dashboard"
 				}
-				setTimeout(redirect, 5000);
+				setTimeout(redirect, 2000);
 				</script><?php
 			}else{
 				?><script>
 				function redirect(){
 					window.location = "<?php echo base_url();?>dashboard-cus"
 				}
-				setTimeout(redirect, 5000);
+				setTimeout(redirect, 2000);
 				</script><?php
 			}
 		}else{

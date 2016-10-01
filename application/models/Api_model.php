@@ -22,5 +22,15 @@ class Api_model extends CI_Model {
                 $query = $this->db->get_where('tb_region', array('id_province' => $id_province));
                 return $query->result_array();
         }
+
+        public function get_sub_kategori($id_kategori = ''){
+                $query = $this->db->get_where('tb_sub_kategori', array('id_kategori' => $id_kategori));
+                return $query->result_array();
+        }
+
+        public function get_super_sub_kategori ($id_kategori = '', $id_sub_kategori = ''){
+                $query = $this->db->get_where('tb_super_sub_kategori', array('id_kategori' => $id_kategori, 'id_sub_kategori' => $id_sub_kategori));
+                return $query->result_array();
+        }
 }
 ?>

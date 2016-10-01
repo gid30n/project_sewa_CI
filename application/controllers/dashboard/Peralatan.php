@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Profile extends CI_Controller {
+class Peralatan extends CI_Controller {
 	/*
 		Disini untuk yang profile admin menu atau halaman utama dashboard.
 	*/
@@ -18,7 +18,26 @@ class Profile extends CI_Controller {
 			if($ses_admin['admin']){
 				$data = array(
 					'title' => "Dashboard Sewania",
-					'content' => "backend/profile", 
+					'content' => "backend/peralatan", 
+					'user' => $this->profile_model->get_user($ses_admin['id_user']),
+					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
+					);
+				$this->load->view('layout_backend/wrapper', $data);
+			}else{
+				redirect('logout','refresh');
+			}
+		}else{
+			redirect('logout','refresh');
+		}
+	}
+
+	public function new_ads(){
+		if($this->session->userdata('user')){
+			$ses_admin = $this->session->userdata('user');
+			if($ses_admin['admin']){
+				$data = array(
+					'title' => "Dashboard Sewania",
+					'content' => "backend/peralatan-new", 
 					'user' => $this->profile_model->get_user($ses_admin['id_user']),
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
 					);
@@ -26,21 +45,6 @@ class Profile extends CI_Controller {
 			}else{
 				redirect('login','refresh');
 			}
-		}else{
-			redirect('login','refresh');
-		}
-	}
-
-	public function client(){
-		if($this->session->userdata('user')){
-			$ses_user = $this->session->userdata('user');
-			$data = array(
-				'title' => "Dashboard Sewania",
-				'content' => "backend/profile-client", 
-				'user' => $this->profile_model->get_user($ses_user['id_user']),
-				'business_profile' => $this->profile_model->get_business_profile($ses_user['id_user']),
-				);
-			$this->load->view('layout_backend/wrapper', $data);
 		}else{
 			redirect('login','refresh');
 		}

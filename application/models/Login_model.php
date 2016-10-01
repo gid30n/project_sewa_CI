@@ -26,6 +26,8 @@ class Login_model extends CI_Model {
                 $res = $query->row_array();
                 if(!empty($res['id_user'])){
                         if($this->encryption->decrypt($res['password']) === $password){
+                                $this->db->where("id_user", $res['id_user']);
+                                $this->db->update('tb_users', array('last_login' => date('Y-m-d H:i:s'), 'ip_last' => $this->input->ip_address()));
                                 return $res;
                         }else{
                                 return FALSE;

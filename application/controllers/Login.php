@@ -35,11 +35,11 @@ class Login extends CI_Controller {
 					if(isset($res_login)){
 						if($res_login['admin']){
 							$this->session->set_userdata( 'user', array( 'id_user' => $res_login['id_user'], 'admin' => $res_login['admin']));
-							$this->session->set_userdata('msg_login', array('msg' => 'Success !.', 'status' => true));
+							$this->session->set_userdata('msg_login', array('msg' => 'Success !.', 'status' => true, 'admin' => $res_login['admin']));
 							redirect('login','refresh');
 						}else{
 							$this->session->set_userdata( 'user', array( 'id_user' => $res_login['id_user'], 'admin' => $res_login['admin']));
-							$this->session->set_userdata('msg_login', array('msg' => 'Success !.', 'status' => true));
+							$this->session->set_userdata('msg_login', array('msg' => 'Success !.', 'status' => true, 'admin' => $res_login['admin']));
 							redirect('login','refresh');
 						}
 					}else{

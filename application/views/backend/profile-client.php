@@ -8,7 +8,14 @@
 							<div class="collapsible-header active"><b>Dashboard</b></div>
 							<div class="collapsible-body">									
 								<ul class="collection with-header">
-									<a href="account-home" class="collection-item active waves-effect"><i class="material-icons left">home</i>My Profile</a>
+									<?php 
+											$ses_admin = $this->session->userdata('user');
+											if($ses_admin['admin']){
+												?><a href="<?php echo base_url();?>dashboard" class="collection-item waves-effect"><i class="material-icons left">home</i>My Profile</a><?php
+											}else{
+												?><a href="<?php echo base_url();?>dashboard-cus" class="collection-item waves-effect"><i class="material-icons left">home</i>My Profile</a><?php
+											}
+										?>
 									<div class="divider"></div>
 									<a href="<?php echo base_url();?>logout" class="collection-item waves-effect"><i class="material-icons left">close</i>Logout</a>
 								</ul>									
@@ -19,8 +26,8 @@
 							<div class="collapsible-body">
 								<ul class="collection with-header">										
 									<a href="#!" class="collection-item waves-effect"><i class="material-icons left">shopping_cart</i>Pesan<span class="new badge teal white-text">99</span></a>
-									<a href="#!" class="collection-item waves-effect"><i class="material-icons left">beach_access</i>Peralatan Pesta<span class="new badge" data-badge-caption="item">400</span></a>
-									<a href="#!" class="collection-item waves-effect"><i class="material-icons left">work</i>Paket Pesta<span class="new badge" data-badge-caption="paket">4</span></a>
+									<a href="<?php echo base_url();?>peralatan" class="collection-item waves-effect"><i class="material-icons left">beach_access</i>Peralatan Pesta<span class="new badge" data-badge-caption="item">400</span></a>
+									<a href="<?php echo base_url();?>paket" class="collection-item waves-effect"><i class="material-icons left">work</i>Paket Pesta<span class="new badge" data-badge-caption="paket">4</span></a>
 								</ul>									
 							</div>
 						</li>
@@ -41,8 +48,8 @@
 				<div class="card-content teal-text">						
 					<div class="row">
 						<div class="col m6 s12">
-							<h5>Selamat Datang : Username</h5>
-							<p>last logged in at: 01-01-2014 12:40 AM [UK time (GMT + 6:00hrs)]</p>
+							<h5>Selamat Datang : <?php echo $user['first_name']." ".$user['last_name'];?></h5>
+							<p>last logged in at: <?php echo convert_date($user['last_login'],"d-m-Y g:i A")." ".date('T');?></p>
 						</div>
 						<div class="col m6 s12">								
 							<div class="col l4 12 s12">
