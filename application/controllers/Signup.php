@@ -65,8 +65,8 @@ class Signup extends CI_Controller {
 										);
 									$this->signup_model->insert_user($data_user);
 
-									// $this->session->set_userdata('msg_signup', array('msg' => 'Login Success.', 'status' => true));
-									// redirect('signup','refresh');
+									$this->session->set_userdata('msg_signup', array('msg' => 'Login Success.', 'status' => true));
+									redirect('signup','refresh');
 
 								}else{
 									$data = array(
