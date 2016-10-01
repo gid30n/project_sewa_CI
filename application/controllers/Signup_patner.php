@@ -75,7 +75,9 @@ class Signup_patner extends CI_Controller {
 															"first_name" => $first_name,
 															"last_name" => $last_name,
 															"email" => $acc_email,
-															"password" => $acc_pass,
+															"password" => $this->encryption->encrypt($acc_pass),
+															"joined" => date('Y-m-d H:i:s'),
+															"admin" => FALSE
 															);
 														$user_id = $this->signup_model->insert_user($data_user);
 
@@ -123,7 +125,6 @@ class Signup_patner extends CI_Controller {
 														"type_service" => $type_service,
 														"address" => $address,
 														"province" => $province,
-														"region" => $region,
 														"descript" => $descript,
 														);
 													$this->session->set_userdata('data_signup_patner', $data);
@@ -140,7 +141,6 @@ class Signup_patner extends CI_Controller {
 													"re_acc_pass" => $re_acc_pass,
 													"brand_name" => $brand_name,
 													"type_service" => $type_service,
-													"address" => $address,
 													"province" => $province,
 													"region" => $region,
 													"descript" => $descript,
@@ -158,7 +158,6 @@ class Signup_patner extends CI_Controller {
 												"acc_pass" => $acc_pass,
 												"re_acc_pass" => $re_acc_pass,
 												"brand_name" => $brand_name,
-												"type_service" => $type_service,
 												"address" => $address,
 												"province" => $province,
 												"region" => $region,
@@ -176,7 +175,6 @@ class Signup_patner extends CI_Controller {
 											"acc_email" => $acc_email,
 											"acc_pass" => $acc_pass,
 											"re_acc_pass" => $re_acc_pass,
-											"brand_name" => $brand_name,
 											"type_service" => $type_service,
 											"address" => $address,
 											"province" => $province,
@@ -193,8 +191,6 @@ class Signup_patner extends CI_Controller {
 										"first_name" => $first_name,
 										"last_name" => $last_name,
 										"acc_email" => $acc_email,
-										"acc_pass" => $acc_pass,
-										"re_acc_pass" => $re_acc_pass,
 										"brand_name" => $brand_name,
 										"type_service" => $type_service,
 										"address" => $address,
@@ -212,8 +208,6 @@ class Signup_patner extends CI_Controller {
 									"first_name" => $first_name,
 									"last_name" => $last_name,
 									"acc_email" => $acc_email,
-									"acc_pass" => $acc_pass,
-									"re_acc_pass" => $re_acc_pass,
 									"brand_name" => $brand_name,
 									"type_service" => $type_service,
 									"address" => $address,
@@ -229,7 +223,6 @@ class Signup_patner extends CI_Controller {
 							$data = array(
 								"first_name" => $first_name,
 								"last_name" => $last_name,
-								"acc_email" => $acc_email,
 								"acc_pass" => $acc_pass,
 								"re_acc_pass" => $re_acc_pass,
 								"brand_name" => $brand_name,
@@ -248,7 +241,6 @@ class Signup_patner extends CI_Controller {
 						$data = array(
 							"first_name" => $first_name,
 							"last_name" => $last_name,
-							"acc_email" => $acc_email,
 							"acc_pass" => $acc_pass,
 							"re_acc_pass" => $re_acc_pass,
 							"brand_name" => $brand_name,
@@ -266,7 +258,6 @@ class Signup_patner extends CI_Controller {
 				}else{
 					$data = array(
 						"first_name" => $first_name,
-						"last_name" => $last_name,
 						"acc_email" => $acc_email,
 						"acc_pass" => $acc_pass,
 						"re_acc_pass" => $re_acc_pass,
@@ -284,7 +275,6 @@ class Signup_patner extends CI_Controller {
 
 			}else{
 				$data = array(
-					"first_name" => $first_name,
 					"last_name" => $last_name,
 					"acc_email" => $acc_email,
 					"acc_pass" => $acc_pass,

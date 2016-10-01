@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 30 Sep 2016 pada 19.56
+-- Generation Time: 01 Okt 2016 pada 11.50
 -- Versi Server: 10.1.17-MariaDB
 -- PHP Version: 5.6.26
 
@@ -146,19 +146,19 @@ CREATE TABLE `tb_users` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `username` varchar(50) NOT NULL,
   `password` text NOT NULL,
   `joined` datetime NOT NULL,
   `last_login` datetime NOT NULL,
-  `ip_last` varchar(50) NOT NULL
+  `ip_last` varchar(50) NOT NULL,
+  `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_users`
 --
 
-INSERT INTO `tb_users` (`id_user`, `first_name`, `last_name`, `email`, `username`, `password`, `joined`, `last_login`, `ip_last`) VALUES
-(2, 'Anu', 'Uik', 'suryadana80@gmail.com', 'uik', 'tes', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '');
+INSERT INTO `tb_users` (`id_user`, `first_name`, `last_name`, `email`, `password`, `joined`, `last_login`, `ip_last`, `admin`) VALUES
+(4, 'Komang', 'Suryadana', 'suryadana80@gmail.com', '8821716db3b4a9e6708a792da936df9357bb9b455e1600354c54d2009e6deb4275fc1224d33989452af7214bfbccde878174fc56d562ecfcc6f68c08a4fbef4e8pzcODt1xyBIbsuUc9phVgFc4C5RaUTMD1SXm+EdLhA=', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 1);
 
 --
 -- Indexes for dumped tables
@@ -244,7 +244,7 @@ ALTER TABLE `tb_region`
 -- AUTO_INCREMENT for table `tb_users`
 --
 ALTER TABLE `tb_users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -30,7 +30,24 @@ class Login extends CI_Controller {
 
 			if(!empty($password)){
 
-				$this->login_model->check_username($username);
+				if($this->login_model->check_username($username)){
+					$res_login = $this->login_model->check_password($username, $password);
+					if(isset($res_login)){
+						if($res_login['admin']){
+							$this->session->set_userdata( 'user', array( 'id_user' => $res_login['id_user'], 'admin' => $res_login['admin']));
+							redirect('dashboard','refresh');
+						}else{
+							$this->session->set_userdata( 'user', array( 'id_user' => $res_login['id_user'], 'admin' => $res_login['admin']));
+							redirect('dashboard-cus','refresh');
+						}
+					}else{
+						$this->session->set_userdata('msg_login', array('msg' => 'Password anda salah !.', 'status' => false));
+						redirect('login','refresh');
+					}
+				}else{
+					$this->session->set_userdata('msg_login', array('msg' => 'Username anda belum terdaftar !.', 'status' => false));
+					redirect('login','refresh');
+				}
 
 			}else{
 				$this->session->set_userdata('msg_login', array('msg' => 'Silakan mengisikan password!.', 'status' => false));
@@ -71,5 +88,10 @@ class Login extends CI_Controller {
 			$this->session->set_userdata('msg_forgot', array('msg' => 'Silakan mengisikan email!.', 'status' => false));
 			redirect('forgot-pass','refresh');
 		}
+	}
+
+	public function logout(){
+		$this->session->unset_userdata('admin_login');
+		redirect('login','refresh');
 	}
 }
