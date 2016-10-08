@@ -66,5 +66,6 @@ $route['peralatan'] = 'dashboard/peralatan';
 $route['paket'] = 'dashboard/paket';
 $route['api/sub-kategori/(:num)/(:num)'] = 'api/sub_kategori/$1/$2';
 $route['api/all-ads'] = 'api/all_ads';
+$route['api/ads/(:num)'] = 'api/ads/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
