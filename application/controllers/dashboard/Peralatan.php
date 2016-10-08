@@ -10,6 +10,7 @@ class Peralatan extends CI_Controller {
         // Call the CI_Model constructor
 		parent::__construct();
 		$this->load->model('profile_model');
+		$this->load->model("peralatan_model");
 	}
 	public function index()
 	{
@@ -65,7 +66,22 @@ class Peralatan extends CI_Controller {
 				$lokasi = $this->input->post("lokasi", TRUE);
 
 				// Post data ads
-
+				$data_signup = array(
+					"title" => $title,
+					"descript" => $desc_produk,
+					"ranting" => 0,
+					"price" => $harga,
+					"date_publish" => date('Y-m-d H:i:s'),
+					"id_user" => $ses_admin['id_user'],
+					"id_kategori" => $kategori,
+					"id_sub_kategori" => $sub_kategori,
+					"id_super_sub_kategori" => $super_sub_kategori,
+					"id_province" => $province,
+					"id_region" => $lokasi,
+					);
+				var_dump($data_signup);
+				$id_ads = $this->peralatan_model->post_ads($data_signup);
+				var_dump($id_ads);
 
 				$filesCount = count($_FILES['gallerys']['name']);
 				for($i = 0; $i < $filesCount; $i++){
@@ -75,7 +91,7 @@ class Peralatan extends CI_Controller {
 					$_FILES['gallery']['error'] = $_FILES['gallerys']['error'][$i];
 					$_FILES['gallery']['size'] = $_FILES['gallerys']['size'][$i];
 
-					$uploadPath = 'uploads/gallerys/';
+					$uploadPath = 'uploads/gallery/';
 					$config['upload_path'] = $uploadPath;
 					$config['allowed_types'] = 'gif|jpg|png';
 					$config['max_size']	= '100';
@@ -88,8 +104,17 @@ class Peralatan extends CI_Controller {
 						$fileData = $this->upload->data();
 						$uploadData[$i]['title'] = $title;
 						$uploadData[$i]['alt'] = $title;
-						$uploadData[$i]['path'] = base_url().$uploadPath.$fileData['file_name'];
+						$uploadData[$i]['src'] = base_url().$uploadPath.$fileData['file_name'];
+						$uploadData[$i]['id_ads'] = $id_ads;
 					}
+				}
+
+				if(!empty($uploadData)){
+                	//Insert file information into the database
+                	var_dump($uploadData);
+					$insert = $this->peralatan_model->post_gallerys($uploadData);
+					// $statusMsg = $insert?'Files uploaded successfully.':'Some problem occurred, please try again.';
+					// $this->session->set_flashdata('statusMsg',$statusMsg);
 				}
 
 			}else{

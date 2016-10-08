@@ -41,4 +41,18 @@ class Api extends CI_Controller {
 		->set_content_type('application/json')
 		->set_output(json_encode($result));
 	}
+
+	public function all_ads(){
+		$result = $this->api_model->get_all_ads();
+		$this->output
+		->set_content_type('application/json')
+		->set_output(json_encode($result));
+	}
+
+	public function ads($id_ads = 1){
+		$result = $this->api_model->get_ads($id_ads);
+		$this->output
+		->set_content_type('application/json')
+		->set_output(json_encode($result));
+	}
 }

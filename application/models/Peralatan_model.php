@@ -10,10 +10,10 @@ class Peralatan_model extends CI_Model {
 
         public function post_ads($data)
         {
-                $this->db->insert('tb_ads', $data) ? return $this->db->insert_id() : return false;       
+                return $this->db->insert('tb_ads', $data) ? $this->db->insert_id() : false;       
         }
-        public function post_gallerys($data){
-                $this->db->insert('tb_gallerys', $data) ? return $this->db->insert_id() : return false;
+        public function post_gallerys($data =  array()){
+                $this->db->insert_batch('tb_gallerys', $data) ? $this->db->insert_id() : false;
         }
 }
 ?>

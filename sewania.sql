@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 05 Okt 2016 pada 06.26
+-- Generation Time: 08 Okt 2016 pada 20.17
 -- Versi Server: 10.1.17-MariaDB
 -- PHP Version: 5.6.26
 
@@ -33,11 +33,21 @@ CREATE TABLE `tb_ads` (
   `ranting` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `date_publish` datetime NOT NULL,
-  `id_business_profile` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `id_kategori` int(11) NOT NULL,
   `id_sub_kategori` int(11) NOT NULL,
-  `id_super_sub_kategori` int(11) NOT NULL
+  `id_super_sub_kategori` int(11) NOT NULL,
+  `id_province` int(11) NOT NULL,
+  `id_region` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `tb_ads`
+--
+
+INSERT INTO `tb_ads` (`id_ads`, `title`, `descript`, `ranting`, `price`, `date_publish`, `id_user`, `id_kategori`, `id_sub_kategori`, `id_super_sub_kategori`, `id_province`, `id_region`) VALUES
+(4, 'Tes Perdana Iklan', 'tes', 0, 1000000000, '2016-10-08 19:22:37', 2, 1, 1, 2, 1, '6'),
+(5, 'Uik DEV', 'tes', 0, 340000, '2016-10-08 19:28:24', 2, 1, 1, 1, 1, '6');
 
 -- --------------------------------------------------------
 
@@ -86,8 +96,17 @@ CREATE TABLE `tb_gallerys` (
   `id_gallery` int(11) NOT NULL,
   `title` text NOT NULL,
   `alt` text NOT NULL,
-  `path` text NOT NULL
+  `src` text NOT NULL,
+  `id_ads` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `tb_gallerys`
+--
+
+INSERT INTO `tb_gallerys` (`id_gallery`, `title`, `alt`, `src`, `id_ads`) VALUES
+(1, 'Tes Perdana Iklan', 'Tes Perdana Iklan', 'http://sewania.dev/uploads/gallery/Screenshot_from_2016-10-07_22-01-051.png', 4),
+(2, 'Uik DEV', 'Uik DEV', 'http://sewania.dev/uploads/gallery/Screenshot_from_2016-10-07_22-01-052.png', 4);
 
 -- --------------------------------------------------------
 
@@ -224,7 +243,7 @@ CREATE TABLE `tb_users` (
 --
 
 INSERT INTO `tb_users` (`id_user`, `first_name`, `last_name`, `email`, `password`, `joined`, `last_login`, `ip_last`, `admin`) VALUES
-(2, 'Komang', 'Suryadana', 'suryadana80@gmail.com', '8821716db3b4a9e6708a792da936df9357bb9b455e1600354c54d2009e6deb4275fc1224d33989452af7214bfbccde878174fc56d562ecfcc6f68c08a4fbef4e8pzcODt1xyBIbsuUc9phVgFc4C5RaUTMD1SXm+EdLhA=', '0000-00-00 00:00:00', '2016-10-05 03:19:48', '127.0.0.1', 1),
+(2, 'Komang', 'Suryadana', 'suryadana80@gmail.com', '8821716db3b4a9e6708a792da936df9357bb9b455e1600354c54d2009e6deb4275fc1224d33989452af7214bfbccde878174fc56d562ecfcc6f68c08a4fbef4e8pzcODt1xyBIbsuUc9phVgFc4C5RaUTMD1SXm+EdLhA=', '0000-00-00 00:00:00', '2016-10-08 17:51:22', '127.0.0.1', 1),
 (15, 'Mikel', 'Eric', 'pendekar_langit@protonmail.com', 'dd314dadda935008202a1d1028e923bc0d0bbd209f7731c81288a63004802f6b141177df154f46e49e898d602a315bd54e13046c92ce34ced5398003546e50e9Q5h49Ebb2KNtmxotuzWfhJZQzx2jhu6FKyGJByrUawM=', '2016-10-01 18:53:19', '2016-10-05 03:18:38', '127.0.0.1', 0);
 
 --
@@ -299,7 +318,7 @@ ALTER TABLE `tb_users`
 -- AUTO_INCREMENT for table `tb_ads`
 --
 ALTER TABLE `tb_ads`
-  MODIFY `id_ads` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ads` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tb_banner`
 --
@@ -314,7 +333,7 @@ ALTER TABLE `tb_business_profile`
 -- AUTO_INCREMENT for table `tb_gallerys`
 --
 ALTER TABLE `tb_gallerys`
-  MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tb_kategori`
 --
