@@ -9,3 +9,9 @@ if ( ! function_exists('convert_date'))
     	return $new_date->format($format);
     }   
 }
+
+if ( ! function_exists('convert_rp')){
+	function convert_rp($value){
+		return "Rp " . number_format($value,2,',','.');
+	}
+}

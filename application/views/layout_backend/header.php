@@ -36,3 +36,48 @@
 			</ul>
 		</div>
 	</nav>
+	<main>
+		<div class="row">
+			<div class="col s12 m3 left hide-on-med-and-down">
+				<div class="card white">
+					<div class="card-content teal-text">						
+						<ul class="collapsible z-depth-0" data-collapsible="expandable">
+							<li>
+								<div class="collapsible-header active"><b>Dashboard</b></div>
+								<div class="collapsible-body">									
+									<ul class="collection with-header">
+										<?php 
+											$ses_admin = $this->session->userdata('user');
+											if($ses_admin['admin']){
+												?><a href="<?php echo base_url();?>dashboard" class="collection-item waves-effect"><i class="material-icons left">home</i>My Profile</a><?php
+											}else{
+												?><a href="<?php echo base_url();?>dashboard-cus" class="collection-item waves-effect"><i class="material-icons left">home</i>My Profile</a><?php
+											}
+										?>
+										<div class="divider"></div>
+										<a href="#!" class="collection-item waves-effect"><i class="material-icons left">close</i>Logout</a>
+									</ul>									
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header active"><b>Services</b></div>
+								<div class="collapsible-body">
+									<ul class="collection with-header service">
+										<a href="#!" class="collection-item waves-effect pesan"><i class="material-icons left">shopping_cart</i>Pesan<span class="new badge teal white-text">99</span></a>
+										<a href="<?php echo base_url();?>peralatan" class="collection-item waves-effect peralatan"><i class="material-icons left">beach_access</i>Peralatan Pesta<span class="new badge" data-badge-caption="item">400</span></a>
+										<a href="<?php echo base_url();?>paket" class="collection-item waves-effect paket"><i class="material-icons left">work</i>Paket Pesta<span class="new badge" data-badge-caption="paket">4</span></a>
+									</ul>									
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header"><b>Other</b></div>
+								<div class="collapsible-body">
+									<ul class="collection with-header">
+										<a href="#delete_account" class="collection-item modal-trigger waves-effect"><i class="material-icons left">close</i>Delete this account</a>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>					
+				</div>
+			</div>

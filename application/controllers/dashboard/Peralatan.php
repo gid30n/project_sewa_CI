@@ -16,17 +16,19 @@ class Peralatan extends CI_Controller {
 	{
 		if($this->session->userdata('user')){
 			$ses_admin = $this->session->userdata('user');
-			if($ses_admin['admin']){
+			// if($ses_admin['admin']){
 				$data = array(
 					'title' => "Dashboard Sewania",
 					'content' => "backend/peralatan", 
 					'user' => $this->profile_model->get_user($ses_admin['id_user']),
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
+					'data' => $this->peralatan_model->get_all_ads(),
+					'msg_peralatan' => $this->session->userdata('msg_peralatan'),
 					);
 				$this->load->view('layout_backend/wrapper', $data);
-			}else{
-				redirect('logout','refresh');
-			}
+			// }else{
+			// 	redirect('logout','refresh');
+			// }
 		}else{
 			redirect('logout','refresh');
 		}
@@ -35,7 +37,7 @@ class Peralatan extends CI_Controller {
 	public function new_ads(){
 		if($this->session->userdata('user')){
 			$ses_admin = $this->session->userdata('user');
-			if($ses_admin['admin']){
+			// if($ses_admin['admin']){
 				$data = array(
 					'title' => "Dashboard Sewania",
 					'content' => "backend/peralatan-new", 
@@ -43,9 +45,9 @@ class Peralatan extends CI_Controller {
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
 					);
 				$this->load->view('layout_backend/wrapper', $data);
-			}else{
-				redirect('login','refresh');
-			}
+			// }else{
+			// 	redirect('login','refresh');
+			// }
 		}else{
 			redirect('login','refresh');
 		}
@@ -54,7 +56,7 @@ class Peralatan extends CI_Controller {
 	public function post(){
 		if($this->session->userdata("user")){
 			$ses_admin = $this->session->userdata('user');
-			if($ses_admin['admin']){
+			// if($ses_admin['admin']){
 				$kategori = $this->input->post("kategori", TRUE);
 				$title = $this->input->post("j_iklan", TRUE);
 				$sub_kategori = $this->input->post("sub_kategori", TRUE);
@@ -79,12 +81,12 @@ class Peralatan extends CI_Controller {
 					"id_province" => $province,
 					"id_region" => $lokasi,
 					);
-				var_dump($data_signup);
+				// var_dump($data_signup);
 				$id_ads = $this->peralatan_model->post_ads($data_signup);
-				var_dump($id_ads);
+				// var_dump($id_ads);
 
 				$filesCount = count($_FILES['gallerys']['name']);
-				var_dump($_FILES['gallerys']);
+				// var_dump($_FILES['gallerys']);
 				for($i = 0; $i < $filesCount; $i++){
 					$_FILES['gallery']['name'] = $_FILES['gallerys']['name'][$i];
 					$_FILES['gallery']['type'] = $_FILES['gallerys']['type'][$i];
@@ -95,7 +97,6 @@ class Peralatan extends CI_Controller {
 					$uploadPath = 'uploads/gallery/';
 					$config['upload_path'] = $uploadPath;
 					$config['allowed_types'] = 'gif|jpg|png';
-					$config['max_size']	= '100';
 					$config['max_width'] = '1024';
 					$config['max_height'] = '768';
 
@@ -112,15 +113,14 @@ class Peralatan extends CI_Controller {
 
 				if(!empty($uploadData)){
                 	//Insert file information into the database
-                	var_dump($uploadData);
 					$insert = $this->peralatan_model->post_gallerys($uploadData);
-					// $statusMsg = $insert?'Files uploaded successfully.':'Some problem occurred, please try again.';
-					// $this->session->set_flashdata('statusMsg',$statusMsg);
+					$this->session->set_userdata('msg_peralatan', array('msg' => 'Success !.', 'status' => true));
+					redirect('peralatan','refresh');
 				}
 
-			}else{
-				redirect('login','refresh');
-			}
+			// }else{
+			// 	redirect('login','refresh');
+			// }
 		}else{
 			redirect('login','refresh');
 		}

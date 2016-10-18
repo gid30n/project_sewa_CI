@@ -35,6 +35,31 @@
 		$('.button-collapse').sideNav({
 			edge: 'left'
 		});
+
+		$("#sub_kategori_event").hide();
+		$( "#kategori" )
+		.change(function() {
+			val_kategori = ""
+			$( "#kategori option:selected" ).each(function() {
+				val_kategori = $( this ).val();
+				if (val_kategori == 0) {
+					$("#sub_kategori_event").hide();
+				}else{
+					$("#sub_kategori_event").show();
+				}											
+			});
+		});
+
+		// change active menu
+		var path = window.location.pathname;
+		arr_path = path.split("/");
+		$(".service a").addClass(function(index, currentClass){
+			if(currentClass.search("peralatan") >= 0 && arr_path[1] == "peralatan"){
+				return "active";
+			}else if (currentClass.search("paket") >= 0 && arr_path[1] == "paket") {
+				return "active";
+			};
+		});
 	});
 </script>
 <script>
@@ -47,26 +72,6 @@
 	    }
 	  }
 	}
-</script>
-<script>
-	$(document).ready(function(){
-	$("#sub_kategori_event").hide();
-	$("#sub_kategori_perlengkapan").hide();
-	$( "#kategori" )
-		.change(function() {
-			val_kategori = ""
-			$( "#kategori option:selected" ).each(function() {
-				val_kategori = $( this ).val();
-				if (val_kategori == 1) {
-					$("#sub_kategori_event").show();
-					$("#sub_kategori_perlengkapan").hide();
-				}else{
-					$("#sub_kategori_perlengkapan").show();
-					// $("#sub_kategori_event").hide();
-				}											
-			});
-		});
-});
 </script>
 </body>
 </html>

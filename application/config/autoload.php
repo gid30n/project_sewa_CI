@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'mailgun_helper', 'form', 'convert_date');
+$autoload['helper'] = array('url', 'mailgun_helper', 'form', 'sewania');
 
 /*
 | -------------------------------------------------------------------

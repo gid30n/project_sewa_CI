@@ -1,41 +1,4 @@
-<main>
-	<div class="row">
-		<div class="col s12 m3 left hide-on-med-and-down">
-			<div class="card white">
-				<div class="card-content teal-text">						
-					<ul class="collapsible z-depth-0" data-collapsible="expandable">
-						<li>
-							<div class="collapsible-header active"><b>Dashboard</b></div>
-							<div class="collapsible-body">									
-								<ul class="collection with-header">
-									<a href="account-home" class="collection-item waves-effect"><i class="material-icons left">home</i>My Profile</a>
-									<div class="divider"></div>
-									<a href="#!" class="collection-item waves-effect"><i class="material-icons left">close</i>Logout</a>
-								</ul>									
-							</div>
-						</li>
-						<li>
-							<div class="collapsible-header active"><b>Services</b></div>
-							<div class="collapsible-body">
-								<ul class="collection with-header">										
-									<a href="#!" class="collection-item waves-effect"><i class="material-icons left">shopping_cart</i>Pesan<span class="new badge teal white-text">99</span></a>
-									<a href="<?php echo base_url();?>peralatan" class="collection-item waves-effect"><i class="material-icons left">beach_access</i>Peralatan Pesta<span class="new badge" data-badge-caption="item">400</span></a>
-									<a href="<?php echo base_url();?>paket" class="collection-item waves-effect"><i class="material-icons left">work</i>Paket Pesta<span class="new badge" data-badge-caption="paket">4</span></a>
-								</ul>									
-							</div>
-						</li>
-						<li>
-							<div class="collapsible-header"><b>Other</b></div>
-							<div class="collapsible-body">
-								<ul class="collection with-header">
-									<a href="#delete_account" class="collection-item modal-trigger waves-effect"><i class="material-icons left">close</i>Delete this account</a>
-								</ul>
-							</div>
-						</li>
-					</ul>
-				</div>					
-			</div>
-		</div>
+
 		<?php echo form_open_multipart('/peralatan/new-ads/post');?>
 		<input type="hidden" value="1" name="kategori" >	
 		<div class="col s12 l9 right">
@@ -153,7 +116,7 @@
 								<div class="file-field input-field">
 									<div class="btn">
 										<span>File</span>
-										<input type="file" name="gallerys[]" multiple>
+										<input type="file" name="gallerys[]">
 									</div>
 									<div class="file-path-wrapper">
 										<input class="file-path validate" type="text" placeholder="Upload gambar disini">
@@ -164,7 +127,7 @@
 								<div class="file-field input-field">
 									<div class="btn">
 										<span>File</span>
-										<input type="file">
+										<input type="file" name="gallerys[]">
 									</div>
 									<div class="file-path-wrapper">
 										<input class="file-path validate" type="text" placeholder="Upload gambar disini">
@@ -175,7 +138,7 @@
 								<div class="file-field input-field">
 									<div class="btn">
 										<span>File</span>
-										<input type="file">
+										<input type="file" name="gallerys[]">
 									</div>
 									<div class="file-path-wrapper">
 										<input class="file-path validate" type="text" placeholder="Upload gambar disini">
@@ -186,7 +149,7 @@
 								<div class="file-field input-field">
 									<div class="btn">
 										<span>File</span>
-										<input type="file">
+										<input type="file" name="gallerys[]">
 									</div>
 									<div class="file-path-wrapper">
 										<input class="file-path validate" type="text" placeholder="Upload gambar disini">
@@ -197,7 +160,7 @@
 								<div class="file-field input-field">
 									<div class="btn">
 										<span>File</span>
-										<input type="file">
+										<input type="file" name="gallerys[]">
 									</div>
 									<div class="file-path-wrapper">
 										<input class="file-path validate" type="text" placeholder="Upload gambar disini">

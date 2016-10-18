@@ -49,6 +49,11 @@ class Api_model extends CI_Model {
                         }
                         $row_ads['gallery'] = $gallerys;
 
+                        // fix price
+                        $price = $row_ads['price'];
+                        unset($row_ads['price']);
+                        $row_ads['price'] = convert_rp($price);
+
                         // fect user
                         $users = $this->db->get_where('tb_users', array("id_user" => $row_ads['id_user']));
                         $user = $users->row();
@@ -111,6 +116,11 @@ class Api_model extends CI_Model {
                                 array_push($gallerys, $row_gallery);
                         }
                         $row_ads['gallery'] = $gallerys;
+
+                        // fix price
+                        $price = $row_ads['price'];
+                        unset($row_ads['price']);
+                        $row_ads['price'] = convert_rp($price);
 
                         // fect user
                         $users = $this->db->get_where('tb_users', array("id_user" => $row_ads['id_user']));
