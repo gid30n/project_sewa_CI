@@ -84,6 +84,7 @@ class Peralatan extends CI_Controller {
 				var_dump($id_ads);
 
 				$filesCount = count($_FILES['gallerys']['name']);
+				var_dump($_FILES['gallerys']);
 				for($i = 0; $i < $filesCount; $i++){
 					$_FILES['gallery']['name'] = $_FILES['gallerys']['name'][$i];
 					$_FILES['gallery']['type'] = $_FILES['gallerys']['type'][$i];
