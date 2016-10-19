@@ -55,7 +55,7 @@
 											}
 										?>
 										<div class="divider"></div>
-										<a href="#!" class="collection-item waves-effect"><i class="material-icons left">close</i>Logout</a>
+										<a href="<?php echo base_url();?>logout" class="collection-item waves-effect"><i class="material-icons left">close</i>Logout</a>
 									</ul>									
 								</div>
 							</li>

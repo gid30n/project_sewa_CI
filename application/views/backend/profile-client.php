@@ -5,7 +5,7 @@
 					<div class="row">
 						<div class="col m6 s12">
 							<h5>Selamat Datang : <?php echo $user['first_name']." ".$user['last_name'];?></h5>
-							<p>last logged in at: <?php echo convert_date($user['last_login'],"d-m-Y g:i A")." ".date('T');?></p>
+							<p>last used in at: <?php echo convert_date($user['last_login'],"d-m-Y g:i A")." ".date('T');?></p>
 						</div>
 						<div class="col m6 s12">								
 							<div class="col l4 12 s12">

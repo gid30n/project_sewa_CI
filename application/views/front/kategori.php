@@ -28,7 +28,7 @@
 				<li><a href="post-ads" class="white-text waves-effect">Jadi Partner Kami</a></li>
 			</ul>
 
-			<a href="#" data-activates="mobile-demo1" class="button-collapse1 grey-text right"><i class="material-icons">search</i></a>			
+			<a href="#" data-activates="mobile-demo1" class="button-collapse1 grey-text right"><i class="material-icons hide-on-large-only">search</i></a>			
 			<!-- navbar for mobile -->
 			<div class="side-nav teal lighten-1" id="mobile-demo1">
 				<nav>

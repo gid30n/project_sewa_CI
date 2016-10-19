@@ -20,28 +20,6 @@
 							<div class="row">
 								<div class="input-field">
 									<div class="col m3 s12">
-										<label for="name" class="teal-text col m3">Nama Anda <sup class="red-text">*</sup></label>																
-									</div>
-									<div class="col m9 s12">
-										<br class="hide-on-med-and-up">	
-										<input type="text" id="name" class="validate" required="" name="name" placeholder="John">									
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="input-field">
-									<div class="col m3 s12">
-										<label for="email" class="teal-text col m3">Email <sup class="red-text">*</sup></label>																	
-									</div>
-									<div class="col m9 s12">
-										<br class="hide-on-med-and-up">	
-										<input type="email" id="email" class="validate" required="" name="email" placeholder="sewaniadev@gmail.com">									
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="input-field">
-									<div class="col m3 s12">
 										<label for="telp" class="teal-text col m3">Telephone/Phone <sup class="red-text">*</sup></label>																	
 									</div>
 									<div class="col m9 s12">

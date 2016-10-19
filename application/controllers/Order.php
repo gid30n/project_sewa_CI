@@ -7,10 +7,15 @@ class Order extends CI_Controller {
 	*/
 	public function index()
 	{
-		$data = array(
+		if($this->session->userdata('user')){
+			$ses_admin = $this->session->userdata('user');
+			$data = array(
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
 			'content' => "front/order", 
 			);
-		$this->load->view('layout/wrapper', $data);
+			$this->load->view('layout/wrapper', $data);
+		}else{
+			redirect('login','refresh');
+		}
 	}
 }
