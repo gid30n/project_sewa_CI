@@ -1,9 +1,3 @@
-@media (max-width:640px){
-  .nama_order{
-    font-size: 14px;
-  }
-}
-
 .logo-signup-partner{
   margin-top: 8%;
 }
@@ -46,10 +40,6 @@ footer.page-footer{
 }
 .label-form{
 	margin-right: 10px;
-}
-
-.btn-mar{
-  margin: 2px;
 }
 
 .inputan{
@@ -330,4 +320,32 @@ main {
 }
 .thumb-item-link.active img, .thumb-item-link:hover img{
   	opacity: 1;
+}
+
+.option{
+    padding-bottom: 5px;
+}
+.selector-td{
+    width: 2%;
+}
+.image-td{
+    width: 14%;
+}
+.detail-td{
+    width: 58%;
+}
+.price-td{
+    width: 16%;
+}
+.option-td{
+    width: 10%;
+}
+@media screen and (max-width: 767px) {
+  .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+  }
 }
