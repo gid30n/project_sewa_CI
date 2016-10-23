@@ -2,6 +2,9 @@
   margin-top: 8%;
 }
 
+span.badge{
+  padding: 6px;
+}
 .brand-logo{
 	margin-top: 6px;
 }
