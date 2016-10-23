@@ -15,7 +15,7 @@ class Profile extends CI_Controller {
 	{
 		if($this->session->userdata('user')){
 			$ses_admin = $this->session->userdata('user');
-			if($ses_admin['admin']){
+			if($ses_admin['admin'] === "-9"){
 				$data = array(
 					'title' => "Dashboard Sewania",
 					'content' => "backend/profile", 
@@ -24,7 +24,7 @@ class Profile extends CI_Controller {
 					);
 				$this->load->view('layout_backend/wrapper', $data);
 			}else{
-				redirect('login','refresh');
+				redirect('dashboard-cus','refresh');
 			}
 		}else{
 			redirect('login','refresh');

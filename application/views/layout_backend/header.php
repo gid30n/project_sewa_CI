@@ -17,7 +17,7 @@
 				<li class="white"><a href="#!" class="teal-text"><b>Dashboard</b></a></li>
 				<?php 
 				$ses_admin = $this->session->userdata('user');
-				if($ses_admin['admin']){
+				if($ses_admin['admin'] === "-9"){
 					?>
 						<li class="active"><a href="<?php echo base_url();?>dashboard" class="white-text waves-effect"><i class="material-icons left white-text">home</i>My Profile</a></li>
 					<?php
@@ -31,8 +31,10 @@
 				<div class="divider"></div>
 				<li class="white"><a href="#!" class="teal-text"><b>Services</b></a></li>				
 				<li><a href="#!" class="white-text waves-effect"><i class="material-icons left white-text">shopping_cart</i>Pesan<span class="new badge">99</span></a></li>
-				<li><a href="<?php echo base_url();?>peralatan" class="white-text waves-effect"><i class="material-icons left white-text">beach_access</i>Peralatan Pesta<span class="new badge" data-badge-caption="item">400</span></a></li>
-				<li><a href="<?php echo base_url();?>paket" class="white-text waves-effect"><i class="material-icons left white-text">work</i>Paket Pesta<span class="new badge" data-badge-caption="paket">4</span></a></li>				
+				<?php if($ses_admin['admin'] === "1" || $ses_admin['admin'] === "-9"){?>
+					<li><a href="<?php echo base_url();?>peralatan" class="white-text waves-effect"><i class="material-icons left white-text">beach_access</i>Peralatan Pesta<span class="new badge" data-badge-caption="item">400</span></a></li>
+					<li><a href="<?php echo base_url();?>paket" class="white-text waves-effect"><i class="material-icons left white-text">work</i>Paket Pesta<span class="new badge" data-badge-caption="paket">4</span></a></li>		
+				<?php } ?>
 			</ul>
 		</div>
 	</nav>
@@ -48,7 +50,7 @@
 									<ul class="collection with-header">
 										<?php 
 											$ses_admin = $this->session->userdata('user');
-											if($ses_admin['admin']){
+											if($ses_admin['admin'] === "-9"){
 												?><a href="<?php echo base_url();?>dashboard" class="collection-item waves-effect"><i class="material-icons left">home</i>My Profile</a><?php
 											}else{
 												?><a href="<?php echo base_url();?>dashboard-cus" class="collection-item waves-effect"><i class="material-icons left">home</i>My Profile</a><?php
@@ -64,8 +66,10 @@
 								<div class="collapsible-body">
 									<ul class="collection with-header service">
 										<a href="#!" class="collection-item waves-effect pesan"><i class="material-icons left">shopping_cart</i>Pesan<span class="new badge teal white-text">99</span></a>
-										<a href="<?php echo base_url();?>peralatan" class="collection-item waves-effect peralatan"><i class="material-icons left">beach_access</i>Peralatan Pesta<span class="new badge" data-badge-caption="item">400</span></a>
-										<a href="<?php echo base_url();?>paket" class="collection-item waves-effect paket"><i class="material-icons left">work</i>Paket Pesta<span class="new badge" data-badge-caption="paket">4</span></a>
+										<?php if($ses_admin['admin'] === "1" || $ses_admin === "-9"){?>
+											<a href="<?php echo base_url();?>peralatan" class="collection-item waves-effect peralatan"><i class="material-icons left">beach_access</i>Peralatan Pesta<span class="new badge" data-badge-caption="item">400</span></a>
+											<a href="<?php echo base_url();?>paket" class="collection-item waves-effect paket"><i class="material-icons left">work</i>Paket Pesta<span class="new badge" data-badge-caption="paket">4</span></a>
+										<?php } ?>
 									</ul>									
 								</div>
 							</li>

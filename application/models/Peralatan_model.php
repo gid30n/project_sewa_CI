@@ -84,5 +84,9 @@ class Peralatan_model extends CI_Model {
         public function post_gallerys($data =  array()){
                 $this->db->insert_batch('tb_gallerys', $data) ? $this->db->insert_id() : false;
         }
+
+        public function delete_ads($id){
+                $this->$this->db->delete('tb_ads', array("id_ads" => $id));
+        }
 }
 ?>

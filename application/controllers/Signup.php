@@ -19,10 +19,12 @@ class Signup extends CI_Controller {
 			$ses_user = $this->session->userdata('user');			
 			$user = $this->profile_model->get_user($ses_user['id_user']);																
 
-			if($user['admin'] === "0"){
+			if($user['admin'] === 0){
 				redirect('dashboard-cus','refresh');
-			}else{
+			}elseif ($user['admin'] === -9){
 				redirect('dashboard','refresh');
+			}else{
+				redirect('dashboard-cus','refresh');
 			}
 		}
 
@@ -75,7 +77,7 @@ class Signup extends CI_Controller {
 										"email" => $acc_email,
 										"password" => $this->encryption->encrypt($acc_pass),
 										"joined" => date('Y-m-d H:i:s'),
-										"admin" => FALSE
+										"admin" => 1
 										);
 									$this->signup_model->insert_user($data_user);
 

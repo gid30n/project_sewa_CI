@@ -52,7 +52,7 @@ if(isset($msg_login)){
 	if(isset($msg_login['status'])){
 		if($msg_login['status']){
 			?><script>sweetAlert('Congratulations!', '<?php echo $msg_login["msg"];?>', 'success');</script><?php
-			if($msg_login['admin']){
+			if($msg_login['admin'] === "-9"){
 				?><script>
 				function redirect(){
 					window.location = "<?php echo base_url();?>dashboard"

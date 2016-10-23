@@ -116,6 +116,10 @@ class Peralatan extends CI_Controller {
 					$insert = $this->peralatan_model->post_gallerys($uploadData);
 					$this->session->set_userdata('msg_peralatan', array('msg' => 'Success !.', 'status' => true));
 					redirect('peralatan','refresh');
+				}else{
+					// Fail upload
+					$peralatan_model->delete_ads($id_ads);
+					redirect('peralatan','refresh');
 				}
 
 			// }else{
