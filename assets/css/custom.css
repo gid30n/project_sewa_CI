@@ -3,7 +3,9 @@
     font-size: 14px;
   }
 }
-
+span.badge{
+  padding: 6px;
+}
 .logo-signup-partner{
   margin-top: 8%;
 }

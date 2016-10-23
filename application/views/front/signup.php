@@ -67,7 +67,7 @@
 							<div class="col s12">
 								<p>
 							      <input type="checkbox" id="term" name="term" />
-							      <label for="term">I have read and agree to the <a href="#termcond" class="modal-trigger"> Terms & Conditions </a></label>
+							      <label for="term">I have read and agree to the <a href="<?php echo base_url(); ?>term"> Terms & Conditions </a></label>
 							    </p>
 								<br>
 							</div>
@@ -82,17 +82,7 @@
 			</div>
 		</div>	
 	</main>
-
-	<!-- Modal Structure -->
-	<div id="termcond" class="modal modal-fixed-footer">
-		<div class="modal-content">
-			<h4>Terms & Conditions</h4>
-			<p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quas, tempora enim voluptates commodi quae ea, neque incidunt ipsum nobis qui, culpa vero hic dolorem fuga itaque consequuntur numquam aliquam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit saepe, nobis aperiam laboriosam, dignissimos minima itaque nemo ipsum alias labore assumenda nostrum beatae totam eius debitis expedita, quo porro, iusto? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores rem sequi minima quia, facilis quos obcaecati omnis, eum itaque libero? Illo tenetur, unde esse fugiat iste officiis dolor sapiente quibusdam!</p>
-		</div>
-		<div class="modal-footer">
-			<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Close</a>
-		</div>
-	</div>
+	
 	<?php 
 		if(isset($msg_signup)){
 			var_dump($msg_signup);

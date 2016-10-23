@@ -10,20 +10,29 @@ class Signup_patner extends CI_Controller {
     // Call the CI_Model constructor
 		parent::__construct();
 		$this->load->model('signup_model');
+		$this->load->model('profile_model');
 	}
 	public function index()
 	{
+
+		$user = null;
+		if ($this->session->userdata('user')) {
+			$ses_user = $this->session->userdata('user');			
+			$user = $this->profile_model->get_user($ses_user['id_user']);																	
+		}
+
 		if($this->session->userdata('data_signup_patner')){
 			$data = array(
 				'title' => "Sewania - Sewa Peralatan Pesta Online",
 				'content' => "front/signup-patner", 
 				'data' => $this->session->userdata('data_signup_patner'),
-				'msg_signup_patner' => $this->session->userdata('msg_signup_patner')
+				'msg_signup_patner' => $this->session->userdata('msg_signup_patner'),				
 				);
 		}else{
 			$data = array(
 				'title' => "Sewania - Sewa Peralatan Pesta Online",
-				'content' => "front/signup-patner", 
+				'content' => "front/signup-patner",
+				'user' => $user, 
 				);
 		}
 		

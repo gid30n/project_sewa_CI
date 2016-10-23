@@ -1,17 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
-	/*
-		Disini untuk yang home menu atau halaman utama.
-	*/
+class Tentang_kami extends CI_Controller {
+
 	public function __construct()
 	{
-        // Call the CI_Model constructor
 		parent::__construct();
 		$this->load->model('profile_model');
 	}
-
 	public function index()
 	{
 		$user = null;
@@ -22,10 +18,14 @@ class Home extends CI_Controller {
 
 		$data = array(
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
-			'content' => "front/home", 
+			'content' => "front/about-us", 
 			'user' => $user,			
 			);
 					
 		$this->load->view('layout/wrapper', $data);
 	}
+
 }
+
+/* End of file Tentang_kami.php */
+/* Location: ./application/controllers/Tentang_kami.php */ ?>

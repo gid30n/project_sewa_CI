@@ -244,8 +244,11 @@
 				<div class="col m6 s12">
 					<h4 class="center-align"><b>Video</b></h4>
 					<hr>
-					<div class="video-container">
-				        <iframe width="560" height="315" src="https://www.youtube.com/embed/Oc-AsN7d1wg" frameborder="0" allowfullscreen></iframe>
+					<!-- <video class="responsive-video" controls>
+				    	<source src="assets/video/1.mp4" type="video/mp4">
+				  	</video> -->
+				  	 <div class="video-container">
+				        <iframe width="560" height="315" src="https://www.youtube.com/embed/hhNVPQIOzrE" frameborder="0" allowfullscreen></iframe>
 				     </div>
 				</div>
 				<div class="col m6 s12">
@@ -253,31 +256,27 @@
 					<hr>
 					<div class="row">
 						<div class="col s2">
-							<img src="<?php echo base_url();?>assets/img/ava/1.png" class="responsive-img circle left" alt="">						
+							<img src="<?php echo base_url(); ?>assets/img/ava/1.png" class="responsive-img circle left" alt="">						
 						</div>
 						<div class="col s10">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus sit nostrum praesentium quod et minus ipsa sequi tempore dolore, maiores consectetur incidunt voluptates ducimus blanditiis facilis autem esse, odio explicabo.</p>
 						</div>
 						<div class="col s2">
-							<img src="<?php echo base_url();?>assets/img/ava/2.png" class="responsive-img circle left" alt="">						
+							<img src="<?php echo base_url(); ?>assets/img/ava/2.png" class="responsive-img circle left" alt="">						
 						</div>
 						<div class="col s10">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus sit nostrum praesentium quod et minus ipsa sequi tempore dolore, maiores consectetur incidunt voluptates ducimus blanditiis facilis autem esse, odio explicabo.</p>
 						</div>
 						<div class="col s2">
-							<img src="<?php echo base_url();?>assets/img/ava/3.png" class="responsive-img circle left" alt="">						
+							<img src="<?php echo base_url(); ?>assets/img/ava/3.png" class="responsive-img circle left" alt="">						
 						</div>
-						<div class="col s10">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus sit nostrum praesentium quod et minus ipsa sequi tempore dolore, maiores consectetur incidunt voluptates ducimus blanditiis facilis autem esse, odio explicabo.</p>
-						</div>
-						<div class="col s2">
-							<img src="<?php echo base_url();?>assets/img/ava/4.png" class="responsive-img circle left" alt="">						
-						</div>
+                        
+						
 						<div class="col s10">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus sit nostrum praesentium quod et minus ipsa sequi tempore dolore, maiores consectetur incidunt voluptates ducimus blanditiis facilis autem esse, odio explicabo.</p>
 						</div>
 					</div>										
 				</div>			
-			</div>			
-			<!-- end testi & video -->					
+			</div>	
+			<!-- end testi & video -->			
 	</main>
