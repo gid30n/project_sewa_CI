@@ -22,6 +22,7 @@ class Paket extends CI_Controller {
 					'content' => "backend/paket", 
 					'user' => $this->profile_model->get_user($ses_admin['id_user']),
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
+					'data' => $this->paket_model->get_all_ads(),
 					);
 				$this->load->view('layout_backend/wrapper', $data);
 			// }else{

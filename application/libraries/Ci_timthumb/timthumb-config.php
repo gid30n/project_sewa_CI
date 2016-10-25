@@ -10,7 +10,7 @@ if(! defined('FILE_CACHE_TIME_BETWEEN_CLEANS'))	define ('FILE_CACHE_TIME_BETWEEN
 if(! defined('FILE_CACHE_MAX_FILE_AGE') ) 	define ('FILE_CACHE_MAX_FILE_AGE', 864000);				// How old does a file have to be to be deleted from the cache
 if(! defined('FILE_CACHE_SUFFIX') ) 		define ('FILE_CACHE_SUFFIX', '');						// What to put at the end of all files in the cache directory so we can identify them
 if(! defined('FILE_CACHE_DIRECTORY') ) 		define ('FILE_CACHE_DIRECTORY', './file/cache');		// Directory where images are cached. Left blank it will use the system temporary directory (which is better for security)
-if(! defined('FILE_CACHE_ENABLED') ) 		define ('FILE_CACHE_ENABLED', TRUE);					// Should we store resized/modified images on disk to speed things up?
+if(! defined('FILE_CACHE_ENABLED') ) 		define ('FILE_CACHE_ENABLED', FALSE);					// Should we store resized/modified images on disk to speed things up?
 
 //Browser caching
 if(! defined('BROWSER_CACHE_MAX_AGE') ) 	define ('BROWSER_CACHE_MAX_AGE', 2592000);				// Time to cache in the browser

@@ -157,7 +157,7 @@
 												</div>
 												<div class="col m9 s12">
 													<br class="hide-on-med-and-up">	
-													<input type="text" id="first_name" class="validate" required="" name="first_name" placeholder="John">									
+													<input type="text" id="first_name" class="validate" required="" name="first_name" placeholder="John" value="<?php echo $user['first_name']; ?>">									
 												</div>
 											</div>
 										</div>
@@ -168,7 +168,7 @@
 												</div>
 												<div class="col m9 s12">
 													<br class="hide-on-med-and-up">
-													<input type="text" id="last_name" class="validate" required="" name="last_name" placeholder="Smith">																	
+													<input type="text" id="last_name" class="validate" required="" name="last_name" placeholder="Smith" value="<?php echo $user['last_name']; ?>">																	
 												</div>
 											</div>
 										</div>											
@@ -179,7 +179,7 @@
 												</div>
 												<div class="col m9 s12">
 													<br class="hide-on-med-and-up">
-													<input type="email" id="acc_email" class="validate" required="" name="acc_email" placeholder="johnsmith@email.com">																		
+													<input type="email" id="acc_email" class="validate" required="" name="acc_email" placeholder="johnsmith@email.com" value="<?php echo $user['email']; ?>">																		
 												</div>
 											</div>
 										</div>
@@ -229,7 +229,13 @@
 						<li>
 							<div class="collapsible-header"><b>Pengaturan</b></div>
 							<div class="collapsible-body">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta cupiditate iure suscipit nostrum nulla doloribus enim molestias ipsam ratione error, harum, facere rerum ipsum at dolorum! Nisi rem obcaecati totam.
+								<form action="" method="POST">
+									<p>
+								      <input type="checkbox" id="subscribe" />
+								      <label for="subscribe">Subscribe</label>
+								      <button class="btn waves-effect right">Update</button>
+								    </p>
+								</form>
 							</div>
 						</li>
 					</ul>	
