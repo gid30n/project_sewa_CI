@@ -10,6 +10,7 @@ class Paket extends CI_Controller {
         // Call the CI_Model constructor
 		parent::__construct();
 		$this->load->model('profile_model');
+		$this->load->model('paket_model');
 	}
 	public function index()
 	{
@@ -78,7 +79,7 @@ class Paket extends CI_Controller {
 					"id_province" => $province,
 					"id_region" => $lokasi,
 					);
-				$id_ads = $this->peralatan_model->post_ads($data_signup);
+				$id_ads = $this->paket_model->post_ads($data_signup);
 
 				$filesCount = count($_FILES['gallerys']['name']);
 				for($i = 0; $i < $filesCount; $i++){
@@ -109,7 +110,7 @@ class Paket extends CI_Controller {
 				if(!empty($uploadData)){
                 	//Insert file information into the database
                 	var_dump($uploadData);
-					$insert = $this->peralatan_model->post_gallerys($uploadData);
+					$insert = $this->paket_model->post_gallerys($uploadData);
 				}
 
 			// }else{

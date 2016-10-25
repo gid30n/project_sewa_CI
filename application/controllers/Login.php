@@ -14,25 +14,30 @@ class Login extends CI_Controller {
 	}
 	public function index()
 	{
-		$user = null;
 		if ($this->session->userdata('user')) {
 			$ses_user = $this->session->userdata('user');			
 			$user = $this->profile_model->get_user($ses_user['id_user']);
+			$data = array(
+				'title' => "Sewania - Sewa Peralatan Pesta Online",
+				'content' => "front/login",
+				'msg_login' => $this->session->userdata('msg_login'),
+				'user' => $user
+				);
+			$this->load->view('layout/wrapper', $data);
 
-			if($user['admin'] === "0"){
-				redirect('dashboard-cus','refresh');
-			}else{
-				redirect('dashboard','refresh');
-			}																
-		}
-
-		$data = array(
+			// if($user['admin'] === "0"){
+			// 	redirect('dashboard-cus','refresh');
+			// }else{
+			// 	redirect('dashboard','refresh');
+			// }																
+		}else{
+			$data = array(
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
 			'content' => "front/login",
 			'msg_login' => $this->session->userdata('msg_login'),
-			'user' => $user,
 			);
-		$this->load->view('layout/wrapper', $data);
+			$this->load->view('layout/wrapper', $data);
+		}
 	}
 
 	public function valid()
