@@ -134,6 +134,8 @@ if(! isset($ALLOWED_SITES)){
 		'imageshack.us',
 		'tinypic.com',
 		'sewania.dev',
+		'127.0.0.1',
+		'localhost',
 	);
 }
 // -------------------------------------------------------------

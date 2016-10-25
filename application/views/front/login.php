@@ -62,7 +62,7 @@ if(isset($msg_login)){
 			}else{
 				?><script>
 				function redirect(){
-					window.location = "<?php echo base_url();?>dashboard-cus"
+					window.location = "<?php echo base_url();?>"
 				}
 				setTimeout(redirect, 2000);
 				</script><?php

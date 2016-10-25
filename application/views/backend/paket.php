@@ -6,7 +6,7 @@
 							<div class="col s12">
 								<div class="col s12">
 									<h5 class="left"><i class="material-icons">shopping_cart</i> Pesan</h5>									
-									<a href="<?php echo base_url();?>paket/new-ads" class="btn right col l6 m6 s2"><i class="material-icons left">add</i><span class="hide-on-small-only">Tambah Perlengkapan Pesta</span></a>
+									<a href="<?php echo base_url();?>paket/new-ads" class="btn right col l6 m6 s2"><i class="material-icons left">add</i><span class="hide-on-small-only">Tambah Paket Pesta</span></a>
 								</div>								
 								<hr class="hide-on-med-and-down">
 								<div class="col m6 s12">
@@ -33,49 +33,19 @@
 									</div>
 								</div>
 								<div class="row">
+									<?php foreach ($data as $row) { ?>
 									<div class="col s12 m4">
 										<div class="card hoverable">
 										    <div class="card-image waves-effect waves-block waves-light">
-										      <img class="activator" src="assets/img/kategori/1.jpg">
+										      <img class="activator" src="<?php echo base_url().'images/w150_h150_at__?src='.$row['gallery'][0]['src'];?>">
 										    </div>
 										    <div class="card-content">
-										      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-										      <p><span class="teal-text">Rating :<i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>	</p>
-										      <i class="tiny material-icons">room</i>Denpasar
+										      <span class="card-title activator grey-text text-darken-4"><?php echo $row['title'];?><i class="material-icons right">more_vert</i></span>
+										      <!-- <p><span class="teal-text">Rating :<i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>	</p> Ratingnya the next iyah abang-abang -->
+										      <p></p>
+										      <i class="tiny material-icons">room</i><?php $lokasi = ""; foreach($row['lokasi'] as $rw){ $lokasi .=$rw.", ";}; echo $lokasi;?>
 										      <div class="divider"></div>
-										      <span><b>Rp.15.000.000,00</b></span>																      
-										    </div>
-										    <div class="card-action">
-											    <div class="row">
-											    	<div class="col s12">
-														<p>
-													      <input type="checkbox" id="check"/>
-													      <label for="check">Pilih</label>
-													    </p>
-													</div>
-													<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>
-													<a href="#!" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>
-													<a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a>
-											    </div>													    											
-										    </div>
-										    <div class="card-reveal">
-										      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-										      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-										      <p><a href="ads-detail" class="btn waves-effect">Detail</a></p>
-										    </div>
-										  </div>
-									</div>
-									<div class="col s12 m4">
-										<div class="card hoverable">
-										    <div class="card-image waves-effect waves-block waves-light">
-										      <img class="activator" src="assets/img/kategori/1.jpg">
-										    </div>
-										    <div class="card-content">
-										      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-										      <p><span class="teal-text">Rating :<i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>	</p>
-										      <i class="tiny material-icons">room</i>Denpasar
-										      <div class="divider"></div>
-										      <span><b>Rp.15.000.000,00</b></span>																      
+										      <span><b><?php echo $row['price'];?></b></span>																      
 										    </div>
 										    <div class="card-action">
 											    <div class="row">
@@ -91,44 +61,13 @@
 											    </div>													    											
 										    </div>
 										    <div class="card-reveal">
-										      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-										      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+										      <span class="card-title grey-text text-darken-4"><?php echo $row['title'];?><i class="material-icons right">close</i></span>
+										      <p><?php echo $row['descript'];?></p>
 										      <p><a href="ads-detail" class="btn waves-effect">Detail</a></p>
 										    </div>
 										  </div>
 									</div>
-									<div class="col s12 m4">
-										<div class="card hoverable">
-										    <div class="card-image waves-effect waves-block waves-light">
-										      <img class="activator" src="assets/img/kategori/1.jpg">
-										    </div>
-										    <div class="card-content">
-										      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-										      <p><span class="teal-text">Rating :<i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>	</p>
-										      <i class="tiny material-icons">room</i>Denpasar
-										      <div class="divider"></div>
-										      <span><b>Rp.15.000.000,00</b></span>																      
-										    </div>
-										    <div class="card-action">
-											    <div class="row">
-											    	<div class="col s12">
-														<p>
-													      <input type="checkbox" id="check1"/>
-													      <label for="check1">Pilih</label>
-													    </p>
-													</div>
-													<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>
-													<a href="#!" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>
-													<a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a>
-											    </div>													    											
-										    </div>
-										    <div class="card-reveal">
-										      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-										      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-										      <p><a href="ads-detail" class="btn waves-effect">Detail</a></p>
-										    </div>
-										  </div>
-									</div>									
+									<?php }; ?>
 									<div class="col s12 center-align">
 										<ul class="pagination">
 											<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
@@ -148,3 +87,15 @@
 			</div>
 		</div>
 	</main>
+	<?php 
+	if(isset($msg_peralatan)){
+		if(isset($msg_peralatan['status'])){
+			if($msg_peralatan['status']){
+				?><script>sweetAlert('Congratulations!', '<?php echo $msg_peralatan["msg"];?>', 'success');</script><?php
+			}else{
+				?><script>sweetAlert('Ups!', '<?php echo $msg_peralatan["msg"];?>', 'error');</script><?php
+			}
+		}
+		$this->session->unset_userdata('msg_peralatan');
+	}
+	?>
