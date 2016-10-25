@@ -40,7 +40,7 @@
 										      <img class="activator" src="<?php echo base_url().'images/w150_h150_at__?src='.$row['gallery'][0]['src'];?>">
 										    </div>
 										    <div class="card-content">
-										      <span class="card-title activator grey-text text-darken-4"><?php echo $row['title'];?><i class="material-icons right">more_vert</i></span>
+										      <span class="card-title activator grey-text text-darken-4 truncate"><?php echo $row['title'];?><i class="material-icons right">more_vert</i></span>
 										      <!-- <p><span class="teal-text">Rating :<i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>	</p> Ratingnya the next iyah abang-abang -->
 										      <p></p>
 										      <i class="tiny material-icons">room</i><?php $lokasi = ""; foreach($row['lokasi'] as $rw){ $lokasi .=$rw.", ";}; echo $lokasi;?>
@@ -51,8 +51,8 @@
 											    <div class="row">
 											    	<div class="col s12">
 														<p>
-													      <input type="checkbox" id="check2"/>
-													      <label for="check2">Pilih</label>
+													      <input type="checkbox" id="check2<?php $n = rand(0,100000000); echo $n; ?>"/>
+													      <label for="check2<?php echo $n; ?>">Pilih</label>
 													    </p>
 													</div>
 													<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>
