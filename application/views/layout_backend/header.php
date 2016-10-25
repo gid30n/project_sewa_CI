@@ -66,7 +66,7 @@
 								<div class="collapsible-body">
 									<ul class="collection with-header service">
 										<a href="#!" class="collection-item waves-effect pesan"><i class="material-icons left">shopping_cart</i>Pesan<span class="new badge teal white-text">99</span></a>
-										<?php if($ses_admin['admin'] === "1" || $ses_admin === "-9"){?>
+										<?php if($ses_admin['admin'] === "1" || $ses_admin['admin'] === "-9"){?>
 											<a href="<?php echo base_url();?>peralatan" class="collection-item waves-effect peralatan"><i class="material-icons left">beach_access</i>Peralatan Pesta<span class="new badge" data-badge-caption="item">400</span></a>
 											<a href="<?php echo base_url();?>paket" class="collection-item waves-effect paket"><i class="material-icons left">work</i>Paket Pesta<span class="new badge" data-badge-caption="paket">4</span></a>
 										<?php } ?>

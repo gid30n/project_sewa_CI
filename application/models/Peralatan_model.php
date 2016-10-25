@@ -86,7 +86,7 @@ class Peralatan_model extends CI_Model {
         }
 
         public function delete_ads($id){
-                $this->$this->db->delete('tb_ads', array("id_ads" => $id));
+                $this->db->delete('tb_ads', array("id_ads" => $id));
         }
 }
 ?>

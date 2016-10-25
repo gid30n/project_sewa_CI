@@ -118,7 +118,7 @@ class Peralatan extends CI_Controller {
 					redirect('peralatan','refresh');
 				}else{
 					// Fail upload
-					$peralatan_model->delete_ads($id_ads);
+					$this->peralatan_model->delete_ads($id_ads);
 					redirect('peralatan','refresh');
 				}
 
