@@ -99,10 +99,14 @@ class Peralatan extends CI_Controller {
 						}
     					// resize if necessary
 						if ($width >= 1024 && $height >= 768) {
-							$res = $tmpFile;
-							$image = new Imagick($tmpFile);
-							$image->thumbnailImage(1024, 768);
-							$image->writeImage($res);
+							$config['image_library'] = 'gd2';
+							$config['source_image'] = $tmpFile;
+							$config['width']         = 1024;
+							$config['height']       = 768;
+
+							$this->load->library('image_lib', $config);
+
+							$this->image_lib->resize();
 						}
 						$_FILES['gallery']['tmp_name'] = $tmpFile;
 						$_FILES['gallery']['error'] = $_FILES['gallerys']['error'][$i];

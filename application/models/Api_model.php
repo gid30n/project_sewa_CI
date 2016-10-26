@@ -237,9 +237,11 @@ class Api_model extends CI_Model {
                 return $result;
         }
 
-        public function get_all_ads_kategotri_count($id_kategori){                
-                $ads = $this->db->get_where('tb_ads', array("id_kategori" => $id_kategori));                
-                return $ads->num_rows();
+        public function get_all_ads_kategotri_count($id_kategori){      
+                $result = array();          
+                $ads = $this->db->get_where('tb_ads', array("id_kategori" => $id_kategori));  
+                $result['count'] = $ads->num_rows();   
+                return $result;
         }
 
 }
