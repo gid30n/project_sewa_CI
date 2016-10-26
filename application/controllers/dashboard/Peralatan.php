@@ -56,7 +56,7 @@ class Peralatan extends CI_Controller {
 	public function post(){
 		if($this->session->userdata("user")){
 			$ses_admin = $this->session->userdata('user');
-			// if($ses_admin['admin']){
+			if($ses_admin['admin'] === "1" || $ses_admin['admin'] === "-9"){
 				$kategori = $this->input->post("kategori", TRUE);
 				$title = $this->input->post("j_iklan", TRUE);
 				$sub_kategori = $this->input->post("sub_kategori", TRUE);
@@ -81,34 +81,50 @@ class Peralatan extends CI_Controller {
 					"id_province" => $province,
 					"id_region" => $lokasi,
 					);
-				// var_dump($data_signup);
+
 				$id_ads = $this->peralatan_model->post_ads($data_signup);
-				// var_dump($id_ads);
 
 				$filesCount = count($_FILES['gallerys']['name']);
-				// var_dump($_FILES['gallerys']);
 				for($i = 0; $i < $filesCount; $i++){
 					$_FILES['gallery']['name'] = $_FILES['gallerys']['name'][$i];
 					$_FILES['gallery']['type'] = $_FILES['gallerys']['type'][$i];
-					$_FILES['gallery']['tmp_name'] = $_FILES['gallerys']['tmp_name'][$i];
-					$_FILES['gallery']['error'] = $_FILES['gallerys']['error'][$i];
-					$_FILES['gallery']['size'] = $_FILES['gallerys']['size'][$i];
+					$tmpFile = $_FILES['gallerys']['tmp_name'][$i];
+					if(!empty($tmpFile)){
+						// vuln on list but i dont no to exploit that!!!!!!! <--- vuln mas brow
+						list($width, $height) = getimagesize($tmpFile);
+    					// check if the file is really an image
+						if ($width == null && $height == null) {
+							// redirect('/peralatan','refresh');
+							return;
+						}
+    					// resize if necessary
+						if ($width >= 1024 && $height >= 768) {
+							$res = $tmpFile;
+							$image = new Imagick($tmpFile);
+							$image->thumbnailImage(1024, 768);
+							$image->writeImage($res);
+						}
+						$_FILES['gallery']['tmp_name'] = $tmpFile;
+						$_FILES['gallery']['error'] = $_FILES['gallerys']['error'][$i];
+						$_FILES['gallery']['size'] = $_FILES['gallerys']['size'][$i];
 
-					$uploadPath = 'uploads/gallery/';
-					$config['upload_path'] = $uploadPath;
-					$config['allowed_types'] = 'gif|jpg|png';
-					$config['max_width'] = '1024';
-					$config['max_height'] = '768';
+						$uploadPath = 'uploads/gallery/';
+						$config['upload_path'] = $uploadPath;
+						$config['allowed_types'] = 'gif|jpg|png';
+						$config['max_width'] = '1024';
+						$config['max_height'] = '768';
 
-					$this->load->library('upload', $config);
-					$this->upload->initialize($config);
-					if($this->upload->do_upload('gallery')){
-						$fileData = $this->upload->data();
-						$uploadData[$i]['title'] = $title;
-						$uploadData[$i]['alt'] = $title;
-						$uploadData[$i]['src'] = base_url().$uploadPath.$fileData['file_name'];
-						$uploadData[$i]['id_ads'] = $id_ads;
+						$this->load->library('upload', $config);
+						$this->upload->initialize($config);
+						if($this->upload->do_upload('gallery')){
+							$fileData = $this->upload->data();
+							$uploadData[$i]['title'] = $title;
+							$uploadData[$i]['alt'] = $title;
+							$uploadData[$i]['src'] = base_url().$uploadPath.$fileData['file_name'];
+							$uploadData[$i]['id_ads'] = $id_ads;
+						}
 					}
+					
 				}
 
 				if(!empty($uploadData)){
@@ -122,9 +138,9 @@ class Peralatan extends CI_Controller {
 					redirect('peralatan','refresh');
 				}
 
-			// }else{
-			// 	redirect('login','refresh');
-			// }
+			}else{
+				redirect('logout','refresh');
+			}
 		}else{
 			redirect('login','refresh');
 		}
