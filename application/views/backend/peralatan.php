@@ -51,8 +51,8 @@
 											    <div class="row">
 											    	<div class="col s12">
 														<p>
-													      <input type="checkbox" id="check2<?php $n = $this->encryption->encrypt($row['id_ads']); echo $n; ?>" name="selected[]"/>
-													      <label for="check2<?php echo $n; ?>">Pilih</label>
+													      <input type="checkbox" id="check<?php $n = $this->encryption->encrypt($row['id_ads']); echo $n; ?>" name="selected[]"/>
+													      <label for="check<?php echo $n; ?>">Pilih</label>
 													    </p>
 													</div>
 													<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>
@@ -117,12 +117,50 @@
            	$('.loader_image').show(); 
            	$.getJSON('<?php echo site_url() ?>api/ads/kategori/1/'+total_record+"/"+total_groups,
              	function(data){ 
-                 	if (data != "") {                              
-                     	$("#konten-peralatan").append('<div class="col s12 m4"><div class="card hoverable"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src=""></div><div class="card-content"><span class="card-title activator grey-text text-darken-4 truncate"><i class="material-icons right">more_vert</i></span><p></p><i class="tiny material-icons">room</i><div class="divider"></div><span><b></b></span>																      </div><div class="card-action"><div class="row"><div class="col s12"><p><input type="checkbox" id="check2" name="selected[]"/><label for="check2>Pilih</label></p></div><a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a><a href="#!" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a><a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a></div>													    											</div><div class="card-reveal"><span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span><p></p><p><a href="ads-detail" class="btn waves-effect">Detail</a></p></div></div></div>');                 
-                     	$('.loader_image').hide();                  
-                     	total_record++;
-                 }
-            });     
+                 	if (data != "") { 
+                 		console.log(total_groups);                 		
+                 		for (var i = 0; i < data.length; i++) {                 			
+                 			gallery = data[i].gallery;
+							// if (data[i].id_ads != id_temp) {
+
+							// }                 			                 			
+                 			$("#konten-peralatan").append(
+                 				'<div class="col s12 m4">'+
+									'<div class="card hoverable">'+
+									    '<div class="card-image waves-effect waves-block waves-light">'+
+									      '<img class="activator" src="'+'<?php echo base_url("images/w150_h150_at__?src="); ?>'+gallery[0].src+'">'+
+									    '</div>'+
+									    '<div class="card-content">'+
+									      '<span class="card-title activator grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">more_vert</i></span>'+
+									      '<br><i class="tiny material-icons">room</i>'+data[i].lokasi+
+									      '<div class="divider"></div>'+
+									      '<span><b>'+data[i].price+'</b></span>'+																      
+									    '</div>'+
+									    '<div class="card-action">'+
+										    '<div class="row">'+
+										    	'<div class="col s12">'+
+													'<p>'+
+												      '<input type="checkbox" id="check'+data[i].id_ads+'"/>'+
+												      '<label for="check'+data[i].id_ads+'">Pilih</label>'+
+												    '</p>'+
+												'</div>'+
+												'<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>'+
+												'<a href="#!" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>'+
+												'<a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a>'+
+										    '</div>'+													    											
+									    '</div>'+
+									    '<div class="card-reveal">'+
+									      '<span class="card-title grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">close</i></span>'+
+									      '<p style="word-wrap: break-word"><?php echo mb_strimwidth("'+data[i].descript+'",0,250, "...."); ?></p>'+
+									      '<p><a href="ads-detail" class="btn waves-effect">Detail</a></p>'+
+									    '</div>'+
+									  '</div>'+
+								'</div>'
+                 			);	                     
+                 		}                 		  		                	                     
+                     	total_record += data.length;
+                    }                
+            	});     
         }
      }
  });
