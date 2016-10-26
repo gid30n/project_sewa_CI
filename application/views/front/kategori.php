@@ -4,16 +4,29 @@
 	<nav class="white">
 		<div class="nav-wrapper">
 			<div class="container">
-				<a href="index" class="brand-logo">
+				<a href="<?php echo base_url(); ?>" class="brand-logo">
 					<div class="row valign-wrapper">					
 						<img src="assets/img/logo/logo2.png" class="responsive-img left valign" width="200px" alt=""><!-- <h5 class="grey-text"><b>SEWA</b>NIA</h5>					 -->
 					</div>				
 				</a>
-				<ul class="right hide-on-med-and-down">
-					<li><a href="login" class="grey-text waves-effect">Login</a></li>
-					<li><a href="signup" class="grey-text waves-effect">Signup</a></li>
-					<li><a href="post-ads" class="btn waves-effect white-text">Jadi Partner Kami</a></li>					
-				</ul>	
+				<!-- Detection for user loged -->
+				<?php if(!$this->session->userdata('user')){ ?>
+					<ul class="right hide-on-med-and-down">
+						<li><a href="<?php echo base_url();?>login" class="grey-text waves-effect">Login</a></li>
+						<li><a href="<?php echo base_url();?>signup" class="grey-text waves-effect">Signup</a></li>
+						<li><a href="<?php echo base_url();?>signup-patner" class="btn waves-effect white-text">Jadi Partner Kami</a></li>					
+					</ul>	
+				<?php }else{ ?>
+					<ul class="right hide-on-med-and-down">
+						<li><a href="<?php echo base_url(); ?>cart" class="grey-text waves-effect"><i class="material-icons left">shopping_cart</i>Order<span class="badge teal circle white-text">99</span></a></li>							
+						<li><a href="
+							<?php if ($user['admin'] === "0"){
+								echo base_url('dashboard-cus');
+							}else{
+								echo base_url('dashboard');
+							}?>" class="grey-text waves-effect"><img src="<?php echo base_url(); ?>assets/img/ava/1.png" class="left responsive-img circle" width="60px"> <?php echo $user['first_name']." ".$user['last_name']; ?></a></li>						
+					</ul>	
+				<?php } ?>	
 			</div>
 			
 			<!-- activate side-bav in mobile view -->
@@ -23,9 +36,16 @@
 				<li><center><img src="assets/img/logo/logo-w.png" class="responsive-img" width="150px" alt=""></center></li>
 				<li><h5 class="center-align"><b>SEWA</b>NIA</h5></li>
 				<hr>
-				<li><a href="login" class="white-text waves-effect">Login</a></li>
-				<li><a href="signup" class="white-text waves-effect">Signup</a></li>
-				<li><a href="post-ads" class="white-text waves-effect">Jadi Partner Kami</a></li>
+				<!-- Detection for user loged -->
+				<?php 
+					if(!$this->session->userdata('user')){ ?>
+						<li><a href="<?php echo base_url();?>login" class="white-text waves-effect">Login</a></li>
+						<li><a href="<?php echo base_url();?>signup" class="white-text waves-effect">Signup</a></li>
+						<li><a href="<?php echo base_url();?>signup-patner" class="white-text waves-effect">Jadi Partner Kami</a></li>
+				<?php }else{ ?>
+					<li><a href="<?php echo base_url(); ?>cart" class="white-text waves-effect"><i class="material-icons left white-text">shopping_cart</i>Order<span class="badge teal circle white-text">99</span></a></li>							
+					<li><a href="<?php echo base_url();?>dashboard" class="white-text waves-effect"><img src="<?php echo base_url(); ?>assets/img/ava/1.png" class="left responsive-img circle" width="50px" style="margin-right:10px"><?php echo $user['first_name']." ".$user['last_name']; ?></a></li>						
+				<?php } ?>
 			</ul>
 
 			<a href="#" data-activates="mobile-demo1" class="button-collapse1 grey-text right"><i class="material-icons hide-on-large-only">search</i></a>			
@@ -39,14 +59,14 @@
 				          <label for="search"><i class="material-icons">search</i></label>
 				          <i class="material-icons">close</i>
 				        </div>
-				        <div class="input-field center">
+				        <!-- <div class="input-field center">
 				        	<select name="kategori">
 						      <option value="" disabled selected>--- Pilih Kategori ---</option>
 						      <option value="1">Option 1</option>
 						      <option value="2">Option 2</option>
 						      <option value="3">Option 3</option>
 						    </select>
-				        </div>
+				        </div> -->
 				        <center><button type="submit" class="btn btn-large white teal-text waves-effect">Search</button></center>				        
 				      </form>
 				    </div>
