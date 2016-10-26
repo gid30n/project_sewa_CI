@@ -129,6 +129,7 @@ class Peralatan extends CI_Controller {
 
 				if(!empty($uploadData)){
                 	//Insert file information into the database
+                	// tes 
 					$insert = $this->peralatan_model->post_gallerys($uploadData);
 					$this->session->set_userdata('msg_peralatan', array('msg' => 'Success !.', 'status' => true));
 					redirect('peralatan','refresh');
