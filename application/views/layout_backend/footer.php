@@ -28,7 +28,7 @@
 <script src="<?php echo base_url();?>assets/js/materialize.js"></script>
 <script src="<?php echo base_url();?>assets/js/materialize-tag.js"></script>
 <script src="<?php echo base_url();?>assets/js/typeahead.js"></script>
-<script>
+<script>	
 	$(document).ready(function(){
 		$('.modal-trigger').leanModal();
 		$('select').material_select();
@@ -59,8 +59,17 @@
 			}else if (currentClass.search("paket") >= 0 && arr_path[1] == "paket") {
 				return "active";
 			};
-		});
+		});		
 	});
+
+	$.getJSON( "<?php echo base_url(); ?>api/ads/kategori-count/1", function( data ) {
+	 	document.getElementById("count_peralatan").innerHTML = data.count;				
+	});
+
+	$.getJSON( "<?php echo base_url(); ?>api/ads/kategori-count/2", function( data ) {
+	 	document.getElementById("count_paket").innerHTML = data.count;				
+	});
+	
 </script>
 <script>
 	function checkAll(bx) {
