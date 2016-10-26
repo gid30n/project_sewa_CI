@@ -2,6 +2,9 @@
   .nama_order{
     font-size: 14px;
   }
+  .onta{
+    font-size: 10px !important;
+  }
 }
 span.badge{
   padding: 6px;

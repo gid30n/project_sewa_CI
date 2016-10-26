@@ -66,8 +66,8 @@
 				 </div>
 				<div class="col s12">
 					<ul class="tabs">
-						<li class="tab col m6 s12"><a class="active teal-text" href="#p_event">Paket Event</a></li>
-						<li class="tab col m6 s12"><a href="#perlengkapan" class="teal-text">Perlengkapan Pesta</a></li>					
+						<li class="tab col m6 s12"><a class="active teal-text onta" href="#p_event">Paket Event</a></li>
+						<li class="tab col m6 s12"><a href="#perlengkapan" class="teal-text onta">Perlengkapan Pesta</a></li>					
 					</ul>
 				</div>
 				<div id="p_event" class="col s12">
