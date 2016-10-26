@@ -169,9 +169,9 @@ class Api_model extends CI_Model {
                 return $result;
         }
 
-        public function get_ads_by_kategori($id_kategori){
+        public function get_ads_by_kategori($id_kategori,$limit,$offset){
                 $result = array();
-                $ads = $this->db->get_where('tb_ads', array("id_kategori" => $id_kategori));
+                $ads = $this->db->get_where('tb_ads', array("id_kategori" => $id_kategori), $offset,$limit);
                 $res_ads = $ads->result_array();
                 // var_dump($res_ads);
                 foreach ($res_ads as $row_ads) {
@@ -235,6 +235,11 @@ class Api_model extends CI_Model {
                         array_push($result, $row_ads);
                 }
                 return $result;
+        }
+
+        public function get_all_ads_kategotri_count($id_kategori){                
+                $ads = $this->db->get_where('tb_ads', array("id_kategori" => $id_kategori));                
+                return $ads->num_rows();
         }
 
 }

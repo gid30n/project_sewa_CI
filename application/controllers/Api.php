@@ -56,10 +56,17 @@ class Api extends CI_Controller {
 		->set_output(json_encode($result));
 	}
 
-	public function ads_kategori($id_kategori = 1){
-		$result = $this->api_model->get_ads_by_kategori($id_kategori);
+	public function ads_kategori($id_kategori = 1, $limit = 0, $offset = 0){		
+		$result = $this->api_model->get_ads_by_kategori($id_kategori, $limit, $offset);		
 		$this->output
 		->set_content_type('application/json')
 		->set_output(json_encode($result));
+	}
+
+	public function ads_kategori_count($id_kategori = 1){
+		$result = $this->api_model->get_all_ads_kategotri_count($id_kategori);		
+		$this->output
+		->set_content_type('application/json')
+		->set_output(json_encode($result));	
 	}
 }
