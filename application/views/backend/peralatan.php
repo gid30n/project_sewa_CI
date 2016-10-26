@@ -32,7 +32,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row" id="konten-peralatan">
 									<?php foreach ($data as $row) { ?>
 									<div class="col s12 m4">
 										<div class="card hoverable">
@@ -51,7 +51,7 @@
 											    <div class="row">
 											    	<div class="col s12">
 														<p>
-													      <input type="checkbox" id="check2<?php $n = rand(0,100000000); echo $n; ?>"/>
+													      <input type="checkbox" id="check2<?php $n = $this->encryption->encrypt($row['id_ads']); echo $n; ?>" name="selected[]"/>
 													      <label for="check2<?php echo $n; ?>">Pilih</label>
 													    </p>
 													</div>
@@ -61,9 +61,13 @@
 											    </div>													    											
 										    </div>
 										    <div class="card-reveal">
-										      <span class="card-title grey-text text-darken-4"><?php echo $row['title'];?><i class="material-icons right">close</i></span>
-										      <p><?php echo $row['descript'];?></p>
-										      <p><a href="ads-detail" class="btn waves-effect">Detail</a></p>
+										    	<div class="row">
+										    		<div class="col s12">
+										    			  <span class="card-title grey-text text-darken-4"><?php echo $row['title'];?><i class="material-icons right">close</i></span>
+													      <p style="word-wrap: break-word"><?php echo mb_strimwidth($row['descript'], 0, 250, "...");?></p>
+													      <p><a href="ads-detail" class="btn waves-effect">Detail</a></p>			
+										    		</div>		
+										    	</div>										      
 										    </div>
 										  </div>
 									</div>
@@ -99,3 +103,29 @@
 		$this->session->unset_userdata('msg_peralatan');
 	}
 	?>
+<script type="text/javascript">
+ $(document).ready(function() {
+ var total_record = 0; 
+ $.getJSON( "<?php echo base_url(); ?>api/ads/kategori-count/1", function( data ) {
+  var total_groups = data;  
+ });
+ $(window).scroll(function() {       
+     if($(window).scrollTop() + $(window).height() == $(document).height())  
+     {           
+         if(total_record <= total_groups)
+         {
+           loading = true; 
+           $('.loader_image').show(); 
+           $.post('<?php echo site_url() ?>content/load_more',{'group_no': total_record},
+             function(data){ 
+                 if (data != "") {                               
+                     $("#konten-peralatan").append('<div class="col s12 m4"><div class="card hoverable"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src=""></div><div class="card-content"><span class="card-title activator grey-text text-darken-4 truncate"><i class="material-icons right">more_vert</i></span><p></p><i class="tiny material-icons">room</i><div class="divider"></div><span><b></b></span>																      </div><div class="card-action"><div class="row"><div class="col s12"><p><input type="checkbox" id="check2" name="selected[]"/><label for="check2>Pilih</label></p></div><a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a><a href="#!" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a><a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a></div>													    											</div><div class="card-reveal"><span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span><p></p><p><a href="ads-detail" class="btn waves-effect">Detail</a></p></div></div></div>');                 
+                     $('.loader_image').hide();                  
+                     total_record++;
+                 }
+             });     
+         }
+     }
+ });
+ });
+ </script>
