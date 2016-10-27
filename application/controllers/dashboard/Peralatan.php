@@ -94,20 +94,26 @@ class Peralatan extends CI_Controller {
 						list($width, $height) = getimagesize($tmpFile);
     					// check if the file is really an image
 						if ($width == null && $height == null) {
-							// redirect('/peralatan','refresh');
+							redirect('/peralatan','refresh');
 							return;
 						}
-    					// resize if necessary
-						if ($width >= 1024 && $height >= 768) {
-							$config['image_library'] = 'gd2';
-							$config['source_image'] = $tmpFile;
-							$config['width']         = 1024;
-							$config['height']       = 768;
+						// resize if necessary
+						// belum bener jadi di matiin dlw
+						// if ($width >= 1024 || $height >= 768) {
+						// 	$config['image_library']  = 'ImageMagick';
+						// 	$config['library_path'] = '/usr/bin';
+						// 	$config['source_image'] = $tmpFile;
+						// 	$config['width']         = 1024;
+						// 	$config['height']       = 768;
 
-							$this->load->library('image_lib', $config);
+						// 	$this->image_lib->initialize($config);
 
-							$this->image_lib->resize();
-						}
+						// 			// $this->image_lib->resize();
+						// 	if ( ! $this->image_lib->resize())
+						// 	{
+						// 		echo $this->image_lib->display_errors('<p>', '</p>');;
+						// 	}
+						// }
 						$_FILES['gallery']['tmp_name'] = $tmpFile;
 						$_FILES['gallery']['error'] = $_FILES['gallerys']['error'][$i];
 						$_FILES['gallery']['size'] = $_FILES['gallerys']['size'][$i];
@@ -115,8 +121,8 @@ class Peralatan extends CI_Controller {
 						$uploadPath = 'uploads/gallery/';
 						$config['upload_path'] = $uploadPath;
 						$config['allowed_types'] = 'gif|jpg|png';
-						$config['max_width'] = '1024';
-						$config['max_height'] = '768';
+						// $config['max_width'] = '1024';
+						// $config['max_height'] = '768';
 
 						$this->load->library('upload', $config);
 						$this->upload->initialize($config);
@@ -135,11 +141,11 @@ class Peralatan extends CI_Controller {
                 	//Insert file information into the database
 					$insert = $this->peralatan_model->post_gallerys($uploadData);
 					$this->session->set_userdata('msg_peralatan', array('msg' => 'Success !.', 'status' => true));
-					redirect('peralatan','refresh');
+					// redirect('peralatan','refresh');
 				}else{
 					// Fail upload
 					$this->peralatan_model->delete_ads($id_ads);
-					redirect('peralatan','refresh');
+					// redirect('peralatan','refresh');
 				}
 
 			}else{
