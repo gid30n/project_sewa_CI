@@ -32,6 +32,17 @@
 							<div class="row">
 								<div class="input-field">
 									<div class="col m3 s12">
+										<label for="acc_email" class="teal-text">Username <sup class="red-text">*</sup></label>									
+									</div>
+									<div class="col m9 s12">
+										<br class="hide-on-med-and-up">
+										<input type="text" id="acc_user" class="validate" required="" name="acc_user" placeholder="Sewania" value="<?php if(isset($data['acc_user'])){ echo $data['acc_user']; } ?>">																		
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field">
+									<div class="col m3 s12">
 										<label for="acc_email" class="teal-text">Email <sup class="red-text">*</sup></label>									
 									</div>
 									<div class="col m9 s12">
