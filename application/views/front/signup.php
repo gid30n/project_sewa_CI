@@ -65,12 +65,14 @@
 								</div>								
 							</div>																								
 							<div class="col s12">
+								<?php echo $this->recaptcha->render(); ?>
+								<br>
 								<p>
 							      <input type="checkbox" id="term" name="term" />
 							      <label for="term">I have read and agree to the <a href="<?php echo base_url(); ?>term"> Terms & Conditions </a></label>
 							    </p>
 								<br>
-							</div>
+							</div>							
 							<div class="input-field col s12 center">
 								<button type="submit" class="btn btn-large waves-effect">Register</button>		
 								<br>
