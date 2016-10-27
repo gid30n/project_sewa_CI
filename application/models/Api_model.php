@@ -240,7 +240,9 @@ class Api_model extends CI_Model {
         public function get_all_ads_kategotri_count($id_kategori){      
                 $result = array();          
                 $ads = $this->db->get_where('tb_ads', array("id_kategori" => $id_kategori));  
-                $result['count'] = $ads->num_rows();   
+                $result['count'] = $ads->num_rows();
+                $last = $this->db->order_by('id_ads', 'DESC')->get_where("tb_ads", array("id_kategori" => $id_kategori), 1);
+                $result['last_id'] = $last->row()->id_ads;   
                 return $result;
         }
 

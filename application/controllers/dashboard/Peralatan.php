@@ -66,11 +66,10 @@ class Peralatan extends CI_Controller {
 				$harga = $this->input->post("harga_produk", TRUE);
 				$province = $this->input->post("provinsi", TRUE);
 				$lokasi = $this->input->post("lokasi", TRUE);
-
 				// Post data ads
 				$data_signup = array(
 					"title" => $title,
-					"descript" => $desc_produk,
+					"descript" => preg_replace("/\[removed]/i", "", $desc_produk),
 					"ranting" => 0,
 					"price" => $harga,
 					"date_publish" => date('Y-m-d H:i:s'),
@@ -99,21 +98,16 @@ class Peralatan extends CI_Controller {
 						}
 						// resize if necessary
 						// belum bener jadi di matiin dlw
-						// if ($width >= 1024 || $height >= 768) {
-						// 	$config['image_library']  = 'ImageMagick';
-						// 	$config['library_path'] = '/usr/bin';
-						// 	$config['source_image'] = $tmpFile;
-						// 	$config['width']         = 1024;
-						// 	$config['height']       = 768;
+						if ($width >= 1024 || $height >= 768) {
+							$config['image_library']  = 'gd2';
+							$config['source_image'] = $tmpFile;
+							$config['width']         = 1024;
+							$config['height']       = 768;
 
-						// 	$this->image_lib->initialize($config);
+							$this->image_lib->initialize($config);
 
-						// 			// $this->image_lib->resize();
-						// 	if ( ! $this->image_lib->resize())
-						// 	{
-						// 		echo $this->image_lib->display_errors('<p>', '</p>');;
-						// 	}
-						// }
+							$this->image_lib->resize();
+						}
 						$_FILES['gallery']['tmp_name'] = $tmpFile;
 						$_FILES['gallery']['error'] = $_FILES['gallerys']['error'][$i];
 						$_FILES['gallery']['size'] = $_FILES['gallerys']['size'][$i];
@@ -121,8 +115,8 @@ class Peralatan extends CI_Controller {
 						$uploadPath = 'uploads/gallery/';
 						$config['upload_path'] = $uploadPath;
 						$config['allowed_types'] = 'gif|jpg|png';
-						// $config['max_width'] = '1024';
-						// $config['max_height'] = '768';
+						$config['max_width'] = '1024';
+						$config['max_height'] = '768';
 
 						$this->load->library('upload', $config);
 						$this->upload->initialize($config);
@@ -141,7 +135,7 @@ class Peralatan extends CI_Controller {
                 	//Insert file information into the database
 					$insert = $this->peralatan_model->post_gallerys($uploadData);
 					$this->session->set_userdata('msg_peralatan', array('msg' => 'Success !.', 'status' => true));
-					redirect('peralatan','refresh');
+					// redirect('peralatan','refresh');
 				}else{
 					// Fail upload
 					$this->peralatan_model->delete_ads($id_ads);
