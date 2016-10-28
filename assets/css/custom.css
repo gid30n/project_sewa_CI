@@ -6,6 +6,14 @@
     font-size: 10px !important;
   }
 }
+
+.collapsible{
+  margin: 0px ;
+}
+.collection a.collection-item{
+  color: black;
+}
+
 span.badge{
   padding: 6px;
 }

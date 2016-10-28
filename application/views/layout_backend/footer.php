@@ -62,14 +62,29 @@
 		});		
 	});
 
+	var tot_peralatan;
 	$.getJSON( "<?php echo base_url(); ?>api/ads/kategori-count/1", function( data ) {
-	 	document.getElementById("count_peralatan").innerHTML = data.count;				
-	});
+		tot_peralatan += data.count;
+	 	document.getElementById("count_peralatan").innerHTML = tot_peralatan;
 
-	$.getJSON( "<?php echo base_url(); ?>api/ads/kategori-count/2", function( data ) {
-	 	document.getElementById("count_paket").innerHTML = data.count;				
+	 	var tot_paket;
+		$.getJSON( "<?php echo base_url(); ?>api/ads/kategori-count/2", function( data ) {
+			tot_paket += data.count;			
+		 	document.getElementById("count_paket").innerHTML = tot_paket;				
+		});				
+		
+		if (!document.getElementById("total_iklan")) {			
+			console.log("zonk");				
+		}else{
+			if(!document.getElementById("count_peralatan") && !document.getElementById("count_paket")){
+				console.log("zonk");	
+			}else{
+				document.getElementById("total_iklan").innerHTML = parseInt(document.getElementById("count_paket").textContent) + parseInt(document.getElementById("count_peralatan").textContent);		
+			}
+		}		
 	});
-	
+		
+
 </script>
 <script>
 	function checkAll(bx) {
