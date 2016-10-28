@@ -86,32 +86,60 @@ class Paket extends CI_Controller {
 				for($i = 0; $i < $filesCount; $i++){
 					$_FILES['gallery']['name'] = $_FILES['gallerys']['name'][$i];
 					$_FILES['gallery']['type'] = $_FILES['gallerys']['type'][$i];
-					$_FILES['gallery']['tmp_name'] = $_FILES['gallerys']['tmp_name'][$i];
-					$_FILES['gallery']['error'] = $_FILES['gallerys']['error'][$i];
-					$_FILES['gallery']['size'] = $_FILES['gallerys']['size'][$i];
+					$tmpFile = $_FILES['gallerys']['tmp_name'][$i];
+					if(!empty($tmpFile)){
+						// vuln on list but i dont no to exploit that!!!!!!! <--- vuln mas brow
+						list($width, $height) = getimagesize($tmpFile);
+    					// check if the file is really an image
+						if ($width == null && $height == null) {
+							redirect('paket','refresh');
+							return;
+						}
+						// resize if necessary
+						// belum bener jadi di matiin dlw
+						if ($width >= 1024 || $height >= 768) {
+							$config['image_library']  = 'gd2';
+							$config['source_image'] = $tmpFile;
+							$config['width']         = 1024;
+							$config['height']       = 768;
 
-					$uploadPath = 'uploads/gallery/';
-					$config['upload_path'] = $uploadPath;
-					$config['allowed_types'] = 'gif|jpg|png';
-					$config['max_size']	= '500';
-					$config['max_width'] = '1024';
-					$config['max_height'] = '768';
+							$this->image_lib->initialize($config);
 
-					$this->load->library('upload', $config);
-					$this->upload->initialize($config);
-					if($this->upload->do_upload('gallery')){
-						$fileData = $this->upload->data();
-						$uploadData[$i]['title'] = $title;
-						$uploadData[$i]['alt'] = $title;
-						$uploadData[$i]['src'] = base_url().$uploadPath.$fileData['file_name'];
-						$uploadData[$i]['id_ads'] = $id_ads;
+							$this->image_lib->resize();
+						}
+						$_FILES['gallery']['tmp_name'] = $tmpFile;
+						$_FILES['gallery']['error'] = $_FILES['gallerys']['error'][$i];
+						$_FILES['gallery']['size'] = $_FILES['gallerys']['size'][$i];
+
+						$uploadPath = 'uploads/gallery/';
+						$config['upload_path'] = $uploadPath;
+						$config['allowed_types'] = 'gif|jpg|png';
+						$config['max_width'] = '1024';
+						$config['max_height'] = '768';
+
+						$this->load->library('upload', $config);
+						$this->upload->initialize($config);
+						if($this->upload->do_upload('gallery')){
+							$fileData = $this->upload->data();
+							$uploadData[$i]['title'] = $title;
+							$uploadData[$i]['alt'] = $title;
+							$uploadData[$i]['src'] = $uploadPath.$fileData['file_name'];
+							$uploadData[$i]['id_ads'] = $id_ads;
+						}
 					}
+					
 				}
+
 
 				if(!empty($uploadData)){
                 	//Insert file information into the database
-                	var_dump($uploadData);
 					$insert = $this->paket_model->post_gallerys($uploadData);
+					$this->session->set_userdata('msg_peket', array('msg' => 'Success !.', 'status' => true));
+					redirect('paket','refresh');
+				}else{
+					// Fail upload
+					$this->paket_model->delete_ads($id_ads);
+					redirect('paket','refresh');
 				}
 
 			// }else{

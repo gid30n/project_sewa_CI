@@ -2,7 +2,7 @@
 	<nav class="white">
 		<div class="nav-wrapper">
 			<div class="container">
-				<a href="#!" class="brand-logo teal-text"><i class="material-icons">store</i><?php if(!empty($business_profile['brand_name'])){ echo ucfirst($business_profile['brand_name']); }else{ echo "Sewania"; };?></a>
+				<a href="<?php echo base_url();?>" class="brand-logo teal-text"><i class="material-icons">store</i><?php if(!empty($business_profile['brand_name'])){ echo ucfirst($business_profile['brand_name']); }else{ echo "Sewania"; };?></a>
 				<ul class="right hide-on-med-and-down">
 					<li class="teal-text"><?php echo $user['first_name']." ".$user['last_name'];?></li>
 					<li><img src="<?php echo base_url();?>assets/img/ava/1.png" class="responsive-img circle brand-logo" alt="" width="50px"></li>					

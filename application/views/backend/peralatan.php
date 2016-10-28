@@ -36,8 +36,9 @@
 									<?php foreach ($data as $row) { ?>
 									<div class="col s12 m4">
 										<div class="card hoverable">
+											<input type="hidden" class="id-ads" value="<?php echo $row["id_ads"];?>">
 										    <div class="card-image waves-effect waves-block waves-light">
-										      <img class="activator" src="<?php echo base_url().'images/w150_h150_at__?src='.$row['gallery'][0]['src'];?>">
+										      <img class="activator" src="<?php echo base_url().'images/?w=150&h=150&src='.$row['gallery'][0]['src'];?>">
 										    </div>
 										    <div class="card-content">
 										      <span class="card-title activator grey-text text-darken-4 truncate"><?php echo $row['title'];?><i class="material-icons right">more_vert</i></span>
@@ -72,17 +73,6 @@
 										  </div>
 									</div>
 									<?php }; ?>
-									<!-- <div class="col s12 center-align">
-										<ul class="pagination">
-											<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-											<li class="active teal"><a href="#!">1</a></li>
-											<li class="waves-effect"><a href="#!">2</a></li>
-											<li class="waves-effect"><a href="#!">3</a></li>
-											<li class="waves-effect"><a href="#!">4</a></li>
-											<li class="waves-effect"><a href="#!">5</a></li>
-											<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-										</ul>
-									</div> -->
 								</div>
 							</div>
 						</div>
@@ -127,9 +117,10 @@
                  				gallery = data[i].gallery;             			                 			
 	                 			$("#konten-peralatan").append(
 	                 				'<div class="col s12 m4">'+
+	                 				'<input type="hidden" class="id-ads" value="'+data[i].id_ads+'">'+
 										'<div class="card hoverable">'+
 										    '<div class="card-image waves-effect waves-block waves-light">'+
-										      '<img class="activator" src="'+'<?php echo base_url("images/w150_h150_at__?src="); ?>'+gallery[0].src+'">'+
+										      '<img class="activator" src="'+'<?php echo base_url("images/?w=150&h=150&src="); ?>'+gallery[0].src+'">'+
 										    '</div>'+
 										    '<div class="card-content">'+
 										      '<span class="card-title activator grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">more_vert</i></span>'+

@@ -124,7 +124,7 @@ class Peralatan extends CI_Controller {
 							$fileData = $this->upload->data();
 							$uploadData[$i]['title'] = $title;
 							$uploadData[$i]['alt'] = $title;
-							$uploadData[$i]['src'] = base_url().$uploadPath.$fileData['file_name'];
+							$uploadData[$i]['src'] = $uploadPath.$fileData['file_name'];
 							$uploadData[$i]['id_ads'] = $id_ads;
 						}
 					}
