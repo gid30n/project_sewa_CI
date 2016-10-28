@@ -62,7 +62,7 @@
 								<div class="col m3 s12">
 									<label for="d_produk" class="teal-text">Deskripsi Produk <sup class="red-text">*</sup></label>																		
 								</div>
-								<div class="col m9 s12">
+								<div class="col s12">
 									<br class="hide-on-med-and-up">
 									<textarea name="d_produk" id="d_produk"></textarea>
 								</div>

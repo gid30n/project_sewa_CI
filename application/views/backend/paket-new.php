@@ -56,14 +56,16 @@
 								</div>								
 							</div>
 						</div>
-						<div class="row">
+						<div class="row">							
+							<?php require_once 'tinymce.php';?>
 							<div class="input-field">
 								<div class="col m3 s12">
 									<label for="d_produk" class="teal-text">Deskripsi Produk <sup class="red-text">*</sup></label>																		
 								</div>
-								<div class="col m9 s12">
+								<br><br>
+								<div class="col s12">
 									<br class="hide-on-med-and-up">
-									<textarea name="d_produk" id="d_produk" class="materialize-textarea"></textarea>
+									<textarea name="d_produk" id="d_produk"></textarea>
 								</div>
 							</div>
 						</div>
