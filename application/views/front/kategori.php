@@ -94,11 +94,11 @@
 					<h4 class="teal-text center-align"><b>Kategori</b></h4>
 					<div class="box white">
 						<ul class="collection">
-							<a href="<?php echo base_url();?>kategori-detail" class="collection-item col m6 s12 waves-effect"><i class="material-icons left">wc</i>Paket Pernikahan</a>
-							<a href="<?php echo base_url();?>kategori-detail" class="collection-item col m6 s12 waves-effect"><i class="material-icons left">cake</i>Paket Ulang Tahun</a>
-							<a href="<?php echo base_url();?>kategori-detail" class="collection-item col m6 s12 waves-effect"><i class="material-icons left">local_activity</i>Paket Acara Adat Bali</a>
-							<a href="<?php echo base_url();?>kategori-detail" class="collection-item col m6 s12 waves-effect"><i class="material-icons left">color_lens</i>Paket Dekorasi</a>
-							<a href="<?php echo base_url();?>kategori-detail" class="collection-item col m6 s12 waves-effect"><i class="material-icons left">restaurant</i>Paket Catering</a>
+							<a href="<?php echo base_url();?>kategori-detail" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">wc</i>Paket Pernikahan</a>
+							<a href="<?php echo base_url();?>kategori-detail" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">cake</i>Paket Ulang Tahun</a>
+							<a href="<?php echo base_url();?>kategori-detail" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">local_activity</i>Paket Acara Adat Bali</a>
+							<a href="<?php echo base_url();?>kategori-detail" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">color_lens</i>Paket Dekorasi</a>
+							<a href="<?php echo base_url();?>kategori-detail" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">restaurant</i>Paket Catering</a>
 						</ul>
 					</div>
 					<h4 class="teal-text center-align"><b>TOP PAKET</b></h4>
@@ -379,18 +379,18 @@
 			<h4>Pencarian</h4>
 			<div class="row">
 				<form action="">
-					<div class="input-field col s6">
+					<div class="input-field col s12">
 				        <input id="pencarian" type="text" class="validate" required="">
 				        <label for="pencarian">Pencarian nama paket atau perlengkapan</label>
 			        </div>
-			        <div class="col s6">
+			       <!--  <div class="col s6">
 						<select name="kategori">
 					      <option value="" disabled selected>--- Pilih Kategori ---</option>
 					      <option value="1">Option 1</option>
 					      <option value="2">Option 2</option>
 					      <option value="3">Option 3</option>
 					    </select>
-					</div>
+					</div> -->
 					<div class="col s12 center">
 						<img src="assets/img/animated/search.gif" class="responsive-img" width="300px">
 					</div>
