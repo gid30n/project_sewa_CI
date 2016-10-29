@@ -1,3 +1,4 @@
+<?php var_dump($this->cart->contents());?>
 <main>
 		<div class="container">
 			<div class="row">

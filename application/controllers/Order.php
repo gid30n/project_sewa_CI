@@ -45,7 +45,20 @@ class Order extends CI_Controller {
 	public function add(){
 		if($this->session->userdata('user')){
 			$ses_admin = $this->session->userdata('user');
-
+			// var_dump($this->input->post(NUll, TRUE));
+			$data = array(
+				"id_ads" => $this->encryption->decrypt($this->input->post("id_ads", TRUE)),
+				"telp" => $this->input->post("telp", TRUE),
+				"acara" => $this->input->post("acara", TRUE),
+				"tamu" => $this->input->post("tamu", TRUE),
+				"alamat" => $this->input->post("alamat", TRUE),
+				"start_acara" => $this->input->post("start_acara", TRUE),
+				"end_acara" => $this->input->post("end_acara", TRUE),
+				"des_acara" => $this->input->post("des_acara", TRUE)
+				);
+			var_dump($this->cart->insert($data));
+			var_dump($this->cart->contents());
+			// redirect('carts','refresh');
 			// $data = array(
 			// 'title' => "Sewania - Sewa Peralatan Pesta Online",
 			// 'content' => "front/order", 

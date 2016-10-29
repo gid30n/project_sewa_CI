@@ -242,7 +242,11 @@ class Api_model extends CI_Model {
                 $ads = $this->db->get_where('tb_ads', array("id_kategori" => $id_kategori));  
                 $result['count'] = $ads->num_rows();
                 $last = $this->db->order_by('id_ads', 'DESC')->get_where("tb_ads", array("id_kategori" => $id_kategori), 1);
-                $result['last_id'] = $last->row()->id_ads;   
+                if(!empty($last->row()->id_ads)){
+                        $result['last_id'] = $last->row()->id_ads;
+                }else{
+                        $result['last_id'] = 0;
+                }
                 return $result;
         }
 

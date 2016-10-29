@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 20 Okt 2016 pada 02.49
+-- Generation Time: 29 Okt 2016 pada 21.20
 -- Versi Server: 10.1.17-MariaDB
 -- PHP Version: 5.6.26
 
@@ -33,6 +33,7 @@ CREATE TABLE `tb_ads` (
   `ranting` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `date_publish` datetime NOT NULL,
+  `slug` text NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_kategori` int(11) NOT NULL,
   `id_sub_kategori` int(11) NOT NULL,
@@ -45,9 +46,8 @@ CREATE TABLE `tb_ads` (
 -- Dumping data untuk tabel `tb_ads`
 --
 
-INSERT INTO `tb_ads` (`id_ads`, `title`, `descript`, `ranting`, `price`, `date_publish`, `id_user`, `id_kategori`, `id_sub_kategori`, `id_super_sub_kategori`, `id_province`, `id_region`) VALUES
-(11, 'Tes', 'uik', 0, 10000000, '2016-10-19 00:54:41', 15, 1, 1, 2, 1, '1,6,5'),
-(12, 'Tes Perdana', 'You can still access both at the same time, but instead of using a foreach structure, ... array (size=5) \'name\' => array (size=1) \'pictures\' => array (size=3) 0 => string \'active_trustees_26-Oct-2014__08_10_00__25408.jp', 0, 200000, '2016-10-19 03:21:15', 15, 1, 1, 1, 2, '10,12,13');
+INSERT INTO `tb_ads` (`id_ads`, `title`, `descript`, `ranting`, `price`, `date_publish`, `slug`, `id_user`, `id_kategori`, `id_sub_kategori`, `id_super_sub_kategori`, `id_province`, `id_region`) VALUES
+(50, 'Tes Gak Perdana', '<p>anu ane gak kena uik bang</p>', 0, 12000000, '2016-10-29 03:28:51', 'tes-gak-perdana', 16, 1, 1, 1, 2, '12');
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,7 @@ CREATE TABLE `tb_business_profile` (
 --
 
 INSERT INTO `tb_business_profile` (`id_business_profile`, `brand_name`, `type_service`, `address`, `id_province`, `id_region`, `description`, `id_user`) VALUES
-(1, 'uik dev', 'tes', 'jl anu', 1, 6, 'tes', 15);
+(1, 'uik dev', 'tes', 'jl anu', 1, 6, 'tes', 16);
 
 -- --------------------------------------------------------
 
@@ -105,9 +105,7 @@ CREATE TABLE `tb_gallerys` (
 --
 
 INSERT INTO `tb_gallerys` (`id_gallery`, `title`, `alt`, `src`, `id_ads`) VALUES
-(8, 'Tes', 'Tes', 'http://sewania.dev/uploads/gallery/Screenshot_from_2016-10-11_14-59-53.png', 11),
-(9, 'Tes', 'Tes', 'http://sewania.dev/uploads/gallery/5035937506590.jpg', 11),
-(10, 'Tes Perdana', 'Tes Perdana', 'http://sewania.dev/uploads/gallery/1.png', 12);
+(54, 'Tes Gak Perdana', 'Tes Gak Perdana', 'uploads/gallery/Screenshot_from_2016-10-26_16-36-4639.png', 50);
 
 -- --------------------------------------------------------
 
@@ -265,8 +263,9 @@ CREATE TABLE `tb_users` (
 --
 
 INSERT INTO `tb_users` (`id_user`, `first_name`, `last_name`, `email`, `password`, `joined`, `last_login`, `ip_last`, `admin`) VALUES
-(2, 'Komang', 'Suryadana', 'suryadana80@gmail.com', '8821716db3b4a9e6708a792da936df9357bb9b455e1600354c54d2009e6deb4275fc1224d33989452af7214bfbccde878174fc56d562ecfcc6f68c08a4fbef4e8pzcODt1xyBIbsuUc9phVgFc4C5RaUTMD1SXm+EdLhA=', '0000-00-00 00:00:00', '2016-10-19 08:00:03', '127.0.0.1', 1),
-(15, 'Mikel', 'Eric', 'pendekar_langit@protonmail.com', 'dd314dadda935008202a1d1028e923bc0d0bbd209f7731c81288a63004802f6b141177df154f46e49e898d602a315bd54e13046c92ce34ced5398003546e50e9Q5h49Ebb2KNtmxotuzWfhJZQzx2jhu6FKyGJByrUawM=', '2016-10-01 18:53:19', '2016-10-20 02:45:38', '127.0.0.1', 0);
+(2, 'Komang', 'Suryadana', 'suryadana80@gmail.com', '8821716db3b4a9e6708a792da936df9357bb9b455e1600354c54d2009e6deb4275fc1224d33989452af7214bfbccde878174fc56d562ecfcc6f68c08a4fbef4e8pzcODt1xyBIbsuUc9phVgFc4C5RaUTMD1SXm+EdLhA=', '0000-00-00 00:00:00', '2016-10-25 22:35:52', '127.0.0.1', -9),
+(15, 'Mikel', 'Eric', 'pendekar_langit@protonmail.com', 'dd314dadda935008202a1d1028e923bc0d0bbd209f7731c81288a63004802f6b141177df154f46e49e898d602a315bd54e13046c92ce34ced5398003546e50e9Q5h49Ebb2KNtmxotuzWfhJZQzx2jhu6FKyGJByrUawM=', '2016-10-01 18:53:19', '2016-10-27 01:39:07', '127.0.0.1', 0),
+(16, 'Pendekar', 'Langit', 'pendekar@protonmail.com', 'eb5f53336f92956e74c8c6d2cb5019001cf8dbd06f8f37f0b6f575e1c04c48710ca3ac41962e9598201a931de3d10aa30fad2149e701926a15de5962148ddc7cz/LpgcuVBLMAmJ5i190Lg4J4+iTCvIcj+N4LC8pTHXQ=', '2016-10-24 02:48:25', '2016-10-25 22:56:03', '127.0.0.1', 1);
 
 --
 -- Indexes for dumped tables
@@ -346,7 +345,7 @@ ALTER TABLE `tb_users`
 -- AUTO_INCREMENT for table `tb_ads`
 --
 ALTER TABLE `tb_ads`
-  MODIFY `id_ads` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_ads` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT for table `tb_banner`
 --
@@ -361,7 +360,7 @@ ALTER TABLE `tb_business_profile`
 -- AUTO_INCREMENT for table `tb_gallerys`
 --
 ALTER TABLE `tb_gallerys`
-  MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `tb_kategori`
 --
@@ -396,7 +395,7 @@ ALTER TABLE `tb_super_sub_kategori`
 -- AUTO_INCREMENT for table `tb_users`
 --
 ALTER TABLE `tb_users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

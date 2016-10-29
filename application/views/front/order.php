@@ -17,7 +17,7 @@
 						<i class="medium material-icons left">local_post_office</i><h5>Jelaskan Kebutuhan Anda</h5>
 						<div class="row divider"></div>
 						<br>
-						<form action="">
+						<?php echo form_open(base_url().'order/add');?>
 							<input type="hidden" name="id_ads" value="<?php echo $this->encryption->encrypt($data['id_ads']);?>">
 							<div class="row">
 								<div class="input-field">
@@ -40,12 +40,18 @@
 									<div class="col m9 s12">
 										<select name="acara" id="acara">
 									      <option value="" disabled selected>--- Pilih Tipe Acara---</option>
-									      <option value="1">Option 1</option>
-									      <option value="2">Option 2</option>
-									      <option value="3">Option 3</option>
-									      <option value="1337">Lainnya</option>
+									      <option value="Pernikahan">Pernikahan</option>
+									      <option value="Pesta Ulang Tahun Anak">Pesta Ulang Tahun Anak</option>
+									      <option value="Pesta Ulang Tahun Remaja">Pesta Ulang Tahun Remaja</option>
+									      <option value="Festival">Festival</option>
+									      <option value="Meeting/Perusahaan">Meeting/Perusahaan</option>
+									      <option value="Acara Adat">Acara Adat</option>
+									      <option value="Garden or Beach Party">Garden or Beach Party</option>
+									      <option value="Live Konser">Live Konser</option>
+									      <option value="Bazzar">Bazzar</option>
+									      <option value="other">Lainnya</option>
 									    </select>
-									    <input type="text" id="acara_lainnya" class="validate" required="" name="acara_lainnya" placeholder="Acara Lainnya">
+									    <input type="text" id="acara_lainnya" class="validate" name="acara_lainnya" placeholder="Acara Lainnya">
 									</div>								
 								</div>
 							</div>
@@ -59,12 +65,16 @@
 									<div class="col m9 s12">
 										<select name="tamu" id="tamu">
 									      <option value="" disabled selected>--- Pilih---</option>
-									      <option value="1">Option 1</option>
-									      <option value="2">Option 2</option>
-									      <option value="3">Option 3</option>
-									      <option value="1337">Lainnya</option>
+									      <option value="1">< 25</option>
+									      <option value="2">25-50</option>
+									      <option value="3">50-100</option>
+									      <option value="1337">100-150</option>
+									      <option value="">150-200</option>
+									      <option value="">200-300</option>
+									      <option value="">> 300</option>
+									      <option value="">Saya Belum Tahu</option>
 									    </select>
-									    <input type="text" id="tamu_lainnya" class="validate" required="" name="tamu_lainnya" placeholder="Jumlah Tamu Lainnya">
+									    <input type="text" id="tamu_lainnya" class="validate" name="tamu_lainnya" placeholder="Jumlah Tamu Lainnya">
 									</div>																	
 								</div>
 							</div>
@@ -118,7 +128,7 @@
 								<br>
 								<br>
 							</div>							
-						</form>					
+						<?php echo form_close();?>			
 					</div>
 				</div>
 			</div>
