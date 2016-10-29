@@ -60,7 +60,6 @@ $route['term'] = 'syarat';
 $route['about-us'] = 'tentang_kami';
 $route['kategori'] = 'kategori';
 $route['kategori/(:any)'] = 'kategori/sub/$1';
-$route['kategori-detail'] = 'kategori_detail';
 $route['valid'] = 'login/valid';
 $route['cart'] = 'cart';
 $route['logout'] = 'login/logout';
