@@ -115,7 +115,7 @@
 													<div class="collapsible-header"><i class="material-icons">beach_access</i>Peralatan Pesta</div>
 													<div class="collapsible-body">
 														<a href="<?php echo base_url("peralatan/new-ads"); ?>" class="collection-item waves-effect"><i class="material-icons left">add</i>Tambah Peralatan Pesta</a>
-														<a href="<?php echo base_url("peralatan"); ?>" class="collection-item waves-effect"><i class="material-icons left">beach_access</i>Peralatan Pesta<span class="new badge" data-badge-caption="item" id='count_peralatan'>400</span></a>
+														<a href="<?php echo base_url("peralatan"); ?>" class="collection-item waves-effect"><i class="material-icons left">beach_access</i>Peralatan Pesta<span class="new badge" data-badge-caption="item" id='count_peralatan'></span></a>
 													</div>
 												</li>											
 											</ul>
@@ -124,7 +124,7 @@
 													<div class="collapsible-header"><i class="material-icons">work</i>Paket Pesta</div>
 													<div class="collapsible-body">
 														<a href="<?php echo base_url("paket/new-ads"); ?>" class="collection-item waves-effect"><i class="material-icons left">add</i>Tambah Paket Pesta</a>
-														<a href="<?php echo base_url("paket"); ?>" class="collection-item waves-effect"><i class="material-icons left">work</i>Paket Pesta<span class="new badge" data-badge-caption="paket" id='count_paket'>4</span></a>
+														<a href="<?php echo base_url("paket"); ?>" class="collection-item waves-effect"><i class="material-icons left">work</i>Paket Pesta<span class="new badge" data-badge-caption="paket" id='count_paket'></span></a>
 													</div>
 												</li>											
 											</ul>
@@ -138,7 +138,15 @@
 								<div class="collapsible-header"><b>Other</b></div>
 								<div class="collapsible-body">
 									<ul class="collection with-header">
-										<a href="#delete_account" class="collection-item modal-trigger waves-effect"><i class="material-icons left">close</i>Delete this account</a>
+										<?php  
+											if ($level['admin'] != "-9") {
+												echo '<a href="#delete_account" class="collection-item modal-trigger waves-effect"><i class="material-icons left">close</i>Delete this account</a>';
+											}else{
+												echo '<a href="#nama_subs" class="collection-item modal-trigger waves-effect"><i class="material-icons left">add</i>Add Sub Category</a>';
+												echo '<a href="#nama_super_subs" class="collection-item modal-trigger waves-effect"><i class="material-icons left">add</i>Add Super Sub Category</a>';
+												echo '<a href="list_category" class="collection-item modal-trigger waves-effect"><i class="material-icons left">view_list</i>List All Category</a>';	
+											}											
+										?>										
 									</ul>
 								</div>
 							</li>

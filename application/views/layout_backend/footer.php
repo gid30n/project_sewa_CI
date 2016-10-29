@@ -23,6 +23,84 @@
 			</form>
 		</div>
 	</div>
+		
+	<!-- Modal Structure -->
+	<div id="nama_subs" class="modal">
+		<div class="modal-content">
+			<h4>Add Sub Category</h4>
+			<form action="">
+				<div class="row">
+					<div class="input-field">
+						<div class="col m3 s12">
+							<label for="nama_sub" class="teal-text">Nama Sub Kategori</label>									
+						</div>
+						<div class="col m9 s12">
+							<br class="hide-on-med-and-up">
+							<input type="text" id="nama_sub" class="validate" required="" name="nama_sub">
+						</div>								
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<div class="col m3 s12">
+							<label for="kategori" class="teal-text">Kategori</label>
+							<br class="hide-on-med-and-up">
+							<br class="hide-on-med-and-up">
+						</div>
+						<div class="col m9 s12">
+							<select name="kategori" id="kategori">
+								<option value="" disabled selected>--- Pilih Kategori ---</option>
+								<option value="1">Perlengkapan Pesta</option>
+								<option value="2">Paket Pesta</option>								
+							</select>
+						</div>								
+					</div>
+				</div>				
+			
+		</div>
+		<div class="modal-footer">
+			<button class="btn teal waves-effect" type="submit">Submit</button>			
+		</div>
+		</form>
+	</div>
+
+	<!-- Modal Structure -->
+	<div id="nama_super_subs" class="modal">
+		<div class="modal-content">
+			<h4>Add Super Sub Category</h4>
+			<form action="">
+				<div class="row">
+					<div class="input-field">
+						<div class="col m3 s12">
+							<label for="nama_super_sub" class="teal-text">Nama Super Sub Kategori</label>									
+						</div>
+						<div class="col m9 s12">
+							<br class="hide-on-med-and-up">
+							<input type="text" id="nama_super_sub" class="validate" required="" name="nama_super_sub">
+						</div>								
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<div class="col m3 s12">
+							<label for="sub_kategori" class="teal-text">Sub Kategori</label>
+							<br class="hide-on-med-and-up">
+							<br class="hide-on-med-and-up">
+						</div>
+						<div class="col m9 s12">
+							<select name="sub_kategori" id="sub_kategori">
+								<option value="" disabled selected>--- Pilih Sub Kategori ---</option>								
+							</select>
+						</div>								
+					</div>
+				</div>				
+			
+		</div>
+		<div class="modal-footer">
+			<button class="btn teal waves-effect" type="submit">Submit</button>			
+		</div>
+		</form>
+	</div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="<?php echo base_url();?>assets/js/materialize.js"></script>
@@ -61,30 +139,7 @@
 			};
 		});		
 	});
-
-	var tot_peralatan;
-	$.getJSON( "<?php echo base_url(); ?>api/ads/kategori-count/1", function( data ) {
-		tot_peralatan += data.count;
-	 	document.getElementById("count_peralatan").innerHTML = tot_peralatan;
-
-	 	var tot_paket;
-		$.getJSON( "<?php echo base_url(); ?>api/ads/kategori-count/2", function( data ) {
-			tot_paket += data.count;			
-		 	document.getElementById("count_paket").innerHTML = tot_paket;				
-		});				
-		
-		if (!document.getElementById("total_iklan")) {			
-			console.log("zonk");				
-		}else{
-			if(!document.getElementById("count_peralatan") && !document.getElementById("count_paket")){
-				console.log("zonk");	
-			}else{
-				document.getElementById("total_iklan").innerHTML = parseInt(document.getElementById("count_paket").textContent) + parseInt(document.getElementById("count_peralatan").textContent);		
-			}
-		}		
-	});
-		
-
+	
 </script>
 <script>
 	function checkAll(bx) {

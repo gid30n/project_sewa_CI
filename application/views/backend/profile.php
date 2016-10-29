@@ -7,34 +7,16 @@
 							<h5>Selamat Datang : <?php echo $user['first_name']." ".$user['last_name'];?></h5>
 							<p>last logged in at: <?php echo convert_date($user['last_login'],"d-m-Y g:i A")." ".date('T');?></p>
 						</div>
-						<div class="col m6 s12">								
-							<div class="col l4 12 s12">
-								<div class="card blue-grey darken-1">
-									<div class="card-content white-text center-align">											
-										<i class="material-icons medium">remove_red_eye</i>
-										<div class="divider"></div>
-										<p>Visits : <b>3232</b></p>
-									</div>										
-								</div>
-							</div>								
-							<div class="col l4 12 s12">
+						<div class="col m6 s12">																							
+							<div class="col l4 12 s12 right">
 								<div class="card blue-grey darken-1">
 									<div class="card-content white-text center-align">											
 										<i class="material-icons medium">apps</i>
 										<div class="divider"></div>
-										<p>ADS : <b>26</b></p>
+										<p>ADS : <b id="total_iklan"></b></p>
 									</div>										
 								</div>
-							</div>								
-							<div class="col l4 12 s12">
-								<div class="card blue-grey darken-1">
-									<div class="card-content white-text center-align">	
-										<i class="material-icons medium">people</i>
-										<div class="divider"></div>
-										<p>Fav : <b>1337</b></p>
-									</div>
-								</div>
-							</div>								
+							</div>																					
 						</div>
 					</div>
 				</div>					

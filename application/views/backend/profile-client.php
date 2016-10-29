@@ -14,7 +14,7 @@
 									<div class="card-content white-text center-align">											
 										<i class="material-icons medium">apps</i>
 										<div class="divider"></div>
-										<p>ADS : <b id="total_iklan">26</b></p>
+										<p>ADS : <b id="total_iklan"></b></p>
 									</div>										
 								</div>
 							</div>															

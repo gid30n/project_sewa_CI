@@ -25,21 +25,6 @@
     <script>
 	    paceOptions = {
 	      elements: true
-	    };
-	    var tot_peralatan = 0;
-		$.getJSON( "<?php echo base_url(); ?>api/ads/kategori-count/1", function( data ) {
-			tot_peralatan += data.count;
-		 	document.getElementById("count_peralatan").innerHTML = tot_peralatan;				
-		});
-
-		var tot_paket = 0;
-		$.getJSON( "<?php echo base_url(); ?>api/ads/kategori-count/2", function( data ) {
-			tot_paket += data.count;
-			console.log(tot_paket);
-		 	document.getElementById("count_paket").innerHTML = tot_paket;				
-		});
-
-		//total_ads_user	
-		document.getElementById("total_iklan").innerHTML = parseInt(document.getElementById("count_paket").textContent) + parseInt(document.getElementById("count_peralatan").textContent);	
+	    };	    
 	</script>  
 </head>

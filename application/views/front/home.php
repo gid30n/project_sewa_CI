@@ -134,8 +134,8 @@
 							    <div class="card-reveal">
 							      <span class="card-title grey-text text-darken-4" data-bind="text: title">Card Title</span><span class="card-title grey-text text-darken-4" style="margin-top:-40px;"><i class="material-icons right">close</i></span>
                                   <p>&nbsp;</p>
-							      <p data-bind="text: descript" style="word-wrap: break-word">Here is some more information about this product that is only revealed once clicked on.</p>
-							      <p><a href="ads-detail" class="btn waves-effect">Detail</a></p>
+							      <p class="truncate" data-bind="html: descript" style="word-wrap: break-word">Here is some more information about this product that is only revealed once clicked on.</p>
+							      <p><a data-bind="attr: { href: '<?php echo base_url("ads"); ?>/'+slug }" class="btn waves-effect">Detail</a></p>
 							    </div>
 							  </div>
 						</div>                       					

@@ -52,12 +52,12 @@
 											<p><strong>Location: </strong><?php $lokasi = ""; foreach ($data['lokasi'] as $row) { $lokasi .= $row.", "; }; echo $lokasi; ?></p>
 										</div>
 									</div>
-                    				<ul class="list-border">
+                    				<!-- <ul class="list-border">
 				                        <li><a href="#"><i class="tiny material-icons valign-mid">person</i> More ads by User </a> </li>
 				                        <li><a href="#"><i class="tiny material-icons valign-mid">favorite</i> Save ad </a> </li>
 				                        <li><a href="#" > <i class="tiny material-icons valign-mid">share</i> Share ad </a> </li>
 				                       	<li><a class="modal-trigger" href="#reportAdvertiser"><i class="tiny material-icons valign-mid">error_outline</i> Report abuse </a> </li>
-                    				</ul>
+                    				</ul> -->
 								</div>
 								<!-- modal report form -->
 								<div id="reportAdvertiser" class="modal modal-fixed-footer">
@@ -95,10 +95,10 @@
   								<!-- end of modal report form -->
 
   								
-								<div class="col s12">
+								<!-- <div class="col s12">
 									<div class="row divider"></div>
 									<a class="waves-effect waves-light btn grey" href="<?php echo base_url().'order/'.$data['slug'];?>"><i class="material-icons left hide-on-med-and-down">email</i>Order</a>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
