@@ -57,8 +57,8 @@ class Order extends CI_Controller {
 				"des_acara" => $this->input->post("des_acara", TRUE)
 				);
 			var_dump($data);
-			var_dump($this->cart->insert($data));
-			var_dump($this->cart->contents());
+			var_dump($this->cartsewania->insert($data));
+			var_dump($this->cartsewania->contents());
 			// redirect('carts','refresh');
 			// $data = array(
 			// 'title' => "Sewania - Sewa Peralatan Pesta Online",

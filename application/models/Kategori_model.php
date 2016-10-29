@@ -9,7 +9,7 @@ class Kategori_model extends CI_Model {
 	}
 	public function get_ads_by_slug_sub($slug){
 		$result = array();
-		$this->db->select('*');
+		$this->db->select('*, tb_ads.slug as slug_ads');
 		$this->db->from('tb_ads');
 		$this->db->join('tb_sub_kategori', 'tb_ads.id_sub_kategori = tb_sub_kategori.id_sub_kategori');
 		$this->db->where('tb_sub_kategori.slug', $slug);

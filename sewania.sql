@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 29 Okt 2016 pada 21.20
+-- Generation Time: 30 Okt 2016 pada 02.13
 -- Versi Server: 10.1.17-MariaDB
 -- PHP Version: 5.6.26
 
@@ -206,6 +206,7 @@ INSERT INTO `tb_region` (`id_region`, `name`, `id_province`) VALUES
 CREATE TABLE `tb_sub_kategori` (
   `id_sub_kategori` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `slug` text NOT NULL,
   `id_kategori` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -213,9 +214,9 @@ CREATE TABLE `tb_sub_kategori` (
 -- Dumping data untuk tabel `tb_sub_kategori`
 --
 
-INSERT INTO `tb_sub_kategori` (`id_sub_kategori`, `name`, `id_kategori`) VALUES
-(1, 'Tenda', 1),
-(2, 'Kursi', 1);
+INSERT INTO `tb_sub_kategori` (`id_sub_kategori`, `name`, `slug`, `id_kategori`) VALUES
+(1, 'Tenda', 'tenda', 1),
+(2, 'Kursi', 'kursi', 1);
 
 -- --------------------------------------------------------
 
@@ -226,6 +227,7 @@ INSERT INTO `tb_sub_kategori` (`id_sub_kategori`, `name`, `id_kategori`) VALUES
 CREATE TABLE `tb_super_sub_kategori` (
   `id_super_sub_kategori` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `slug` text NOT NULL,
   `id_sub_kategori` int(11) NOT NULL,
   `id_kategori` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -234,11 +236,11 @@ CREATE TABLE `tb_super_sub_kategori` (
 -- Dumping data untuk tabel `tb_super_sub_kategori`
 --
 
-INSERT INTO `tb_super_sub_kategori` (`id_super_sub_kategori`, `name`, `id_sub_kategori`, `id_kategori`) VALUES
-(1, 'Tenda Krucut', 1, 1),
-(2, 'Tenda Dekorasi', 1, 1),
-(3, 'Kursi Spon', 2, 1),
-(4, 'Kursi Plastik', 2, 1);
+INSERT INTO `tb_super_sub_kategori` (`id_super_sub_kategori`, `name`, `slug`, `id_sub_kategori`, `id_kategori`) VALUES
+(1, 'Tenda Krucut', 'tenda-krucut', 1, 1),
+(2, 'Tenda Dekorasi', 'tenda-dekorasi', 1, 1),
+(3, 'Kursi Spon', 'kursi-spon', 2, 1),
+(4, 'Kursi Plastik', 'kursi-plastik', 2, 1);
 
 -- --------------------------------------------------------
 

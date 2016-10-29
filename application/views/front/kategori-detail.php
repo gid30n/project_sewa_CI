@@ -58,7 +58,7 @@
 											<div class="card-reveal">
 												<span class="card-title grey-text text-darken-4"><?php echo $row['title'];?><i class="material-icons right">close</i></span>
 												<p style="word-wrap: break-word"><?php echo mb_strimwidth($row['descript'], 0, 250, "..."); ?></p>
-												<p><a href="<?php echo base_url();?>ads/<?php echo $row['slug'];?>" class="btn waves-effect">Detail</a></p>
+												<p><a href="<?php echo base_url();?>ads/<?php echo $row['slug_ads'];?>" class="btn waves-effect">Detail</a></p>
 											</div>
 										</div>
 									</div>

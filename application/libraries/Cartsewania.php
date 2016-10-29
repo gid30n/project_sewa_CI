@@ -180,4 +180,26 @@ class CartSewania {
 		return $rowid;
 	}
 
+	// --------------------------------------------------------------------
+
+	/**
+	 * Cart Contents
+	 *
+	 * Returns the entire cart array
+	 *
+	 * @param	bool
+	 * @return	array
+	 */
+	public function contents($newest_first = FALSE)
+	{
+		// do we want the newest first?
+		$cart = ($newest_first) ? array_reverse($this->_cart_contents) : $this->_cart_contents;
+
+		// Remove these so they don't create a problem when showing the cart table
+		unset($cart['total_items']);
+		unset($cart['cart_total']);
+
+		return $cart;
+	}
+
 }
