@@ -161,7 +161,7 @@
 
 			<!-- testi & video -->			
 			<div class="row center">
-				<div class="col m6 s12">
+				<div class="col s12">
 					<h4 class="center-align"><b>Video</b></h4>
 					<hr>
 					<!-- <video class="responsive-video" controls>
@@ -171,7 +171,7 @@
 				        <iframe width="560" height="315" src="https://www.youtube.com/embed/hhNVPQIOzrE" frameborder="0" allowfullscreen></iframe>
 				     </div>
 				</div>
-				<div class="col m6 s12">
+				<!-- <div class="col m6 s12">
 					<h4 class="center-align"><b>Testimoni</b></h4>
 					<hr>
 					<div class="row">
@@ -196,7 +196,7 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus sit nostrum praesentium quod et minus ipsa sequi tempore dolore, maiores consectetur incidunt voluptates ducimus blanditiis facilis autem esse, odio explicabo.</p>
 						</div>
 					</div>										
-				</div>			
+				</div>			 -->
 			</div>	
 			<!-- end testi & video -->			
 	</main>
