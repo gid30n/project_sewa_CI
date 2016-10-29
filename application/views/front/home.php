@@ -1,6 +1,18 @@
+ <script type="text/javascript" src="<?php echo base_url();?>assets/js/choosen-product.js"></script>
+ <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.lazyimage.js"></script>
+ 
+ <script type="text/javascript">
+ 
+ jQuery(document).ready(function(){
+ $('.lazy-image').lazyImage();
+    $( getProducts );
+	
+});
 
+  </script>
 
 	<!-- slider	 -->
+    
 	<div class="slider">
 		<ul class="slides">
 			<li>
@@ -61,11 +73,11 @@
 				
 				<!-- cara kerja -->
 				<div class="col s12 cara-kerja">
-					<h4 class="center-align"><b>Bagaimana Cara Kerjanya</b></h4>				
+					<h4 class="center-align"><b>Bagaimana Cara Kerjanya</b></h4>			
 					<br><br>
 					<div class="col s4 center hoverable">
 						<img src="<?php echo base_url();?>assets/img/cara/pilih.png" class="responsive-img" width="250px" alt="">
-						<h5><b>Pilih</b></h5>
+						<h5><b>Pilihxxx</b></h5>
 						<p>Pilih peralatan pesta yang anda butuhkan</p>
 					</div>	
 					<div class="col s4 center hoverable">
@@ -104,121 +116,29 @@
 				<div class="col s12">
 					<h4 class="center-align"><b>6 Hot Packet / Item</b></h4>
 					<br><br>
-					<div class="row">						
+                    
+					<div class="row" data-bind="foreach: products">						
 						<div class="col s12 m4">
 							<div class="card hoverable">
-							    <div class="card-image waves-effect waves-block waves-light">
-							      <img class="activator" src="assets/img/kategori/1.jpg">
+							    <div class="card-image waves-effect waves-block waves-light">                                 
+							    <img class="activator lazy-image" data-bind="attr: { src: gallery[0].src, alt: gallery[0].title }">
+                
 							    </div>
 							    <div class="card-content">
-							      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-							      <p><span class="teal-text">Rating :<i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>	</p>
-							      <i class="tiny material-icons">room</i>Denpasar
+							      <span class="card-title activator grey-text text-darken-4" data-bind="text: title"><i class="material-icons right">more_vert</i></span>
+							      <br>
+							      <i class="tiny material-icons">room</i><span data-bind="text: lokasi">Denpasar</span>
 							      <div class="divider"></div>
-							      <span><b>Rp.15.000.000,00</b></span>																      
+							      <span><b data-bind="text: price"></b></span>																      
 							    </div>
 							    <div class="card-reveal">
-							      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-							      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+							      <span class="card-title grey-text text-darken-4" data-bind="text: title">Card Title</span><span class="card-title grey-text text-darken-4" style="margin-top:-40px;"><i class="material-icons right">close</i></span>
+                                  <p>&nbsp;</p>
+							      <p data-bind="text: descript" style="word-wrap: break-word">Here is some more information about this product that is only revealed once clicked on.</p>
 							      <p><a href="ads-detail" class="btn waves-effect">Detail</a></p>
 							    </div>
 							  </div>
-						</div>
-						<div class="col s12 m4">
-							<div class="card hoverable">
-							    <div class="card-image waves-effect waves-block waves-light">
-							      <img class="activator" src="assets/img/kategori/1.jpg">
-							    </div>
-							    <div class="card-content">
-							      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-							      <p><span class="teal-text">Rating :<i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>	</p>
-							      <i class="tiny material-icons">room</i>Denpasar
-							      <div class="divider"></div>
-							      <span><b>Rp.15.000.000,00</b></span>																      
-							    </div>
-							    <div class="card-reveal">
-							      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-							      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-							      <p><a href="ads-detail" class="btn waves-effect">Detail</a></p>
-							    </div>
-							  </div>
-						</div>
-						<div class="col s12 m4">
-							<div class="card hoverable">
-							    <div class="card-image waves-effect waves-block waves-light">
-							      <img class="activator" src="assets/img/kategori/1.jpg">
-							    </div>
-							    <div class="card-content">
-							      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-							      <p><span class="teal-text">Rating :<i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>	</p>
-							      <i class="tiny material-icons">room</i>Denpasar
-							      <div class="divider"></div>
-							      <span><b>Rp.15.000.000,00</b></span>																      
-							    </div>
-							    <div class="card-reveal">
-							      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-							      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-							      <p><a href="ads-detail" class="btn waves-effect">Detail</a></p>
-							    </div>
-							  </div>
-						</div>
-						<div class="col s12 m4">
-							<div class="card hoverable">
-							    <div class="card-image waves-effect waves-block waves-light">
-							      <img class="activator" src="assets/img/kategori/1.jpg">
-							    </div>
-							    <div class="card-content">
-							      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-							      <p><span class="teal-text">Rating :<i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>	</p>
-							      <i class="tiny material-icons">room</i>Denpasar
-							      <div class="divider"></div>
-							      <span><b>Rp.15.000.000,00</b></span>																      
-							    </div>
-							    <div class="card-reveal">
-							      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-							      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-							      <p><a href="ads-detail" class="btn waves-effect">Detail</a></p>
-							    </div>
-							  </div>
-						</div>
-						<div class="col s12 m4">
-							<div class="card hoverable">
-							    <div class="card-image waves-effect waves-block waves-light">
-							      <img class="activator" src="assets/img/kategori/1.jpg">
-							    </div>
-							    <div class="card-content">
-							      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-							      <p><span class="teal-text">Rating :<i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>	</p>
-							      <i class="tiny material-icons">room</i>Denpasar
-							      <div class="divider"></div>
-							      <span><b>Rp.15.000.000,00</b></span>																      
-							    </div>
-							    <div class="card-reveal">
-							      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-							      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-							      <p><a href="ads-detail" class="btn waves-effect">Detail</a></p>
-							    </div>
-							  </div>
-						</div>
-						<div class="col s12 m4">
-							<div class="card hoverable">
-							    <div class="card-image waves-effect waves-block waves-light">
-							      <img class="activator" src="assets/img/kategori/1.jpg">
-							    </div>
-							    <div class="card-content">
-							      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-							      <p><span class="teal-text">Rating :<i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>	</p>
-							      <i class="tiny material-icons">room</i>Denpasar
-							      <div class="divider"></div>
-							      <span><b>Rp.15.000.000,00</b></span>																      
-							    </div>
-							    <div class="card-reveal">
-							      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-							      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-							      <p><a href="ads-detail" class="btn waves-effect">Detail</a></p>
-							    </div>
-							  </div>
-						</div>						
+						</div>                       					
 					</div>						
 				</div>
 				<!-- end paket -->			

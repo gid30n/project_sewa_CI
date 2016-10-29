@@ -30,7 +30,7 @@
 			<div class="row">							
 				<ul class="collapsible left col s12" data-collapsible="accordion">
 					<li>
-						<div class="collapsible-header active"><i class="material-icons">shopping_cart</i>Pesan</div>
+						<div class="collapsible-header active ,m"><i class="material-icons">shopping_cart</i>Pesan</div>
 						<div class="collapsible-body">
 							<br>
 							<a href="#!" class="waves-effect"><i class="material-icons left">shopping_cart</i>Pesan<span class="new badge">99</span></a>			

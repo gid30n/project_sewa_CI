@@ -12,12 +12,16 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/swal.css">	
+   
     <script src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
+     <link rel="stylesheet" href="<?php echo base_url();?>assets/js/jquery-lazyimage-master/demo.css">
+    <script type="text/javascript" src="<?php echo base_url();?>assets/js/knockouts-3.4.js"></script>
     <script src="<?php echo base_url();?>assets/js/pace.js"></script>
     <script src="<?php echo base_url();?>assets/js/swal.js"></script>
     <!-- bxSlider CSS file -->
 	<link href="<?php echo base_url();?>assets/css/bxslider.css" rel="stylesheet" />
     <script>
+	var url_sewa="<?php echo base_url(); ?>";
 	    paceOptions = {
 	      elements: true
 	    };

@@ -7,6 +7,7 @@
 							<h5>Selamat Datang : <?php echo $user['first_name']." ".$user['last_name'];?></h5>
 							<p>last used in at: <?php echo convert_date($user['last_login'],"d-m-Y g:i A")." ".date('T');?></p>
 						</div>
+						<?php if($user['admin'] === "1" || $user['admin'] === "-9"){ ?>
 						<div class="col m6 s12">														
 							<div class="col l4 12 s12 right">
 								<div class="card blue-grey darken-1">
@@ -18,6 +19,7 @@
 								</div>
 							</div>															
 						</div>
+						<?php } ?>
 					</div>
 				</div>					
 			</div>

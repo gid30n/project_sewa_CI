@@ -35,6 +35,7 @@ class Api_model extends CI_Model {
 
         public function get_all_ads(){
                 $result = array();
+                $this->db->limit(6);
                 $ads = $this->db->get('tb_ads');
                 $res_ads = $ads->result_array();
                 // var_dump($res_ads);
