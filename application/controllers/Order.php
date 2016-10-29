@@ -45,9 +45,8 @@ class Order extends CI_Controller {
 	public function add(){
 		if($this->session->userdata('user')){
 			$ses_admin = $this->session->userdata('user');
-			// var_dump($this->input->post(NUll, TRUE));
 			$data = array(
-				"id_ads" => $this->encryption->decrypt($this->input->post("id_ads", TRUE)),
+				"id" => $this->encryption->decrypt($this->input->post("id_ads", TRUE)),
 				"telp" => $this->input->post("telp", TRUE),
 				"acara" => $this->input->post("acara", TRUE),
 				"tamu" => $this->input->post("tamu", TRUE),
@@ -56,15 +55,8 @@ class Order extends CI_Controller {
 				"end_acara" => $this->input->post("end_acara", TRUE),
 				"des_acara" => $this->input->post("des_acara", TRUE)
 				);
-			var_dump($data);
-			var_dump($this->cartsewania->insert($data));
-			var_dump($this->cartsewania->contents());
-			// redirect('carts','refresh');
-			// $data = array(
-			// 'title' => "Sewania - Sewa Peralatan Pesta Online",
-			// 'content' => "front/order", 
-			// );
-			// $this->load->view('layout/wrapper', $data);
+			$this->cartsewania->insert($data);
+			redirect('carts','refresh');
 		}else{
 			redirect('login','refresh');
 		}

@@ -1,4 +1,4 @@
-<?php var_dump($this->cart->contents());?>
+
 <main>
 		<div class="container">
 			<div class="row">
@@ -17,21 +17,18 @@
 								</thead>
 							
 								<tbody>
-									<tr class="col s12">
-										<td class="col s1">1</td>
-										<td class="col s3"><img src="assets/img/kategori/1.jpg" class="materialboxed col s12" style="padding:5%;"></td>
-										<td class="col s5"><h5 class="nama_order"><b>Tenda</b></h5></td>
-										<td class="col s3" style="padding:5%;"><a href="#!" class="btn waves-effect left col s12 m6"><i class="material-icons">edit</i></a><a href="#!" class="btn waves-effect red white-text right col s12 m6"><i class="material-icons">delete</i></a></td>
-									</tr>
-									<tr class="col s12">
-										<td class="col s1">2</td>
-										<td class="col s3 "><img src="assets/img/kategori/2.jpg" class="materialboxed responsive-img" style="padding:5%;"></td>
-										<td class="col s5"><h5 class="nama_order"><b>Tenda</b></h5></td>
-										<td class="col s3" style="padding:5%;"><a href="#!" class="btn waves-effect left col s12 m6"><i class="material-icons">edit</i></a><a href="#!" class="btn waves-effect red white-text right col s12 m6"><i class="material-icons">delete</i></a></td>
-									</tr>																			
+									<?php $total_price = 0; $i = 1; foreach ( $this->cartsewania->contents() as $row) { ?>
+										<?php $ads = $this->carts_model->get_ads($row['id']);?>
+										<tr class="col s12">
+											<td class="col s1"><?php echo $i;  $total_price += $ads['price'];?></td>
+											<td class="col s3"><img src="<?php echo base_url().$ads['gallery'][0]['src'];?>" class="materialboxed col s12" style="padding:5%;"></td>
+											<td class="col s5"><h5 class="nama_order"><b><?php echo $ads['title'];?></b></h5></td>
+											<td class="col s3" style="padding:5%;"><a href="#!" class="btn waves-effect left col s12 m6"><i class="material-icons">edit</i></a><a href="<?php echo base_url("carts/remove/").$row['rowid'];?>" class="btn waves-effect red white-text right col s12 m6"><i class="material-icons">delete</i></a></td>
+										</tr>
+									<?php $i++; } ?>																		
 								</tbody>
 							</table>
-							<h4>Total : <b>1337</b></h4>														
+							<h4>Total : <b><?php echo convert_rp($total_price);?></b></h4>														
 						</div>
 						<div class="card-action">
 							<a href="#!" class="btn btn-large"><i class="material-icons left">done</i>Checkout</a>

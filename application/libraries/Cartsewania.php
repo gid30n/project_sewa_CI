@@ -117,6 +117,7 @@ class CartSewania {
 	 */
 	protected function _insert($items = array())
 	{
+		// var_dump($items);
 		// Was any cart data passed? No? Bah...
 		if ( ! is_array($items) OR count($items) === 0)
 		{
@@ -144,6 +145,16 @@ class CartSewania {
 			return FALSE;
 		}
 
+		// Ketika ada id yang sama di carts
+		// $key = "id";
+		// if (array_key_exists($key, $this->_cart_contents)) {
+		// 	if($this->_cart_contents[$key] === $items['id']){
+		// 		var_dump($this->_cart_contents);
+		// 		var_dump($items);
+		// 		return FALSE;
+		// 	};
+		// }
+
 		// We now need to create a unique identifier for the item being inserted into the cart.
 		// Every time something is added to the cart it is stored in the master cart array.
 		// Each row in the cart array, however, must have a unique index that identifies not only
@@ -166,15 +177,8 @@ class CartSewania {
 			$rowid = md5($items['id']);
 		}
 
-		// --------------------------------------------------------------------
-
-		// Now that we have our unique "row ID", we'll add our cart items to the master array
-		// grab quantity if it's already there and add it on
-		$old_quantity = isset($this->_cart_contents[$rowid]['qty']) ? (int) $this->_cart_contents[$rowid]['qty'] : 0;
-
 		// Re-create the entry, just to make sure our index contains only the data from this submission
 		$items['rowid'] = $rowid;
-		$items['qty'] += $old_quantity;
 		$this->_cart_contents[$rowid] = $items;
 
 		return $rowid;
@@ -200,6 +204,64 @@ class CartSewania {
 		unset($cart['cart_total']);
 
 		return $cart;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Save the cart array to the session DB
+	 *
+	 * @return	bool
+	 */
+	protected function _save_cart()
+	{
+		// Let's add up the individual prices and set the cart sub-total
+		// $this->_cart_contents['total_items'] = count($this->_cart_contents);
+		// foreach ($this->_cart_contents as $key => $val)
+		// {
+		// 	// We make sure the array contains the proper indexes
+		// 	if ( ! is_array($val) OR ! isset($val['price'], $val['qty']))
+		// 	{
+		// 		continue;
+		// 	}
+
+		// 	$this->_cart_contents['cart_total'] += ($val['price'] * $val['qty']);
+		// 	$this->_cart_contents['total_items'] += $val['qty'];
+		// 	$this->_cart_contents[$key]['subtotal'] = ($this->_cart_contents[$key]['price'] * $this->_cart_contents[$key]['qty']);
+		// }
+
+		// Is our cart empty? If so we delete it from the session
+		if (count($this->_cart_contents) <= 2)
+		{
+			$this->CI->session->unset_userdata('carts_sewania');
+
+			// Nothing more to do... coffee time!
+			return FALSE;
+		}
+
+		// If we made it this far it means that our cart has data.
+		// Let's pass it to the Session class so it can be stored
+		$this->CI->session->set_userdata(array('carts_sewania' => $this->_cart_contents));
+
+		// Woot!
+		return TRUE;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Total Items
+	 *
+	 * Returns the total item count
+	 *
+	 * @return	int
+	 */
+	public function total_items()
+	{
+		// Remove these so they don't create a problem when showing the cart table
+		unset($this->_cart_contents['total_items']);
+		unset($this->_cart_contents['cart_total']);
+		return count($this->_cart_contents);
 	}
 
 }
