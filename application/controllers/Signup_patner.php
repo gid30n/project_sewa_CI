@@ -108,7 +108,7 @@ class Signup_patner extends CI_Controller {
 																);
 															$business_user = $this->signup_model->insert_business($data_business);
 															$this->session->set_userdata('msg_signup_patner', array('msg' => 'Login Success.', 'status' => true));
-															redirect('signup-patner','refresh');
+															redirect('login','refresh');
 
 														}else{
 															$data = array(
