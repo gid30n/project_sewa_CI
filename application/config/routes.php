@@ -57,6 +57,7 @@ $route['order/(:any)'] = 'order/show/$1';
 $route['ads/(:any)'] = 'ads_detail/read/$1';
 $route['term'] = 'syarat';
 $route['about-us'] = 'tentang_kami';
+$route['kategori/(:any)'] = 'kategori/sub/$1';
 $route['kategori-detail'] = 'kategori_detail';
 $route['valid'] = 'login/valid';
 $route['cart'] = 'cart';

@@ -56,6 +56,7 @@ class Order extends CI_Controller {
 				"end_acara" => $this->input->post("end_acara", TRUE),
 				"des_acara" => $this->input->post("des_acara", TRUE)
 				);
+			var_dump($data);
 			var_dump($this->cart->insert($data));
 			var_dump($this->cart->contents());
 			// redirect('carts','refresh');
