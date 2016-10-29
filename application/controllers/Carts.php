@@ -27,6 +27,15 @@ class Carts extends CI_Controller {
 		$this->load->view('layout/wrapper', $data);
 	}
 
+	public function delete($rowid){
+		$this->cartsewania->remove($rowid);
+		redirect('carts','refresh');
+	}
+
+	public function update(){
+		redirect('carts','refresh');
+	}
+
 }
 
 /* End of file Cart.php */

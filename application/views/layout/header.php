@@ -18,7 +18,7 @@
 					</ul>	
 				<?php }else{ ?>
 					<ul class="right hide-on-med-and-down">
-						<li><a href="<?php echo base_url(); ?>cart" class="grey-text waves-effect"><i class="material-icons left">shopping_cart</i>Order<span class="badge teal circle white-text"><?php if(!empty($this->cartsewania->total_items())){ echo $this->cartsewania->total_items(); }else{ echo "0"; };?></span></a></li>							
+						<li><a href="<?php echo base_url(); ?>carts" class="grey-text waves-effect"><i class="material-icons left">shopping_cart</i>Order<span class="badge teal circle white-text"><?php if(!empty($this->cartsewania->total_items())){ echo $this->cartsewania->total_items(); }else{ echo "0"; };?></span></a></li>							
 						<li><a href="
 							<?php if ($user['admin'] === "0"){
 								echo base_url('dashboard-cus');

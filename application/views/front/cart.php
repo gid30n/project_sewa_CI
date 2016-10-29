@@ -23,7 +23,7 @@
 											<td class="col s1"><?php echo $i;  $total_price += $ads['price'];?></td>
 											<td class="col s3"><img src="<?php echo base_url().$ads['gallery'][0]['src'];?>" class="materialboxed col s12" style="padding:5%;"></td>
 											<td class="col s5"><h5 class="nama_order"><b><?php echo $ads['title'];?></b></h5></td>
-											<td class="col s3" style="padding:5%;"><a href="#!" class="btn waves-effect left col s12 m6"><i class="material-icons">edit</i></a><a href="<?php echo base_url("carts/remove/").$row['rowid'];?>" class="btn waves-effect red white-text right col s12 m6"><i class="material-icons">delete</i></a></td>
+											<td class="col s3" style="padding:5%;"><a href="<?php echo base_url('carts/edit/').$row['rowid'];?>" class="btn waves-effect left col s12 m6"><i class="material-icons">edit</i></a><a href="<?php echo base_url("carts/delete/").$row['rowid'];?>" class="btn waves-effect red white-text right col s12 m6"><i class="material-icons">delete</i></a></td>
 										</tr>
 									<?php $i++; } ?>																		
 								</tbody>

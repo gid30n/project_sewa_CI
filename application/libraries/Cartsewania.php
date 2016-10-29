@@ -250,6 +250,115 @@ class CartSewania {
 	// --------------------------------------------------------------------
 
 	/**
+	 * Update the cart
+	 *
+	 * This function permits the quantity of a given item to be changed.
+	 * Typically it is called from the "view cart" page if a user makes
+	 * changes to the quantity before checkout. That array must contain the
+	 * product ID and quantity for each item.
+	 *
+	 * @param	array
+	 * @return	bool
+	 */
+	public function update($items = array())
+	{
+		// Was any cart data passed?
+		if ( ! is_array($items) OR count($items) === 0)
+		{
+			return FALSE;
+		}
+
+		// You can either update a single product using a one-dimensional array,
+		// or multiple products using a multi-dimensional one.  The way we
+		// determine the array type is by looking for a required array key named "rowid".
+		// If it's not found we assume it's a multi-dimensional array
+		$save_cart = FALSE;
+		if (isset($items['rowid']))
+		{
+			if ($this->_update($items) === TRUE)
+			{
+				$save_cart = TRUE;
+			}
+		}
+		else
+		{
+			foreach ($items as $val)
+			{
+				if (is_array($val) && isset($val['rowid']))
+				{
+					if ($this->_update($val) === TRUE)
+					{
+						$save_cart = TRUE;
+					}
+				}
+			}
+		}
+
+		// Save the cart data if the insert was successful
+		if ($save_cart === TRUE)
+		{
+			$this->_save_cart();
+			return TRUE;
+		}
+
+		return FALSE;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Update the cart
+	 *
+	 * This function permits changing item properties.
+	 * Typically it is called from the "view cart" page if a user makes
+	 * changes to the quantity before checkout. That array must contain the
+	 * rowid and quantity for each item.
+	 *
+	 * @param	array
+	 * @return	bool
+	 */
+	protected function _update($items = array())
+	{
+		// Without these array indexes there is nothing we can do
+		if ( ! isset($items['rowid'], $this->_cart_contents[$items['rowid']]))
+		{
+			return FALSE;
+		}
+
+		// find updatable keys
+		$keys = array_intersect(array_keys($this->_cart_contents[$items['rowid']]), array_keys($items));
+
+
+		// product id & name shouldn't be changed
+		foreach (array_diff($keys, array('id')) as $key)
+		{
+			$this->_cart_contents[$items['rowid']][$key] = $items[$key];
+		}
+
+		return TRUE;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Remove Item
+	 *
+	 * Removes an item from the cart
+	 *
+	 * @param	int
+	 * @return	bool
+	 */
+	 public function remove($rowid)
+	 {
+		// unset & save
+		unset($this->_cart_contents[$rowid]);
+		$this->_save_cart();
+		return TRUE;
+	 }
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * Total Items
 	 *
 	 * Returns the total item count
@@ -262,6 +371,21 @@ class CartSewania {
 		unset($this->_cart_contents['total_items']);
 		unset($this->_cart_contents['cart_total']);
 		return count($this->_cart_contents);
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Destroy the cart
+	 *
+	 * Empties the cart and kills the session
+	 *
+	 * @return	void
+	 */
+	public function destroy()
+	{
+		$this->_cart_contents = array('cart_total' => 0, 'total_items' => 0);
+		$this->CI->session->unset_userdata('carts_sewania');
 	}
 
 }
