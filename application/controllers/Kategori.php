@@ -22,7 +22,7 @@ class Kategori extends CI_Controller {
 
 		$data = array(
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
-			'content' => "front/kategori-detail", 
+			'content' => "front/kategori", 
 			'user' => $user,
 			);
 		$this->load->view('layout/wrapper', $data);
@@ -39,13 +39,18 @@ class Kategori extends CI_Controller {
 		}
 
 		if (!empty($slug)) {
-			$data = array(
-				'title' => "Sewania - Sewa Peralatan Pesta Online",
-				'content' => "front/kategori-detail", 
-				'user' => $user,
-				'data' => $this->kategori_model->get_ads_by_slug_sub($slug)
-				);
-			$this->load->view('layout/wrapper', $data);
+			$data_ads = $this->kategori_model->get_ads_by_slug_sub($slug);
+			if(!empty($data_ads)){
+				$data = array(
+					'title' => "Sewania - Sewa Peralatan Pesta Online",
+					'content' => "front/kategori-detail", 
+					'user' => $user,
+					'data' => $data_ads
+					);
+				$this->load->view('layout/wrapper', $data);
+			}else{
+				redirect('kategori','refresh');
+			}
 		}else{
 			redirect('kategori','refresh');
 		}

@@ -63,6 +63,13 @@ class Api extends CI_Controller {
 		->set_output(json_encode($result));
 	}
 
+	public function ads_sub_kategori($slug = '', $limit = 0, $offset = 0){
+		$result = $this->api_model->get_ads_by_slug_sub($slug, $limit, $offset);		
+		$this->output
+		->set_content_type('application/json')
+		->set_output(json_encode($result));
+	}
+
 	public function ads_kategori_count($id_kategori = 1){
 		$result = $this->api_model->get_all_ads_kategotri_count($id_kategori);		
 		$this->output
