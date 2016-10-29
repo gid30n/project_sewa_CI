@@ -73,6 +73,7 @@ class Paket extends CI_Controller {
 					"ranting" => 0,
 					"price" => $harga,
 					"date_publish" => date('Y-m-d H:i:s'),
+					"slug" => url_title($title, "dash", TRUE),
 					"id_user" => $ses_admin['id_user'],
 					"id_kategori" => $kategori,
 					"id_sub_kategori" => $sub_kategori,

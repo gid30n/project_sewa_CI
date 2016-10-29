@@ -1,3 +1,4 @@
+
 <main>
 		<div class="container">		
 			<div class="row">
@@ -5,18 +6,19 @@
 					<div class="sign-up-main">
 						<div class="row">
 							<div class="col m6">
-								<img src="assets/img/item/tp-big/Image00014.jpg" class="responsive-img left">
+								<img src="<?php echo base_url().$data['gallery'][0]['src'];?>" alt="<?php echo $data['gallery'][0]['alt'];?>" title="<?php echo $data['gallery'][0]['title'];?>" class="responsive-img left">
 							</div>
 							<div class="col m6">
-								<h5>Xperia™ C3 Dual available</h5>
+								<h5><?php echo $data['title'];?></h5>
 								<div class="row divider"></div>
-								<h5><b>Rp </b>26.500.000</h5>								
+								<h5><?php echo $data['price'];?></h5>								
 							</div>
 						</div>
 						<i class="medium material-icons left">local_post_office</i><h5>Jelaskan Kebutuhan Anda</h5>
 						<div class="row divider"></div>
 						<br>
 						<form action="">
+							<input type="hidden" name="id_ads" value="<?php echo $this->encryption->encrypt($data['id_ads']);?>">
 							<div class="row">
 								<div class="input-field">
 									<div class="col m3 s12">

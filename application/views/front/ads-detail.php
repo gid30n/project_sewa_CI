@@ -4,9 +4,9 @@
 	    <div class="breadcrumb-wrapper container">
 	      	<div class="col s12">
 	        	<a href="#" class="breadcrumb"><i class="material-icons breadcrumb-home">home</i></a>
-	        	<a href="#" class="breadcrumb">All Ads</a>
-	        	<a href="#" class="breadcrumb">Electronics</a>
-	        	<a href="#" class="breadcrumb">Mobile Phones</a>
+	        	<a href="#" class="breadcrumb"><?php echo $data['kategori'];?></a>
+	        	<a href="#" class="breadcrumb"><?php echo $data['sub_kategori'];?></a>
+	        	<a href="#" class="breadcrumb"><?php echo $data['super_sub_kategori'];?></a>
 	        	<a href="#" class="right back">Back to Results</a>
 	      	</div>
 	    </div>
@@ -17,60 +17,39 @@
 				<!-- ads details content -->
 				<div class="col s12 m9">
 					<div class="ads-details-wrapper card white">
-						<h2 class="ads-details-title"> Xperia™ C3 Dual available <small class="ads-details-label">Company ad</small></h2>
+						<h2 class="ads-details-title"> <?php echo $data['title'];?></h2>
 						<div class="divider"></div>
 						<div class="ads-details-info">
-							<span class="date"><i class="tiny material-icons valign-mid">access_time</i> Today 1:21 pm </span> - <span class="category">Electronics </span>- <span class="item-location"><i class="tiny material-icons valign-mid">place</i> New York </span>
+							<span class="date"><i class="tiny material-icons valign-mid">access_time</i> <?php echo convert_date($data['date_publish'], "d-m-Y h:i A");?> </span> - <span class="category"><?php echo $data['super_sub_kategori'];?> </span>- <span class="item-location"><i class="tiny material-icons valign-mid">place</i> <?php $lokasi = ""; foreach ($data['lokasi'] as $row) { $lokasi .= $row.", "; }; echo $lokasi; ?> </span>
 						</div>
 						<div class="ads-details-img">
-              				<h1 class="pricetag">Rp 26.500.000</h1>
+              				<h1 class="pricetag"><?php echo $data['price'];?></h1>
+              				<?php $gallery = $data['gallery'];?>
               					<ul class="bxslider">
-                					<li><img src="assets/img/item/tp-big/Image00014.jpg" alt="img" /></li>
-                					<li><img src="assets/img/item/tp-big/Image00015.jpg" alt="img" /></li>
-                					<li><img src="assets/img/item/tp-big/Image00013.jpg" alt="img" /></li>
+              						<?php foreach ($gallery as $row) {?>
+              							<li><img src="<?php echo base_url().$row['src'];?>" alt="<?php echo $row['alt'];?>" title="<?php echo $row['title'];?>" /></li>
+              						<?php } ?>
               					</ul>
-              					<div id="bx-pager"> <a class="thumb-item-link" data-slide-index="0" href=""><img src="assets/img/item/tp/Image00014.jpg" alt="img" class="valign-mid"/></a> <a class="thumb-item-link"  data-slide-index="1" href=""><img src="assets/img/item/tp/Image00015.jpg" alt="img" class="valign-mid"/></a> <a class="thumb-item-link"  data-slide-index="2" href=""><img src="assets/img/item/tp/Image00013.jpg" alt="img" class="valign-mid"/></a> </div>
+              					<div id="bx-pager">
+              						<?php $i = 0; foreach ($gallery as $row) { ?>
+	              						<a class="thumb-item-link" data-slide-index="<?php echo $i;?>" href="<?php echo base_url().$row['src'];?>">
+	              							<img src="<?php echo base_url().$row['src'];?>" alt="<?php echo $row['alt'];?>" title="<?php echo $row['title'];?>" class="valign-mid"/>
+	              						</a> 
+              						<?php }?>
+              					</div>
 						</div>
 						<div class="ads-details-content">
 							<h5 class="list-title ads-details-title"><strong>Ads Details</strong></h5>
 							<div class="row">
 								<div class="col s12 m8">
-					                <p>Sony Xperia C3 Dual smartphone with 5.50-inch 720x1280 display powered by 1.2GHz processor alongside 1GB RAM and 8-megapixel rear camera. </p>
-					                <h4 class="ads-details-title">Camera and video</h4>
-					                <ul class="list-circle">
-					                    <li>5 MP Front-facing camera (720p)</li>
-					                    <li>Front flash LED</li>
-					                    <li>Wide view front camera</li>
-					                    <li>8 MP camera with auto focus</li>
-					                    <li>HD video recording 1080 p</li>
-					                    <li>Sony Exmor RS for mobile image sensor</li>
-					                    <li>HDR (High Dynamic Range) for photos and videos</li>
-					                    <li>Pulsed LED flash</li>
-					                    <li>16x digital zoom</li>
-					                    <li>Superior Auto – automatic scene selection</li>
-					                    <li>Geotagging – add location info to your photos</li>
-					                    <li>Object tracking – lock focus on a specific object</li>
-					                    <li>Red-eye reduction</li>
-					                    <li>Image capture, supported file format: JPEG</li>
-					                    <li>Image playback, supported file formats: BMP, GIF, JPEG, PNG; WebP</li>
-					                    <li>Video capture, supported file formats: 3GPP, MP4</li>
-					                    <li>Video playback, supported file formats: 3GPP, MP4, M4V, AvI, XVID, WEBM</li>
-					                </ul>
-					                <h4 class="ads-details-title">Networks</h4>
-					                <ul>
-					                    <li>GSM GPRS/EDGE (2G)</li>
-					                    <li>UMTS HSPA (3G)</li>
-					                    <li>LTE (4G)</li>
-					                </ul>
+					               <?php echo $data['descript'];?>
 								</div>
 								<div class="col s12 m4">
 									<div class="card grey lighten-4">
 										<div class="card-content">
-											<p><strong>Price: </strong>Rp. 26.500.00</p>
-											<p><strong>Type: </strong>Mobile Phones</p>
-											<p><strong>Location: </strong>New York</p>
-											<p><strong>Condition: </strong>New</p>
-											<p><strong>Brand: </strong>Sony</p>
+											<p><strong>Price: </strong><?php echo $data['price'];?></p>
+											<p><strong>Type: </strong><?php echo $data['super_sub_kategori'];?></p>
+											<p><strong>Location: </strong><?php $lokasi = ""; foreach ($data['lokasi'] as $row) { $lokasi .= $row.", "; }; echo $lokasi; ?></p>
 										</div>
 									</div>
                     				<ul class="list-border">
@@ -118,7 +97,7 @@
   								
 								<div class="col s12">
 									<div class="row divider"></div>
-									<a class="waves-effect waves-light btn grey" href="order"><i class="material-icons left hide-on-med-and-down">email</i>Order</a>
+									<a class="waves-effect waves-light btn grey" href="<?php echo base_url().'order/'.$data['slug'];?>"><i class="material-icons left hide-on-med-and-down">email</i>Order</a>
 								</div>
 							</div>
 						</div>
@@ -131,10 +110,10 @@
 					<div class="ads-details-wrapper card white">
 						<h3 class="ads-details-side-title">Contact Seller</h3>
 						<div class="row divider"></div>
-                		<h3 class="ads-details-title center-align">Richard Aki</h3>
-                		<p class="no-margin center-align">Location: <strong>New York</strong></p>
-                		<p class="no-margin center-align">Joined: <strong>12 Mar 2009</strong></p>
-                		<a class="waves-effect waves-light btn grey" href="order"><i class="material-icons left hide-on-med-and-down">email</i>Order</a>					
+                		<h3 class="ads-details-title center-align"><?php echo $data['user'];?></h3>
+                		<p class="no-margin center-align">Brand: <strong><?php echo $data['brand'];?></strong></p>
+                		<p class="no-margin center-align">Location: <strong><?php echo $data['brand_loc'];?></strong></p>
+                		<a class="waves-effect waves-light btn grey" href="<?php echo base_url().'order/'.$data['slug'];?>"><i class="material-icons left hide-on-med-and-down">email</i>Order</a>					
 					</div>
 					<div class="ads-details-wrapper card white">
 						<h3 class="ads-details-side-title">Safety Tips for Buyers</h3>

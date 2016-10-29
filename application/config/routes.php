@@ -51,7 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'home';
 $route['signup-patner'] = 'signup_patner';
-$route['ads-detail'] = 'ads_detail';
+$route['ads'] = 'ads_detail';
+$route['order/(:any)'] = 'order/show/$1';
+$route['ads/(:any)'] = 'ads_detail/read/$1';
 $route['term'] = 'syarat';
 $route['about-us'] = 'tentang_kami';
 $route['kategori-detail'] = 'kategori_detail';

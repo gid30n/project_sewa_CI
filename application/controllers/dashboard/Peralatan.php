@@ -73,6 +73,7 @@ class Peralatan extends CI_Controller {
 					"ranting" => 0,
 					"price" => $harga,
 					"date_publish" => date('Y-m-d H:i:s'),
+					"slug" => url_title($title, "dash", TRUE),
 					"id_user" => $ses_admin['id_user'],
 					"id_kategori" => $kategori,
 					"id_sub_kategori" => $sub_kategori,
@@ -135,7 +136,7 @@ class Peralatan extends CI_Controller {
                 	//Insert file information into the database
 					$insert = $this->peralatan_model->post_gallerys($uploadData);
 					$this->session->set_userdata('msg_peralatan', array('msg' => 'Success !.', 'status' => true));
-					// redirect('peralatan','refresh');
+					redirect('peralatan','refresh');
 				}else{
 					// Fail upload
 					$this->peralatan_model->delete_ads($id_ads);

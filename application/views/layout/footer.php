@@ -25,7 +25,7 @@
 					<a href="#!" class="grey-text waves-effect ">Kontak US</a><br>
 				</div>
 				<div class="col m3 s12">
-					<a href="#!"><img src="assets/img/logo/logo2.png" class="responsive-img" alt=""></a>					
+					<a href="#!"><img src="<?php echo base_url();?>assets/img/logo/logo2.png" class="responsive-img" alt=""></a>					
 					<button class="btn btn-large teal waves-effect">SUBSCRIBE</button>
 				</div>
 			</div>

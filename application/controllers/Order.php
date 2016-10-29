@@ -9,10 +9,16 @@ class Order extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('profile_model');
+		$this->load->model('ads_model');
 	}
 
 	public function index()
 	{
+		redirect('/','refresh');
+	}
+
+	public function show($slug){
+		$slug = $this->security->xss_clean($slug);
 		if($this->session->userdata('user')){
 			$ses_admin = $this->session->userdata('user');
 			$user = null;
@@ -20,11 +26,16 @@ class Order extends CI_Controller {
 				$ses_user = $this->session->userdata('user');			
 				$user = $this->profile_model->get_user($ses_user['id_user']);																
 			}
-			$data = array(
-			'title' => "Sewania - Sewa Peralatan Pesta Online",
-			'content' => "front/order", 
-			'user' => $user
-			);
+			if(!empty($slug)){
+				$data = array(
+					'title' => "Sewania - Sewa Peralatan Pesta Online",
+					'content' => "front/order", 
+					'user' => $user,
+					'data' => $this->ads_model->get_ads_by_slug($slug)
+					);
+			}else{
+				redirect('/','refresh');
+			}
 			$this->load->view('layout/wrapper', $data);
 		}else{
 			redirect('login','refresh');
