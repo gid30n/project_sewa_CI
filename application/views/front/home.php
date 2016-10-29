@@ -125,7 +125,7 @@
                 
 							    </div>
 							    <div class="card-content">
-							      <span class="card-title activator grey-text text-darken-4" data-bind="text: title"><i class="material-icons right">more_vert</i></span>
+							      <span class="card-title activator grey-text text-darken-4 truncate" data-bind="text: title" style="word-wrap: break-word"><i class="material-icons right">more_vert</i></span>
 							      <br>
 							      <i class="tiny material-icons">room</i><span data-bind="text: lokasi">Denpasar</span>
 							      <div class="divider"></div>

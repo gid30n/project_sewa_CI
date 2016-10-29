@@ -90,7 +90,7 @@
 						<li class="tab col m6 s12"><a href="#perlengkapan" class="teal-text onta">Perlengkapan Pesta</a></li>					
 					</ul>
 				</div>
-				<div id="p_event" class="col s12">
+				<div id="paket" class="col s12">
 					<h4 class="teal-text center-align"><b>Kategori</b></h4>
 					<div class="box white">
 						<ul class="collection">
@@ -182,7 +182,7 @@
 							     	'<img class="activator" src="'+'<?php echo base_url("images/?w=150&h=150&src="); ?>'+gallery[0].src+'">'+
 							    '</div>'+
 							    '<div class="card-content">'+
-							    	'<span class="card-title activator grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">more_vert</i></span>'+
+							    	'<span class="card-title activator grey-text text-darken-4">'+data[i].title+'</span>'+
 							    	'<br>'+							      	
 							    	'<i class="tiny material-icons">room</i>'+data[i].lokasi+
 							      	'<div class="divider"></div>'+
@@ -211,7 +211,7 @@
 							     	'<img class="activator" src="'+'<?php echo base_url("images/?w=150&h=150&src="); ?>'+gallery[0].src+'">'+
 							    '</div>'+
 							    '<div class="card-content">'+
-							    	'<span class="card-title activator grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">more_vert</i></span>'+
+							    	'<span class="card-title activator grey-text text-darken-4">'+data[i].title+'</span>'+
 							    	'<br>'+							      	
 							    	'<i class="tiny material-icons">room</i>'+data[i].lokasi+
 							      	'<div class="divider"></div>'+
