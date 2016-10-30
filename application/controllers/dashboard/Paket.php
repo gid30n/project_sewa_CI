@@ -11,6 +11,7 @@ class Paket extends CI_Controller {
 		parent::__construct();
 		$this->load->model('profile_model');
 		$this->load->model('paket_model');
+		$this->load->model('konsultasi_model');
 	}
 	public function index()
 	{
@@ -23,6 +24,7 @@ class Paket extends CI_Controller {
 					'user' => $this->profile_model->get_user($ses_admin['id_user']),
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
 					'data' => $this->paket_model->get_all_ads(),
+					'jum_konsultasi' => $this->konsultasi_model->count_konsultasi(),
 					);
 				$this->load->view('layout_backend/wrapper', $data);
 			// }else{
@@ -42,6 +44,7 @@ class Paket extends CI_Controller {
 					'content' => "backend/paket-new", 
 					'user' => $this->profile_model->get_user($ses_admin['id_user']),
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
+					'jum_konsultasi' => $this->konsultasi_model->count_konsultasi(),
 					);
 				$this->load->view('layout_backend/wrapper', $data);
 			// }else{

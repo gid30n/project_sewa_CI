@@ -2,9 +2,8 @@ var xx=0;
 var index = -1;
 function getProducts() {
  
-  var images = new Array();
-   
-  $.getJSON( url_sewa+"/Api/all_ads/", null, function( ajaxData ) {
+  var images = new Array();    
+  $.getJSON("/api/all-ads/", null, function( ajaxData ) {
 																				  
  
  

@@ -104,10 +104,10 @@
 						<a href="<?php echo base_url(); ?>kategori#perlengkapan"><img src="<?php echo base_url();?>assets/img/kategori/2.jpg" class="responsive-img hoverable" alt=""></a>
 					</div>
 					<div class="col s6">
-						<a href="kategori"><img src="<?php echo base_url();?>assets/img/kategori/3.jpg" class="responsive-img hoverable" alt=""></a>
+						<a href="<?php echo base_url("konsultasi"); ?>"><img src="<?php echo base_url();?>assets/img/kategori/3.jpg" class="responsive-img hoverable" alt=""></a>
 					</div>
 					<div class="col s6">
-						<a href="kategori"><img src="<?php echo base_url();?>assets/img/kategori/4.jpg" class="responsive-img hoverable" alt=""></a>
+						<a href="<?php echo base_url("konsultasi"); ?>"><img src="<?php echo base_url();?>assets/img/kategori/4.jpg" class="responsive-img hoverable" alt=""></a>
 					</div>
 				</div>
 				<!-- end kategori -->

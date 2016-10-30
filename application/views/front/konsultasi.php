@@ -12,8 +12,8 @@
 							<?php echo form_open("konsultasi/post"); ?>
 								<div class="row">
 									<div class="row">										
-								        <div class="input-field col m6 s12">
-								          <input placeholder="Nama Anda" name="name" id="name" type="text" class="validate">								          
+								        <div class="input-field col m6 s12">								        								        
+								          <input placeholder="Nama Anda" name="name" id="name" type="text" class="validate">								        
 								        </div>
 								        <div class="input-field col m6 s12">
 								          <input id="tlp" type="text" name="tlp" class="validate" placeholder="No Telphone Yang Dapat Kami Hubungi ">								          

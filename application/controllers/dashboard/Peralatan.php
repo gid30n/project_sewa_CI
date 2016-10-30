@@ -11,6 +11,7 @@ class Peralatan extends CI_Controller {
 		parent::__construct();
 		$this->load->model('profile_model');
 		$this->load->model("peralatan_model");
+		$this->load->model('konsultasi_model');
 	}
 	public function index()
 	{
@@ -24,6 +25,7 @@ class Peralatan extends CI_Controller {
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
 					'data' => $this->peralatan_model->get_all_ads(),
 					'msg_peralatan' => $this->session->userdata('msg_peralatan'),
+					'jum_konsultasi' => $this->konsultasi_model->count_konsultasi(),
 					);
 				$this->load->view('layout_backend/wrapper', $data);
 			// }else{
@@ -43,6 +45,7 @@ class Peralatan extends CI_Controller {
 					'content' => "backend/peralatan-new", 
 					'user' => $this->profile_model->get_user($ses_admin['id_user']),
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
+					'jum_konsultasi' => $this->konsultasi_model->count_konsultasi(),
 					);
 				$this->load->view('layout_backend/wrapper', $data);
 			// }else{

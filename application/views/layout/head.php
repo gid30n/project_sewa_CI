@@ -27,8 +27,7 @@
     <script>
     <!-- bxSlider CSS file -->
 	<link href="<?php echo base_url();?>assets/css/bxslider.css" rel="stylesheet" />
-    <script>
-	var url_sewa="<?php echo base_url(); ?>";
+    <script>	
 	    paceOptions = {
 	      elements: true
 	    };
