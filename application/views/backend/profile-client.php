@@ -172,7 +172,7 @@
 							<div class="collapsible-header"><b>Pengaturan</b></div>
 							<div class="collapsible-body">
 								<br><br>
-								<form action="" method="POST">
+								<?php echo form_open_multipart('dashboard-cus/change-avatar'); ?>
 									<div class="row">
 										<div class="input-field">
 											<div class="col m3 s12">
@@ -183,7 +183,7 @@
 												<div class="file-field input-field">
 											      <div class="btn">
 											        <span>File</span>
-											        <input type="file">
+											        <input type="file" name="avatar">
 											      </div>
 											      <div class="file-path-wrapper">
 											        <input class="file-path validate" type="text">
@@ -197,7 +197,7 @@
 								      <label for="subscribe">Subscribe</label>
 								      <button class="btn waves-effect right">Update</button>
 								    </p>
-								</form>
+								<?php echo form_close();?>
 							</div>
 						</li>
 					</ul>	

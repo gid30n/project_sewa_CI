@@ -110,7 +110,7 @@
 					<h4 class="teal-text center-align"><b>Kategori</b></h4>
 					<div class="box white">
 						<ul class="collection">
-							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/tent.png" width="24px" class="left"> Tenda</a>
+							<a href="<?php echo base_url('kategori/tenda');?>" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/tent.png" width="24px" class="left"> Tenda</a>
 							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/chair.png" width="24px" class="left">Kursi</a>
 							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/table.png" width="24px" class="left">Meja</a>
 							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/sound.png" width="24px" class="left">Sound System</a>

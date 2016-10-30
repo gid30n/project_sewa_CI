@@ -82,7 +82,8 @@ class Signup extends CI_Controller {
 											"email" => $acc_email,
 											"password" => $this->encryption->encrypt($acc_pass),
 											"joined" => date('Y-m-d H:i:s'),
-											"admin" => 1
+											"admin" => 0,
+											"avatar" => "assets/img/ava/1.png"
 											);
 										$this->signup_model->insert_user($data_user);
 

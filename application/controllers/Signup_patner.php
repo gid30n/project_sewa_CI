@@ -92,7 +92,8 @@ class Signup_patner extends CI_Controller {
 																"email" => $acc_email,
 																"password" => $this->encryption->encrypt($acc_pass),
 																"joined" => date('Y-m-d H:i:s'),
-																"admin" => 1
+																"admin" => 1,
+																"avatar" => "assets/img/ava/1.png"
 																);
 															$user_id = $this->signup_model->insert_user($data_user);
 

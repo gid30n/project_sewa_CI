@@ -46,4 +46,56 @@ class Profile extends CI_Controller {
 		}
 	}
 
+	public function change_avatar_client(){
+		if($this->session->userdata('user')){
+			$ses_user = $this->session->userdata('user');
+			$tmpFile = $_FILES['avatar']['tmp_name'];
+			if(!empty($tmpFile)){
+						// vuln on list but i dont no to exploit that!!!!!!! <--- vuln mas brow
+				list($width, $height) = getimagesize($tmpFile);
+    					// check if the file is really an image
+				if ($width == null && $height == null) {
+					redirect('/dashboard-cus','refresh');
+					return;
+				}
+						// resize if necessary
+						// belum bener jadi di matiin dlw
+				if ($width >= 215 || $height >= 215) {
+					$config['image_library']  = 'gd2';
+					$config['source_image'] = $tmpFile;
+					$config['width']         = 215;
+					$config['height']       = 215;
+
+					$this->image_lib->initialize($config);
+
+					$this->image_lib->resize();
+				}
+				$_FILES['avatar']['tmp_name'] = $tmpFile;
+
+				$uploadPath = 'uploads/avatar/';
+				$config['upload_path'] = $uploadPath;
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_width'] = '215';
+				$config['max_height'] = '215';
+
+				$this->load->library('upload', $config);
+				$this->upload->initialize($config);
+				if($this->upload->do_upload('avatar')){
+					$fileData = $this->upload->data();
+					$dataUp['avatar'] = $uploadPath.$fileData['file_name'];
+				}
+
+				if(!empty($dataUp)){
+					$this->profile_model->change_photo_profile($ses_user['id_user'], $dataUp);
+					redirect('dashboard-cus','refresh');
+				}else{
+					redirect('dashboard-cus','refresh');
+				}
+			}
+			redirect('dashboard-cus','refresh');
+		}else{
+			redirect('login','refresh');
+		}
+	}
+
 }

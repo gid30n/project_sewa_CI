@@ -5,7 +5,7 @@
 				<a href="<?php echo base_url();?>" class="brand-logo teal-text"><i class="material-icons">store</i><?php if(!empty($business_profile['brand_name'])){ echo ucfirst($business_profile['brand_name']); }else{ echo "Sewania"; };?></a>
 				<ul class="right hide-on-med-and-down">
 					<li class="teal-text"><?php echo $user['first_name']." ".$user['last_name'];?></li>
-					<li><img src="<?php echo base_url();?>assets/img/ava/1.png" class="responsive-img circle brand-logo" alt="" width="50px"></li>					
+					<li><img src="<?php $data_user = $this->profile_model->get_user($this->session->userdata('user')['id_user']); echo base_url().$data_user['avatar']; ?>" class="responsive-img circle brand-logo" alt="" width="50px"></li>					
 				</ul>							
 			</div>
 			

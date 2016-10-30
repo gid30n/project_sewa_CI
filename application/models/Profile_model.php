@@ -18,5 +18,9 @@ class Profile_model extends CI_Model {
                 $query = $this->db->get_where("tb_business_profile", array("id_user" => $id_user));
                 return $query->row_array();
         }
+
+        public function change_photo_profile($id_user, $avatar){
+                $this->db->update("tb_users", $avatar, array("id_user" => $id_user));
+        }
 }
 ?>
