@@ -23,13 +23,7 @@ class Login extends CI_Controller {
 				'msg_login' => $this->session->userdata('msg_login'),
 				'user' => $user
 				);
-			$this->load->view('layout/wrapper', $data);
-
-			if($user['admin'] !== "-9"){
-				redirect('dashboard-cus','refresh');
-			}else{
-				redirect('dashboard','refresh');
-			}																
+			$this->load->view('layout/wrapper', $data);															
 		}else{
 			$data = array(
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
