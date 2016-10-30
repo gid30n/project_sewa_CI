@@ -32,7 +32,7 @@
 							<div class="row">
 								<div class="input-field">
 									<div class="col m3 s12">
-										<label for="acc_email" class="teal-text">Username <sup class="red-text">*</sup></label>									
+										<label for="acc_user" class="teal-text">Username <sup class="red-text">*</sup></label>									
 									</div>
 									<div class="col m9 s12">
 										<br class="hide-on-med-and-up">
