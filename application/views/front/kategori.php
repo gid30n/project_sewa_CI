@@ -86,11 +86,11 @@
 				 </div>
 				<div class="col s12">
 					<ul class="tabs">
-						<li class="tab col m6 s12"><a class="active teal-text onta" href="#p_event">Paket Event</a></li>
+						<li class="tab col m6 s12"><a class="active teal-text onta" href="#paket">Paket Event</a></li>
 						<li class="tab col m6 s12"><a href="#perlengkapan" class="teal-text onta">Perlengkapan Pesta</a></li>					
 					</ul>
 				</div>
-				<div id="p_event" class="col s12">
+				<div id="paket" class="col s12">
 					<h4 class="teal-text center-align"><b>Kategori</b></h4>
 					<div class="box white">
 						<ul class="collection">
@@ -110,7 +110,33 @@
 					<h4 class="teal-text center-align"><b>Kategori</b></h4>
 					<div class="box white">
 						<ul class="collection">
+<<<<<<< HEAD
 							<a href="<?php echo base_url('kategori/tenda');?>" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/tent.png" width="24px" class="left"> Tenda</a>
+=======
+<<<<<<< HEAD
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/tent.png" width="24px" class="left"> Tenda</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/chair.png" width="24px" class="left">Kursi</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/table.png" width="24px" class="left">Meja</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/sound.png" width="24px" class="left">Sound System</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/stage.png" width="24px" class="left">Podium/Mimbar</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/light.png" width="24px" class="left">Lighting</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/ac.png" width="24px" class="left">Standing AC</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/music.png" width="24px" class="left">Alat Music</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/riging.png" width="24px" class="left">Riging</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/eat.png" width="24px" class="left">Alat Catering</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/genset.png" width="24px" class="left">Genset</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/floring.png" width="24px" class="left">Flooring</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/tv.png" width="24px" class="left">TV/Screen</a>
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/car.png" width="24px" class="left">Kendaraan Pengantin</a>		
+                            <a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/decor.png" width="24px" class="left">Dekorasi</a>	
+                            <a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/card.png" width="24px" class="left">Kartu Undangan</a>	
+                            <a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/hiburan.png" width="24px" class="left">Penghibur</a>	
+                            <a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/tempat.png" width="24px" class="left">Tempat Acara</a>	
+                            <a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/makeup.png" width="24px" class="left">Make Up</a>	
+                            <a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url(); ?>assets/img/Icon/dres.png" width="24px" class="left">Pakaian Pengantin</a>												
+=======
+							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/tent.png" width="24px" class="left"> Tenda</a>
+>>>>>>> ae134bcb24e74a8d55df449842e71d3d06341409
 							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/chair.png" width="24px" class="left">Kursi</a>
 							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/table.png" width="24px" class="left">Meja</a>
 							<a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/sound.png" width="24px" class="left">Sound System</a>
@@ -130,6 +156,7 @@
                             <a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/tempat.png" width="24px" class="left">Tempat Acara</a>	
                             <a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/makeup.png" width="24px" class="left">Make Up</a>	
                             <a href="detail_kategori" class="collection-item col m6 s12 wave-effect"><img src="<?php echo base_url();?>assets/img/Icon/dres.png" width="24px" class="left">Pakaian Pengantin</a>												
+>>>>>>> e8ba4f9819e0de89c5711d873a846168239da7c1
 						</ul>
 					</div>
 					<h4 class="teal-text center-align"><b>TOP PERLENGKAPAN</b></h4>
@@ -182,7 +209,7 @@
 							     	'<img class="activator" src="'+'<?php echo base_url("images/?w=150&h=150&src="); ?>'+gallery[0].src+'">'+
 							    '</div>'+
 							    '<div class="card-content">'+
-							    	'<span class="card-title activator grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">more_vert</i></span>'+
+							    	'<span class="card-title activator grey-text text-darken-4">'+data[i].title+'</span>'+
 							    	'<br>'+							      	
 							    	'<i class="tiny material-icons">room</i>'+data[i].lokasi+
 							      	'<div class="divider"></div>'+
@@ -211,7 +238,7 @@
 							     	'<img class="activator" src="'+'<?php echo base_url("images/?w=150&h=150&src="); ?>'+gallery[0].src+'">'+
 							    '</div>'+
 							    '<div class="card-content">'+
-							    	'<span class="card-title activator grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">more_vert</i></span>'+
+							    	'<span class="card-title activator grey-text text-darken-4">'+data[i].title+'</span>'+
 							    	'<br>'+							      	
 							    	'<i class="tiny material-icons">room</i>'+data[i].lokasi+
 							      	'<div class="divider"></div>'+

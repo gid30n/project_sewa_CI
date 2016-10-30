@@ -41,7 +41,7 @@
 										      <img class="activator" src="<?php echo base_url().'images/?w=150&h=150&src='.$row['gallery'][0]['src'];?>">
 										    </div>
 										    <div class="card-content">
-										      <span class="card-title activator grey-text text-darken-4 truncate"><?php echo $row['title'];?><i class="material-icons right">more_vert</i></span>
+										      <span class="card-title activator grey-text text-darken-4 truncate" style="word-wrap: break-word"><?php echo $row['title'];?></span>
 										      <!-- <p><span class="teal-text">Rating :<i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>	</p> Ratingnya the next iyah abang-abang -->
 										      <p></p>
 										      <i class="tiny material-icons">room</i><?php $lokasi = ""; foreach($row['lokasi'] as $rw){ $lokasi .=$rw.", ";}; echo $lokasi;?>
@@ -95,7 +95,7 @@
 	?>
 <script type="text/javascript">
  $(document).ready(function() {
- var total_record = 3;
+ var total_record = 4;
  var total_groups;
  var last_id;
  $.getJSON( "<?php echo base_url(	); ?>api/ads/kategori-count/1", function( data ) {
@@ -123,7 +123,7 @@
 										      '<img class="activator" src="'+'<?php echo base_url("images/?w=150&h=150&src="); ?>'+gallery[0].src+'">'+
 										    '</div>'+
 										    '<div class="card-content">'+
-										      '<span class="card-title activator grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">more_vert</i></span>'+
+										      '<span class="card-title activator grey-text text-darken-4 truncate" style="word-wrap: break-word">'+data[i].title+'</span>'+
 										      '<br><i class="tiny material-icons">room</i>'+data[i].lokasi+
 										      '<div class="divider"></div>'+
 										      '<span><b>'+data[i].price+'</b></span>'+																      
@@ -142,7 +142,7 @@
 											    '</div>'+													    											
 										    '</div>'+
 										    '<div class="card-reveal">'+
-										      '<span class="card-title grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">close</i></span>'+
+										      '<span class="card-title grey-text text-darken-4 truncate">'+data[i].title+'<i class="material-icons right">close</i></span>'+
 										      '<p style="word-wrap: break-word"><?php echo mb_strimwidth("'+data[i].descript+'",0,250, "...."); ?></p>'+
 										      '<p><a href="<?php echo base_url();?>ads/'+data[i].slug+'" class="btn waves-effect">Detail</a></p>'+
 										    '</div>'+
@@ -151,7 +151,7 @@
 	                 			);	
                  			}                  
                  		}                 		  		                	                     
-                     	total_record++;
+                     	total_record += 3;
                     }                
             	});     
         }

@@ -34,10 +34,7 @@ class Kategori extends CI_Controller {
 		if ($this->session->userdata('user')) {
 			$ses_user = $this->session->userdata('user');			
 			$user = $this->profile_model->get_user($ses_user['id_user']);																
-		}else{
-			redirect('/','refresh');
 		}
-
 		if (!empty($slug)) {
 			$data_ads = $this->kategori_model->get_ads_by_slug_sub($slug);
 			if(!empty($data_ads)){

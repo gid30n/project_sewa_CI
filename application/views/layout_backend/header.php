@@ -128,6 +128,14 @@
 													</div>
 												</li>											
 											</ul>
+											<ul class="collapsible z-depth-0" data-collapsible="accordion">
+												<li>
+													<div class="collapsible-header"><i class="material-icons">record_voice_over</i>Konsultasi</div>
+													<div class="collapsible-body">														
+														<a href="<?php echo base_url("peralatan"); ?>" class="collection-item waves-effect"><i class="material-icons left">record_voice_over</i>Konsultasi Acara<span class="new badge" id='count_konsultasi'></span></a>
+													</div>
+												</li>											
+											</ul>
 										<?php
 											}
 										?>																				

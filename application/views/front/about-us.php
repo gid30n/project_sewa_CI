@@ -56,23 +56,23 @@ Anda Bisa Mencari Perlengkapa Pesta seperti Tenda, Kursi, Bahan Dekorasi, Sound 
 	    			<div class="col s12 bening">
 	    				<h4 class="white-text center-align"><b>Tim Kami</b></h4>
 	    				<div class="col s12 center">
-	    					<img src="assets/img/ava/1.png" alt="" class="responsive-img circle" width="100">
+	    					<img src="<?php echo base_url(); ?>assets/img/ava/sunnu.jpg" alt="" class="responsive-img circle" width="100">
 	    					<h5 class="center-align white-text"><b>Sunnu - Marketing</b></h5>	    					
 	    				</div>
 	    				<div class="col s3 center">
-	    					<img src="assets/img/ava/gusmang.png" alt="" class="responsive-img circle" width="100">
+	    					<img src="<?php echo base_url(); ?>assets/img/ava/gusmang.png" alt="" class="responsive-img circle" width="100">
 	    					<h5 class="center-align white-text"><b>Gus mang <br> Programmer</b></h5>	    					
 	    				</div>
 	    				<div class="col s3 center">
-	    					<img src="assets/img/ava/pasek.jpg" alt="" class="responsive-img circle" width="100">
+	    					<img src="<?php echo base_url(); ?>assets/img/ava/pasek.jpg" alt="" class="responsive-img circle" width="100">
 	    					<h5 class="center-align white-text"><b>Pasek <br> Programmer</b></h5>	    					
 	    				</div>
 	    				<div class="col s3 center">
-	    					<img src="assets/img/ava/1.png" alt="" class="responsive-img circle" width="100">
+	    					<img src="<?php echo base_url(); ?>assets/img/ava/surya.jpg" alt="" class="responsive-img circle" width="100">
 	    					<h5 class="center-align white-text"><b>Surya <br> Programmer</b></h5>	    					
 	    				</div>
 	    				<div class="col s3 center">
-	    					<img src="assets/img/ava/dewa.jpg" alt="" class="responsive-img circle" width="100">
+	    					<img src="<?php echo base_url(); ?>assets/img/ava/dewa.jpg" alt="" class="responsive-img circle" width="100">
 	    					<h5 class="center-align white-text"><b>Mahendra <br>  Programmer</b></h5>	    					
 	    				</div>
 	    			</div>
