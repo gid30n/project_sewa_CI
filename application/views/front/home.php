@@ -77,7 +77,7 @@
 					<br><br>
 					<div class="col s4 center hoverable">
 						<img src="<?php echo base_url();?>assets/img/cara/pilih.png" class="responsive-img" width="250px" alt="">
-						<h5><b>Pilihxxx</b></h5>
+						<h5><b>Pilih</b></h5>
 						<p>Pilih peralatan pesta yang anda butuhkan</p>
 					</div>	
 					<div class="col s4 center hoverable">

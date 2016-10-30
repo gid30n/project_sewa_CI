@@ -24,7 +24,14 @@
 								echo base_url('dashboard-cus');
 							}else{
 								echo base_url('dashboard');
-							}?>" class="grey-text waves-effect"><img src="<?php $data_user = $this->profile_model->get_user($this->session->userdata('user')['id_user']); echo base_url().$data_user['avatar']; ?>" class="left responsive-img circle" width="60px"> <?php echo $user['first_name']." ".$user['last_name']; ?></a></li>						
+							}?>" class="grey-text waves-effect"><img src="
+								<?php $data_user = $this->profile_model->get_user($this->session->userdata('user')['id_user']);
+									if ($data_user['admin'] !== '-9'){
+										echo base_url().$data_user['avatar']; 
+									}else{
+										echo base_url('assets/img/ava/1.png');
+									}									
+								?>" class="left responsive-img circle" width="60px"> <?php echo $user['first_name']." ".$user['last_name']; ?></a></li>						
 					</ul>	
 				<?php } ?>
 			</div>
@@ -44,7 +51,14 @@
 						<li><a href="<?php echo base_url();?>signup-patner" class="white-text waves-effect">Jadi Partner Kami</a></li>
 				<?php }else{ ?>
 					<li><a href="<?php echo base_url(); ?>cart" class="white-text waves-effect"><i class="material-icons left white-text">shopping_cart</i>Order<span class="badge teal circle white-text">99</span></a></li>							
-					<li><a href="<?php echo base_url();?>dashboard" class="white-text waves-effect"><img src="<?php $data_user = $this->profile_model->get_user($this->session->userdata('user')['id_user']); echo base_url().$data_user['avatar']; ?>" class="left responsive-img circle" width="50px" style="margin-right:10px"><?php echo $user['first_name']." ".$user['last_name']; ?></a></li>						
+					<li><a href="<?php echo base_url();?>dashboard" class="white-text waves-effect"><img src="
+						<?php $data_user = $this->profile_model->get_user($this->session->userdata('user')['id_user']); 
+							if ($data_user['admin'] !== '-9'){
+								echo base_url().$data_user['avatar']; 
+							}else{
+								echo base_url('assets/img/ava/1.png');
+							}		
+						?>" class="left responsive-img circle" width="50px" style="margin-right:10px"><?php echo $user['first_name']." ".$user['last_name']; ?></a></li>						
 				<?php } ?>
 			</ul>
 		</div>

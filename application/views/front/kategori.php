@@ -198,7 +198,7 @@
 		</div>
 	</div>
 <script>
-	$.getJSON('<?php echo site_url() ?>api/ads/kategori/1/0/6', function(data){
+	$.getJSON('<?php echo site_url() ?>api/all/ads/kategori/1/0/6', function(data){
 		if (data != "") {
 			for (var i = 0; i < data.length; i++) {
 				gallery = data[i].gallery;
@@ -227,7 +227,7 @@
 		}
 	});
 
-	$.getJSON('<?php echo site_url() ?>api/ads/kategori/2/0/6', function(data){
+	$.getJSON('<?php echo site_url() ?>api/all/ads/kategori/2/0/6', function(data){
 		if (data != "") {
 			for (var i = 0; i < data.length; i++) {
 				gallery = data[i].gallery;

@@ -33,7 +33,8 @@
 									</div>
 								</div>
 								<div class="row" id="konten-peralatan">
-									<?php foreach ($data as $row) { ?>
+									<?php foreach ($data as $row) { var_dump($row);?>
+
 									<div class="col s12 m4">
 										<div class="card hoverable">
 											<input type="hidden" class="id-ads" value="<?php echo $row["id_ads"];?>">
@@ -93,12 +94,16 @@
 		$this->session->unset_userdata('msg_peralatan');
 	}
 	?>
+<?php
+	$level = $user['admin']; 
+	if($level === '-9'){
+?>
 <script type="text/javascript">
  $(document).ready(function() {
- var total_record = 4;
+ var total_record = 0;
  var total_groups;
  var last_id;
- $.getJSON( "<?php echo base_url(	); ?>api/ads/kategori-count/1", function( data ) {
+ $.getJSON( "<?php echo base_url(	); ?>api/all/ads/kategori-count/1", function( data ) {
  	total_groups = data.count;
  	last_id = data.last_id;
  });
@@ -107,7 +112,7 @@
         if(total_record < total_groups){
            	loading = true; 
            	$('.loader_image').show(); 
-           	$.getJSON('<?php echo site_url() ?>api/ads/kategori/1/'+total_record+"/3",
+           	$.getJSON('<?php echo site_url() ?>api/all/ads/kategori/1/'+total_record+"/3",
              	function(data){ 
                  	if (data != "") {                 		
                  		for (var i = 0; i < data.length; i++) { 
@@ -159,3 +164,4 @@
  });
  });
  </script>
+ <?php } ?>
