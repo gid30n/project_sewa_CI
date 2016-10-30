@@ -81,5 +81,6 @@ $route['api/user/ads/kategori/(:num)/(:num)/(:num)'] = 'api/ads_kategori_client/
 $route['api/all/ads/kategori-count/(:num)'] = 'api/ads_kategori_count/$1';
 $route['api/user/ads/kategori-count/(:num)'] = 'api/ads_kategori_count_client/$1';
 $route['api/ads/sub-kategori/(:any)/(:num)/(:num)'] = 'api/ads_sub_kategori/$1/$2/$3';
+$route['api/cart/([a-z0-9]+)'] = 'api/get_cart/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
