@@ -373,6 +373,23 @@ class CartSewania {
 		return count($this->_cart_contents);
 	}
 
+		// --------------------------------------------------------------------
+
+	/**
+	 * Get cart item
+	 *
+	 * Returns the details of a specific item in the cart
+	 *
+	 * @param	string	$row_id
+	 * @return	array
+	 */
+	public function get_item($row_id)
+	{
+		return (! isset($this->_cart_contents[$row_id]))
+			? FALSE
+			: $this->_cart_contents[$row_id];
+	}
+
 	// --------------------------------------------------------------------
 
 	/**

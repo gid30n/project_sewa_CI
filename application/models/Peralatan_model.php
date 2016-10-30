@@ -11,7 +11,12 @@ class Peralatan_model extends CI_Model {
         public function get_all_ads(){
                 $result = array();
                 $id_user = $this->session->userdata('user')['id_user'];
-                $ads = $this->db->get_where('tb_ads', array("id_user" => $id_user, "id_kategori" => 1), 3, 0);
+                if($this->session->userdata("user")['admin'] !== "-9"){
+                        $ads = $this->db->get_where('tb_ads', array("id_user" => $id_user, "id_kategori" => 1), 3, 0);
+                }else{
+                        $ads = $this->db->get_where('tb_ads', array("id_kategori" => 1), 3, 0);
+                }
+                
                 $res_ads = $ads->result_array();
                 foreach ($res_ads as $row_ads) {
                         // fect gallerys
