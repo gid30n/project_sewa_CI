@@ -23,7 +23,8 @@ class Carts extends CI_Controller {
 		$data = array(
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
 			'content' => "front/cart", 
-			'user' => $user,			
+			'user' => $user,
+			'msg_carts' => $this->session->userdata("msg_carts")		
 			);
 					
 		$this->load->view('layout/wrapper', $data);
@@ -62,6 +63,34 @@ class Carts extends CI_Controller {
 			);
 		$this->cartsewania->update($data);
 		redirect('carts','refresh');
+	}
+
+	public function checkout(){
+		// chek user session
+		$user = null;
+		if ($this->session->userdata('user')) {
+			$ses_user = $this->session->userdata('user');			
+			$user = $this->profile_model->get_user($ses_user['id_user']);																
+		}else{
+			redirect('login','refresh');
+		}
+
+		// process checkout
+		$data_order = $this->cartsewania->contents();
+		if (isset($data_order)) {
+			$res = $this->carts_model->checkout($data_order, $user['id_user']);
+			if(isset($res)){
+				$this->cartsewania->destroy();
+				$this->session->set_userdata('msg_carts', array('msg' => 'Success !.', 'status' => true));
+				redirect('/carts','refresh');
+			}else{
+				// redirect gagal
+				$this->session->set_userdata('msg_carts', array('msg' => 'Gagal !.', 'status' => false));
+				redirect('/carts','refresh');
+			}
+		}else{
+			redirect('/','refresh');
+		}
 	}
 
 }

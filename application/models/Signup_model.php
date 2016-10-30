@@ -21,10 +21,10 @@ class Signup_model extends CI_Model {
                 $uname = $this->db->get_where('tb_users', array('username' => $data));
                 $name = $uname->row();
                 if(isset($name->username)){
-                        if($name->username !== $data){
-                                return true;
-                        }else{
+                        if($name->username === $data){
                                 return false;
+                        }else{
+                                return true;
                         }
                 }else{
                         return true;
@@ -34,11 +34,11 @@ class Signup_model extends CI_Model {
         public function cek_email($data){
                 $email = $this->db->get_where('tb_users', array('email' => $data));
                 $mail = $email->row();
-                if(isset($emil)){
-                         if($mail->email !== $data){
-                                return true;
-                        }else{
+                if(isset($mail)){
+                        if($mail->email === $data){
                                 return false;
+                        }else{
+                                return true;
                         }
                 }else{
                         return true;

@@ -7,7 +7,7 @@ class Carts_model extends CI_Model {
                 // Call the CI_Model constructor
 		parent::__construct();
 	}
-	 public function get_ads($id_ads){
+	public function get_ads($id_ads){
                 $result = array();
                 $ads = $this->db->get_where('tb_ads', array("id_ads" => $id_ads));
                 $res_ads = $ads->result_array();
@@ -67,5 +67,23 @@ class Carts_model extends CI_Model {
                         array_push($result, $row_ads);
                 }
                 return $result[0];
+        }
+
+        public function checkout($data, $id_user){
+                $list_id = array();
+                $i = 0;
+                foreach ($data as $row) {
+                        $row['id_user'] = $id_user;
+                        $row['id_ads'] = $row['id'];
+                        unset($row['id']);
+                        unset($row['rowid']);
+                        $row['date_order'] = date('Y-m-d H:i:s');
+                        $row['status_order'] = "new";
+                        $this->db->insert('tb_order', $row);
+                        $id = $this->db->insert_id();
+                        $last_id[$i] = $id;    
+                }
+                var_dump($last_id);
+                return $list_id;
         }
 }

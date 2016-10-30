@@ -402,7 +402,7 @@ class CartSewania {
 	public function destroy()
 	{
 		$this->_cart_contents = array('cart_total' => 0, 'total_items' => 0);
-		$this->CI->session->unset_userdata('carts_sewania');
+		$this->CI->session->unset_userdata(array('carts_sewania'));
 	}
 
 }

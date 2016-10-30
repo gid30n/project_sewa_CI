@@ -1,4 +1,3 @@
-
 <main>
 		<div class="container">
 			<div class="row">
@@ -31,7 +30,7 @@
 							<h4>Total : <b><?php echo convert_rp($total_price);?></b></h4>														
 						</div>
 						<div class="card-action">
-							<a href="#!" class="btn btn-large"><i class="material-icons left">done</i>Checkout</a>
+							<a href="<?php echo base_url('carts/checkout');?>" class="btn btn-large"><i class="material-icons left">done</i>Checkout</a>
 						</div>
 					</div>
 				</div>
@@ -149,4 +148,25 @@
 			$("#des_acara").val(data.des_acara);
 		});
 	}
+	<?php 
+		if (isset($msg_carts)) {
+			if($msg_carts['status']){
+				?>swal({   title: "Terima Kasih ",   text: "<img src='assets/img/ico/order.png' class='responsive-img' />", html: true });
+				function redirect(){
+					window.location = "<?php echo base_url();?>"
+				}
+				setTimeout(redirect, 2000);
+		<?php
+			}else{
+				?>
+				swal({   title: "Order Gagal ",   text: "<img src='assets/img/ico/order.png' class='responsive-img' />", html: true });
+				function redirect(){
+					window.location = "<?php echo base_url();?>"
+				}
+				setTimeout(redirect, 2000);
+				<?php
+			}
+		};
+		$this->session->unset_userdata('msg_carts');
+		?>
 </script>
