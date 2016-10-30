@@ -116,7 +116,7 @@ class Login extends CI_Controller {
 
 	public function logout(){
 		$this->login_model->update_logout($this->session->userdata('user')['id_user']);
-		$this->session->unset_userdata('user');
+		$this->session->sess_destroy();
 		redirect('login','refresh');
 	}
 }

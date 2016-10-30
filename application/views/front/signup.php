@@ -98,7 +98,6 @@
 	
 	<?php 
 		if(isset($msg_signup)){
-			var_dump($msg_signup);
 			if(isset($msg_signup['status'])){
 				if($msg_signup['status']){
 					?><script>sweetAlert('Congratulations!', '<?php echo $msg_signup["msg"];?>', 'success');</script><?php
