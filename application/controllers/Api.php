@@ -89,4 +89,14 @@ class Api extends CI_Controller {
 		->set_content_type('application/json')
 		->set_output(json_encode($result));	
 	}
+
+	public function get_cart($rowid = ''){
+		$cart = $this->cartsewania->get_item($rowid);
+		$id = $cart['id'];
+		unset($cart['id']);
+		$cart['id'] = $this->encryption->encrypt($id);
+		$this->output
+		->set_content_type('application/json')
+		->set_output(json_encode($cart));	
+	}
 }

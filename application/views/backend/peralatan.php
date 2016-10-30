@@ -33,8 +33,7 @@
 									</div>
 								</div>
 								<div class="row" id="konten-peralatan">
-									<?php foreach ($data as $row) { var_dump($row);?>
-
+									<?php foreach ($data as $row) { ?>
 									<div class="col s12 m4">
 										<div class="card hoverable">
 											<input type="hidden" class="id-ads" value="<?php echo $row["id_ads"];?>">
