@@ -20,20 +20,28 @@ class Signup_model extends CI_Model {
         public function cek_username($data){
                 $uname = $this->db->get_where('tb_users', array('username' => $data));
                 $name = $uname->row();
-                if($name->username !== $data){
-                        return true;
+                if(isset($name->username)){
+                        if($name->username !== $data){
+                                return true;
+                        }else{
+                                return false;
+                        }
                 }else{
-                        return false;
+                        return true;
                 }
         }
 
         public function cek_email($data){
                 $email = $this->db->get_where('tb_users', array('email' => $data));
                 $mail = $email->row();
-                if($mail->email !== $data){
-                        return true;
+                if(isset($emil)){
+                         if($mail->email !== $data){
+                                return true;
+                        }else{
+                                return false;
+                        }
                 }else{
-                        return false;
+                        return true;
                 }
         }       
 }

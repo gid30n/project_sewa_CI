@@ -134,5 +134,19 @@
 <script type="text/javascript">
 	function setForm(id) {
 		document.getElementById("edit_form").action += id;
+		$.getJSON("<?php echo base_url('api/cart/');?>"+id, function(data){
+			console.log(data);
+			$("#telp").val(data.telp);
+			$("#tamu").val(data.tamu);
+			$('#tamu').material_select();
+			$("#alamat").val(data.alamat);
+			var $start_acara = $('#start_acara').pickadate();
+			var start_acara = $start_acara.pickadate('picker');
+			start_acara.set('select', data.start_acara);
+			var $end_acara = $('#end_acara').pickadate();
+			var end_acara = $end_acara.pickadate('picker');
+			end_acara.set('select', data.end_acara, { format: 'yyyy-mm-dd' });
+			$("#des_acara").val(data.des_acara);
+		});
 	}
 </script>
