@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 30 Okt 2016 pada 02.13
+-- Generation Time: 30 Okt 2016 pada 09.18
 -- Versi Server: 10.1.17-MariaDB
 -- PHP Version: 5.6.26
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_ads` (
   `id_ads` int(11) NOT NULL,
-  `title` text NOT NULL,
+  `title` varchar(20) NOT NULL,
   `descript` tinytext NOT NULL,
   `ranting` int(11) NOT NULL,
   `price` int(11) NOT NULL,
@@ -47,7 +47,8 @@ CREATE TABLE `tb_ads` (
 --
 
 INSERT INTO `tb_ads` (`id_ads`, `title`, `descript`, `ranting`, `price`, `date_publish`, `slug`, `id_user`, `id_kategori`, `id_sub_kategori`, `id_super_sub_kategori`, `id_province`, `id_region`) VALUES
-(50, 'Tes Gak Perdana', '<p>anu ane gak kena uik bang</p>', 0, 12000000, '2016-10-29 03:28:51', 'tes-gak-perdana', 16, 1, 1, 1, 2, '12');
+(50, 'Tes Gak Perdana', '<p>anu ane gak kena uik bang</p>', 0, 12000000, '2016-10-29 03:28:51', 'tes-gak-perdana', 16, 1, 1, 1, 2, '12'),
+(51, 'ONta Arab', '<p>onta pingin cepet bang</p>', 0, 1200000, '2016-10-30 03:37:38', 'onta-arab', 16, 1, 1, 2, 2, '12');
 
 -- --------------------------------------------------------
 
@@ -105,7 +106,8 @@ CREATE TABLE `tb_gallerys` (
 --
 
 INSERT INTO `tb_gallerys` (`id_gallery`, `title`, `alt`, `src`, `id_ads`) VALUES
-(54, 'Tes Gak Perdana', 'Tes Gak Perdana', 'uploads/gallery/Screenshot_from_2016-10-26_16-36-4639.png', 50);
+(54, 'Tes Gak Perdana', 'Tes Gak Perdana', 'uploads/gallery/Screenshot_from_2016-10-26_16-36-4639.png', 50),
+(55, 'ONta Arab', 'ONta Arab', 'uploads/gallery/Screenshot_from_2016-10-26_14-58-544.png', 51);
 
 -- --------------------------------------------------------
 
@@ -125,6 +127,24 @@ CREATE TABLE `tb_kategori` (
 INSERT INTO `tb_kategori` (`id_kategori`, `name`) VALUES
 (1, 'Peralatan Pesta'),
 (2, 'Paket Pesta');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_konsult`
+--
+
+CREATE TABLE `tb_konsult` (
+  `id_konsult` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `no_telp` varchar(20) NOT NULL,
+  `acara` text NOT NULL,
+  `tamu` text NOT NULL,
+  `descript` text NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL,
+  `id_region` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -253,7 +273,9 @@ CREATE TABLE `tb_users` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `password` text NOT NULL,
+  `avatar` text NOT NULL,
   `joined` datetime NOT NULL,
   `last_login` datetime NOT NULL,
   `ip_last` varchar(50) NOT NULL,
@@ -264,10 +286,10 @@ CREATE TABLE `tb_users` (
 -- Dumping data untuk tabel `tb_users`
 --
 
-INSERT INTO `tb_users` (`id_user`, `first_name`, `last_name`, `email`, `password`, `joined`, `last_login`, `ip_last`, `admin`) VALUES
-(2, 'Komang', 'Suryadana', 'suryadana80@gmail.com', '8821716db3b4a9e6708a792da936df9357bb9b455e1600354c54d2009e6deb4275fc1224d33989452af7214bfbccde878174fc56d562ecfcc6f68c08a4fbef4e8pzcODt1xyBIbsuUc9phVgFc4C5RaUTMD1SXm+EdLhA=', '0000-00-00 00:00:00', '2016-10-25 22:35:52', '127.0.0.1', -9),
-(15, 'Mikel', 'Eric', 'pendekar_langit@protonmail.com', 'dd314dadda935008202a1d1028e923bc0d0bbd209f7731c81288a63004802f6b141177df154f46e49e898d602a315bd54e13046c92ce34ced5398003546e50e9Q5h49Ebb2KNtmxotuzWfhJZQzx2jhu6FKyGJByrUawM=', '2016-10-01 18:53:19', '2016-10-27 01:39:07', '127.0.0.1', 0),
-(16, 'Pendekar', 'Langit', 'pendekar@protonmail.com', 'eb5f53336f92956e74c8c6d2cb5019001cf8dbd06f8f37f0b6f575e1c04c48710ca3ac41962e9598201a931de3d10aa30fad2149e701926a15de5962148ddc7cz/LpgcuVBLMAmJ5i190Lg4J4+iTCvIcj+N4LC8pTHXQ=', '2016-10-24 02:48:25', '2016-10-25 22:56:03', '127.0.0.1', 1);
+INSERT INTO `tb_users` (`id_user`, `first_name`, `last_name`, `email`, `username`, `password`, `avatar`, `joined`, `last_login`, `ip_last`, `admin`) VALUES
+(2, 'Komang', 'Suryadana', 'suryadana80@gmail.com', '', '8821716db3b4a9e6708a792da936df9357bb9b455e1600354c54d2009e6deb4275fc1224d33989452af7214bfbccde878174fc56d562ecfcc6f68c08a4fbef4e8pzcODt1xyBIbsuUc9phVgFc4C5RaUTMD1SXm+EdLhA=', '', '0000-00-00 00:00:00', '2016-10-25 22:35:52', '127.0.0.1', -9),
+(15, 'Mikel', 'Eric', 'pendekar_langit@protonmail.com', '', 'dd314dadda935008202a1d1028e923bc0d0bbd209f7731c81288a63004802f6b141177df154f46e49e898d602a315bd54e13046c92ce34ced5398003546e50e9Q5h49Ebb2KNtmxotuzWfhJZQzx2jhu6FKyGJByrUawM=', '', '2016-10-01 18:53:19', '2016-10-27 01:39:07', '127.0.0.1', 0),
+(16, 'Pendekar', 'Langit', 'pendekar@protonmail.com', '', 'eb5f53336f92956e74c8c6d2cb5019001cf8dbd06f8f37f0b6f575e1c04c48710ca3ac41962e9598201a931de3d10aa30fad2149e701926a15de5962148ddc7cz/LpgcuVBLMAmJ5i190Lg4J4+iTCvIcj+N4LC8pTHXQ=', 'uploads/avatar/bdi_under_presaur1.jpg', '2016-10-24 02:48:25', '2016-10-25 22:56:03', '127.0.0.1', 1);
 
 --
 -- Indexes for dumped tables
@@ -302,6 +324,12 @@ ALTER TABLE `tb_gallerys`
 --
 ALTER TABLE `tb_kategori`
   ADD PRIMARY KEY (`id_kategori`);
+
+--
+-- Indexes for table `tb_konsult`
+--
+ALTER TABLE `tb_konsult`
+  ADD PRIMARY KEY (`id_konsult`);
 
 --
 -- Indexes for table `tb_order`
@@ -347,7 +375,7 @@ ALTER TABLE `tb_users`
 -- AUTO_INCREMENT for table `tb_ads`
 --
 ALTER TABLE `tb_ads`
-  MODIFY `id_ads` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_ads` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 --
 -- AUTO_INCREMENT for table `tb_banner`
 --
@@ -362,12 +390,17 @@ ALTER TABLE `tb_business_profile`
 -- AUTO_INCREMENT for table `tb_gallerys`
 --
 ALTER TABLE `tb_gallerys`
-  MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT for table `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tb_konsult`
+--
+ALTER TABLE `tb_konsult`
+  MODIFY `id_konsult` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tb_order`
 --
