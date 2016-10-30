@@ -25,11 +25,11 @@ class Login extends CI_Controller {
 				);
 			$this->load->view('layout/wrapper', $data);
 
-			// if($user['admin'] === "0"){
-			// 	redirect('dashboard-cus','refresh');
-			// }else{
-			// 	redirect('dashboard','refresh');
-			// }																
+			if($user['admin'] !== "-9"){
+				redirect('dashboard-cus','refresh');
+			}else{
+				redirect('dashboard','refresh');
+			}																
 		}else{
 			$data = array(
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
