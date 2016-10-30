@@ -16,5 +16,25 @@ class Signup_model extends CI_Model {
         {
                 return $this->db->insert('tb_business_profile', $data) ? $this->db->insert_id() : false;
         }
+
+        public function cek_username($data){
+                $uname = $this->db->get_where('tb_users', array('username' => $data));
+                $name = $uname->row();
+                if($name->username !== $data){
+                        return true;
+                }else{
+                        return false;
+                }
+        }
+
+        public function cek_email($data){
+                $email = $this->db->get_where('tb_users', array('email' => $data));
+                $mail = $email->row();
+                if($mail->email !== $data){
+                        return true;
+                }else{
+                        return false;
+                }
+        }       
 }
 ?>

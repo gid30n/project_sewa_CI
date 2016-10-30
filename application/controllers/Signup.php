@@ -52,6 +52,7 @@ class Signup extends CI_Controller {
 		$last_name = $this->input->post("last_name", TRUE);
 		$acc_email = $this->input->post("acc_email", TRUE);
 		$acc_pass = $this->input->post("acc_pass", TRUE);
+		$acc_user = $this->input->post("acc_user", TRUE);
 		$re_acc_pass = $this->input->post("re-acc_pass", TRUE);
 		$term = $this->input->post("term", TRUE);
 
@@ -60,111 +61,158 @@ class Signup extends CI_Controller {
 		$captcha_response = $this->recaptcha->verifyResponse($captcha_answer);
 
 		if ($captcha_response['success']) {
+
 			if($term === "on"){
 
-				if(!empty($first_name)){
+				if (!empty($first_name)) {
+					
+					if (!empty($last_name)) {
+						
+						if(!empty($acc_user)){
+							if ($this->signup_model->cek_username($acc_user)) {
+								
+								if(!empty($acc_email)){
+									if ($this->signup_model->cek_email($acc_email)) {
+										
+										if (!empty($acc_pass)) {
+											if(!empty($re_acc_pass)){
+												if ($acc_pass === $re_acc_pass) {
+														$data_user = array(
+														"first_name" => $first_name,
+														"last_name" => $last_name,
+														"email" => $acc_email,
+														"username" => $acc_user,
+														"password" => $this->encryption->encrypt($acc_pass),
+														"joined" => date('Y-m-d H:i:s'),
+														"admin" => 0,
+														"avatar" => "assets/img/ava/1.png"
+														);
+													$this->signup_model->insert_user($data_user);
 
-					if(!empty($last_name)){
-
-						if(!empty($acc_email)){
-
-							if(check_valid_email_with_mailgun($acc_email)){
-
-								if(!empty($acc_pass)){
-
-									if($acc_pass === $re_acc_pass){
-
-										/*Melakukan insert ke database dengan memanggil model*/
-										/*Insert data user*/
-										$data_user = array(
+													$this->session->set_userdata('msg_signup', array('msg' => 'Login Success.', 'status' => true));
+													redirect('login','refresh');
+												}else{
+													$data = array(
+													"first_name" => $first_name,
+													"last_name" => $last_name,							
+													"acc_user" => $acc_user,
+													"acc_email" => $acc_email,
+													"acc_pass" => $acc_pass,
+													"re_acc_pass" => $re_acc_pass
+													);
+												$this->session->set_userdata('data_signup', $data);
+												$this->session->set_userdata('msg_signup', array('msg' => 'Password tidak cocok !.', 'status'=> false));
+												redirect('signup','refresh');	
+												}
+											}else{
+												$data = array(
+												"first_name" => $first_name,
+												"last_name" => $last_name,							
+												"acc_user" => $acc_user,
+												"acc_email" => $acc_email,
+												"acc_pass" => $acc_pass,
+												"re_acc_pass" => $re_acc_pass
+												);
+											$this->session->set_userdata('data_signup', $data);
+											$this->session->set_userdata('msg_signup', array('msg' => 'Pastikan Anda Mengisi Re-Password !.', 'status'=> false));
+											redirect('signup','refresh');
+											}
+										}else{
+											$data = array(
 											"first_name" => $first_name,
-											"last_name" => $last_name,
-											"email" => $acc_email,
-											"password" => $this->encryption->encrypt($acc_pass),
-											"joined" => date('Y-m-d H:i:s'),
-											"admin" => 0,
-											"avatar" => "assets/img/ava/1.png"
+											"last_name" => $last_name,							
+											"acc_user" => $acc_user,
+											"acc_email" => $acc_email,
+											"acc_pass" => $acc_pass,
 											);
-										$this->signup_model->insert_user($data_user);
-
-										$this->session->set_userdata('msg_signup', array('msg' => 'Login Success.', 'status' => true));
-										redirect('login','refresh');
-
+										$this->session->set_userdata('data_signup', $data);
+										$this->session->set_userdata('msg_signup', array('msg' => 'Pastikan Anda Mengisi Password !.', 'status'=> false));
+										redirect('signup','refresh');
+										}
 									}else{
 										$data = array(
 											"first_name" => $first_name,
-											"last_name" => $last_name,
+											"last_name" => $last_name,							
+											"acc_user" => $acc_user,
 											"acc_email" => $acc_email,
 											);
 										$this->session->set_userdata('data_signup', $data);
-										$this->session->set_userdata('msg_signup', array('msg' => 'Konfirmasi Password salah!.', 'status' => false));
+										$this->session->set_userdata('msg_signup', array('msg' => 'Email Telah Tersedia !.', 'status'=> false));
 										redirect('signup','refresh');
 									}
-
 								}else{
 									$data = array(
-										"first_name" => $first_name,
-										"last_name" => $last_name,
-										"acc_email" => $acc_email,
-										);
-									$this->session->set_userdata('data_signup', $data);
-									$this->session->set_userdata('msg_signup', array('msg' => 'Silakan isi password!.', 'status' => false));
-									redirect('signup','refresh');
-								}
-							}else{
-								$data = array(
 									"first_name" => $first_name,
-									"last_name" => $last_name,
-									"acc_pass" => $acc_pass,
-									"re_acc_pass" => $re_acc_pass,
+									"last_name" => $last_name,							
+									"acc_user" => $acc_user,
+									"acc_email" => $acc_email,
 									);
 								$this->session->set_userdata('data_signup', $data);
-								$this->session->set_userdata('msg_signup', array('msg' => 'Silakan menggunakan email yang valid!.', 'status' => false));
+								$this->session->set_userdata('msg_signup', array('msg' => 'Pastikan Anda Mengisi Email !.', 'status'=> false));
 								redirect('signup','refresh');
-							}
+								}
 
-						}else{
-							$data = array(
+							}else{
+								$data = array(
 								"first_name" => $first_name,
-								"last_name" => $last_name,
-								"acc_pass" => $acc_pass,
-								"re_acc_pass" => $re_acc_pass,
+								"last_name" => $last_name,							
+								"acc_user" => $acc_user, 
 								);
 							$this->session->set_userdata('data_signup', $data);
-							$this->session->set_userdata('msg_signup', array('msg' => 'Silakan isi Email!.', 'status' => false));
+							$this->session->set_userdata('msg_signup', array('msg' => 'Username Telah Tersedia !.', 'status'=> false));
 							redirect('signup','refresh');
+							}						
+						}else{
+							$data = array(
+							"first_name" => $first_name,
+							"last_name" => $last_name,							
+							"acc_user" => $acc_user, 
+							);
+						$this->session->set_userdata('data_signup', $data);
+						$this->session->set_userdata('msg_signup', array('msg' => 'Pastikan Anda Mengisi Username !.', 'status'=> false));
+						redirect('signup','refresh');
 						}
 
 					}else{
 						$data = array(
 							"first_name" => $first_name,
-							"acc_email" => $acc_email,
-							"acc_pass" => $acc_pass,
-							"re_acc_pass" => $re_acc_pass,
+							"last_name" => $last_name,							
 							);
 						$this->session->set_userdata('data_signup', $data);
-						$this->session->set_userdata('msg_signup', array('msg' => 'Silakan isi Nama Belakang!.', 'status' => false));
+						$this->session->set_userdata('msg_signup', array('msg' => 'Pastikan Anda Mengisi Nama Belakang !.', 'status'=> false));
 						redirect('signup','refresh');
 					}
 
 				}else{
 					$data = array(
-						"last_name" => $last_name,
-						"acc_email" => $acc_email,
-						"acc_pass" => $acc_pass,
-						"re_acc_pass" => $re_acc_pass,
+						"first_name" => $first_name,
 						);
 					$this->session->set_userdata('data_signup', $data);
-					$this->session->set_userdata('msg_signup', array('msg' => 'Silakan isi Nama Depan!.', 'status' => false));
-					redirect('signup','refresh');
-				}
-			}	
+					$this->session->set_userdata('msg_signup', array('msg' => 'Pastikan Anda Mengisi Nama Depan !.', 'status'=> false));
+					redirect('signup','refresh');					
+				}	
+
+			}else{
+				$data = array(
+				"first_name" => $first_name,
+				"last_name" => $last_name,
+				"acc_email" => $acc_email,
+				"acc_pass" => $acc_pass,
+				"acc_user" => $acc_user, 
+				"re_acc_pass" => $re_acc_pass,
+				);
+			$this->session->set_userdata('data_signup', $data);
+			$this->session->set_userdata('msg_signup', array('msg' => 'Silakan menyetujui peraturan main.', 'status'=> false));
+			redirect('signup','refresh');
+			}
+
 		}else{
 			$data = array(
 				"first_name" => $first_name,
 				"last_name" => $last_name,
 				"acc_email" => $acc_email,
 				"acc_pass" => $acc_pass,
+				"acc_user" => $acc_user, 
 				"re_acc_pass" => $re_acc_pass,
 				);
 			$this->session->set_userdata('data_signup', $data);
