@@ -124,13 +124,13 @@
 							</div>
 							<div class="input-field col s12">
 								<div class="col m3 s12">
-									<label for="kabupaten" class="teal-text">Kabupaten <sup class="red-text">*</sup></label>
+									<label for="kabupaten" class="teal-text">Kabupaten/Kota <sup class="red-text">*</sup></label>
 									<br class="hide-on-med-and-up">
 									<br class="hide-on-med-and-up">
 								</div>
 								<div class="col m9 s12">
 									<select id="kabupaten" name="kabupaten" value="<?php if(isset($data['region'])){ echo $data['region']; }?>">
-								      <option value="" disabled selected>--- Pilih Kabupaten ---</option>
+								      <option value="" disabled selected>--- Pilih Kabupaten/Kota ---</option>
 								    </select>
 								</div>								
 							</div>
@@ -225,7 +225,7 @@
 					.attr("value", "")
 					.attr("disabled", "")
 					.attr("selected", "")
-					.text("--- Pilih Kabupaten ---")
+					.text("--- Pilih Kabupaten/Kota ---")
 					);
 
 				$.each(data, function (i, item) {

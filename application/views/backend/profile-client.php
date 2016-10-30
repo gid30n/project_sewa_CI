@@ -110,10 +110,21 @@
 												</div>
 												<div class="col m9 s12">
 													<br class="hide-on-med-and-up">
-													<input type="text" id="last_name" class="validate" required="" name="last_name" placeholder="Smith" value="<?php echo $user['last_name']; ?>">																	
+													<input type="text" id="last_name" class="validate" required="" name="last_name" placeholder="Smith" value="<?php echo $user['last_name']; ?>">
 												</div>
 											</div>
-										</div>											
+										</div>
+										<div class="row">
+											<div class="input-field">							
+												<div class="col m3 s12">
+													<label for="username" class="teal-text">Username</label>
+												</div>
+												<div class="col m9 s12">
+													<br class="hide-on-med-and-up">
+													<input type="text" id="username" class="validate" required="" name="username" placeholder="Smith" value="<?php echo $user['username']; ?>">
+												</div>
+											</div>
+										</div>
 										<div class="row">
 											<div class="input-field">
 												<div class="col m3 s12">

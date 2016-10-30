@@ -72,5 +72,14 @@ if(isset($msg_login)){
 		}
 	}
 	$this->session->unset_userdata('msg_login');
+}else{
+	$user = $this->session->userdata("user");
+	if (isset($user)) {
+		if($user['admin'] !== "-9"){
+			redirect('dashboard-cus','refresh');
+		}else{
+			redirect('dashboard','refresh');
+		}	
+	}
 }
 ?>

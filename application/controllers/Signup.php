@@ -137,7 +137,7 @@ class Signup extends CI_Controller {
 											"acc_email" => $acc_email,
 											);
 										$this->session->set_userdata('data_signup', $data);
-										$this->session->set_userdata('msg_signup', array('msg' => 'Email Telah Tersedia !.', 'status'=> false));
+										$this->session->set_userdata('msg_signup', array('msg' => 'Email Telah Terdaftar !.', 'status'=> false));
 										redirect('signup','refresh');
 									}
 								}else{
@@ -159,7 +159,7 @@ class Signup extends CI_Controller {
 								"acc_user" => $acc_user, 
 								);
 							$this->session->set_userdata('data_signup', $data);
-							$this->session->set_userdata('msg_signup', array('msg' => 'Username Telah Tersedia !.', 'status'=> false));
+							$this->session->set_userdata('msg_signup', array('msg' => 'Username Telah Terdaftar !.', 'status'=> false));
 							redirect('signup','refresh');
 							}						
 						}else{
