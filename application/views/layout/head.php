@@ -19,6 +19,12 @@
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/knockouts-3.4.js"></script>
     <script src="<?php echo base_url();?>assets/js/pace.js"></script>
     <script src="<?php echo base_url();?>assets/js/swal.js"></script>    
+    	<!-- tinymce js -->
+	<script src="<?php echo base_url();?>assets/js/tinymce/tinymce.dev.js"></script>
+	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/table/plugin.dev.js"></script>
+	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/paste/plugin.dev.js"></script>
+	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/spellchecker/plugin.dev.js"></script>
+    <script>
     <!-- bxSlider CSS file -->
 	<link href="<?php echo base_url();?>assets/css/bxslider.css" rel="stylesheet" />
     <script>

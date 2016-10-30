@@ -104,5 +104,30 @@ $(document).ready(function(){
 		});
 	});	
 </script>
+	<script>		
+		$.getJSON( "<?php echo base_url();?>api/region/1", function( data ) {				
+			var $selectDropdown = 
+			$("#daerah")
+			.empty()
+			.html(' ');
+
+			$selectDropdown.append(
+				$("<option></option>")
+				.attr("value", "")
+				.attr("disabled", "")
+				.attr("selected", "")
+				.text("--- Pilih Daerah Acara ---")
+				);
+
+			$.each(data, function (i, item) {
+				$selectDropdown.append(
+					$("<option></option>")
+					.attr("value",item.id_region)
+					.text(item.name)
+					);
+			});
+			$('select').material_select('update');
+		});		
+	</script>
 </body>
 </html>

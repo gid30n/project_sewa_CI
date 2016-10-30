@@ -49,7 +49,7 @@ class Login extends CI_Controller {
 
 			if(!empty($password)){
 
-				if($this->login_model->check_username($username)){
+				if($this->login_model->check_username($username) || $this->login_model->check_email($username)){
 					$res_login = $this->login_model->check_password($username, $password);
 					if(isset($res_login)){
 						$this->session->set_userdata( 'user', array( 'id_user' => $res_login['id_user'], 'admin' => $res_login['admin']));

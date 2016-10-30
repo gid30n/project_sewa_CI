@@ -11,7 +11,20 @@ class Login_model extends CI_Model {
         public function check_username($username)
         {
 
-                $query = $this->db->get_where("tb_users", array("email" => $username));
+                $query = $this->db->get_where("tb_users", array("username" => $username));
+                $res = $query->row_array();
+                if(!empty($res['id_user'])){
+                        return TRUE;
+                }else{
+                        return FALSE;
+                }
+                
+        }
+
+        public function check_email($email)
+        {
+
+                $query = $this->db->get_where("tb_users", array("email" => $email));
                 $res = $query->row_array();
                 if(!empty($res['id_user'])){
                         return TRUE;
@@ -22,7 +35,8 @@ class Login_model extends CI_Model {
         }
 
         public function check_password($username, $password){
-                $query = $this->db->get_where("tb_users", array("email" => $username));
+                $this->db->or_where(array("username" => $username, "email" => $username));
+                $query = $this->db->get("tb_users");
                 $res = $query->row_array();
                 if(!empty($res['id_user'])){
                         if($this->encryption->decrypt($res['password']) === $password){
