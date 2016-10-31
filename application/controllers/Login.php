@@ -45,19 +45,10 @@ class Login extends CI_Controller {
 
 				if($this->login_model->check_username($username) || $this->login_model->check_email($username)){
 					$res_login = $this->login_model->check_password($username, $password);
-					if(isset($res_login)){
+					if($res_login){
 						$this->session->set_userdata( 'user', array( 'id_user' => $res_login['id_user'], 'admin' => $res_login['admin']));
 						$this->session->set_userdata('msg_login', array('msg' => 'Success !.', 'status' => true, 'admin' => $res_login['admin']));
 						redirect('login','refresh');
-						// if($res_login['admin'] === -9){
-						// 	$this->session->set_userdata( 'user', array( 'id_user' => $res_login['id_user'], 'admin' => $res_login['admin']));
-						// 	$this->session->set_userdata('msg_login', array('msg' => 'Success !.', 'status' => true, 'admin' => $res_login['admin']));
-						// 	redirect('login','refresh');
-						// }else{
-						// 	$this->session->set_userdata( 'user', array( 'id_user' => $res_login['id_user'], 'admin' => $res_login['admin']));
-						// 	$this->session->set_userdata('msg_login', array('msg' => 'Success !.', 'status' => true, 'admin' => $res_login['admin']));
-						// 	redirect('login','refresh');
-						// }
 					}else{
 						$this->session->set_userdata('msg_login', array('msg' => 'Password anda salah !.', 'status' => false));
 						redirect('login','refresh');
