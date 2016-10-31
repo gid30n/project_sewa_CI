@@ -102,8 +102,19 @@
 											<li>
 												<div class="collapsible-header active"><i class="material-icons">shopping_cart</i>Pesan</div>
 												<div class="collapsible-body">
-													<a href="<?php echo base_url(); ?>" class="collection-item waves-effect"><i class="material-icons left">shopping_cart</i>Pesan<span class="new badge teal white-text">99</span></a>
-													<a href="<?php echo base_url(); ?>" class="collection-item waves-effect"><i class="material-icons left">history</i>History Pesanan<span class="new badge teal white-text" data-badge-caption="recent">1337</span></a>
+													<?php 
+														if ($level['admin'] === "0" || $level['admin'] === "1") {
+													?>
+														<a href="<?php echo base_url('dashboard-cus/order'); ?>" class="collection-item waves-effect"><i class="material-icons left">shopping_cart</i>Pesan<span class="new badge teal white-text">99</span></a>
+														<a href="<?php echo base_url('dashboard-cus/order/history'); ?>" class="collection-item waves-effect"><i class="material-icons left">history</i>History Pesanan<span class="new badge teal white-text" data-badge-caption="recent">1337</span></a>
+													<?php 
+														}else{ 
+													?>
+														<a href="<?php echo base_url('dashboard/order'); ?>" class="collection-item waves-effect"><i class="material-icons left">shopping_cart</i>Pesan<span class="new badge teal white-text">99</span></a>
+														<a href="<?php echo base_url('dashboard/order/history'); ?>" class="collection-item waves-effect"><i class="material-icons left">history</i>History Pesanan<span class="new badge teal white-text" data-badge-caption="recent">1337</span></a>
+													<?php
+														}
+													?>
 												</div>
 											</li>											
 										</ul>

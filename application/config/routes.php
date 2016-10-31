@@ -50,8 +50,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'home';
-$route['signup-patner'] = 'signup_patner';
-$route['signup-patner/validation'] = 'signup_patner/validation';
+// $route['signup-patner'] = 'signup_patner';
+// $route['signup-patner/validation'] = 'signup_patner/validation';
 $route['ads'] = 'ads_detail';
 $route['order/add'] = 'order/add';
 $route['order/(:any)'] = 'order/show/$1';
@@ -70,6 +70,7 @@ $route['forgot-pass'] = 'login/forgot_pass';
 $route['process-forgot'] = 'login/process_forgot';
 $route['dashboard'] = 'dashboard/profile';
 $route['dashboard-cus'] = 'dashboard/profile/client';
+$route['dashboard-cus/order'] = 'dashboard/order/client';
 $route['dashboard-cus/change-avatar'] = 'dashboard/profile/change_avatar_client';
 $route['paket/new-ads'] = 'dashboard/paket/new_ads';
 $route['peralatan/new-ads'] = 'dashboard/peralatan/new_ads';
@@ -86,4 +87,4 @@ $route['api/user/ads/kategori-count/(:num)'] = 'api/ads_kategori_count_client/$1
 $route['api/ads/sub-kategori/(:any)/(:num)/(:num)'] = 'api/ads_sub_kategori/$1/$2/$3';
 $route['api/cart/([a-z0-9]+)'] = 'api/get_cart/$1';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['translate_uri_dashes'] = TRUE;
