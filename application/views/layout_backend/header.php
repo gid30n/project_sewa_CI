@@ -144,7 +144,8 @@
 												<li>
 													<div class="collapsible-header"><i class="material-icons">record_voice_over</i>Konsultasi</div>
 													<div class="collapsible-body">														
-														<a href="<?php echo base_url("peralatan"); ?>" class="collection-item waves-effect"><i class="material-icons left">record_voice_over</i>Konsultasi Acara<span class="new badge" id='count_konsultasi'><?php echo $jum_konsultasi; ?></span></a>
+														<a href="<?php echo base_url("dashboard/konsultasi"); ?>" class="collection-item waves-effect"><i class="material-icons left">record_voice_over</i>Konsultasi Acara<span class="new badge" id='count_konsultasi'><?php echo $jum_new_konsultasi; ?></span></a>
+														<a href="<?php echo base_url("dashboard/konsultasi/history"); ?>" class="collection-item waves-effect"><i class="material-icons left">history</i>Konsultasi Acara<span class="new badge" id='count_konsultasi'><?php echo $jum_history_konsultasi; ?></span></a>
 													</div>
 												</li>											
 											</ul>

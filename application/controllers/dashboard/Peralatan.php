@@ -25,7 +25,8 @@ class Peralatan extends CI_Controller {
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
 					'data' => $this->peralatan_model->get_all_ads(),
 					'msg_peralatan' => $this->session->userdata('msg_peralatan'),
-					'jum_konsultasi' => $this->konsultasi_model->count_konsultasi(),
+					'jum_new_konsultasi' => $this->konsultasi_model->count_new_konsultasi(),
+					'jum_history_konsultasi' => $this->konsultasi_model->history_count_konsultasi(),
 					);
 				$this->load->view('layout_backend/wrapper', $data);
 			// }else{

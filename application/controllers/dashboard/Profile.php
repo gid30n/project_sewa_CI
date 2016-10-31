@@ -22,7 +22,8 @@ class Profile extends CI_Controller {
 					'content' => "backend/profile", 
 					'user' => $this->profile_model->get_user($ses_admin['id_user']),
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
-					'jum_konsultasi' => $this->konsultasi_model->count_konsultasi(),
+					'jum_new_konsultasi' => $this->konsultasi_model->count_new_konsultasi(),
+					'jum_history_konsultasi' => $this->konsultasi_model->history_count_konsultasi(),
 					);
 				$this->load->view('layout_backend/wrapper', $data);
 			}else{

@@ -62,7 +62,8 @@ class Konsultasi extends CI_Controller {
 											"descript" => $des_acara,
 											'start' => $tgl_acara,
 											'tgl_konsultasi' => date('Y-m-d H:i:s'),
-											'id_region' => $daerah
+											'id_region' => $daerah,
+											'status' => 0
 										);
 										$this->konsultasi_model->insert_konsultasi($data);
 										$this->session->set_userdata('msg_konsultasi', array('msg' => 'Permintaan Anda Sudah Terkirim, Tunggu Beberapa Saat Pihak Kami Akan Segera Mengubungi Anda', 'status' => true));

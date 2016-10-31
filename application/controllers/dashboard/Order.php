@@ -18,9 +18,9 @@ class Order extends CI_Controller {
 		if($this->session->userdata('user')){
 			$ses_admin = $this->session->userdata('user');
 			$data = array(
-			'title' => "Sewania - Sewa Peralatan Pesta Online",
-			'content' => "backend/order",
-			'user' => $this->profile_model->get_user($ses_admin['id_user']) 
+				'title' => "Sewania - Sewa Peralatan Pesta Online",
+				'content' => "backend/order",
+				'user' => $this->profile_model->get_user($ses_admin['id_user']) 
 			);
 			$this->load->view('layout_backend/wrapper', $data);
 		}else{
@@ -32,9 +32,9 @@ class Order extends CI_Controller {
 		if($this->session->userdata('user')){
 			$ses_admin = $this->session->userdata('user');
 			$data = array(
-			'title' => "Sewania - Sewa Peralatan Pesta Online",
-			'content' => "backend/order",
-			'user' => $this->profile_model->get_user($ses_admin['id_user']) 
+				'title' => "Sewania - Sewa Peralatan Pesta Online",
+				'content' => "backend/order",
+				'user' => $this->profile_model->get_user($ses_admin['id_user']) 
 			);
 			$this->load->view('layout_backend/wrapper', $data);
 		}else{
