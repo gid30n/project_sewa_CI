@@ -99,7 +99,7 @@
 ?>
 <script type="text/javascript">
  $(document).ready(function() {
- var total_record = 0;
+ var total_record = 4;
  var total_groups;
  var last_id;
  $.getJSON( "<?php echo base_url(	); ?>api/all/ads/kategori-count/1", function( data ) {
