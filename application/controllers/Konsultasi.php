@@ -21,7 +21,7 @@ class Konsultasi extends CI_Controller {
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
 			'content' => "front/konsultasi", 
 			'user' => $user,
-			'data' => $this->session->userdata('msg_konsultasi'),
+			'data' => $this->session->userdata('data_konsultasi'),
 			'msg_konsultasi' => $this->session->userdata('msg_konsultasi')			
 			);
 					

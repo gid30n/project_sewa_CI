@@ -20,7 +20,8 @@ class Profile extends CI_Controller {
 				$data = array(
 					'title' => "Dashboard Sewania",
 					'content' => "backend/profile", 
-					'user' => $this->profile_model->get_user($ses_admin['id_user']),
+					'user' => $this->profile_model->get_user($ses_admin['id_user']),					
+					'msg_kategori' => $this->session->userdata('msg_kategori'),
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
 					'jum_new_konsultasi' => $this->konsultasi_model->count_new_konsultasi(),
 					'jum_history_konsultasi' => $this->konsultasi_model->history_count_konsultasi(),

@@ -166,7 +166,7 @@
 											}else{
 												echo '<a href="#nama_subs" class="collection-item modal-trigger waves-effect"><i class="material-icons left">add</i>Add Sub Category</a>';
 												echo '<a href="#nama_super_subs" class="collection-item modal-trigger waves-effect"><i class="material-icons left">add</i>Add Super Sub Category</a>';
-												echo '<a href="list_category" class="collection-item modal-trigger waves-effect"><i class="material-icons left">view_list</i>List All Category</a>';	
+												echo '<a href="list_category" class="collection-item waves-effect"><i class="material-icons left">view_list</i>List All Category</a>';	
 											}											
 										?>										
 									</ul>

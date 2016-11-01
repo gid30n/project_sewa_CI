@@ -85,4 +85,20 @@ class Kategori_model extends CI_Model {
 		}
 		return $result;
 	}
+
+	public function cek_add_sub($data){	
+		// $this->db->select('name');	
+		$this->db->where('name', $data);
+		$this->db->from('tb_sub_kategori');
+		$kat = $this->db->get()->row();
+		if ($kat === null) {
+			return true;
+		}else{
+			return false;
+		}  
+	}
+
+	public function add_sub_kategori($data){
+		return $this->db->insert('tb_sub_kategori', $data) ? $this->db->insert_id() : false;
+	}
 }

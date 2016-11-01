@@ -28,7 +28,7 @@
 	<div id="nama_subs" class="modal">
 		<div class="modal-content">
 			<h4>Add Sub Category</h4>
-			<form action="">
+			<?php echo form_open('dashboard/kategori/add/sub'); ?>
 				<div class="row">
 					<div class="input-field">
 						<div class="col m3 s12">
@@ -61,7 +61,7 @@
 		<div class="modal-footer">
 			<button class="btn teal waves-effect" type="submit">Submit</button>			
 		</div>
-		</form>
+		<?php echo form_close(); ?>
 	</div>
 
 	<!-- Modal Structure -->
@@ -106,6 +106,20 @@
 <script src="<?php echo base_url();?>assets/js/materialize.js"></script>
 <script src="<?php echo base_url();?>assets/js/materialize-tag.js"></script>
 <script src="<?php echo base_url();?>assets/js/typeahead.js"></script>
+
+<?php 
+	if(isset($msg_kategori)){			
+		if(isset($msg_kategori['status'])){
+			if($msg_kategori['status']){
+				?><script>sweetAlert('Congratulations!', '<?php echo $msg_kategori["msg"];?>', 'success');</script><?php
+			}else{
+				?><script>sweetAlert('Congratulations!', '<?php echo $msg_kategori["msg"];?>', 'error');</script><?php
+			}
+		}
+		$this->session->unset_userdata('msg_kategori');		
+	}
+?>
+
 <script>	
 	$(document).ready(function(){
 		$('.modal-trigger').leanModal();
