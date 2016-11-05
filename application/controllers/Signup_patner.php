@@ -54,6 +54,7 @@ class Signup_patner extends CI_Controller {
 		$region = $this->input->post("kabupaten", TRUE);
 		$descript = $this->input->post("des_usaha", TRUE);
 		$term = $this->input->post("term", TRUE);
+		$tlp = $this->input->post("acc_tlp", TRUE);
 
 		// captcha google kang
 		$captcha_answer = $this->input->post('g-recaptcha-response');
@@ -89,33 +90,59 @@ class Signup_patner extends CI_Controller {
 
 																	if(!empty($region)){
 
-																		/*Melakukan insert ke database dengan memanggil model*/
-																		/*Insert data user*/
-																		$data_user = array(
+																		if (!empty($tlp)) {
+																			
+																			/*Melakukan insert ke database dengan memanggil model*/
+																			/*Insert data user*/
+																			$data_user = array(
+																				"first_name" => $first_name,
+																				"last_name" => $last_name,
+																				"username" => $acc_user,
+																				"email" => $acc_email,
+																				"no_telp" => $tlp,
+																				"password" => $this->encryption->encrypt($acc_pass),
+																				"joined" => date('Y-m-d H:i:s'),
+																				"admin" => 1,
+																				"avatar" => "assets/img/ava/1.png"
+																				);
+																			$user_id = $this->signup_model->insert_user($data_user);
+
+																			/*Insert data business*/
+																			$data_business = array(
+																				"brand_name" => $brand_name,
+																				"type_service" => $type_service,
+																				"address" => $address,
+																				"id_province" => $province,
+																				"id_region" => $region,
+																				"description" => $descript,
+																				"id_user" => $user_id,
+																				);
+																			$this->session->set_userdata('uname', $acc_user);
+																			$this->session->set_userdata('password', $acc_pass);
+																			$this->session->set_userdata('brand', $brand_name);
+																			$business_user = $this->signup_model->insert_business($data_business);																			
+																			// $this->session->set_userdata('msg_registrasi', array('msg' => '', 'status' => true));
+																			// redirect('login','refresh');	
+																		}else{
+																			$data = array(
 																			"first_name" => $first_name,
 																			"last_name" => $last_name,
 																			"acc_user" => $acc_user,
-																			"email" => $acc_email,
-																			"password" => $this->encryption->encrypt($acc_pass),
-																			"joined" => date('Y-m-d H:i:s'),
-																			"admin" => 1,
-																			"avatar" => "assets/img/ava/1.png"
-																			);
-																		$user_id = $this->signup_model->insert_user($data_user);
-
-																		/*Insert data business*/
-																		$data_business = array(
+																			"acc_email" => $acc_email,
+																			"acc_pass" => $acc_pass,
+																			"re_acc_pass" => $re_acc_pass,
 																			"brand_name" => $brand_name,
 																			"type_service" => $type_service,
 																			"address" => $address,
-																			"id_province" => $province,
-																			"id_region" => $region,
-																			"description" => $descript,
-																			"id_user" => $user_id,
+																			"province" => $province,
+																			"region" => $region,
+																			"descript" => $descript,
+																			"acc_tlp" => $tlp,
 																			);
-																		$business_user = $this->signup_model->insert_business($data_business);
-																		$this->session->set_userdata('msg_signup_patner', array('msg' => 'Login Success.', 'status' => true));
-																		redirect('login','refresh');
+																		$this->session->set_userdata('data_signup_patner', $data);
+																		$this->session->set_userdata('msg_signup_patner', array('msg' => 'Silakan Mengisi No Telephone!.', 'status' => false));
+																		redirect('signup-patner','refresh');
+																		}																		
 
 																	}else{
 																		$data = array(
@@ -209,8 +236,8 @@ class Signup_patner extends CI_Controller {
 															"descript" => $descript,
 															);
 														$this->session->set_userdata('data_signup_patner', $data);
-														$this->session->set_userdata('msg_signup_patner', array('msg' => 'Silakan isi Nama Brand!.', 'status' => false));
-														redirect('signup-patner','refresh');
+														$this->session->set_userdata('msg_signup_patner', array('msg' => 'Nama Brand Belum Terisi atau Brand Sudah Tersedia!.', 'status' => false));
+														// redirect('signup-patner','refresh');
 													}
 
 												}else{

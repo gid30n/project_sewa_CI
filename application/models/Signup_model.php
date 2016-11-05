@@ -31,6 +31,20 @@ class Signup_model extends CI_Model {
                 }
         }
 
+        public function cek_brand($data){
+                $brand = $this->db->get_where('tb_business_profile', array('brand_name' => $data));
+                $br = $brand->row();
+                if(isset($br->brand_name)){
+                        if($br->brand_name === $data){
+                                return false;
+                        }else{
+                                return true;
+                        }
+                }else{
+                        return true;
+                }
+        }
+
         public function cek_email($data){
                 $email = $this->db->get_where('tb_users', array('email' => $data));
                 $mail = $email->row();

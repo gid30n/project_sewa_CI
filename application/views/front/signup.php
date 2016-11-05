@@ -52,6 +52,20 @@
 								</div>
 							</div>
 							<div class="row">
+								<div class="input-field col s12">
+									<div class="col m3 s12">
+										<label for="acc_tlp" class="teal-text">Telephone <sup class="red-text">*</sup></label>
+										<br class="hide-on-med-and-up">
+										<br class="hide-on-med-and-up">
+									</div>
+									<div class="col m9 s12">
+										<input type="text" id="acc_tlp" class="validate" required="" name="acc_tlp" placeholder="08XXXXXXXXXX" value="<?php if(isset($data['acc_tlp'])){ echo $data['acc_tlp']; } ?>">
+										<br class="hide-on-med-and-up">
+										<br class="hide-on-med-and-up">
+									</div>
+								</div>
+							</div>							
+							<div class="row">
 								<div class="input-field">
 									<div class="col m3 s12">
 										<label for="acc_pass" class="teal-text">Password <sup class="red-text">*</sup></label>									
@@ -102,7 +116,7 @@
 				if($msg_signup['status']){
 					?><script>sweetAlert('Congratulations!', '<?php echo $msg_signup["msg"];?>', 'success');</script><?php
 				}else{
-					?><script>sweetAlert('Congratulations!', '<?php echo $msg_signup["msg"];?>', 'error');</script><?php
+					?><script>sweetAlert('Ups!', '<?php echo $msg_signup["msg"];?>', 'error');</script><?php
 				}
 			}
 			$this->session->unset_userdata('msg_signup');

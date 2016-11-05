@@ -139,6 +139,17 @@
 										<div class="row">
 											<div class="input-field">
 												<div class="col m3 s12">
+													<label for="acc_tlp" class="teal-text">Telephone</label>									
+												</div>
+												<div class="col m9 s12">
+													<br class="hide-on-med-and-up">
+													<input type="text" id="acc_tlp" class="validate" required="" name="acc_tlp" placeholder="08XXXXXXXXXX" value="<?php echo $user['no_telp']; ?>">																		
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="input-field">
+												<div class="col m3 s12">
 													<label for="old_acc_pass" class="teal-text">Old Password <sup class="red-text">*</sup></label>									
 
 												</div>

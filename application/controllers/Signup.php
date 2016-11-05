@@ -55,6 +55,7 @@ class Signup extends CI_Controller {
 		$acc_user = $this->input->post("acc_user", TRUE);
 		$re_acc_pass = $this->input->post("re-acc_pass", TRUE);
 		$term = $this->input->post("term", TRUE);
+		$tlp = $this->input->post("acc_tlp",TRUE);
 
 		// captcha google kang
 		$captcha_answer = $this->input->post('g-recaptcha-response');
@@ -74,23 +75,41 @@ class Signup extends CI_Controller {
 								if(!empty($acc_email)){
 									if ($this->signup_model->cek_email($acc_email)) {
 										
-										if (!empty($acc_pass)) {
+										if (!empty($acc_pass)) {											
 											if(!empty($re_acc_pass)){
 												if ($acc_pass === $re_acc_pass) {
-														$data_user = array(
-														"first_name" => $first_name,
-														"last_name" => $last_name,
-														"email" => $acc_email,
-														"username" => $acc_user,
-														"password" => $this->encryption->encrypt($acc_pass),
-														"joined" => date('Y-m-d H:i:s'),
-														"admin" => 0,
-														"avatar" => "assets/img/ava/1.png"
-														);
-													$this->signup_model->insert_user($data_user);
 
-													$this->session->set_userdata('msg_signup', array('msg' => 'Login Success.', 'status' => true));
-													redirect('login','refresh');
+														if (!empty($tlp)) {
+															$data_user = array(
+																"first_name" => $first_name,
+																"last_name" => $last_name,
+																"email" => $acc_email,
+																"no_telp" => $tlp,
+																"username" => $acc_user,
+																"password" => $this->encryption->encrypt($acc_pass),
+																"joined" => date('Y-m-d H:i:s'),
+																"admin" => 0,
+																"avatar" => "assets/img/ava/1.png"
+																);
+															$this->session->set_userdata('uname', $acc_user);
+															$this->session->set_userdata('password', $acc_pass);
+															$this->signup_model->insert_user($data_user);
+															// $this->session->set_userdata('msg_signup', array('msg' => 'Login Success.', 'status' => true));
+															redirect('login','refresh');
+														}else{
+															$data = array(
+																"first_name" => $first_name,
+																"last_name" => $last_name,							
+																"acc_user" => $acc_user,
+																"acc_email" => $acc_email,
+																"acc_pass" => $acc_pass,
+																"re_acc_pass" => $re_acc_pass,
+																"acc_tlp" => $tlp
+																);
+															$this->session->set_userdata('data_signup', $data);
+															$this->session->set_userdata('msg_signup', array('msg' => 'Telephone masih kosong !.', 'status'=> false));
+															redirect('signup','refresh');	
+														}														
 												}else{
 													$data = array(
 													"first_name" => $first_name,

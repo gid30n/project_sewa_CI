@@ -12,12 +12,22 @@
 							<div class="row">
 								<div class="input-field col s12">
 									<i class="material-icons prefix">account_circle</i>
-									<input id="icon_prefix" type="text" class="validate" name="uname">
+									<?php if (!empty($dt_username)) {
+										echo '<input id="icon_prefix" type="text" class="validate" name="uname" value="'.$dt_username.'">';
+									}else{
+										echo '<input id="icon_prefix" type="text" class="validate" name="uname">';
+									}
+									?>									
 									<label for="icon_prefix">Username</label>
 								</div>
 								<div class="input-field col s12">
 									<i class="material-icons prefix">lock</i>
-									<input id="icon_telephone" type="password" class="validate" name="upass">
+									<?php if (!empty($dt_password)) {
+										echo '<input id="icon_prefix" type="password" class="validate" name="upass" value="'.$dt_password.'">';
+									}else{
+										echo '<input id="icon_prefix" type="text" class="validate" name="upass">';
+									}
+									?>									
 									<label for="icon_telephone">Password</label>
 								</div>
 							</div>
@@ -47,7 +57,20 @@
 		</div>						
 	</div>
 </div>
+
+<?php  
+	if (!empty($dt_username) && !empty($dt_brand)) {
+?>
+	<script>swal({   title: "Terima Kasih ",   text: "<img src='assets/img/ico/msg_vendor.png' class='responsive-img' />", html: true });</script>	
 <?php 
+	}elseif (!empty($dt_username) && empty($dt_brand)) {		
+?>
+	<script>swal({   title: "Terima Kasih ",   text: "<img src='assets/img/ico/msg_user.png' class='responsive-img' />", html: true });</script>
+<?php	
+	}
+?>
+
+<?php
 if(isset($msg_login)){
 	if(isset($msg_login['status'])){
 		if($msg_login['status']){

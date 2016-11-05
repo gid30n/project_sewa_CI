@@ -20,7 +20,7 @@ class Login extends CI_Controller {
 			$data = array(
 				'title' => "Sewania - Sewa Peralatan Pesta Online",
 				'content' => "front/login",
-				'msg_login' => $this->session->userdata('msg_login'),
+				'msg_login' => $this->session->userdata('msg_login'),								
 				'user' => $user
 				);
 			$this->load->view('layout/wrapper', $data);															
@@ -29,6 +29,9 @@ class Login extends CI_Controller {
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
 			'content' => "front/login",
 			'msg_login' => $this->session->userdata('msg_login'),
+			'dt_username' => $this->session->userdata('uname'),
+			'dt_password' => $this->session->userdata('password'),
+			'dt_brand' => $this->session->userdata('brand'),
 			);
 			$this->load->view('layout/wrapper', $data);
 		}
