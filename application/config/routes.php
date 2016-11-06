@@ -90,6 +90,6 @@ $route['api/all/ads/kategori-count/(:num)'] = 'api/ads_kategori_count/$1';
 $route['api/user/ads/kategori-count/(:num)'] = 'api/ads_kategori_count_client/$1';
 $route['api/ads/sub-kategori/(:any)/(:num)/(:num)'] = 'api/ads_sub_kategori/$1/$2/$3';
 $route['api/cart/([a-z0-9]+)'] = 'api/get_cart/$1';
-$route['api/jenis-jasa'] = 'api/jenis_jasa';
+$route['api/range-price'] = 'api/get_range_price';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;

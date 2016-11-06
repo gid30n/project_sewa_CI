@@ -421,5 +421,24 @@ class Api_model extends CI_Model {
                 return $result;
         }
 
+        public function get_range_price(){
+            $result = array();
+            $this->db->select_max('price', 'max_price');
+            $this->db->select_min('price', 'min_price');
+            $query = $this->db->get('tb_ads');
+            return $query->result_array()[0];
+        }
+
+        public function search($keyword, $min_price, $max_price, $sort){
+            if ($sort === "asc") {
+                $this->db->order_by('date_publish', 'asc');
+            }else{
+                $this->db->order_by('date_publish', 'desc');
+            }
+            $this->db->like('title', $keyword);
+            $this->db->where(array('price >=' => $min_price, 'price <=' => $max_price));
+            $query = $this->db->get('tb_ads');
+            return $query->result_array();
+        }
 }
 ?>

@@ -70,39 +70,41 @@ $(document).ready(function(){
 </script> 
 <script src="<?php echo base_url();?>assets/js/nouislider.min.js"></script>
 <script>
-	var slider = document.getElementById('slider_price');
-	  noUiSlider.create(slider, {
-	   start: [20, 80],
-	   connect: true,
-	   step: 1,
-	   range: {
-	     'min': 0,
-	     'max': 100
-	   },
-	   format: wNumb({
-	     decimals: 0
-	   })
-	  });
-
-
 	$(document).ready(function(){
-		var min_p = document.getElementById('min_price');
-		var max_p = document.getElementById('max_price');
-		slider.noUiSlider.on('update', function(values, handle){
-			var value = values[handle];
-			  	if (handle) {
-			  		max_p.value = value;
-			  	}else{
-			  		min_p.value = value;
-			  	}
-		});
+		$.getJSON("<?php echo base_url();?>api/range-price", function( data ){
+			var min = data.min_price;
+			var max = data.max_price;
+			var slider = document.getElementById('slider_price');
+			noUiSlider.create(slider, {
+				start: [min, max],
+				connect: true,
+				step: 1,
+				range: {
+					'min': 0,
+					'max': parseInt(max)
+				},
+				format: wNumb({
+					decimals: 0
+				})
+			});
+			var min_p = document.getElementById('min_price');
+			var max_p = document.getElementById('max_price');
+			slider.noUiSlider.on('update', function(values, handle){
+				var value = values[handle];
+				if (handle) {
+					max_p.value = parseInt(value);
+				}else{
+					min_p.value = parseInt(value);
+				}
+			});
 
-		min_p.addEventListener('change', function(){
-			slider.noUiSlider.set([null, this.value]);
-		});
+			min_p.addEventListener('change', function(){
+				slider.noUiSlider.set([null, this.value]);
+			});
 
-		max_p.addEventListener('change', function(){
-			slider.noUiSlider.set([null, this.value]);
+			max_p.addEventListener('change', function(){
+				slider.noUiSlider.set([null, this.value]);
+			});
 		});
 	});	
 </script>

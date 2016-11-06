@@ -14,10 +14,8 @@
 									<div class="col m6 s12">
 										<select name="sort" id="sorting" class="white">
 											<option value="" disabled selected>--- Pilih Tipe Sorting---</option>
-											<option value="1">Option 1</option>
-											<option value="2">Option 2</option>
-											<option value="3">Option 3</option>
-											<option value="4">Lainnya</option>
+											<option value="asc">ASC</option>
+											<option value="desc">DESC</option>
 										</select>
 									</div>
 									<h5>Price Range</h5>
@@ -70,3 +68,23 @@
 			</div>
 		</div>
 	</main>
+
+	<script>
+	$(document).ready(function(){
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('api/search');?>",
+			data: { 
+				search: "T", 
+				min_price: 3000,
+				max_price: 1200000,
+				sort: "asc",
+				'<?php echo $this->security->get_csrf_token_name(); ?>':'<?php echo $this->security->get_csrf_hash(); ?>'
+			}
+		})
+		.done(function( data ) {
+			console.log( "Data Saved: " );
+			console.log(data);
+		});
+	});
+	</script>
