@@ -108,8 +108,8 @@
 									<br class="hide-on-med-and-up">
 									<br class="hide-on-med-and-up">
 								</div>
-								<div class="col m9 s12">
-									<textarea name="jenis_service" id="jenis_service" class="materialize-textarea" placeholder="Masukkan jenis services yang anda berikan"><?php if(isset($data['type_service'])){ echo $data['type_service']; }?></textarea>
+								<div class="col m9 s12" id="jenis_service">
+									<input type="text" name="jenis_service" class="typeahead validate" placeholder="Masukkan jenis services yang anda berikan"></input>
 								</div>
 							</div>
 							<div class="input-field col s12">
@@ -252,6 +252,29 @@
 				$('select').material_select('update');
 			});
 		})
-		.trigger( "change" );
+		.trigger( "change" );		
 	});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$.getJSON( "<?php echo base_url();?>api/jenis_jasa", function( data ) {
+				var jasa = new Bloodhound({
+					datumTokenizer: Bloodhound.tokenizers.obj.whitespace('jenis_jasa'),
+					queryTokenizer: Bloodhound.tokenizers.whitespace,
+					local: data
+				});				
+				jasa.initialize();
+
+				var elt = $('#jenis_service .typeahead');
+				elt.materialtags({
+					itemValue: 'id_jenisjasa',
+					itemText: 'jenis_jasa',
+					typeaheadjs: {
+						name: 'jasa',
+						displayKey: 'jenis_jasa',
+						source: jasa.ttAdapter()
+					}
+				});
+			});
+		});
 	</script>

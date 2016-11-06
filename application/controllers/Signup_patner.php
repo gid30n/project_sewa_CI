@@ -110,20 +110,20 @@ class Signup_patner extends CI_Controller {
 
 																				/*Insert data business*/
 																				$data_business = array(
-																					"brand_name" => $brand_name,
-																					"type_service" => $type_service,
+																					"brand_name" => $brand_name,							
 																					"address" => $address,
 																					"id_province" => $province,
 																					"id_region" => $region,
 																					"description" => $descript,
 																					"id_user" => $user_id,
+																					"id_jenisjasa" => $type_service
 																					);
 																				$this->session->set_userdata('uname', $acc_user);
 																				$this->session->set_userdata('password', $acc_pass);
 																				$this->session->set_userdata('brand', $brand_name);
 																				$business_user = $this->signup_model->insert_business($data_business);																			
 																				// $this->session->set_userdata('msg_registrasi', array('msg' => '', 'status' => true));
-																				// redirect('login','refresh');	
+																				redirect('login','refresh');	
 																			}else{
 																				$data = array(
 																				"first_name" => $first_name,

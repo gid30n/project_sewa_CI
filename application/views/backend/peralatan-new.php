@@ -1,4 +1,3 @@
-
 		<?php echo form_open_multipart('/peralatan/new-ads/post');?>
 		<input type="hidden" value="1" name="kategori" >	
 		<div class="col s12 l9 right">

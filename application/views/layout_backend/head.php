@@ -11,7 +11,8 @@
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/pace.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	 
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/swal.css">	
-    <script src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- <script src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script> -->
     <script src="<?php echo base_url();?>assets/js/pace.js"></script>
     <script src="<?php echo base_url();?>assets/js/swal.js"></script>
     <!-- bxSlider CSS file -->
@@ -22,7 +23,7 @@
 	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/table/plugin.dev.js"></script>
 	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/paste/plugin.dev.js"></script>
 	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/spellchecker/plugin.dev.js"></script>
-	<link rel="stylesheet" href="http://henrychavez.github.io/materialize-tags/examples/assets/css/materialize-tags.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/materialize-tags.css">
     <script>
 	    paceOptions = {
 	      elements: true
