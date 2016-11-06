@@ -147,6 +147,7 @@
 								</div>								
 							</div>
 							<div class="input-field col s12">
+							<?php require_once 'tinymce.php';?>
 								<div class="col m3 s12">
 									<label for="des_usaha" class="teal-text">Deskripsi Usaha <sup class="red-text">*</sup></label>
 									<br class="hide-on-med-and-up">
@@ -155,8 +156,10 @@
 								<div class="col m9 s12">
 									<textarea name="des_usaha" id="des_usaha" class="materialize-textarea" placeholder="Masukkan deskripsi usaha anda"><?php if(isset($data['descript'])){ echo $data['descript']; } ?></textarea>
 								</div>
-							</div>
+
+							</div>							
 							<div class="col s12">
+								<br><br>
 								<?php echo $this->recaptcha->render(); ?>
 								<br>
 								<p>

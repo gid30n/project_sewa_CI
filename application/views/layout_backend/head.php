@@ -22,6 +22,7 @@
 	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/table/plugin.dev.js"></script>
 	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/paste/plugin.dev.js"></script>
 	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/spellchecker/plugin.dev.js"></script>
+	<link rel="stylesheet" href="http://henrychavez.github.io/materialize-tags/examples/assets/css/materialize-tags.min.css">
     <script>
 	    paceOptions = {
 	      elements: true

@@ -222,7 +222,7 @@ $(document).ready(function(){
 						);
 				});
 				$('select').material_select('update');
-			});
+			});		
 		// ubah provinsi
 		$( "#provinsi" ).change(function(){
 			val_provinsi = ""

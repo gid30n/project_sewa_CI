@@ -25,7 +25,7 @@
 									<?php if (!empty($dt_password)) {
 										echo '<input id="icon_prefix" type="password" class="validate" name="upass" value="'.$dt_password.'">';
 									}else{
-										echo '<input id="icon_prefix" type="text" class="validate" name="upass">';
+										echo '<input id="icon_prefix" type="password" class="validate" name="upass">';
 									}
 									?>									
 									<label for="icon_telephone">Password</label>
