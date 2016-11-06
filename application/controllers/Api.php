@@ -99,4 +99,24 @@ class Api extends CI_Controller {
 		->set_content_type('application/json')
 		->set_output(json_encode($cart));	
 	}
+
+	public function get_range_price(){
+		$res = $this->api_model->get_range_price();
+		$this->output
+		->set_content_type('application/json')
+		->set_output(json_encode($res));	
+	}
+
+	public function search(){
+		$keyword = $this->input->post("search", TRUE);
+		$min_price = $this->input->post("min_price", TRUE);
+		$max_price = $this->input->post("max_price", TRUE);
+		$sort = $this->input->post("sort", TRUE);
+		if (isset($keyword) && isset($min_price) && isset($max_price) && isset($sort)) {
+			$res = $this->api_model->search($keyword, $min_price, $max_price, $sort);
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($res));	
+		}		
+	}
 }
