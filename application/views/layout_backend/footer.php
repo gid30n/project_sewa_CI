@@ -102,7 +102,7 @@
 		</form>
 	</div>
 
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+
 <script src="<?php echo base_url();?>assets/js/materialize.js"></script>
 <script src="<?php echo base_url();?>assets/js/materialize-tag.js"></script>
 <script src="<?php echo base_url();?>assets/js/typeahead.js"></script>
@@ -165,6 +165,30 @@
 	    }
 	  }
 	}
+</script>
+<script>
+	$(document).ready(function(){
+		$.getJSON( "<?php echo base_url();?>api/jenis_jasa", function( data ) {
+			var jasa = new Bloodhound({
+				datumTokenizer: Bloodhound.tokenizers.obj.whitespace('jenis_jasa'),
+				queryTokenizer: Bloodhound.tokenizers.whitespace,
+				local: data
+			});				
+			jasa.initialize();
+
+			$('#jenis_service .typeahead').materialtags({
+				itemValue: 'id_jenisjasa',
+				itemText: 'jenis_jasa',
+				freeInput:false,
+				typeaheadjs: {
+					highlight   : true,
+					name: 'jasa',
+					displayKey: 'jenis_jasa',					
+					source: jasa.ttAdapter()
+				}
+			});
+		});
+	});
 </script>
 </body>
 </html>

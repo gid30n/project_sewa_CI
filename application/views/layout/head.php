@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/swal.css">	
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/nouislider.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/materialize-tags.css">
    
     <script src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
      <link rel="stylesheet" href="<?php echo base_url();?>assets/js/jquery-lazyimage-master/demo.css">

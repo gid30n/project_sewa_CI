@@ -39,7 +39,7 @@ class Peralatan extends CI_Controller {
 
 	public function new_ads(){
 		if($this->session->userdata('user')){
-			$ses_admin = $this->session->userdata('user');
+			$ses_admin = $this->session->userdata('user');			
 			if ($ses_admin['admin'] === '-9') {
 				$data = array(
 					'title' => "Dashboard Sewania",
@@ -50,13 +50,14 @@ class Peralatan extends CI_Controller {
 					'jum_history_konsultasi' => $this->konsultasi_model->history_count_konsultasi(),
 					);
 				$this->load->view('layout_backend/wrapper', $data);
-			}else{
+			}else{				
 				$data = array(
 					'title' => "Dashboard Sewania",
 					'content' => "backend/peralatan-new", 
 					'user' => $this->profile_model->get_user($ses_admin['id_user']),
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
 				);
+				$this->load->view('layout_backend/wrapper', $data);
 			}			
 		}else{
 			redirect('login','refresh');

@@ -15,8 +15,26 @@ class Profile_model extends CI_Model {
                 return $query->row_array();                
         }
         public function get_business_profile($id_user){
-                $query = $this->db->get_where("tb_business_profile", array("id_user" => $id_user));
-                return $query->row_array();
+                $result = array();
+
+                $this->db->where('id_user', $id_user);
+                $this->db->from('tb_business_profile');                
+                $data = $this->db->get()->result_array();
+
+                foreach ($data as $row) {
+                        $id_jenisjasa = explode(",", $row['id_jenisjasa']);
+                        $jasas = array();
+                        for ($i=0; $i < count($id_jenisjasa); $i++) { 
+                                $jasa = $this->db->get_where('tb_jenis_jasa', array("id_jenisjasa" => $id_jenisjasa[$i]));
+                                $jas = $jasa->row();
+                                array_push($jasas, $jas->jenis_jasa);
+                        }
+                        $row['type_service'] = $jasas;
+                        unset($row['id_jenisjasa']);
+
+                        array_push($result, $row);      
+                }
+                return $result;
         }
 
         public function change_photo_profile($id_user, $avatar){

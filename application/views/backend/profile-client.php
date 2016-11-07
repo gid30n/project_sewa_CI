@@ -1,4 +1,3 @@
-
 		<div class="col s12 l9 right">
 			<div class="card white">
 				<div class="card-content teal-text">						
@@ -32,6 +31,7 @@
 						<li>
 							<div class="collapsible-header"><b>Profil Bisnis</b></div>
 							<div class="collapsible-body">
+							<?php foreach ($business_profile as $row) { ?>
 								<div class="container">
 									<form action="">
 										<div class="row">
@@ -41,18 +41,30 @@
 												</div>
 												<div class="col m9 s12">
 													<br class="hide-on-med-and-up">
-													<input type="text" id="brand_name" class="validate" required="" name="brand_name" placeholder="Sewania" value="<?php echo $business_profile['brand_name'];?>">
+													<input type="text" id="brand_name" class="validate" required="" name="brand_name" placeholder="Sewania" value="<?php echo $row['brand_name'];?>">
 												</div>								
 											</div>
 										</div>
 										<div class="row">
 											<div class="input-field">
 												<div class="col m3 s12">
-													<label for="jenis_service" class="teal-text">Jenis Jasa</label>																		
+													<label for="jenis_service" class="teal-text">Jenis Jasa</label>
 												</div>
-												<div class="col m9 s12">
+												<div class="col m9 s12" id="services">
 													<br class="hide-on-med-and-up">
-													<textarea name="jenis_service" id="jenis_service" class="materialize-textarea" placeholder="Masukkan jenis services yang anda berikan"><?php echo $business_profile['type_service'];?></textarea>
+													<input name="services" class="validate" disabled data-role="materialtags" value="<?php 
+															$dt =  $row['type_service'];
+															$res = "";
+															for ($i=0; $i < count($dt); $i++) { 
+																$tmp = $dt[$i];
+																$res .= $tmp.",";
+															}
+															echo $res;
+														?>" ></input>
+												</div>
+												<div class="col m9 s12 right" id="jenis_service">
+													<br class="hide-on-med-and-up">
+													<input name="jenis_service" class="validate typeahead" placeholder="Update Jenis Jasa"></input>
 												</div>
 											</div>
 										</div>
@@ -64,7 +76,7 @@
 												</div>
 												<div class="col m9 s12">
 													<br class="hide-on-med-and-up">
-													<textarea name="des_usaha" id="des_usaha" class="materialize-textarea" placeholder="Masukkan deskripsi usaha anda"><?php echo $business_profile['description'];?></textarea>
+													<textarea name="des_usaha" id="des_usaha" class="materialize-textarea" placeholder="Masukkan deskripsi usaha anda"><?php echo $row['description'];?></textarea>
 												</div>
 											</div>
 										</div>
@@ -75,7 +87,7 @@
 												</div>
 												<div class="col m9 s12">
 													<br class="hide-on-med-and-up">
-													<input type="text" id="alamat_usaha" class="validate" required="" name="alamat_usaha" placeholder="Jln. Bla bla" value="<?php echo $business_profile['address'];?>">
+													<input type="text" id="alamat_usaha" class="validate" required="" name="alamat_usaha" placeholder="Jln. Bla bla" value="<?php echo $row['address'];?>">
 												</div>								
 											</div>
 										</div>										
@@ -83,8 +95,10 @@
 											<button type="submit" class="btn waves-effect right">Update</button>
 										</div>
 									</form>
-								</div>									
-							</div>
+								</div>																
+							<?php	
+								}
+							?>								
 						</li>
 						<?php } ?>
 						<li>

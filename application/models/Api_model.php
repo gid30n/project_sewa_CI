@@ -8,6 +8,11 @@ class Api_model extends CI_Model {
                 parent::__construct();
         }
 
+        public function get_all_jasa(){
+            $query = $this->db->get('tb_jenis_jasa');
+            return $query->result_array();
+        }
+
         public function get_province(){
                 $query = $this->db->get('tb_province');
                 return $query->result_array();
