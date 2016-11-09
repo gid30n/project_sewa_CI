@@ -90,8 +90,9 @@ class Peralatan_model extends CI_Model {
                 $this->db->insert_batch('tb_gallerys', $data) ? $this->db->insert_id() : false;
         }
 
-        public function delete_ads($id){
-                $this->db->delete('tb_ads', array("id_ads" => $id));
+        public function delete($slug, $id_user){
+                $this->db->delete('tb_ads', array("slug" => $slug, "id_user" => $id_user));
+                return !$this->db->affected_rows() ? true : false;
         }
 }
 ?>
