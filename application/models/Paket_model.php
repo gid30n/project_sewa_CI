@@ -88,4 +88,5 @@ class Paket_model extends CI_Model {
                 $this->db->delete('tb_ads', array("slug" => $slug, "id_user" => $id_user));
                 return !$this->db->affected_rows() ? true : false;
         }
+}
 ?>
