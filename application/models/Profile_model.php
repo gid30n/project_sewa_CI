@@ -40,5 +40,9 @@ class Profile_model extends CI_Model {
         public function change_photo_profile($id_user, $avatar){
                 $this->db->update("tb_users", $avatar, array("id_user" => $id_user));
         }
+
+        public function delete_account($id_user, $status){
+                $this->db->update("tb_users", $status, array("id_user" => $id_user));
+        }
 }
 ?>

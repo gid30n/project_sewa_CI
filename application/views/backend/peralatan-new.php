@@ -223,6 +223,7 @@ $(document).ready(function(){
 				$('select').material_select('update');
 			});		
 		// ubah provinsi
+		// sasasasas
 		$( "#provinsi" ).change(function(){
 			val_provinsi = ""
 			$( "#provinsi option:selected" ).each(function(){

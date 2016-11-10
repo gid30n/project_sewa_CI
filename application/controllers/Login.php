@@ -49,9 +49,15 @@ class Login extends CI_Controller {
 				if($this->login_model->check_username($username) || $this->login_model->check_email($username)){
 					$res_login = $this->login_model->check_password($username, $password);
 					if($res_login){
-						$this->session->set_userdata( 'user', array( 'id_user' => $res_login['id_user'], 'admin' => $res_login['admin']));
-						$this->session->set_userdata('msg_login', array('msg' => 'Success !.', 'status' => true, 'admin' => $res_login['admin']));
-						redirect('login','refresh');
+						$cek_stat = $this->login_model->cek_status($username);
+						if ($cek_stat) {
+							$this->session->set_userdata( 'user', array( 'id_user' => $res_login['id_user'], 'admin' => $res_login['admin']));
+							$this->session->set_userdata('msg_login', array('msg' => 'Success !.', 'status' => true, 'admin' => $res_login['admin']));
+							redirect('login','refresh');
+						}else{
+							$this->session->set_userdata('msg_login', array('msg' => 'Account Telah Non Aktif !.', 'status' => false));
+							redirect('login','refresh');	
+						}						
 					}else{
 						$this->session->set_userdata('msg_login', array('msg' => 'Password anda salah !.', 'status' => false));
 						redirect('login','refresh');
@@ -105,6 +111,6 @@ class Login extends CI_Controller {
 	public function logout(){
 		$this->login_model->update_logout($this->session->userdata('user')['id_user']);
 		$this->session->sess_destroy();
-		redirect('login','refresh');
+		redirect('home','refresh');
 	}
 }

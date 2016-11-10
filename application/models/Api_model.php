@@ -22,6 +22,11 @@ class Api_model extends CI_Model {
                 return $query->result_array();
         }
 
+        public function get_all_sub_kategori(){
+            $query = $this->db->get('tb_sub_kategori');
+            return $query->result_array();
+        }
+
         public function get_region($id_province = '')
         {
                 $query = $this->db->get_where('tb_region', array('id_province' => $id_province));
