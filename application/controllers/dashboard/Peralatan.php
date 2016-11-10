@@ -162,4 +162,39 @@ class Peralatan extends CI_Controller {
 		}
 	}
 
+	public function delete($slug){
+		if($this->session->userdata("user")){
+			$ses_admin = $this->session->userdata('user');
+		}else{
+			redirect('login','refresh');
+		}
+
+		if(!isset($slug)){
+			redirect('peralatan','refresh');
+		}
+
+		if ($this->peralatan_model->delete($slug, $ses_admin['id_user'])) {
+			redirect('peralatan','refresh');
+		}else{
+			redirect('peralatan','refresh');
+		}
+	}
+
+	public function deletes(){
+		if($this->session->userdata("user")){
+			$ses_admin = $this->session->userdata('user');
+		}else{
+			redirect('login','refresh');
+		}
+
+		$slugs = $this->input->post("slugs", TRUE);
+		if (!isset($slugs)) {
+			redirect('peralatan','refresh');
+		}
+
+		foreach ($slugs as $row) {
+			$this->peralatan_model->delete($row, $ses_admin['id_user']);
+		}
+	}
+
 }

@@ -1,4 +1,25 @@
-
+<script>
+function deletes(){
+	var item_ads = $(".item-ads");
+	var _slugs = []
+	for(var i=0; item_ads[i]; ++i){
+		if(item_ads[i].checked){
+			_slugs.push(item_ads[i].value);
+		}
+	}
+	$.ajax({
+		method: "POST",
+		url: "<?php echo base_url('peralatan/deletes');?>",
+		data: { 
+			slugs : _slugs,
+			'<?php echo $this->security->get_csrf_token_name(); ?>':'<?php echo $this->security->get_csrf_hash(); ?>'
+		}
+	})
+	.done(function( data ) {
+		window.location = "<?php echo base_url('peralatan');?>";
+	});
+}
+</script>
 			<div class="col s12 l9 right">
 				<div class="card white">
 					<div class="card-content teal-text">						
@@ -13,7 +34,7 @@
 									<p>
       									<input type="checkbox" onclick="checkAll(this)" id="checkAll" />
       									<label for="checkAll">Select: All | </label>
-      									<a class="waves-effect waves-light red btn"><i class="material-icons right">close</i>Delete</a>
+      									<a class="waves-effect waves-light red btn" onclick="deletes()"><i class="material-icons right">close</i>Delete</a>
     								</p>
 								</div>
 								<div class="col m6 s12">
@@ -52,12 +73,12 @@
 											    <div class="row">
 											    	<div class="col s12">
 														<p>
-													      <input type="checkbox" id="check<?php $n = $this->encryption->encrypt($row['id_ads']); echo $n; ?>" name="selected[]"/>
-													      <label for="check<?php echo $n; ?>">Pilih</label>
+													      <input type="checkbox" id="check<?php $n = rand(); echo $n; ?>" class="item-ads" value="<?php echo $row['slug'];?>"/>
+													      <label for="check<?php echo $n;?>">Pilih</label>
 													    </p>
 													</div>
 													<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>
-													<a href="#!" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>
+													<a href="<?php echo base_url('peralatan/delete/').$row['slug'];?>" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>
 													<a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a>
 											    </div>													    											
 										    </div>
@@ -98,69 +119,69 @@
 	if($level === '-9'){
 ?>
 <script type="text/javascript">
- $(document).ready(function() {
- var total_record = 4;
- var total_groups;
- var last_id;
- $.getJSON( "<?php echo base_url(	); ?>api/all/ads/kategori-count/1", function( data ) {
- 	total_groups = data.count;
- 	last_id = data.last_id;
- });
- $(window).scroll(function() {       
-     if($(window).scrollTop() + $(window).height() == $(document).height()){
-        if(total_record < total_groups){
-           	loading = true; 
-           	$('.loader_image').show(); 
-           	$.getJSON('<?php echo site_url() ?>api/all/ads/kategori/1/'+total_record+"/3",
-             	function(data){ 
-                 	if (data != "") {                 		
-                 		for (var i = 0; i < data.length; i++) { 
-                 			if(last_id == data[i].id_ads){
-                 				break;
-                 			}else{
-                 				gallery = data[i].gallery;             			                 			
-	                 			$("#konten-peralatan").append(
-	                 				'<div class="col s12 m4">'+
-	                 				'<input type="hidden" class="id-ads" value="'+data[i].id_ads+'">'+
-										'<div class="card hoverable">'+
-										    '<div class="card-image waves-effect waves-block waves-light">'+
-										      '<img class="activator" src="'+'<?php echo base_url("images/?w=150&h=150&src="); ?>'+gallery[0].src+'">'+
-										    '</div>'+
-										    '<div class="card-content">'+
-										      '<span class="card-title activator grey-text text-darken-4 truncate" style="word-wrap: break-word">'+data[i].title+'</span>'+
-										      '<br><i class="tiny material-icons">room</i>'+data[i].lokasi+
-										      '<div class="divider"></div>'+
-										      '<span><b>'+data[i].price+'</b></span>'+																      
-										    '</div>'+
-										    '<div class="card-action">'+
-											    '<div class="row">'+
-											    	'<div class="col s12">'+
-														'<p>'+
-													      '<input type="checkbox" id="check'+data[i].id_ads+'"/>'+
-													      '<label for="check'+data[i].id_ads+'">Pilih</label>'+
-													    '</p>'+
-													'</div>'+
-													'<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>'+
-													'<a href="#!" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>'+
-													'<a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a>'+
-											    '</div>'+													    											
-										    '</div>'+
-										    '<div class="card-reveal">'+
-										      '<span class="card-title grey-text text-darken-4 truncate">'+data[i].title+'<i class="material-icons right">close</i></span>'+
-										      '<p style="word-wrap: break-word"><?php echo mb_strimwidth("'+data[i].descript+'",0,250, "...."); ?></p>'+
-										      '<p><a href="<?php echo base_url();?>ads/'+data[i].slug+'" class="btn waves-effect">Detail</a></p>'+
-										    '</div>'+
-										  '</div>'+
-									'</div>'
-	                 			);	
-                 			}                  
-                 		}                 		  		                	                     
-                     	total_record += 3;
-                    }                
-            	});     
-        }
-     }
- });
+$(document).ready(function() {
+	 var total_record = 4;
+	 var total_groups;
+	 var last_id;
+	 $.getJSON( "<?php echo base_url(	); ?>api/all/ads/kategori-count/1", function( data ) {
+	 	total_groups = data.count;
+	 	last_id = data.last_id;
+	 });
+	 $(window).scroll(function() {       
+	     if($(window).scrollTop() + $(window).height() == $(document).height()){
+	        if(total_record < total_groups){
+	           	loading = true; 
+	           	$('.loader_image').show(); 
+	           	$.getJSON('<?php echo site_url() ?>api/all/ads/kategori/1/'+total_record+"/3",
+	             	function(data){ 
+	                 	if (data != "") {                 		
+	                 		for (var i = 0; i < data.length; i++) { 
+	                 			if(last_id == data[i].id_ads){
+	                 				break;
+	                 			}else{
+	                 				gallery = data[i].gallery;             			                 			
+		                 			$("#konten-peralatan").append(
+		                 				'<div class="col s12 m4">'+
+		                 				'<input type="hidden" class="id-ads" value="'+data[i].id_ads+'">'+
+											'<div class="card hoverable">'+
+											    '<div class="card-image waves-effect waves-block waves-light">'+
+											      '<img class="activator" src="'+'<?php echo base_url("images/?w=150&h=150&src="); ?>'+gallery[0].src+'">'+
+											    '</div>'+
+											    '<div class="card-content">'+
+											      '<span class="card-title activator grey-text text-darken-4 truncate" style="word-wrap: break-word">'+data[i].title+'</span>'+
+											      '<br><i class="tiny material-icons">room</i>'+data[i].lokasi+
+											      '<div class="divider"></div>'+
+											      '<span><b>'+data[i].price+'</b></span>'+																      
+											    '</div>'+
+											    '<div class="card-action">'+
+												    '<div class="row">'+
+												    	'<div class="col s12">'+
+															'<p>'+
+														      '<input type="checkbox" id="check'+data[i].id_ads+'"/>'+
+														      '<label for="check'+data[i].id_ads+'">Pilih</label>'+
+														    '</p>'+
+														'</div>'+
+														'<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>'+
+														'<a href="<?php echo base_url("peralatan/delete/").$row["slug"];?>" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>'+
+														'<a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a>'+
+												    '</div>'+													    											
+											    '</div>'+
+											    '<div class="card-reveal">'+
+											      '<span class="card-title grey-text text-darken-4 truncate">'+data[i].title+'<i class="material-icons right">close</i></span>'+
+											      '<p style="word-wrap: break-word"><?php echo mb_strimwidth("'+data[i].descript+'",0,250, "...."); ?></p>'+
+											      '<p><a href="<?php echo base_url();?>ads/'+data[i].slug+'" class="btn waves-effect">Detail</a></p>'+
+											    '</div>'+
+											  '</div>'+
+										'</div>'
+		                 			);	
+	                 			}                  
+	                 		}                 		  		                	                     
+	                     	total_record += 3;
+	                    }                
+	            	});     
+	        }
+	     }
+	 });
  });
  </script>
  <?php } ?>

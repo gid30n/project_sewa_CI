@@ -13,6 +13,11 @@ class Kategori_admin extends CI_Controller {
 		redirect('dashboard','refresh');	
 	}
 
+	public function post_super(){
+		$name = $this->input->post("nama_super_sub", TRUE);
+		$kategori = $this->input->post("sub_kategori",TRUE);
+	}
+
 	public function post_sub(){
 		$name = $this->input->post("nama_sub", TRUE);
 		$kategori = $this->input->post("kategori",TRUE);

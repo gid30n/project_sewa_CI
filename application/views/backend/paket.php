@@ -1,4 +1,25 @@
-
+<script>
+function deletes(){
+	var item_ads = $(".item-ads");
+	var _slugs = []
+	for(var i=0; item_ads[i]; ++i){
+		if(item_ads[i].checked){
+			_slugs.push(item_ads[i].value);
+		}
+	}
+	$.ajax({
+		method: "POST",
+		url: "<?php echo base_url('paket/deletes');?>",
+		data: { 
+			slugs : _slugs,
+			'<?php echo $this->security->get_csrf_token_name(); ?>':'<?php echo $this->security->get_csrf_hash(); ?>'
+		}
+	})
+	.done(function( data ) {
+		window.location = "<?php echo base_url('paket');?>";
+	});
+}
+</script>
 			<div class="col s12 l9 right">
 				<div class="card white">
 					<div class="card-content teal-text">						
@@ -13,7 +34,7 @@
 									<p>
       									<input type="checkbox" onclick="checkAll(this)" id="checkAll" />
       									<label for="checkAll">Select: All | </label>
-      									<a class="waves-effect waves-light red btn"><i class="material-icons right">close</i>Delete</a>
+      									<a class="waves-effect waves-light red btn" onclick="deletes()"><i class="material-icons right">close</i>Delete</a>
     								</p>
 								</div>
 								<div class="col m6 s12">
@@ -51,12 +72,12 @@
 											    <div class="row">
 											    	<div class="col s12">
 														<p>
-													      <input type="checkbox" id="check2<?php $n = rand(0,100000000); echo $n; ?>"/>
+													      <input type="checkbox" class="items-ads" value="<?php echo $row['slug'];?>" id="check2<?php $n = rand(); echo $n; ?>"/>
 													      <label for="check2<?php echo $n; ?>">Pilih</label>
 													    </p>
 													</div>
 													<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>
-													<a href="#!" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>
+													<a href="<?php echo base_url('paket/delete/').$row['slug'];?>" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>
 													<a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a>
 											    </div>													    											
 										    </div>
