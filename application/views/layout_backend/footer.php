@@ -8,7 +8,7 @@
 	</footer>
 	
 	<!-- Modal Structure -->
-	<div id="delete_account" class="modal">
+	<div id="delete_account" class="modal modal-fixed-footer">
 		<div class="modal-content">
 			<h4>Delete this Account ?</h4>
 			<p><b class="red-text">Hati-hati</b>, tindakan ini akan benar menghapus data anda dari database kami. Untuk alasan security tolong masukan kembali "Sewania" secara terbalik. pada form dibawah ini!</p>
@@ -28,7 +28,7 @@
 	</div>
 		
 	<!-- Modal Structure -->
-	<div id="nama_subs" class="modal">
+	<div id="nama_subs" class="modal modal-fixed-footer">
 		<div class="modal-content">
 			<h4>Add Sub Category</h4>
 			<?php echo form_open('dashboard/kategori/add/sub'); ?>
@@ -68,7 +68,7 @@
 	</div>
 
 	<!-- Modal Structure -->
-	<div id="nama_super_subs" class="modal">
+	<div id="nama_super_subs" class="modal modal-fixed-footer">
 		<div class="modal-content">
 			<h4>Add Super Sub Category</h4>
 			<?php echo form_open('dashboard/kategori/add/super-sub'); ?>
