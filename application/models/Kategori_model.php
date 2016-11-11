@@ -86,8 +86,7 @@ class Kategori_model extends CI_Model {
 		return $result;
 	}
 
-	public function cek_add_sub($data){	
-		// $this->db->select('name');	
+	public function cek_add_sub($data){			
 		$this->db->where('name', $data);
 		$this->db->from('tb_sub_kategori');
 		$kat = $this->db->get()->row();
@@ -98,7 +97,29 @@ class Kategori_model extends CI_Model {
 		}  
 	}
 
+	public function cek_add_super($data){			
+		$this->db->where('name', $data);
+		$this->db->from('tb_super_sub_kategori');
+		$kat = $this->db->get()->row();
+		if ($kat === null) {
+			return true;
+		}else{
+			return false;
+		}  
+	}
+
+	public function ambil_id_sub($data){
+		$this->db->where('id_sub_kategori', $data);
+		$this->db->from('tb_sub_kategori');
+		$kat = $this->db->get()->result();
+		return $kat;
+	}
+
 	public function add_sub_kategori($data){
 		return $this->db->insert('tb_sub_kategori', $data) ? $this->db->insert_id() : false;
+	}
+
+	public function add_super_sub_kategori($data){
+		return $this->db->insert('tb_super_sub_kategori', $data) ? $this->db->insert_id() : false;
 	}
 }

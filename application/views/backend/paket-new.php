@@ -300,8 +300,9 @@ $(document).ready(function(){
 			$( "#kategori option:selected" ).each(function() {
 				id_sub_kategori = $( this ).val();
 			});
+			// sasasasas
 			if (id_sub_kategori != "") {
-				$.getJSON( "<?php echo base_url();?>api/sub-kategori/1/"+id_sub_kategori, function( data ) {
+				$.getJSON( "<?php echo base_url();?>api/sub-kategori/2/"+id_sub_kategori, function( data ) {
 					// clear contents
 					var $selectDropdown = 
 					$("#s_kategori")

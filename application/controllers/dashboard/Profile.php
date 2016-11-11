@@ -43,10 +43,38 @@ class Profile extends CI_Controller {
 				'content' => "backend/profile-client", 
 				'user' => $this->profile_model->get_user($ses_user['id_user']),
 				'business_profile' => $this->profile_model->get_business_profile($ses_user['id_user']),
+				'msg_delete' => $this->session->userdata('msg_delete'),
 				);
 			$this->load->view('layout_backend/wrapper', $data);
 		}else{
 			redirect('login','refresh');
+		}
+	}
+
+	public function delete_account(){
+		if($this->session->userdata('user')){
+			$dt = $this->session->userdata('user');
+			$id_user = $dt['id_user'];
+			$dt['status'] = 1;
+
+			$sewania = $this->input->post("sewania", TRUE);
+			$captcha_answer = $this->input->post('g-recaptcha-response');
+			$captcha_response = $this->recaptcha->verifyResponse($captcha_answer);
+
+			if ($captcha_response['success']) {
+				if(!empty($sewania)){
+					if($sewania === "ainaweS"){						
+						$this->profile_model->delete_account($id_user,$dt);
+						redirect('/logout','refresh');
+					}
+				}else{
+					$this->session->set_userdata('msg_delete', array('msg' => 'Inputan tidak sesuai', 'status' => false));
+					redirect('/dashboard-cus','refresh');
+				}
+			}else{
+				$this->session->set_userdata('msg_delete', array('msg' => 'Mohon mengikuti ketentuan yang ada!', 'status' => false));
+				redirect('/dashboard-cus','refresh');
+			}			
 		}
 	}
 

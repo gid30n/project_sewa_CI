@@ -42,7 +42,7 @@ class Paket extends CI_Controller {
 			if ($ses_admin['admin'] === '-9') {
 				$data = array(
 					'title' => "Dashboard Sewania",
-					'content' => "backend/peralatan-new", 
+					'content' => "backend/paket-new", 
 					'user' => $this->profile_model->get_user($ses_admin['id_user']),
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
 					'jum_new_konsultasi' => $this->konsultasi_model->count_new_konsultasi(),
@@ -52,7 +52,7 @@ class Paket extends CI_Controller {
 			}else{
 				$data = array(
 					'title' => "Dashboard Sewania",
-					'content' => "backend/peralatan-new", 
+					'content' => "backend/paket-new", 
 					'user' => $this->profile_model->get_user($ses_admin['id_user']),
 					'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
 				);

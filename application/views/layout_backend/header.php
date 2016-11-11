@@ -2,7 +2,7 @@
 	<nav class="white">
 		<div class="nav-wrapper">
 			<div class="container">
-				<a href="<?php echo base_url();?>" class="brand-logo teal-text"><i class="material-icons">store</i><?php if(!empty($business_profile['brand_name'])){ echo ucfirst($business_profile['brand_name']); }else{ echo "Sewania"; };?></a>
+				<a href="<?php echo base_url();?>" class="brand-logo teal-text"><i class="material-icons">store</i><?php if(!empty($business_profile[0]['brand_name'])){ echo ucfirst($business_profile[0]['brand_name']); }else{ echo "Sewania"; };?></a>
 				<ul class="right hide-on-med-and-down">
 					<li class="teal-text"><?php echo $user['first_name']." ".$user['last_name'];?></li>
 					<li><img src="<?php $data_user = $this->profile_model->get_user($this->session->userdata('user')['id_user']); echo base_url().$data_user['avatar']; ?>" class="responsive-img circle brand-logo" alt="" width="50px"></li>					
@@ -12,7 +12,7 @@
 			<a href="#" data-activates="mobile-demo" class="button-collapse grey-text"><i class="material-icons">menu</i></a>						
 			<!-- navbar for mobile -->
 			<ul class="side-nav teal lighten-1" id="mobile-demo">				
-				<li><h5 class="center-align"><b><?php if(!empty($business_profile['brand_name'])){ echo ucfirst($business_profile['brand_name']); }else{ echo "Sewania"; };?></b></h5></li>
+				<li><h5 class="center-align"><b><?php if(!empty($business_profile[0]['brand_name'])){ echo ucfirst($business_profile[0]['brand_name']); }else{ echo "Sewania"; };?></b></h5></li>
 				<div class="divider"></div>
 				<li class="white"><a href="#!" class="teal-text"><b>Dashboard</b></a></li>
 				<?php 					
@@ -149,6 +149,15 @@
 													</div>
 												</li>											
 											</ul>
+											<ul class="collapsible z-depth-0" data-collapsible="accordion">
+												<li>
+													<div class="collapsible-header"><i class="material-icons">people</i>User & Vendor</div>
+													<div class="collapsible-body">														
+														<a href="<?php echo base_url("dashboard/konsultasi/history"); ?>" class="collection-item waves-effect"><i class="material-icons left">people</i>User<span class="new badge" id='count_user'><?php echo $jum_history_konsultasi; ?></span></a>
+														<a href="<?php echo base_url("dashboard/konsultasi/history"); ?>" class="collection-item waves-effect"><i class="material-icons left">store</i>Vendor<span class="new badge" id='count_user'><?php echo $jum_history_konsultasi; ?></span></a>
+													</div>
+												</li>											
+											</ul>
 											<?php } ?>
 										<?php
 											}
@@ -161,9 +170,9 @@
 								<div class="collapsible-body">
 									<ul class="collection with-header">
 										<?php  
-											if ($level['admin'] != "-9") {
+											if ($level['admin'] != "-9" && $level['admin'] != "1") {
 												echo '<a href="#delete_account" class="collection-item modal-trigger waves-effect"><i class="material-icons left">close</i>Delete this account</a>';
-											}else{
+											}else if($level['admin'] === "-9"){
 												echo '<a href="#nama_subs" class="collection-item modal-trigger waves-effect"><i class="material-icons left">add</i>Add Sub Category</a>';
 												echo '<a href="#nama_super_subs" class="collection-item modal-trigger waves-effect"><i class="material-icons left">add</i>Add Super Sub Category</a>';
 												echo '<a href="list_category" class="collection-item waves-effect"><i class="material-icons left">view_list</i>List All Category</a>';	

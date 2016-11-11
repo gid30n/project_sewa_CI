@@ -8,24 +8,27 @@
 	</footer>
 	
 	<!-- Modal Structure -->
-	<div id="delete_account" class="modal">
+	<div id="delete_account" class="modal modal-fixed-footer">
 		<div class="modal-content">
 			<h4>Delete this Account ?</h4>
-			<p><b class="red-text">Hati-hati</b>, tindakan ini akan benar menghapus data anda dari database kami. Untuk alasan security tolong masukan kembali nama toko secara terbalik. pada form dibawah ini!</p>
-			<form action="">				
+			<p><b class="red-text">Hati-hati</b>, tindakan ini akan benar menghapus data anda dari database kami. Untuk alasan security tolong masukan kembali "Sewania" secara terbalik. pada form dibawah ini!</p>
+			<?php echo form_open("/dashboard-cus/delete-account"); ?>				
 				<div class="input-field col s12">
-					<input type="text" class="validate" required="" autofocus="" placeholder="Masukan nama toko anda">
+					<input type="text" class="validate" name="sewania" required="" autofocus="" placeholder="Masukan Sewania Secara Terbalik">
+				</div>
+				<div class="input-field col s12">
+					<?php echo $this->recaptcha->render(); ?>
 				</div>
 		</div>
 		<div class="modal-footer">				
 				<button class="btn btn-flat waves-effect modal-close">Cancel</button>
 				<button type="submit" class="btn btn-flat waves-effect">Delete</button>
-			</form>
+			<?php echo form_close(); ?>
 		</div>
 	</div>
 		
 	<!-- Modal Structure -->
-	<div id="nama_subs" class="modal">
+	<div id="nama_subs" class="modal modal-fixed-footer">
 		<div class="modal-content">
 			<h4>Add Sub Category</h4>
 			<?php echo form_open('dashboard/kategori/add/sub'); ?>
@@ -65,10 +68,10 @@
 	</div>
 
 	<!-- Modal Structure -->
-	<div id="nama_super_subs" class="modal">
+	<div id="nama_super_subs" class="modal modal-fixed-footer">
 		<div class="modal-content">
 			<h4>Add Super Sub Category</h4>
-			<form action="">
+			<?php echo form_open('dashboard/kategori/add/super-sub'); ?>
 				<div class="row">
 					<div class="input-field">
 						<div class="col m3 s12">
@@ -99,7 +102,7 @@
 		<div class="modal-footer">
 			<button class="btn teal waves-effect" type="submit">Submit</button>			
 		</div>
-		</form>
+		<?php echo form_close(); ?>
 	</div>
 
 
@@ -187,6 +190,34 @@
 					source: jasa.ttAdapter()
 				}
 			});
+		});
+	});
+</script>
+<script>
+	$(document).ready(function(){
+		$.getJSON( "<?php echo base_url();?>api/all-sub-kategori", function( data ) {
+			// clear contents
+			var $selectDropdown = 
+			$("#sub_kategori")
+			.empty()
+			.html(' ');
+
+			$selectDropdown.append(
+				$("<option></option>")
+				.attr("value", "")
+				.attr("disabled", "")
+				.attr("selected", "")
+				.text("--- Pilih Kategori ---")
+				);
+
+			$.each(data, function (i, item) {
+				$selectDropdown.append(
+					$("<option></option>")
+					.attr("value",item.id_sub_kategori)
+					.text(item.name)
+					);
+			});
+			$('select').material_select('update');
 		});
 	});
 </script>

@@ -35,6 +35,11 @@ class Api extends CI_Controller {
 		->set_output(json_encode($result));
 	}
 
+	public function get_all_sub_kategori(){
+		$result = $this->api_model->get_all_sub_kategori();
+		$this->output->set_content_type('application/json')->set_output(json_encode($result));
+	}
+
 	public function sub_kategori($id_kategori = NULL, $id_sub_kategori = NULL){
 		$result = $this->api_model->get_super_sub_kategori($id_kategori, $id_sub_kategori);
 		$this->output
