@@ -85,6 +85,7 @@ $route['peralatan/new-ads'] = 'dashboard/peralatan/new_ads';
 $route['peralatan/new-ads/post'] = 'dashboard/peralatan/post';
 $route['peralatan/delete/(:any)'] = 'dashboard/peralatan/delete/$1';
 $route['peralatan/deletes'] = 'dashboard/peralatan/deletes';
+$route['peralatan/update/(:any)'] = 'dashboard/peralatan/update/$1';
 $route['peralatan'] = 'dashboard/peralatan';
 $route['api/sub-kategori/(:num)/(:num)'] = 'api/sub_kategori/$1/$2';
 $route['api/all-ads'] = 'api/all_ads';
