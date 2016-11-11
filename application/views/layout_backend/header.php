@@ -149,6 +149,15 @@
 													</div>
 												</li>											
 											</ul>
+											<ul class="collapsible z-depth-0" data-collapsible="accordion">
+												<li>
+													<div class="collapsible-header"><i class="material-icons">people</i>User & Vendor</div>
+													<div class="collapsible-body">														
+														<a href="<?php echo base_url("dashboard/konsultasi/history"); ?>" class="collection-item waves-effect"><i class="material-icons left">people</i>User<span class="new badge" id='count_user'><?php echo $jum_history_konsultasi; ?></span></a>
+														<a href="<?php echo base_url("dashboard/konsultasi/history"); ?>" class="collection-item waves-effect"><i class="material-icons left">store</i>Vendor<span class="new badge" id='count_user'><?php echo $jum_history_konsultasi; ?></span></a>
+													</div>
+												</li>											
+											</ul>
 											<?php } ?>
 										<?php
 											}

@@ -76,6 +76,7 @@ $route['process-forgot'] = 'login/process_forgot';
 $route['dashboard'] = 'dashboard/profile';
 $route['dashboard-cus'] = 'dashboard/profile/client';
 $route['dashboard-cus/order'] = 'dashboard/order/client';
+$route['dashboard-cus/order/detail/(:num)'] = 'dashboard/order/detail/$1';
 $route['dashboard-cus/change-avatar'] = 'dashboard/profile/change_avatar_client';
 $route['paket/new-ads'] = 'dashboard/paket/new_ads';
 $route['paket/new-ads/post'] = 'dashboard/paket/post';
