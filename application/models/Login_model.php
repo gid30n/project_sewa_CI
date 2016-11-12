@@ -55,9 +55,10 @@ class Login_model extends CI_Model {
         }
 
         public function cek_status($username){
-                $query = $this->db->get_where("tb_users", array("username" => $username, "status" => "0"));
-                $res = $query->row_array();
-                if(!empty($res['id_user'])){
+                $this->db->or_where(array("username" => $username, "email" => $username, "status" => "0"));
+                $query = $this->db->get("tb_users");
+                $res = $query->row_array();                
+                if(!empty($res['id_user'])){                        
                         return TRUE;
                 }else{
                         return FALSE;
