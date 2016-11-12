@@ -1,4 +1,4 @@
-<div class="col s12 l9 right">
+		<div class="col s12 l9 right">
 				<div class="card white">
 					<div class="card-content teal-text">						
 						<div class="row">
@@ -7,14 +7,14 @@
 									<h5 class="left"><i class="material-icons">shopping_cart</i> Pesan</h5>				
 								</div>								
 								<hr class="hide-on-med-and-down">
-								<div class="col m6 s12">
+								<!-- <div class="col m6 s12">
 									<p>
       									<input type="checkbox" onclick="checkAll(this)" id="checkAll" />
       									<label for="checkAll">Select: All | </label>
       									<a class="waves-effect waves-light red btn"><i class="material-icons right">close</i>Delete</a>
     								</p>
-								</div>
-								<div class="col m6 s12">
+								</div> -->
+								<!-- <div class="col m6 s12">
 									<div class="row">
 										<div class="input-field">
 											<div class="col m2 s3">
@@ -29,7 +29,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<div class="row">
 									<div class="col s12 m4">
 							          <div class="card">

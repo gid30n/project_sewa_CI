@@ -24,6 +24,7 @@
 <div class="col s12 l9 right">
 	<div class="card white">
 		<div class="card-content">
+		<a href="#!" class="btn"><i class="material-icons left">done</i>Validasi Order</a>
 			<table class="responsive-table">
 				<thead>
 					<tr>
