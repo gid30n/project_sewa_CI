@@ -65,14 +65,14 @@
 									<div class="col m9 s12">
 										<select name="tamu" id="tamu">
 									      <option value="" disabled selected>--- Pilih---</option>
-									      <option value="1">< 25</option>
-									      <option value="2">25-50</option>
-									      <option value="3">50-100</option>
-									      <option value="1337">100-150</option>
-									      <option value="">150-200</option>
-									      <option value="">200-300</option>
-									      <option value="">> 300</option>
-									      <option value="">Saya Belum Tahu</option>
+									      <option value="Kurang dari 25">< 25</option>
+									      <option value="25 sampai 50">25-50</option>
+									      <option value="50 sampai 100">50-100</option>
+									      <option value="100 sampai 150">100-150</option>
+									      <option value="150 sampai 200">150-200</option>
+									      <option value="200 sampai 300">200-300</option>
+									      <option value="300">> 300</option>
+									      <option value="other">Saya Belum Tahu</option>
 									    </select>
 									    <input type="text" id="tamu_lainnya" class="validate" name="tamu_lainnya" placeholder="Jumlah Tamu Lainnya">
 									</div>																	
@@ -92,7 +92,7 @@
 							<div class="row">
 								<div class="input-field">
 									<div class="col m3 s12">
-										<label for="start_acara" class="teal-text col m3">Kapan Anda Membutuhkan ? <sup class="red-text">*</sup></label>																
+										<label for="start_acara" class="teal-text col m3">Tanggal Sewa  <sup class="red-text">*</sup></label>																
 									</div>
 									<div class="col m9 s12">
 										<br class="hide-on-med-and-up">	
@@ -103,7 +103,7 @@
 							<div class="row">
 								<div class="input-field">
 									<div class="col m3 s12">
-										<label for="end_acara" class="teal-text col m3">Kapan Anda Mengembalikan ? <sup class="red-text">*</sup></label>																
+										<label for="end_acara" class="teal-text col m3">Tanggal Kembali <sup class="red-text">*</sup></label>																
 									</div>
 									<div class="col m9 s12">
 										<br class="hide-on-med-and-up">	
@@ -112,13 +112,15 @@
 								</div>
 							</div>
 							<div class="row">
+							<?php require_once 'tinymce.php';?>
 								<div class="input-field">
 									<div class="col m3 s12">
 										<label for="des_acara" class="teal-text col m3 s12">Hal Yang Perlu Kami Ketahui Tentang Acara Anda ? <sup class="red-text">*</sup></label>										
 									</div>
 									<div class="col m9 s12">
-										<br class="hide-on-med-and-up">
-										<br class="hide-on-med-and-up">
+										<br class="hide-on-large-only">
+										<br class="hide-on-large-only">
+										<br class="hide-on-large-only">
 										<textarea name="des_acara" id="des_acara" class="materialize-textarea" placeholder="Masukkan deskripsi acara anda"></textarea>
 									</div>
 								</div>
@@ -144,3 +146,36 @@
 			<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Close</a>
 		</div>
 	</div>
+	<script>
+	$(document).ready(function(){
+		$("#acara_lainnya").hide();
+		$( "#acara" )
+			.change(function() {
+				val_acara = ""
+				$( "#acara option:selected" ).each(function() {
+					val_acara = $( this ).val();
+					if (val_acara == "other") {
+						$("#acara_lainnya").show();
+					}else{
+						$("#acara_lainnya").hide();
+					}
+				});
+			});
+	});
+
+	$(document).ready(function(){
+		$("#tamu_lainnya").hide();
+		$( "#tamu" )
+			.change(function() {
+				val_tamu = ""
+				$( "#tamu option:selected" ).each(function() {
+					val_tamu = $( this ).val();
+					if (val_tamu == "other") {
+						$("#tamu_lainnya").show();
+					}else{
+						$("#tamu_lainnya").hide();
+					}
+				});
+			});
+	});
+	</script>

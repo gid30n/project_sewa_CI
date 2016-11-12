@@ -47,13 +47,15 @@ class Order extends CI_Controller {
 			$ses_admin = $this->session->userdata('user');
 			$data = array(
 				"id" => $this->encryption->decrypt($this->input->post("id_ads", TRUE)),
-				"telp" => $this->input->post("telp", TRUE),
+				"no_telp" => $this->input->post("telp", TRUE),
 				"acara" => $this->input->post("acara", TRUE),
 				"tamu" => $this->input->post("tamu", TRUE),
-				"alamat" => $this->input->post("alamat", TRUE),
-				"start_acara" => $this->input->post("start_acara", TRUE),
-				"end_acara" => $this->input->post("end_acara", TRUE),
-				"des_acara" => $this->input->post("des_acara", TRUE)
+				"lokasi" => $this->input->post("alamat", TRUE),
+				"date_sewa" => $this->input->post("start_acara", TRUE),
+				"date_balik" => $this->input->post("end_acara", TRUE),
+				"desc_order" => $this->input->post("des_acara", TRUE),
+				"status_order" => 0,
+				"id_user" => $ses_admin['id_user']
 				);
 			$this->cartsewania->insert($data);
 			redirect('carts','refresh');

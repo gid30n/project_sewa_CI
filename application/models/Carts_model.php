@@ -83,7 +83,7 @@ class Carts_model extends CI_Model {
                         $id = $this->db->insert_id();
                         $last_id[$i] = $id;    
                 }
-                var_dump($last_id);
+                // var_dump($last_id);
                 return $list_id;
         }
 }
