@@ -95,7 +95,7 @@ class Peralatan_model extends CI_Model {
                 $id_ads = $query->row()->id_ads;
                 $query = $this->db->get_where("tb_gallerys", array("id_ads" => $id_ads));
                 foreach ($query->result_array() as $row) {
-                              delete_file($row['src']);
+                              delete_files($row['src']);
                 };
                 $this->db->delete('tb_ads', array("id_ads" => $id_ads));
                 return !$this->db->affected_rows() ? true : false;
@@ -115,11 +115,6 @@ class Peralatan_model extends CI_Model {
                     array_push($gallerys, $row_gallery);
                 }
                 $row_ads['gallery'] = $gallerys;
-
-                        // fix price
-                $price = $row_ads['price'];
-                unset($row_ads['price']);
-                $row_ads['price'] = convert_rp($price);
 
                         // fect user
                 $users = $this->db->get_where('tb_users', array("id_user" => $row_ads['id_user']));
