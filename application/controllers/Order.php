@@ -19,32 +19,32 @@ class Order extends CI_Controller {
 
 	public function show($slug){
 		$slug = $this->security->xss_clean($slug);
-		if($this->session->userdata('user')){
-			$ses_admin = $this->session->userdata('user');
-			$user = null;
-			if ($this->session->userdata('user')) {
-				$ses_user = $this->session->userdata('user');			
-				$user = $this->profile_model->get_user($ses_user['id_user']);																
-			}
+		// if($this->session->userdata('user')){
+		// 	$ses_admin = $this->session->userdata('user');
+		// 	$user = null;
+		// 	if ($this->session->userdata('user')) {
+		// 		$ses_user = $this->session->userdata('user');			
+		// 		$user = $this->profile_model->get_user($ses_user['id_user']);																
+		// 	}
 			if(!empty($slug)){
 				$data = array(
 					'title' => "Sewania - Sewa Peralatan Pesta Online",
 					'content' => "front/order", 
-					'user' => $user,
+					// 'user' => $user,
 					'data' => $this->ads_model->get_ads_by_slug($slug)
 					);
 			}else{
 				redirect('/','refresh');
 			}
 			$this->load->view('layout/wrapper', $data);
-		}else{
-			redirect('login','refresh');
-		}
+		// }else{
+		// 	redirect('login','refresh');
+		// }
 	}
 
 	public function add(){
-		if($this->session->userdata('user')){
-			$ses_admin = $this->session->userdata('user');
+		// if($this->session->userdata('user')){
+			// $ses_admin = $this->session->userdata('user');
 			$data = array(
 				"id" => $this->encryption->decrypt($this->input->post("id_ads", TRUE)),
 				"no_telp" => $this->input->post("telp", TRUE),
@@ -55,12 +55,12 @@ class Order extends CI_Controller {
 				"date_balik" => $this->input->post("end_acara", TRUE),
 				"desc_order" => $this->input->post("des_acara", TRUE),
 				"status_order" => 0,
-				"id_user" => $ses_admin['id_user']
+				// "id_user" => $ses_admin['id_user']
 				);
 			$this->cartsewania->insert($data);
 			redirect('carts','refresh');
-		}else{
-			redirect('login','refresh');
-		}
+		// }else{
+		// 	redirect('login','refresh');
+		// }
 	}
 }

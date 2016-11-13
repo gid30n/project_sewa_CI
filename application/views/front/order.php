@@ -22,6 +22,28 @@
 							<div class="row">
 								<div class="input-field">
 									<div class="col m3 s12">
+										<label for="telp" class="teal-text col m3">Nama Lengkap <sup class="red-text">*</sup></label>																	
+									</div>
+									<div class="col m9 s12">
+										<br class="hide-on-med-and-up">	
+										<input type="text" class="validate" required="" name="nama" placeholder="Mickel Jordan">									
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field">
+									<div class="col m3 s12">
+										<label for="telp" class="teal-text col m3">Email <sup class="red-text">*</sup></label>																	
+									</div>
+									<div class="col m9 s12">
+										<br class="hide-on-med-and-up">	
+										<input type="email" class="validate" required="" name="email" placeholder="jordan.mickle@example.com">									
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field">
+									<div class="col m3 s12">
 										<label for="telp" class="teal-text col m3">Telephone/Phone <sup class="red-text">*</sup></label>																	
 									</div>
 									<div class="col m9 s12">
