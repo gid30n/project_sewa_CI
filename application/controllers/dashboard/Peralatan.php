@@ -67,7 +67,7 @@ class Peralatan extends CI_Controller {
 	public function post(){
 		if($this->session->userdata("user")){
 			$ses_admin = $this->session->userdata('user');
-			if($ses_admin['admin'] === "1" || $ses_admin['admin'] === "-9"){
+			if($ses_admin['admin'] === "1" || $ses_admin['admin'] === "-9"){				
 				$kategori = $this->input->post("kategori", TRUE);
 				$title = $this->input->post("j_iklan", TRUE);
 				$sub_kategori = $this->input->post("sub_kategori", TRUE);

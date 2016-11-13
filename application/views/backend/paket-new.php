@@ -199,6 +199,18 @@
 </div>
 <script>
 $(document).ready(function(){
+		$( "#kategori" )
+		.change(function() {
+			val_kategori = ""
+			$( "#kategori option:selected" ).each(function() {
+				val_kategori = $( this ).val();
+				if (val_kategori == 0) {
+					$("#sub_kategori_event").hide();
+				}else{
+					$("#sub_kategori_event").show();
+				}											
+			});
+		});
 		// kaukin provinsi
 		$.getJSON( "<?php echo base_url();?>api/province", function( data ) {
 				// clear contents
