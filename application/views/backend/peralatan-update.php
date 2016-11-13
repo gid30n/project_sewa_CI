@@ -52,7 +52,7 @@
 								</div>
 								<div class="col m9 s12">
 									<br class="hide-on-med-and-up">
-									<input type="text" id="j_acara" class="validate" required="" name="j_acara" value="">
+									<input type="text" id="j_acara" class="validate" required="" name="j_acara" value="<?php if(isset($data_update) && isset($data_update['jenis_acara'])){ echo $data_update['jenis_acara']; };?>">
 								</div>								
 							</div>
 						</div>
@@ -64,7 +64,7 @@
 								</div>
 								<div class="col s12">
 									<br class="hide-on-med-and-up">
-									<textarea name="d_produk" id="d_produk"></textarea>
+									<textarea name="d_produk" id="d_produk"><?php if(isset($data_update) && isset($data_update['descript'])){ echo $data_update['descript']; };?></textarea>
 								</div>
 							</div>
 						</div>
@@ -75,7 +75,7 @@
 								</div>
 								<div class="col m9 s12">
 									<br class="hide-on-med-and-up">
-									<span class="prefix">Rp</span><input type="number" id="harga_produk" class="validate" required="" name="harga_produk">
+									<span class="prefix">Rp</span><input type="number" id="harga_produk" class="validate" required="" name="harga_produk" value="<?php if(isset($data_update) && isset($data_update['price'])){ echo $data_update['price']; };?>">
 								</div>								
 							</div>
 						</div>
@@ -213,16 +213,27 @@ $(document).ready(function(){
 					.attr("selected", "")
 					.text("--- Pilih Provinsi ---")
 					);
-
+				triger_provinsi = "<?php echo $data_update['provinsi'];?>";
 				$.each(data, function (i, item) {
-					$selectDropdown.append(
-						$("<option></option>")
-						.attr("value",item.id_province)
-						.text(item.name)
+					if(triger_provinsi == item.name){
+						$selectDropdown.append(
+							$("<option></option>")
+							.attr("value",item.id_province)
+							.attr("selected", "")
+							.text(item.name)
 						);
+					}else{
+						$selectDropdown.append(
+							$("<option></option>")
+							.attr("value",item.id_province)
+							.text(item.name)
+						);
+					}
 				});
 				$('select').material_select('update');
-			});		
+				// $('#provinsi').trigger('change');
+			});
+
 		// ubah provinsi
 		// sasasasas
 		$( "#provinsi" ).change(function(){
@@ -285,10 +296,10 @@ $(document).ready(function(){
 					.attr("selected", "")
 					.text("--- Pilih Kategori ---")
 					);
-				triger_update = "<?php echo $data_update['sub_kategori'];?>";
+				triger_kategori = "<?php echo $data_update['sub_kategori'];?>";
 
 				$.each(data, function (i, item) {
-					if(triger_update == item.name){
+					if(triger_kategori == item.name){
 						$selectDropdown.append(
 							$("<option></option>")
 							.attr("value",item.id_sub_kategori)

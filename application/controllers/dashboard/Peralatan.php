@@ -80,6 +80,7 @@ class Peralatan extends CI_Controller {
 				// Post data ads
 				$data_signup = array(
 					"title" => $title,
+					"jenis_acara" => $jenis_acara,
 					"descript" => preg_replace("/\[removed]/i", "", $desc_produk),
 					"ranting" => 0,
 					"price" => $harga,
