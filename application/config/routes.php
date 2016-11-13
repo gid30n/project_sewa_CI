@@ -50,8 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'home';
-// $route['signup-patner'] = 'signup_patner';
-// $route['signup-patner/validation'] = 'signup_patner/validation';
 $route['ads'] = 'ads_detail';
 $route['order/add'] = 'order/add';
 $route['order/(:any)'] = 'order/show/$1';

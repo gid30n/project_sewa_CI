@@ -1,3 +1,4 @@
+<!-- script for delete -->
 <script>
 function deletes(){
 	var item_ads = $(".item-ads");
@@ -77,7 +78,7 @@ function deletes(){
 													      <label for="check<?php echo $n;?>">Pilih</label>
 													    </p>
 													</div>
-													<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>
+													<a href="<?php echo base_url('peralatan/update/').$row['slug'];?>" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>
 													<a href="<?php echo base_url('peralatan/delete/').$row['slug'];?>" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>
 													<a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a>
 											    </div>													    											
@@ -161,8 +162,8 @@ $(document).ready(function() {
 														      '<label for="check'+data[i].id_ads+'">Pilih</label>'+
 														    '</p>'+
 														'</div>'+
-														'<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>'+
-														'<a href="<?php echo base_url("peralatan/delete/").$row["slug"];?>" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>'+
+														'<a href="<?php echo base_url("peralatan/update/");?>'+data[i].slug+'" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>'+
+														'<a href="<?php echo base_url("peralatan/delete/");?>'+data[i].slug+'" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>'+
 														'<a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a>'+
 												    '</div>'+													    											
 											    '</div>'+

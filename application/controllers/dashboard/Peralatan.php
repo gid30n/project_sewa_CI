@@ -197,4 +197,47 @@ class Peralatan extends CI_Controller {
 		}
 	}
 
+	public function update($slug){
+		if($this->session->userdata("user")){
+			$ses_admin = $this->session->userdata('user');
+		}else{
+			redirect('login','refresh');
+		}
+		if (!isset($slug)) {
+			redirect('peralatan','refresh');
+		}
+
+		$slug = $this->security->xss_clean($slug);
+
+		if ($ses_admin['admin'] === '-9') {
+			$data = array(
+				'title' => "Dashboard Sewania",
+				'content' => "backend/peralatan-update", 
+				'user' => $this->profile_model->get_user($ses_admin['id_user']),
+				'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
+				'jum_new_konsultasi' => $this->konsultasi_model->count_new_konsultasi(),
+				'jum_history_konsultasi' => $this->konsultasi_model->history_count_konsultasi(),
+				'data_update' => $this->peralatan_model->update($slug),
+				);
+			$this->load->view('layout_backend/wrapper', $data);
+		}else{				
+			$data = array(
+				'title' => "Dashboard Sewania",
+				'content' => "backend/peralatan-update", 
+				'user' => $this->profile_model->get_user($ses_admin['id_user']),
+				'business_profile' => $this->profile_model->get_business_profile($ses_admin['id_user']),
+				'data_update' => $this->peralatan_model->update($slug),
+				);
+			$this->load->view('layout_backend/wrapper', $data);
+		}			
+	}
+
+	public function updating(){
+		if($this->session->userdata("user")){
+			$ses_admin = $this->session->userdata('user');
+		}else{
+			redirect('login','refresh');
+		}
+	}
+
 }

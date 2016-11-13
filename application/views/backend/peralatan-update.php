@@ -1,3 +1,4 @@
+<?php var_dump($data_update);?>
 		<?php echo form_open_multipart('/peralatan/new-ads/post');?>
 		<input type="hidden" value="1" name="kategori" >	
 		<div class="col s12 l9 right">
@@ -14,7 +15,7 @@
 								</div>
 								<div class="col m9 s12">
 									<br class="hide-on-med-and-up">
-									<input type="text" id="j_iklan" class="validate" required="" name="j_iklan">
+									<input type="text" id="j_iklan" class="validate" required="" name="j_iklan" value="<?php if(isset($data_update) && isset($data_update['title'])){ echo $data_update['title']; };?>">
 								</div>								
 							</div>
 						</div>
@@ -51,7 +52,7 @@
 								</div>
 								<div class="col m9 s12">
 									<br class="hide-on-med-and-up">
-									<input type="text" id="j_acara" class="validate" required="" name="j_acara">
+									<input type="text" id="j_acara" class="validate" required="" name="j_acara" value="">
 								</div>								
 							</div>
 						</div>
@@ -284,13 +285,23 @@ $(document).ready(function(){
 					.attr("selected", "")
 					.text("--- Pilih Kategori ---")
 					);
+				triger_update = "<?php echo $data_update['sub_kategori'];?>";
 
 				$.each(data, function (i, item) {
-					$selectDropdown.append(
-						$("<option></option>")
-						.attr("value",item.id_sub_kategori)
-						.text(item.name)
+					if(triger_update == item.name){
+						$selectDropdown.append(
+							$("<option></option>")
+							.attr("value",item.id_sub_kategori)
+							.attr("selected", "")
+							.text(item.name)
 						);
+					}else{
+						$selectDropdown.append(
+							$("<option></option>")
+							.attr("value",item.id_sub_kategori)
+							.text(item.name)
+						);
+					}
 				});
 				$('select').material_select('update');
 			});
@@ -327,5 +338,10 @@ $(document).ready(function(){
 			};
 		})
 		.trigger( "change" );
+
+		<?php if(isset($data_update) && isset($data_update['sub_kategori'])){ ?>
+			$("#kategori").find('option[value="3"]').prop('selected', true);
+			$("#kategori").material_select(); 
+		<?php }; ?>
 	});
 </script>
