@@ -22,46 +22,46 @@ class Carts_model extends CI_Model {
                         }
                         $row_ads['gallery'] = $gallerys;
 
-                        // fect user
-                        $users = $this->db->get_where('tb_users', array("id_user" => $row_ads['id_user']));
-                        $user = $users->row();
-                        $row_ads['user'] = $user->first_name.' '.$user->last_name;
-                        unset($row_ads['id_user']);
+                        // // fect user
+                        // $users = $this->db->get_where('tb_users', array("id_user" => $row_ads['id_user']));
+                        // $user = $users->row();
+                        // $row_ads['user'] = $user->first_name.' '.$user->last_name;
+                        // unset($row_ads['id_user']);
 
-                        // fect kategori
-                        $kategori = $this->db->get_where('tb_kategori', array("id_kategori" => $row_ads['id_kategori']));
-                        $kat = $kategori->row();
-                        $row_ads['kategori'] = $kat->name;
-                        unset($row_ads['id_kategori']);
+                        // // fect kategori
+                        // $kategori = $this->db->get_where('tb_kategori', array("id_kategori" => $row_ads['id_kategori']));
+                        // $kat = $kategori->row();
+                        // $row_ads['kategori'] = $kat->name;
+                        // unset($row_ads['id_kategori']);
 
-                        // fect sub kategori
-                        $sub_kategori = $this->db->get_where('tb_sub_kategori', array("id_sub_kategori" => $row_ads['id_sub_kategori']));
-                        $sub_kat = $sub_kategori->row();
-                        $row_ads['sub_kategori'] = $sub_kat->name;
-                        unset($row_ads['id_sub_kategori']);
+                        // // fect sub kategori
+                        // $sub_kategori = $this->db->get_where('tb_sub_kategori', array("id_sub_kategori" => $row_ads['id_sub_kategori']));
+                        // $sub_kat = $sub_kategori->row();
+                        // $row_ads['sub_kategori'] = $sub_kat->name;
+                        // unset($row_ads['id_sub_kategori']);
 
-                        // fect super sub kategori
-                        $super_sub_kategori = $this->db->get_where('tb_super_sub_kategori', array("id_super_sub_kategori" => $row_ads['id_super_sub_kategori']));
-                        $super_sub_kat = $super_sub_kategori->row();
-                        $row_ads['super_sub_kategori'] = $super_sub_kat->name;
-                        unset($row_ads['id_super_sub_kategori']);
+                        // // fect super sub kategori
+                        // $super_sub_kategori = $this->db->get_where('tb_super_sub_kategori', array("id_super_sub_kategori" => $row_ads['id_super_sub_kategori']));
+                        // $super_sub_kat = $super_sub_kategori->row();
+                        // $row_ads['super_sub_kategori'] = $super_sub_kat->name;
+                        // unset($row_ads['id_super_sub_kategori']);
 
-                        // fect province
-                        $province = $this->db->get_where('tb_province', array("id_province" => $row_ads['id_province']));
-                        $prov = $province->row();
-                        $row_ads['provinsi'] = $prov->name;
-                        unset($row_ads['id_province']);
+                        // // fect province
+                        // $province = $this->db->get_where('tb_province', array("id_province" => $row_ads['id_province']));
+                        // $prov = $province->row();
+                        // $row_ads['provinsi'] = $prov->name;
+                        // unset($row_ads['id_province']);
 
-                        // fect region
-                        $id_regions = explode(",", $row_ads['id_region']);
-                        $regions = array();
-                        for ($i=0; $i < count($id_regions); $i++) { 
-                                $region = $this->db->get_where('tb_region', array("id_region" => $id_regions[$i]));
-                                $reg = $region->row();
-                                array_push($regions, $reg->name);
-                        }
-                        $row_ads['lokasi'] = $regions;
-                        unset($row_ads['id_region']);
+                        // // fect region
+                        // $id_regions = explode(",", $row_ads['id_region']);
+                        // $regions = array();
+                        // for ($i=0; $i < count($id_regions); $i++) { 
+                        //         $region = $this->db->get_where('tb_region', array("id_region" => $id_regions[$i]));
+                        //         $reg = $region->row();
+                        //         array_push($regions, $reg->name);
+                        // }
+                        // $row_ads['lokasi'] = $regions;
+                        // unset($row_ads['id_region']);
 
                         // push all after fect all data
                         array_push($result, $row_ads);

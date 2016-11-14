@@ -13,7 +13,7 @@
 				<?php if(!$this->session->userdata('user')){ ?>
 					<ul class="right hide-on-med-and-down">
 						<li><a href="<?php echo base_url();?>login" class="grey-text waves-effect">Login</a></li>
-						<li><a href="<?php echo base_url();?>signup" class="grey-text waves-effect">Signup</a></li>
+						<!-- <li><a href="<?php echo base_url();?>signup" class="grey-text waves-effect">Signup</a></li> -->
 						<li><a href="<?php echo base_url();?>signup-patner" class="btn waves-effect white-text">Jadi Partner Kami</a></li>					
 					</ul>	
 				<?php }else{ ?>
@@ -47,7 +47,7 @@
 				<?php 
 					if(!$this->session->userdata('user')){ ?>
 						<li><a href="<?php echo base_url();?>login" class="white-text waves-effect">Login</a></li>
-						<li><a href="<?php echo base_url();?>signup" class="white-text waves-effect">Signup</a></li>
+						<!-- <li><a href="<?php echo base_url();?>signup" class="white-text waves-effect">Signup</a></li> -->
 						<li><a href="<?php echo base_url();?>signup-patner" class="white-text waves-effect">Jadi Partner Kami</a></li>
 				<?php }else{ ?>
 					<li><a href="<?php echo base_url(); ?>cart" class="white-text waves-effect"><i class="material-icons left white-text">shopping_cart</i>Order<span class="badge teal circle white-text">99</span></a></li>							

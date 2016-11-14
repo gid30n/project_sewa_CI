@@ -31,6 +31,7 @@
 						<th data-field="no">No</th>						
 						<th data-field="tgl">Tanggal</th>
 						<th data-field="item-paket">Order</th>
+						<th data-field="jum_item">QTY</th>
 						<th data-field="status">Status</th>
 						<th data-field="ops">Options</th>
 					</tr>
@@ -42,6 +43,7 @@
 						<tr>
 							<td><?php echo $i;?></td>							
 							<td><?php echo convert_date($row['date_order'], 'd/m/Y');?></td>
+							<td><?php echo $row['name'];?></td>
 							<td><?php echo $row['name'];?></td>
 							<td>Sedang di Proses</td>
 							<td class="hide-on-large-only">
