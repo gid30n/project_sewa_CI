@@ -43,18 +43,7 @@
 									</select>											    
 								</div>								
 							</div>
-						</div>
-						<div class="row">
-							<div class="input-field">
-								<div class="col m3 s12">
-									<label for="j_acara" class="teal-text">Jenis Acara <sup class="red-text">*</sup></label>					
-								</div>
-								<div class="col m9 s12">
-									<br class="hide-on-med-and-up">
-									<input type="text" id="j_acara" class="validate" required="" name="j_acara">
-								</div>								
-							</div>
-						</div>
+						</div>						
 						<div class="row">
 							<?php require_once 'tinymce.php';?>
 							<div class="input-field">
@@ -197,6 +186,19 @@
 </div>
 <script>
 $(document).ready(function(){
+	$("#sub_kategori_event").hide();
+	$( "#kategori" )
+	.change(function() {
+		val_kategori = ""
+		$( "#kategori option:selected" ).each(function() {
+			val_kategori = $( this ).val();
+			if (val_kategori == 0) {
+				$("#sub_kategori_event").hide();
+			}else{
+				$("#sub_kategori_event").show();
+			}											
+		});
+	});
 		// kaukin provinsi
 		$.getJSON( "<?php echo base_url();?>api/province", function( data ) {
 				// clear contents

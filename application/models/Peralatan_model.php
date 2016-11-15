@@ -125,7 +125,8 @@ class Peralatan_model extends CI_Model {
                 $row_ads['brand'] = $brand->brand_name;
                 $regions = $this->db->get_where('tb_region', array('id_region' => $brand->id_region));
                 $region = $regions->row();
-                $row_ads['brand_loc'] = $region->name;
+                // $row_ads['brand_loc'] = $region->name;
+                // var_dump($row_ads['brand_loc']);
                 unset($row_ads['id_user']);
 
                         // fect kategori

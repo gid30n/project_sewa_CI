@@ -31,6 +31,7 @@
 						<th data-field="nama">Atas Nama</th>
 						<th data-field="tgl">Tanggal</th>
 						<th data-field="item-paket">Order</th>
+						<th data-field="jum_item">QTY</th>
 						<th data-field="status">Status</th>
 						<th data-field="ops">Options</th>
 					</tr>
@@ -44,6 +45,7 @@
 							<td><?php echo $row['first_name']." ".$row['last_name']; ?></td>
 							<td><?php echo convert_date($row['date_order'], 'd/m/Y');?></td>
 							<td><?php echo $row['name'];?></td>
+							<td>10</td>
 							<td>Sedang di Proses</td>
 							<td class="hide-on-large-only">
 								<button class="btn orange waves-effect col s2"><i class="material-icons left">info</i></button>

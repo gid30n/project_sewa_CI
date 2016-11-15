@@ -129,21 +129,7 @@
 		$('select').material_select();
 		$('.button-collapse').sideNav({
 			edge: 'left'
-		});
-
-		$("#sub_kategori_event").hide();
-		$( "#kategori" )
-		.change(function() {
-			val_kategori = ""
-			$( "#kategori option:selected" ).each(function() {
-				val_kategori = $( this ).val();
-				if (val_kategori == 0) {
-					$("#sub_kategori_event").hide();
-				}else{
-					$("#sub_kategori_event").show();
-				}											
-			});
-		});
+		});		
 
 		// change active menu
 		var path = window.location.pathname;

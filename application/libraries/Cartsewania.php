@@ -64,6 +64,7 @@ class CartSewania {
 	public function insert($items = array())
 	{
 		// Was any cart data passed? No? Bah...
+		// var_dump($items);
 		if ( ! is_array($items) OR count($items) === 0)
 		{
 			log_message('error', 'The insert method must be passed an array containing data.');
@@ -128,8 +129,12 @@ class CartSewania {
 		// --------------------------------------------------------------------
 
 		// Does the $items array contain an id, quantity, price, and name?  These are required
-		if ( ! isset($items['id'], $items['no_telp'], $items['acara'], $items['tamu'], $items['lokasi'], $items['date_sewa'], $items['date_balik'], $items['desc_order'], $items['status_order'], $items['id_user']))
-		{
+		// if ( ! isset($items['id'], $items['no_telp'], $items['acara'], $items['tamu'], $items['lokasi'], $items['date_sewa'], $items['date_balik'], $items['desc_order'], $items['status_order'], $items['id_user']))
+		// {
+		// 	log_message('error', 'The cart array must contain a product ID, quantity, price, and name.');
+		// 	return FALSE;
+		// }
+		if (!isset($items['id'])) {
 			log_message('error', 'The cart array must contain a product ID, quantity, price, and name.');
 			return FALSE;
 		}

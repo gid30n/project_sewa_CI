@@ -51,7 +51,7 @@
 		<div class="container">			
 			<div class="row">
 			<!-- search -->
-				<form action="" method="POST">					
+				<!-- <form action="" method="POST">					
 					<div class="input-field col m5 s12"> 
 						<div class="form-group">
 							<i class="material-icons prefix">room</i>																				
@@ -67,8 +67,8 @@
 					<div class="col m2 s12 center">					
 						<button type="submit" class="btn teal btn-large col s12"><i class="material-icons center-align">search</i></button>
 					</div>				
-				</form>
-				<br><br>
+				</form> -->
+				<!-- <br><br> -->
 				<!-- end search -->
 				
 				<!-- cara kerja -->

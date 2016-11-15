@@ -67,12 +67,12 @@ class Peralatan extends CI_Controller {
 	public function post(){
 		if($this->session->userdata("user")){
 			$ses_admin = $this->session->userdata('user');
-			if($ses_admin['admin'] === "1" || $ses_admin['admin'] === "-9"){
+			if($ses_admin['admin'] === "1" || $ses_admin['admin'] === "-9"){				
 				$kategori = $this->input->post("kategori", TRUE);
 				$title = $this->input->post("j_iklan", TRUE);
 				$sub_kategori = $this->input->post("sub_kategori", TRUE);
 				$super_sub_kategori = $this->input->post("super_sub_kategori", TRUE);
-				$jenis_acara = $this->input->post("j_acara", TRUE);
+				// $jenis_acara = $this->input->post("j_acara", TRUE);
 				$desc_produk = $this->input->post("d_produk", TRUE);
 				$harga = $this->input->post("harga_produk", TRUE);
 				$province = $this->input->post("provinsi", TRUE);
@@ -80,7 +80,7 @@ class Peralatan extends CI_Controller {
 				// Post data ads
 				$data_signup = array(
 					"title" => $title,
-					"jenis_acara" => $jenis_acara,
+					// "jenis_acara" => $jenis_acara,
 					"descript" => preg_replace("/\[removed]/i", "", $desc_produk),
 					"ranting" => 0,
 					"price" => $harga,

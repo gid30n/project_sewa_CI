@@ -1,19 +1,13 @@
-
-<main>
-		<div class="container">		
-			<div class="row">
-				<div class="col m12 s12 white box">			
-					<div class="sign-up-main">
-						<div class="row">
-							<div class="col m6">
-								<img src="<?php echo base_url().$data['gallery'][0]['src'];?>" alt="<?php echo $data['gallery'][0]['alt'];?>" title="<?php echo $data['gallery'][0]['title'];?>" class="responsive-img left">
-							</div>
-							<div class="col m6">
-								<h5><?php echo $data['title'];?></h5>
-								<div class="row divider"></div>
-								<h5><?php echo $data['price'];?></h5>								
-							</div>
+<main>		
+	<div class="container">		
+		<div class="row">
+			<div class="col m12 s12 white box">			
+				<div class="sign-up-main">
+					<div class="row">
+						<div class="col m6">
+							<img src="<?php echo base_url().$data['gallery'][0]['src'];?>" alt="<?php echo $data['gallery'][0]['alt'];?>" title="<?php echo $data['gallery'][0]['title'];?>" class="responsive-img left">
 						</div>
+<<<<<<< HEAD
 						<i class="medium material-icons left">local_post_office</i><h5>Jelaskan Kebutuhan Anda</h5>
 						<div class="row divider"></div>
 						<br>
@@ -74,130 +68,45 @@
 									      <option value="other">Lainnya</option>
 									    </select>
 									    <input type="text" id="acara_lainnya" class="validate" name="acara_lainnya" placeholder="Acara Lainnya">
+=======
+						<div class="col m6">
+							<h5><?php echo $data['kategori']; ?>: <span><?php echo $data['sub_kategori']; ?></span></h5> 
+							<h6><?php echo $data['title']; ?></h6>
+							<div class="row divider"></div>
+							<h5><?php echo $data['price']; ?></h5>
+
+
+							<!-- kalau dia berupa perelatan tampilin jumlah item -->
+							<?php echo form_open(base_url().'order/add'); ?>
+								<input type="hidden" name="id_ads" value="<?php echo $this->encryption->encrypt($data['id_ads']);?>">
+								<p><?php echo mb_strimwidth($data['descript'],0,250, "...."); ?></p>
+								<?php if ($data['kategori'] === "Peralatan Pesta"): ?>
+									<div class="col s12">
+										<input type="number" placeholder="Jumlah item" name="jum_item" id="jum_item" class="validate" required="">
+>>>>>>> a4353d1d3abddda67130b40d896364cc1aa9f607
 									</div>								
+								<?php endif ?>								
+							<!-- kalau emang tanggal bikin masalah pas ada order, ini view dia masukin tanggal pas setiap order
+								<div class="col m3 s12">
+									<label for="">Tgl Sewa <sup class="red-text">*</sup></label>
 								</div>
-							</div>
-							<div class="row">
-								<div class="input-field">
-									<div class="col m3 s12">
-										<label for="tamu" class="teal-text col m3">Berapa Banyak Tamunya ? <sup class="red-text">*</sup></label>
-										<br class="hide-on-med-and-up">
-										<br class="hide-on-med-and-up">
-									</div>
-									<div class="col m9 s12">
-										<select name="tamu" id="tamu">
-									      <option value="" disabled selected>--- Pilih---</option>
-									      <option value="Kurang dari 25">< 25</option>
-									      <option value="25 sampai 50">25-50</option>
-									      <option value="50 sampai 100">50-100</option>
-									      <option value="100 sampai 150">100-150</option>
-									      <option value="150 sampai 200">150-200</option>
-									      <option value="200 sampai 300">200-300</option>
-									      <option value="300">> 300</option>
-									      <option value="other">Saya Belum Tahu</option>
-									    </select>
-									    <input type="text" id="tamu_lainnya" class="validate" name="tamu_lainnya" placeholder="Jumlah Tamu Lainnya">
-									</div>																	
+								<div class="col m9 s12">
+									<input type="date" class="datepicker" placeholder="Tanggal Sewa" id="tgl_sewa" name="tgl_sewa" required="">
 								</div>
-							</div>
-							<div class="row">
-								<div class="input-field">
-									<div class="col m3 s12">
-										<label for="alamat" class="teal-text col m3">Alamat/Lokasi Acara <sup class="red-text">*</sup></label>																
-									</div>
-									<div class="col m9 s12">
-										<br class="hide-on-med-and-up">	
-										<input type="text" id="alamat" class="validate" required="" name="alamat" placeholder="Jln. Bla Bal">									
-									</div>
+								<div class="col m3 s12">
+									<label for="">Tgl Kembali <sup class="red-text">*</sup></label>
 								</div>
-							</div>
-							<div class="row">
-								<div class="input-field">
-									<div class="col m3 s12">
-										<label for="start_acara" class="teal-text col m3">Tanggal Sewa  <sup class="red-text">*</sup></label>																
-									</div>
-									<div class="col m9 s12">
-										<br class="hide-on-med-and-up">	
-										<input type="date" id="start_acara" class="validate datepicker" required="" name="start_acara" placeholder="klik untuk menampilkan kalender">									
-									</div>
+								<div class="col m9 s12">
+									<input type="date" class="datepicker" placeholder="Tanggal Kembali" id="tgl_kembali" name="tgl_kembali" required="">
+								</div> -->
+								<div class="col s12">
+									<button class="btn waves-effect right" type="submit"><i class="material-icons left">shopping</i>Add To Cart</button>
 								</div>
-							</div>
-							<div class="row">
-								<div class="input-field">
-									<div class="col m3 s12">
-										<label for="end_acara" class="teal-text col m3">Tanggal Kembali <sup class="red-text">*</sup></label>																
-									</div>
-									<div class="col m9 s12">
-										<br class="hide-on-med-and-up">	
-										<input type="date" id="end_acara" class="validate datepicker" required="" name="end_acara" placeholder="klik untuk menampilkan kalender">									
-									</div>
-								</div>
-							</div>
-							<div class="row">
-							<?php require_once 'tinymce.php';?>
-								<div class="input-field">
-									<div class="col m3 s12">
-										<label for="des_acara" class="teal-text col m3 s12">Hal Yang Perlu Kami Ketahui Tentang Acara Anda ? <sup class="red-text">*</sup></label>										
-									</div>
-									<div class="col m9 s12">
-										<br class="hide-on-large-only">
-										<br class="hide-on-large-only">
-										<br class="hide-on-large-only">
-										<textarea name="des_acara" id="des_acara" class="materialize-textarea" placeholder="Masukkan deskripsi acara anda"></textarea>
-									</div>
-								</div>
-							</div>	
-							<div class="input-field col s12 center">
-								<button type="submit" class="btn btn-large waves-effect">Order</button>		
-								<br>
-								<br>
-							</div>							
-						<?php echo form_close();?>			
-					</div>
+							<?php echo form_close(); ?>
+						</div>
+					</div>								
 				</div>
 			</div>
-		</div>	
-	</main>
-	<!-- Modal Structure -->
-	<div id="termcond" class="modal modal-fixed-footer">
-		<div class="modal-content">
-			<h4>Terms & Conditions</h4>
-			<p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quas, tempora enim voluptates commodi quae ea, neque incidunt ipsum nobis qui, culpa vero hic dolorem fuga itaque consequuntur numquam aliquam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit saepe, nobis aperiam laboriosam, dignissimos minima itaque nemo ipsum alias labore assumenda nostrum beatae totam eius debitis expedita, quo porro, iusto? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores rem sequi minima quia, facilis quos obcaecati omnis, eum itaque libero? Illo tenetur, unde esse fugiat iste officiis dolor sapiente quibusdam!</p>
 		</div>
-		<div class="modal-footer">
-			<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Close</a>
-		</div>
-	</div>
-	<script>
-	$(document).ready(function(){
-		$("#acara_lainnya").hide();
-		$( "#acara" )
-			.change(function() {
-				val_acara = ""
-				$( "#acara option:selected" ).each(function() {
-					val_acara = $( this ).val();
-					if (val_acara == "other") {
-						$("#acara_lainnya").show();
-					}else{
-						$("#acara_lainnya").hide();
-					}
-				});
-			});
-	});
-
-	$(document).ready(function(){
-		$("#tamu_lainnya").hide();
-		$( "#tamu" )
-			.change(function() {
-				val_tamu = ""
-				$( "#tamu option:selected" ).each(function() {
-					val_tamu = $( this ).val();
-					if (val_tamu == "other") {
-						$("#tamu_lainnya").show();
-					}else{
-						$("#tamu_lainnya").hide();
-					}
-				});
-			});
-	});
-	</script>
+	</div>	
+</main>
