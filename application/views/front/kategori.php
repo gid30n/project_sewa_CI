@@ -13,12 +13,12 @@
 				<?php if(!$this->session->userdata('user')){ ?>
 					<ul class="right hide-on-med-and-down">
 						<li><a href="<?php echo base_url();?>login" class="grey-text waves-effect">Login</a></li>
-						<li><a href="<?php echo base_url();?>signup" class="grey-text waves-effect">Signup</a></li>
+						<!-- <li><a href="<?php echo base_url();?>signup" class="grey-text waves-effect">Signup</a></li> -->
 						<li><a href="<?php echo base_url();?>signup-patner" class="btn waves-effect white-text">Jadi Partner Kami</a></li>					
 					</ul>	
 				<?php }else{ ?>
 					<ul class="right hide-on-med-and-down">
-						<li><a href="<?php echo base_url(); ?>cart" class="grey-text waves-effect"><i class="material-icons left">shopping_cart</i>Order<span class="badge teal circle white-text">99</span></a></li>							
+						<li><a href="<?php echo base_url(); ?>cart" class="grey-text waves-effect"><i class="material-icons left">shopping_cart</i>Order<span class="badge teal circle white-text"><?php if(!empty($this->cartsewania->total_items())){ echo $this->cartsewania->total_items(); }else{ echo "0"; };?></span></a></li>							
 						<li><a href="
 							<?php if ($user['admin'] === "0"){
 								echo base_url('dashboard-cus');
@@ -40,10 +40,10 @@
 				<?php 
 					if(!$this->session->userdata('user')){ ?>
 						<li><a href="<?php echo base_url();?>login" class="white-text waves-effect">Login</a></li>
-						<li><a href="<?php echo base_url();?>signup" class="white-text waves-effect">Signup</a></li>
+						<!-- <li><a href="<?php echo base_url();?>signup" class="white-text waves-effect">Signup</a></li> -->
 						<li><a href="<?php echo base_url();?>signup-patner" class="white-text waves-effect">Jadi Partner Kami</a></li>
 				<?php }else{ ?>
-					<li><a href="<?php echo base_url(); ?>cart" class="white-text waves-effect"><i class="material-icons left white-text">shopping_cart</i>Order<span class="badge teal circle white-text">99</span></a></li>							
+					<li><a href="<?php echo base_url(); ?>cart" class="white-text waves-effect"><i class="material-icons left white-text">shopping_cart</i>Order<span class="badge teal circle white-text"><?php if(!empty($this->cartsewania->total_items())){ echo $this->cartsewania->total_items(); }else{ echo "0"; };?></span></a></li>							
 					<li><a href="<?php echo base_url();?>dashboard" class="white-text waves-effect"><img src="<?php echo base_url(); ?>assets/img/ava/1.png" class="left responsive-img circle" width="50px" style="margin-right:10px"><?php echo $user['first_name']." ".$user['last_name']; ?></a></li>						
 				<?php } ?>
 			</ul>
@@ -115,9 +115,9 @@
 							<a href="<?php echo base_url("kategori/kuris"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/chair.png" width="24px" class="left">Kursi</a>
 							<a href="<?php echo base_url("kategori/meja"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/table.png" width="24px" class="left">Meja</a>
 							<a href="<?php echo base_url("kategori/sound-system"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/sound.png" width="24px" class="left">Sound System</a>
-							<a href="<?php echo base_url("kategori/mimbar"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/stage.png" width="24px" class="left">Podium/Mimbar</a>
+							<a href="<?php echo base_url("kategori/podium-mimbar"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/stage.png" width="24px" class="left">Podium/Mimbar</a>
 							<a href="<?php echo base_url("kategori/lighting"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/light.png" width="24px" class="left">Lighting</a>
-							<a href="<?php echo base_url("kategori/ac"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/ac.png" width="24px" class="left">Standing AC</a>
+							<a href="<?php echo base_url("kategori/standing-ac"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/ac.png" width="24px" class="left">Standing AC</a>
 							<a href="<?php echo base_url("kategori/alat-musik"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/music.png" width="24px" class="left">Alat Musik</a>
 							<a href="<?php echo base_url("kategori/rigging"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/riging.png" width="24px" class="left">Riging</a>
 							<a href="<?php echo base_url("kategori/alat-catering"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/eat.png" width="24px" class="left">Alat Catering</a>
@@ -125,7 +125,7 @@
 							<a href="<?php echo base_url("kategori/flooring"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/floring.png" width="24px" class="left">Flooring</a>
 							<a href="<?php echo base_url("kategori/tv-screen"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/tv.png" width="24px" class="left">TV/Screen</a>
 							<a href="<?php echo base_url("kategori/kendaraan-penganting"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/car.png" width="24px" class="left">Kendaraan Pengantin</a>		
-                            <a href="<?php echo base_url("kategori/dekorrasi"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/decor.png" width="24px" class="left">Dekorasi</a>	
+                            <a href="<?php echo base_url("kategori/dekorasi"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/decor.png" width="24px" class="left">Dekorasi</a>	
                             <a href="<?php echo base_url("kategori/kartu-undangan"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/card.png" width="24px" class="left">Kartu Undangan</a>	
                             <a href="<?php echo base_url("kategori/penghibur"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/hiburan.png" width="24px" class="left">Penghibur</a>	
                             <a href="<?php echo base_url("kategori/tempat-acara"); ?>" class="collection-item col m4 s12 wave-effect"><img src="assets/img/Icon/tempat.png" width="24px" class="left">Tempat Acara</a>	
