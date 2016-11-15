@@ -26,44 +26,6 @@ class Order extends CI_Controller {
 		// 		$ses_user = $this->session->userdata('user');			
 		// 		$user = $this->profile_model->get_user($ses_user['id_user']);																
 		// 	}
-<<<<<<< HEAD
-			if(!empty($slug)){
-				$data = array(
-					'title' => "Sewania - Sewa Peralatan Pesta Online",
-					'content' => "front/order", 
-					// 'user' => $user,
-					'data' => $this->ads_model->get_ads_by_slug($slug)
-					);
-			}else{
-				redirect('/','refresh');
-			}
-			$this->load->view('layout/wrapper', $data);
-		// }else{
-		// 	redirect('login','refresh');
-		// }
-	}
-
-	public function add(){
-		// if($this->session->userdata('user')){
-			// $ses_admin = $this->session->userdata('user');
-			$data = array(
-				"id" => $this->encryption->decrypt($this->input->post("id_ads", TRUE)),
-				"no_telp" => $this->input->post("telp", TRUE),
-				"acara" => $this->input->post("acara", TRUE),
-				"tamu" => $this->input->post("tamu", TRUE),
-				"lokasi" => $this->input->post("alamat", TRUE),
-				"date_sewa" => $this->input->post("start_acara", TRUE),
-				"date_balik" => $this->input->post("end_acara", TRUE),
-				"desc_order" => $this->input->post("des_acara", TRUE),
-				"status_order" => 0,
-				// "id_user" => $ses_admin['id_user']
-				);
-			$this->cartsewania->insert($data);
-			redirect('carts','refresh');
-		// }else{
-		// 	redirect('login','refresh');
-		// }
-=======
 		// 	if(!empty($slug)){
 		// 		$data = array(
 		// 			'title' => "Sewania - Sewa Peralatan Pesta Online",
@@ -124,6 +86,5 @@ class Order extends CI_Controller {
 			redirect('carts','refresh');
 			// redirect('login','refresh');
 		}
->>>>>>> a4353d1d3abddda67130b40d896364cc1aa9f607
 	}
 }
