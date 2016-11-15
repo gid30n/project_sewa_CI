@@ -43,7 +43,7 @@
 													<a href="#!" class="black-text"><i class="small material-icons left">price</i><?php echo $row['price'];?><span class="new badge" data-badge-caption="Total Item"><b><?php echo $row['total_item'];?></b></span></a><br>							              
 												</div>
 												<div class="card-action">
-													<a href="<?php echo base_url(); ?>dashboard-cus/order/detail/1">Detail</a>
+													<a href="<?php echo base_url(); ?>dashboard-cus/order/detail/<?php echo $row['id'];?>">Detail</a>
 												</div>
 											</div>
 										<?php } ?>

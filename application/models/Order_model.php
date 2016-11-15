@@ -33,12 +33,17 @@ class Order_model extends CI_Model {
                 return $res_ads;
         }
 
+        public function get_order_by_id($id){
+                
+        }
+
         public function get_order($status)
         {
                 $result = array();
                 $query_order = $this->db->get_where('tb_order', array("status_order" => "new"));
                 foreach ($query_order->result_array() as $row) {
                         $res = array();
+                        $res['id'] = $row['id_order'];
                         $res['nama'] = $row['nama'];
                         $res['date'] = convert_date($row['date_order'], "d/m/Y");
                         $query_detail = $this->db->get_where('tb_detail_order', array("id_order" => $row['id_order']));
