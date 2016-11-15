@@ -96,14 +96,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php $i = 1; foreach ($data_detail as $row) { ?>
+					<?php $i = 1; foreach ($data_detail as $row) { ?>s
 						<tr>
 							<td><?php echo $i;?></td>
 							<td><?php echo convert_date($row['date_order'], "d/m/Y H:i:s");?></td>
 							<td><?php echo $row['title'];?></td>
 							<td><?php echo $row['jum_item'];?></td>
 							<td><?php echo convert_rp($row['price']);?></td>
-							<td><a href="#!" class="btn red"><i class="material-icons">delete</i></a></td>
+							<td><a href="<?php echo base_url('dashboard-cus/order/delete/').$row['id_ads'].'/'.$row['id_order'];?>" class="btn red"><i class="material-icons">delete</i></a></td>
 						</tr>
 					<?php $i++; }; ?>
 				</tbody>

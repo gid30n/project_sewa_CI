@@ -59,6 +59,17 @@ class Order extends CI_Controller {
 		}
 	}
 
+	public function delete($id, $id_order){
+		if(!$this->session->userdata("user")){
+			redirect('login','refresh');
+		}
+		$ses_admin = $this->session->userdata('user');
+
+		if ($this->order_model->del($id)) {
+			redirect('/dashboard-cus/order/detail/'.$id_order,'refresh');
+		}
+	}
+
 	public function history(){
 
 	}
