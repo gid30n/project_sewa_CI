@@ -32,5 +32,30 @@ class Order_model extends CI_Model {
                 $res_ads = $ads->result_array();
                 return $res_ads;
         }
+
+        public function get_order($status)
+        {
+                $result = array();
+                $query_order = $this->db->get_where('tb_order', array("status_order" => "new"));
+                foreach ($query_order->result_array() as $row) {
+                        $res = array();
+                        $res['nama'] = $row['nama'];
+                        $res['date'] = convert_date($row['date_order'], "d/m/Y");
+                        $query_detail = $this->db->get_where('tb_detail_order', array("id_order" => $row['id_order']));
+                        $res['total_item'] = 0;
+                        foreach ($query_detail->result_array() as $row_detail) {
+                                $jum_item = $row_detail['jum_item'];
+                                $query_ads = $this->db->get_where('tb_ads', array('id_ads' => $row_detail['id_ads']));
+                                $res['price'] = 0;
+                                foreach ($query_ads->result_array() as $row_ads) {
+                                        $res['price'] += $row_ads['price'];
+                                }
+                                $res['price'] = convert_rp($res['price'] * $jum_item);
+                                $res['total_item']++;
+                        }
+                        array_push($result, $res);
+                }
+                return $result;
+        }
 	
 }

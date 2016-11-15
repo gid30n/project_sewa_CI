@@ -27,7 +27,7 @@
 										<?php $rowid = ""; $total_price = 0; $i = 1; foreach ( $this->cartsewania->contents() as $row) { ?>
 										<?php $ads = $this->carts_model->get_ads($row['id']);?>										
 										<tr class="col s12">										
-											<td class="col s1"><?php echo $i;  $total_price += $ads['price'];?></td>
+											<td class="col s1"><?php echo $i;  $total_price += $ads['price']*$row['jum_item'];?></td>
 											<td class="col s3"><img src="<?php echo base_url().$ads['gallery'][0]['src'];?>" class="materialboxed col s12" style="padding:5%;"></td>
 											<td class="col s5"><h5 class="nama_order"><b><?php echo $ads['title'];?></b></h5></td>
 											<td class="col s3" style="padding:5%;"><a href="#edit" class="btn waves-effect left col s12 m6 modal-trigger" onclick="setForm('<?php $rowid = $row['rowid']; echo $row["rowid"];?>');"><i class="material-icons">edit</i></a><a href="<?php echo base_url("carts/delete/").$row['rowid'];?>" class="btn waves-effect red white-text right col s12 m6" onclick="return confirm('Apakah anda ingin menghapus order <?php echo $ads["title"];?> ?')"><i class="material-icons">delete</i></a></td>
@@ -42,7 +42,7 @@
 							<div id="checkout" class="col s12">
 								<h5><b>Data Customer</b></h5>
 								<div class="row divider"></div>
-								<?php echo form_open(); ?>
+								<?php echo form_open('carts/checkout'); ?>
 									<div class="col s12 m3">
 										<h6>Nama</h6>
 									</div>

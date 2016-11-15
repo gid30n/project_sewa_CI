@@ -69,17 +69,19 @@ class Carts_model extends CI_Model {
                 return $result[0];
         }
 
-        public function checkout($data, $id_user){
+        public function order($data){
+                return $this->db->insert('tb_order', $data) ? $this->db->insert_id() : false;
+        }
+
+        public function checkout($data, $id_order){
                 $list_id = array();
                 $i = 0;
                 foreach ($data as $row) {
-                        $row['id_user'] = $id_user;
+                        $row['id_order'] = $id_order;
                         $row['id_ads'] = $row['id'];
                         unset($row['id']);
                         unset($row['rowid']);
-                        $row['date_order'] = date('Y-m-d H:i:s');
-                        $row['status_order'] = "new";
-                        $this->db->insert('tb_order', $row);
+                        $this->db->insert('tb_detail_order', $row);
                         $id = $this->db->insert_id();
                         $last_id[$i] = $id;    
                 }

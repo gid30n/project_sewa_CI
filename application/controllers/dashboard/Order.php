@@ -20,7 +20,8 @@ class Order extends CI_Controller {
 			$data = array(
 				'title' => "Sewania - Sewa Peralatan Pesta Online",
 				'content' => "backend/order-new",
-				'user' => $this->profile_model->get_user($ses_admin['id_user']) 
+				'user' => $this->profile_model->get_user($ses_admin['id_user']),
+				'data_order' => $this->order_model->get_order("new")
 			);
 			$this->load->view('layout_backend/wrapper', $data);
 		}else{
@@ -34,7 +35,8 @@ class Order extends CI_Controller {
 			$data = array(
 				'title' => "Sewania - Sewa Peralatan Pesta Online",
 				'content' => "backend/order-new",
-				'user' => $this->profile_model->get_user($ses_admin['id_user']) 
+				'user' => $this->profile_model->get_user($ses_admin['id_user']), 
+				'data_order' => $this->order_model->get_order("valid")
 			);
 			$this->load->view('layout_backend/wrapper', $data);
 		}else{

@@ -102,46 +102,54 @@ class Carts extends CI_Controller {
 	}
 
 	public function checkout(){
-		// chek user session
-		$user = null;
-		if ($this->session->userdata('user')) {
-			$ses_user = $this->session->userdata('user');			
-			$user = $this->profile_model->get_user($ses_user['id_user']);																
-		}else{
-			// redirect('login','refresh');
-			// process checkout
-			$data_order = $this->cartsewania->contents();
-			if (isset($data_order)) {
-				$res = $this->carts_model->checkout($data_order, $user['id_user']);
-				if(isset($res)){
-					$this->cartsewania->destroy();
-					$this->session->set_userdata('msg_carts', array('msg' => 'Success !.', 'status' => true));
-					redirect('/carts','refresh');
-				}else{
-					// redirect gagal
-					$this->session->set_userdata('msg_carts', array('msg' => 'Gagal !.', 'status' => false));
-					redirect('/carts','refresh');
-				}
-			}else{
-				redirect('/','refresh');
-			}
+		// process checkout
+		$nama = $this->input->post("cus_nama", TRUE);
+		$telp = $this->input->post("cus_telp", TRUE);
+		$email = $this->input->post('cus_email', TRUE);
+		$alamat = $this->input->post("cus_alamat", TRUE);
+		$ket = $this->input->post("cus_descript", TRUE);
+
+		if (!isset($nama) && !isset($telp) && !isset($email) && !isset($alamat)) {
+			// redirect gagal
+			$this->session->set_userdata('msg_carts', array('msg' => 'Silakan isi data diri sebelum melakukan checkout !.', 'status' => false));
+			redirect('/carts','refresh');
 		}
 
-		// process checkout
+		$captcha_answer = $this->input->post('g-recaptcha-response');
+		$captcha_response = $this->recaptcha->verifyResponse($captcha_answer);
+
+		if (!$captcha_response['success']) {		
+			// redirect gagal
+			$this->session->set_userdata('msg_carts', array('msg' => 'Anda belum centang recaptcha !.', 'status' => false));
+			redirect('/carts','refresh');
+		}
+
+		// prosess insert to order
+
+		$id_order = $this->carts_model->order(array("nama" => $nama, "no_telp" => $telp, "email" => $email, "alamat" => $alamat, "ket" => $ket, "date_order" => date("Y-m-d H:i:s"), "status_order" => "new"));
+		if (!isset($id_order)) {
+			// redirect gagal
+			$this->session->set_userdata('msg_carts', array('msg' => 'Silakan isi data diri sebelum melakukan checkout !.', 'status' => false));
+			redirect('/carts','refresh');
+		}
+
+		// prosess insert to detail order
 		$data_order = $this->cartsewania->contents();
 		if (isset($data_order)) {
-			$res = $this->carts_model->checkout($data_order, $user['id_user']);
+			$res = $this->carts_model->checkout($data_order, $id_order);
 			if(isset($res)){
 				$this->cartsewania->destroy();
-				$this->session->set_userdata('msg_carts', array('msg' => 'Success !.', 'status' => true));
+				$this->session->set_userdata('msg_carts', array('msg' => 'Success, admin akan melakukan konfirmasi melalui telpon atau email. Terimakasi telah menggunakan jasa kami !.', 'status' => true));
 				redirect('/carts','refresh');
 			}else{
 				// redirect gagal
-				$this->session->set_userdata('msg_carts', array('msg' => 'Gagal !.', 'status' => false));
+				$this->session->set_userdata('msg_carts', array('msg' => 'Silakan melakukan check data sebelum melakukan checkout !.', 'status' => false));
 				redirect('/carts','refresh');
 			}
 		}else{
-			redirect('/','refresh');
+			// redirect gagal
+			$this->session->set_userdata('msg_carts', array('msg' => 'Silakan melakukan order terlebih dahulu !.', 'status' => false));
+			redirect('/carts','refresh');
 		}
 	}
 

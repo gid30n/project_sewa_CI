@@ -62,7 +62,7 @@ class Order extends CI_Controller {
 				// "date_sewa" => $this->input->post("start_acara", TRUE),
 				// "date_balik" => $this->input->post("end_acara", TRUE),
 				// "desc_order" => $this->input->post("des_acara", TRUE),
-				"status" => 0,
+				// "status" => 0,
 				// "id_user" => $ses_admin['id_user']
 				"jum_item" => $this->input->post("jum_item", TRUE)
 				);		
@@ -78,7 +78,7 @@ class Order extends CI_Controller {
 				// "date_sewa" => $this->input->post("start_acara", TRUE),
 				// "date_balik" => $this->input->post("end_acara", TRUE),
 				// "desc_order" => $this->input->post("des_acara", TRUE),
-				"status" => 0,
+				// "status" => 0,
 				// "id_user" => $ses_admin['id_user']
 				"jum_item" => $this->input->post("jum_item", TRUE)
 				);		
