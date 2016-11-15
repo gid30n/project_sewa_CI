@@ -56,7 +56,7 @@
 						<div class="row divider"></div>
                 		<h3 class="ads-details-title center-align"><?php echo $data['user'];?></h3>
                 		<p class="no-margin center-align">Brand: <strong><?php echo $data['brand'];?></strong></p>
-                		<p class="no-margin center-align">Location: <strong><?php echo $data['brand_loc'];?></strong></p>                		
+                		<!-- <p class="no-margin center-align">Location: <strong><?php echo $data['brand_loc'];?></strong></p>   -->              		
                 		<a class="waves-effect waves-light btn grey col s12 center-align" href="<?php echo base_url().'order/'.$data['slug'];?>"><i class="material-icons left hide-on-med-and-down">email</i>Order</a>		                		
 					</div>					
 				</div>
