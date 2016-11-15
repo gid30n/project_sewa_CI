@@ -34,7 +34,13 @@ class Order_model extends CI_Model {
         }
 
         public function get_order_by_id($id){
-                
+                $this->db->select("*");
+                $this->db->from("tb_detail_order");
+                $this->db->join("tb_order", 'tb_order.id_order = tb_detail_order.id_order');
+                $this->db->join("tb_ads", "tb_ads.id_ads = tb_detail_order.id_ads");
+                $this->db->where(array("tb_order.id_order" => $id));
+                $query = $this->db->get();
+                return $query->result_array();
         }
 
         public function get_order($status)

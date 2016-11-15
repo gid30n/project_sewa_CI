@@ -51,7 +51,7 @@ class Order extends CI_Controller {
 				'title' => "Sewania - Sewa Peralatan Pesta Online",
 				'content' => "backend/order",
 				'user' => $this->profile_model->get_user($ses_admin['id_user']),
-				// 'data_detail' => 
+				'data_detail' => $this->order_model->get_order_by_id($id)
 			);
 			$this->load->view('layout_backend/wrapper', $data);
 		}else{
