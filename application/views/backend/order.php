@@ -38,26 +38,26 @@
 				</thead>
 
 				<tbody>
-					<?php $data_order = $this->order_model->get_all_order();?>
-					<?php $i = 1; foreach ($data_order as $row) { ?>
-						<tr>
-							<td><?php echo $i;?></td>							
-							<td><?php echo convert_date($row['date_order'], 'd/m/Y');?></td>
-							<td><?php echo $row['name'];?></td>
-							<td><?php echo $row['name'];?></td>
-							<td>Sedang di Proses</td>
-							<td class="hide-on-large-only">
-								<button class="btn orange waves-effect col s2"><i class="material-icons left">info</i></button>
-								<button class="btn red waves-effect col s2"><i class="material-icons left">cancel</i></button>
-								<button class="col s2 btn teal waves-effect"><i class="material-icons left">done</i></button>
-							</td>
-							<td class="hide-on-med-and-down">
-								<button class="col s12 btn orange waves-effect"><i class="material-icons left">info</i>Detail</button>
-								<button class="col s12 btn red waves-effect"><i class="material-icons left">cancel</i>Cancel</button>
-								<button class="col s12 btn teal waves-effect"><i class="material-icons left">done</i>Validasi</button>
-							</td>
-						</tr>
-					<?php $i++; } ?>																					
+					<!-- <?php $data_order = $this->order_model->get_all_order();?>
+																								<?php $i = 1; foreach ($data_order as $row) { ?>
+																									<tr>
+																										<td><?php echo $i;?></td>							
+																										<td><?php echo convert_date($row['date_order'], 'd/m/Y');?></td>
+																										<td><?php echo $row['name'];?></td>
+																										<td><?php echo $row['name'];?></td>
+																										<td>Sedang di Proses</td>
+																										<td class="hide-on-large-only">
+																											<button class="btn orange waves-effect col s2"><i class="material-icons left">info</i></button>
+																											<button class="btn red waves-effect col s2"><i class="material-icons left">cancel</i></button>
+																											<button class="col s2 btn teal waves-effect"><i class="material-icons left">done</i></button>
+																										</td>
+																										<td class="hide-on-med-and-down">
+																											<button class="col s12 btn orange waves-effect"><i class="material-icons left">info</i>Detail</button>
+																											<button class="col s12 btn red waves-effect"><i class="material-icons left">cancel</i>Cancel</button>
+																											<button class="col s12 btn teal waves-effect"><i class="material-icons left">done</i>Validasi</button>
+																										</td>
+																									</tr>
+																								<?php $i++; } ?>		 -->																			
 				</tbody>
 			</table>
 		</div>					

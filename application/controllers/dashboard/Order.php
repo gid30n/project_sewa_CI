@@ -50,7 +50,8 @@ class Order extends CI_Controller {
 			$data = array(
 				'title' => "Sewania - Sewa Peralatan Pesta Online",
 				'content' => "backend/order",
-				'user' => $this->profile_model->get_user($ses_admin['id_user']) 
+				'user' => $this->profile_model->get_user($ses_admin['id_user']),
+				// 'data_detail' => 
 			);
 			$this->load->view('layout_backend/wrapper', $data);
 		}else{
