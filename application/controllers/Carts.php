@@ -45,13 +45,13 @@ class Carts extends CI_Controller {
 	}
 
 	public function delete($rowid){
-		$user = null;
-		if ($this->session->userdata('user')) {
-			$ses_user = $this->session->userdata('user');			
-			$user = $this->profile_model->get_user($ses_user['id_user']);																
-		}else{
-			redirect('login','refresh');
-		}
+		// $user = null;
+		// if ($this->session->userdata('user')) {
+		// 	$ses_user = $this->session->userdata('user');			
+		// 	$user = $this->profile_model->get_user($ses_user['id_user']);																
+		// }else{
+		// 	redirect('login','refresh');
+		// }
 		$this->cartsewania->remove($rowid);
 		redirect('carts','refresh');
 	}

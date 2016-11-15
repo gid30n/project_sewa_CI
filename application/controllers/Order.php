@@ -43,7 +43,7 @@ class Order extends CI_Controller {
 		$data = array(
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
 			'content' => "front/order", 
-			'user' => $user,
+			// 'user' => $user,
 			'data' => $this->ads_model->get_ads_by_slug($slug)
 		);
 		$this->load->view('layout/wrapper', $data);
