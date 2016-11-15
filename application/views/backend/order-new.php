@@ -31,23 +31,26 @@
 									</div>
 								</div> -->
 								<div class="row">
-									<div class="col s12 m4">
-										<?php foreach ($data_order as $row) { ?>
+									<?php foreach ($data_order as $row) { ?>
+										<div class="col s12 m4">										
 											<div class="card">
 												<div class="card-image">
 													<img src="<?php echo base_url(); ?>assets/img/ava/1.png">
 													<span class="card-title bening"><b><?php echo $row['nama'];?></b></span>
 												</div>
 												<div class="card-content black-text">
-													<a href="#!" class="black-text"><i class="small material-icons left">perm_contact_calendar</i><?php echo $row['date'];?></a><br>
-													<a href="#!" class="black-text"><i class="small material-icons left">price</i><?php echo $row['price'];?><span class="new badge" data-badge-caption="Total Item"><b><?php echo $row['total_item'];?></b></span></a><br>							              
+													<a href="#!" class="black-text"><i class="small material-icons left">perm_contact_calendar</i><?php echo $row['date'];?></a><br>				              
 												</div>
 												<div class="card-action">
-													<a href="<?php echo base_url(); ?>dashboard-cus/order/detail/<?php echo $row['id'];?>">Detail</a>
+													<ul>
+														<li><a href="#!" class="black-text"><?php echo $row['price'];?><span class="new badge" data-badge-caption="Total Item"><b><?php echo $row['total_item'];?></b></span></a><br></li>
+														<li><br></li>
+														<li><a href="<?php echo base_url(); ?>dashboard-cus/order/detail/<?php echo $row['id'];?>">Detail</a></li>
+													</ul>																											
 												</div>
 											</div>
-										<?php } ?>
-									</div>							
+										</div>
+									<?php } ?>														
 								</div>
 							</div>
 						</div>
