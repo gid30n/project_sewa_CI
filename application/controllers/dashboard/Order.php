@@ -45,13 +45,17 @@ class Order extends CI_Controller {
 	}
 
 	public function detail($id){
+		$data_detail = $this->order_model->get_order_by_id($id);
+		if(count($data_detail) === 0){
+			redirect('dashboard-cus/order','refresh');
+		}
 		if($this->session->userdata('user')){
 			$ses_admin = $this->session->userdata('user');
 			$data = array(
 				'title' => "Sewania - Sewa Peralatan Pesta Online",
 				'content' => "backend/order",
 				'user' => $this->profile_model->get_user($ses_admin['id_user']),
-				'data_detail' => $this->order_model->get_order_by_id($id)
+				'data_detail' => $data_detail
 			);
 			$this->load->view('layout_backend/wrapper', $data);
 		}else{
@@ -65,7 +69,7 @@ class Order extends CI_Controller {
 		}
 		$ses_admin = $this->session->userdata('user');
 
-		if ($this->order_model->del($id)) {
+		if ($this->order_model->del($id, $id_order)) {
 			redirect('/dashboard-cus/order/detail/'.$id_order,'refresh');
 		}
 	}

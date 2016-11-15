@@ -69,7 +69,11 @@ class Order_model extends CI_Model {
                 return $result;
         }
 
-        public function del($id){
+        public function del($id, $id_order){
+                $query = $this->db->get_where("tb_detail_order", array("id_ads" => $id));
+                if($query->num_rows() === 1){
+                        $this->db->delete("tb_order", array("id_order" => $id_order));
+                }
                 $this->db->delete('tb_detail_order', array("id_ads" => $id));
                 return !$this->db->affected_rows() ? true : false;
         }

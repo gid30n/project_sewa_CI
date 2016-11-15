@@ -24,6 +24,7 @@
 <div class="col s12 l9 right">
 	<div class="card white">
 		<div class="card-content">
+			<?php var_dump($data_detail);?>
 		<a href="#!" class="btn right"><i class="material-icons left">done</i>Validasi Order</a>
 		<div class="col s12">
 			<div class="col s3">
