@@ -5,7 +5,7 @@
 					<li>
 						<div class="collapsible-header"><i class="material-icons">swap_vert</i>Sort by ...</div>
 						<div class="collapsible-body">
-							<form action="">									
+							<!-- <form action="">		 -->							
 								<div class="row sort teal-text">
 									<h5>Search</h5>
 									<div class="col m6 s12">
@@ -29,14 +29,14 @@
 										</div>											 											 
 									</div>
 									<div class="col s12 center-align">
-										<button type="submit" class="btn btn-large waves-effect waves-green"><i class="material-icons left">search</i>Search</button>
+										<button class="btn btn-large waves-effect waves-green" onclick="pencarian();"><i class="material-icons left">search</i>Search</button>
 									</div>										
 								</div>
-							</form>
+							<!-- </form> -->
 						</div>
 					</li>
 					<li>
-						<div class="collapsible-header active"><i class="material-icons">store</i><?php echo $data[0]['sub_kategori'];?></div>
+						<div class="collapsible-header active"><i class="material-icons">search</i><?php echo $data[0]['sub_kategori'];?></div>
 						<div class="collapsible-body">
 							<div class="row store">
 								<?php foreach ($data as $row) { ?>
@@ -70,21 +70,33 @@
 	</main>
 
 	<script>
-	$(document).ready(function(){
-		$.ajax({
-			method: "POST",
-			url: "<?php echo base_url('api/search');?>",
-			data: { 
-				search: "T", 
-				min_price: 3000,
-				max_price: 1200000,
-				sort: "asc",
-				'<?php echo $this->security->get_csrf_token_name(); ?>':'<?php echo $this->security->get_csrf_hash(); ?>'
+		function pencarian(){
+			var input_search = $('#search').val();
+			var input_sorting = $('#sorting').val();
+			var input_minprice = $('#min_price').val();
+			var input_maxprice = $('#max_price').val();
+			
+			if (input_search.length != 0) {
+				if (input_sorting.length != 0) {
+					if (input_minprice.length != 0) {
+						if (input_maxprice.length != 0) {
+							
+							$.ajax({
+								method: "POST",
+								url: "<?php echo base_url('api/search'); ?>",
+								data: {
+									search: input_search,
+									min_price: input_minprice,
+									max_price: input_maxprice,
+									sort:input_sorting,
+									'<?php echo $this->security->get_csrf_token_name(); ?>':'<?php echo $this->security->get_csrf_hash(); ?>'
+								}								
+							}).done(function( data ){
+								console.log(data);
+							});
+						}
+					}
+				}
 			}
-		})
-		.done(function( data ) {
-			console.log( "Data Saved: " );
-			console.log(data);
-		});
-	});
+		}	
 	</script>
