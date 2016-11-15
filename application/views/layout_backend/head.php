@@ -12,7 +12,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	 
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/swal.css">	
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-    <!-- <script src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script> -->
+    <script src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/pace.js"></script>
     <script src="<?php echo base_url();?>assets/js/swal.js"></script>
     <!-- bxSlider CSS file -->

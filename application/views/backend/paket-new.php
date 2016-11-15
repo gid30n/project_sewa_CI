@@ -1,6 +1,6 @@
 
 		<?php echo form_open_multipart('/paket/new-ads/post');?>
-		<input type="hidden" value="1" name="kategori" >	
+		<input type="hidden" value="2" name="kategori" >	
 		<div class="col s12 l9 right">
 			<div class="card white">
 				<div class="card-content teal-text">

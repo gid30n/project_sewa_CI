@@ -91,7 +91,7 @@ class Paket extends CI_Controller {
 					"id_super_sub_kategori" => $super_sub_kategori,
 					"id_province" => $province,
 					"id_region" => $lokasi,
-					);
+					);				
 				$id_ads = $this->paket_model->post_ads($data_signup);
 
 				$filesCount = count($_FILES['gallerys']['name']);

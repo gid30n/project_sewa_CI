@@ -92,9 +92,12 @@ function deletes(){
 										    		</div>		
 										    	</div>										      
 										    </div>
-										  </div>
-									</div>
+										  </div>										  
+									</div>										
 									<?php }; ?>
+									<div class="progress" id='loading'> 
+								      <div class="indeterminate"></div>
+								  </div>
 								</div>
 							</div>
 						</div>
@@ -104,6 +107,7 @@ function deletes(){
 		</div>
 	</main>
 	<?php 
+	$level = $user['admin'];
 	if(isset($msg_peralatan)){
 		if(isset($msg_peralatan['status'])){
 			if($msg_peralatan['status']){
@@ -115,41 +119,32 @@ function deletes(){
 		$this->session->unset_userdata('msg_peralatan');
 	}
 	?>
-<?php
-	$level = $user['admin']; 
-	if($level === '-9'){
-?>
-<script type="text/javascript">
-$(document).ready(function() {
-	 var total_record = 4;
-	 var total_groups;
-	 var last_id;
-	 $.getJSON( "<?php echo base_url(	); ?>api/all/ads/kategori-count/1", function( data ) {
-	 	total_groups = data.count;
-	 	last_id = data.last_id;
-	 });
-	 $(window).scroll(function() {       
-	     if($(window).scrollTop() + $(window).height() == $(document).height()){
-	        if(total_record < total_groups){
-	           	loading = true; 
-	           	$('.loader_image').show(); 
-	           	$.getJSON('<?php echo site_url() ?>api/all/ads/kategori/1/'+total_record+"/3",
-	             	function(data){ 
-	                 	if (data != "") {                 		
-	                 		for (var i = 0; i < data.length; i++) { 
-	                 			if(last_id == data[i].id_ads){
-	                 				break;
-	                 			}else{
-	                 				gallery = data[i].gallery;             			                 			
-		                 			$("#konten-peralatan").append(
+<script>
+	$(document).ready(function(){
+		var total_record = 3;
+ 		var total_groups;
+ 		$.getJSON( '<?php if($level === "-9"){ echo base_url("api/all/ads/kategori-count/1"); }else{ echo base_url("api/user/ads/kategori-count/1");} ?>', function( data ) {
+	 		total_groups = data.count;
+	 		$(window).scroll(function(){
+	 			if($(window).scrollTop() + $(window).height() == $(document).height()){
+	 				if(total_record < total_groups){
+	 					loading = true;
+	 					$('#loading').show();	 					
+	 					setTimeout(function(){
+						    	 						 						 					
+	 					$.getJSON('<?php if($level === "-9"){ echo base_url("api/all/ads/kategori/1/"); }else{ echo base_url("api/user/ads/kategori/1/");} ?>'+total_record+"/3", function(data){
+	 						if (data != "") {
+	 							for (var i = 0; i < data.length; i++) {                 			
+                 					gallery = data[i].gallery;
+
+                 					$("#konten-peralatan").append(
 		                 				'<div class="col s12 m4">'+
-		                 				'<input type="hidden" class="id-ads" value="'+data[i].id_ads+'">'+
 											'<div class="card hoverable">'+
 											    '<div class="card-image waves-effect waves-block waves-light">'+
-											      '<img class="activator" src="'+'<?php echo base_url("images/?w=150&h=150&src="); ?>'+gallery[0].src+'">'+
+											      '<img class="activator" src="'+'<?php echo base_url("images/w150_h150_at__?src="); ?>'+gallery[0].src+'">'+
 											    '</div>'+
 											    '<div class="card-content">'+
-											      '<span class="card-title activator grey-text text-darken-4 truncate" style="word-wrap: break-word">'+data[i].title+'</span>'+
+											      '<span class="card-title activator grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">more_vert</i></span>'+
 											      '<br><i class="tiny material-icons">room</i>'+data[i].lokasi+
 											      '<div class="divider"></div>'+
 											      '<span><b>'+data[i].price+'</b></span>'+																      
@@ -162,27 +157,28 @@ $(document).ready(function() {
 														      '<label for="check'+data[i].id_ads+'">Pilih</label>'+
 														    '</p>'+
 														'</div>'+
-														'<a href="<?php echo base_url("peralatan/update/");?>'+data[i].slug+'" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>'+
-														'<a href="<?php echo base_url("peralatan/delete/");?>'+data[i].slug+'" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>'+
+														'<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>'+
+														'<a href="#!" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>'+
 														'<a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a>'+
 												    '</div>'+													    											
 											    '</div>'+
 											    '<div class="card-reveal">'+
-											      '<span class="card-title grey-text text-darken-4 truncate">'+data[i].title+'<i class="material-icons right">close</i></span>'+
+											      '<span class="card-title grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">close</i></span>'+
 											      '<p style="word-wrap: break-word"><?php echo mb_strimwidth("'+data[i].descript+'",0,250, "...."); ?></p>'+
-											      '<p><a href="<?php echo base_url();?>ads/'+data[i].slug+'" class="btn waves-effect">Detail</a></p>'+
+											      '<p><a href="<?php echo base_url();?>ads/<?php echo $row["slug"];?>" class="btn waves-effect">Detail</a></p>'+
 											    '</div>'+
 											  '</div>'+
 										'</div>'
-		                 			);	
-	                 			}                  
-	                 		}                 		  		                	                     
-	                     	total_record += 3;
-	                    }                
-	            	});     
-	        }
-	     }
-	 });
- });
- </script>
- <?php } ?>
+		                 			);                 					
+                 				}
+                 				total_record += 3;                 				
+	 						}
+	 					});
+	 					$('#loading').hide();
+						}, 1000);
+	 				}
+	 			}
+	 		}); 		
+	 	});	 	
+	});
+</script>
