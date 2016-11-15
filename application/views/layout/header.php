@@ -12,6 +12,7 @@
 				<!-- Detection for user loged -->
 				<?php if(!$this->session->userdata('user')){ ?>
 					<ul class="right hide-on-med-and-down">
+						<li><a href="<?php echo base_url(); ?>carts" class="grey-text waves-effect"><i class="material-icons left">shopping_cart</i>Order<span class="badge teal circle white-text"><?php if(!empty($this->cartsewania->total_items())){ echo $this->cartsewania->total_items(); }else{ echo "0"; };?></span></a></li>
 						<li><a href="<?php echo base_url();?>login" class="grey-text waves-effect">Login</a></li>
 						<!-- <li><a href="<?php echo base_url();?>signup" class="grey-text waves-effect">Signup</a></li> -->
 						<li><a href="<?php echo base_url();?>signup-patner" class="btn waves-effect white-text">Jadi Partner Kami</a></li>					
@@ -46,6 +47,7 @@
 				<!-- Detection for user loged -->
 				<?php 
 					if(!$this->session->userdata('user')){ ?>
+						<li><a href="<?php echo base_url(); ?>carts" class="grey-text waves-effect"><i class="material-icons left">shopping_cart</i>Order<span class="badge teal circle white-text"><?php if(!empty($this->cartsewania->total_items())){ echo $this->cartsewania->total_items(); }else{ echo "0"; };?></span></a></li>
 						<li><a href="<?php echo base_url();?>login" class="white-text waves-effect">Login</a></li>
 						<!-- <li><a href="<?php echo base_url();?>signup" class="white-text waves-effect">Signup</a></li> -->
 						<li><a href="<?php echo base_url();?>signup-patner" class="white-text waves-effect">Jadi Partner Kami</a></li>
