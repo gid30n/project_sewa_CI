@@ -91,17 +91,21 @@
 						<th data-field="tgl">Tanggal</th>
 						<th data-field="item-paket">Order</th>
 						<th data-field="jum_item">QTY</th>
-						<th data-field="status">Status</th>
+						<th data-field="status">Harga</th>
 						<th data-field="ops">Options</th>
 					</tr>
 				</thead>
-				<tbody>					
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+				<tbody>
+					<?php $i = 1; foreach ($data_detail as $row) { ?>
+						<tr>
+							<td><?php echo $i;?></td>
+							<td><?php echo convert_date($row['date_order'], "d/m/Y H:i:s");?></td>
+							<td><?php echo $row['title'];?></td>
+							<td><?php echo $row['jum_item'];?></td>
+							<td><?php echo convert_rp($row['price']);?></td>
+							<td></td>
+						</tr>
+					<?php $i++; }; ?>
 				</tbody>
 			</table>
 		</div>					
