@@ -103,7 +103,7 @@
 							<td><?php echo $row['title'];?></td>
 							<td><?php echo $row['jum_item'];?></td>
 							<td><?php echo convert_rp($row['price']);?></td>
-							<td></td>
+							<td><a href="#!" class="btn"><i class="material-icons left">delete</i></a></td>
 						</tr>
 					<?php $i++; }; ?>
 				</tbody>
