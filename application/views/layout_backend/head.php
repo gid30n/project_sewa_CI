@@ -50,5 +50,22 @@
 				});								
 			});				
 	</script>';
+	}elseif ($level === '1') {
+		echo '<script>	
+			$(document).ready(function(){
+				var tot_peralatan = 0;
+				$.getJSON( "'.base_url().'api/user/ads/kategori-count/1", function( data ) {
+					tot_peralatan += data.count;				 	
+					$(" #count_peralatan").html(tot_peralatan);
+
+					var tot_paket = 0;
+					$.getJSON( "'.base_url().'api/user/ads/kategori-count/2", function( data ) {
+						tot_paket += data.count;				 	
+						$(" #count_paket").html(tot_paket);				
+					});
+					$(" #total_iklan").html(parseInt(tot_peralatan) + parseInt(tot_paket));								
+				});								
+			});				
+	</script>';
 	}
 ?>
