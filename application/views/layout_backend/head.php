@@ -45,8 +45,8 @@
 					$.getJSON( "'.base_url().'api/all/ads/kategori-count/2", function( data ) {
 						tot_paket += data.count;				 	
 						$(" #count_paket").html(tot_paket);				
-					});
-					$(" #total_iklan").html(parseInt(tot_peralatan) + parseInt(tot_paket));								
+						$(" #total_iklan").html(parseInt(tot_peralatan) + parseInt(tot_paket));								
+					});					
 				});								
 			});				
 	</script>';
@@ -62,8 +62,9 @@
 					$.getJSON( "'.base_url().'api/user/ads/kategori-count/2", function( data ) {
 						tot_paket += data.count;				 	
 						$(" #count_paket").html(tot_paket);				
-					});
-					$(" #total_iklan").html(parseInt(tot_peralatan) + parseInt(tot_paket));								
+						$(" #total_iklan").html(parseInt(tot_peralatan) + parseInt(tot_paket));
+						console.log(parseInt(tot_peralatan) + parseInt(tot_paket));								
+					});					
 				});								
 			});				
 	</script>';
