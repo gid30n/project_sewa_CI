@@ -24,7 +24,7 @@
 <div class="col s12 l9 right">
 	<div class="card white">
 		<div class="card-content">
-			<?php var_dump($data_detail);?>
+			<!-- <?php var_dump($data_detail);?> -->
 		<a href="#!" class="btn right"><i class="material-icons left">done</i>Validasi Order</a>
 		<div class="col s12">
 			<div class="col s3">
@@ -71,44 +71,50 @@
 			<hr>
 			<div class="col s3">
 				<h6>Status	</h6>
-			</div>
+			</div>			
 			<div class="col s9">
-				<p align="justify"><?php echo $data_detail[0]['status_order'];?></p>
-			</div>
-			<hr>
-			<div class="col s3">
-				<h6>Total	</h6>
-			</div>
-			<div class="col s9">
-				<?php $total = 0; foreach ($data_detail as $row) {
-					$total += $row['price']*$row['jum_item'];
-				}; echo convert_rp($total);?>
-			</div>																	
+				<?php if ($data_detail[0]['status_order'] === "new"): ?>					
+					<i class="material-icons medium teal-text">fiber_new</i>
+				<?php endif ?>				
+			</div>																					
 		</div>
-			<table class="responsive-table">
-				<thead>
-					<tr>
-						<th data-field="no">No</th>						
-						<th data-field="tgl">Tanggal</th>
-						<th data-field="item-paket">Order</th>
-						<th data-field="jum_item">QTY</th>
-						<th data-field="status">Harga</th>
-						<th data-field="ops">Options</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php $i = 1; foreach ($data_detail as $row) { ?>s
-						<tr>
-							<td><?php echo $i;?></td>
-							<td><?php echo convert_date($row['date_order'], "d/m/Y H:i:s");?></td>
-							<td><?php echo $row['title'];?></td>
-							<td><?php echo $row['jum_item'];?></td>
-							<td><?php echo convert_rp($row['price']);?></td>
-							<td><a href="<?php echo base_url('dashboard-cus/order/delete/').$row['id_ads'].'/'.$row['id_order'];?>" class="btn red"><i class="material-icons">delete</i></a></td>
-						</tr>
-					<?php $i++; }; ?>
-				</tbody>
-			</table>
+		<div class="row">
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<table class="responsive-table">
+							<thead>
+								<tr>
+									<th data-field="no">No</th>						
+									<th data-field="tgl">Tanggal</th>
+									<th data-field="item-paket">Order</th>
+									<th data-field="jum_item">QTY</th>
+									<th data-field="status">Harga</th>
+									<th data-field="ops">Options</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php $i = 1; foreach ($data_detail as $row) { ?>
+									<tr>
+										<td><?php echo $i;?></td>
+										<td><?php echo convert_date($row['date_order'], "d/m/Y H:i:s");?></td>
+										<td><?php echo $row['title'];?></td>
+										<td><?php echo $row['jum_item'];?></td>
+										<td><?php echo convert_rp($row['price']);?></td>
+										<td><a href="<?php echo base_url('dashboard-cus/order/delete/').$row['id_ads'].'/'.$row['id_order'];?>" class="btn red"><i class="material-icons">delete</i></a></td>
+									</tr>
+								<?php $i++; }; ?>
+							</tbody>
+						</table>
+					</div>					
+				</div>
+			</div>
+			<div class="col s12">
+				<a href="#!" class="btn col s12"><?php $total = 0; foreach ($data_detail as $row) {
+					$total += $row['price']*$row['jum_item'];
+				}; echo "Total : <b>".convert_rp($total)."</b>";?>				</a>				
+			</div>				
+		</div>					
 		</div>					
 	</div>
 </div>

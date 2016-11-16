@@ -99,7 +99,7 @@
 		<h4>Edit Jumlah Item</h4>
 		<?php echo form_open("",array('id' => 'edit_form')); ?>		
 			<div class="col s12">
-				<input type="number" placeholder="Jumlah item" name="jum_item" id="jum_item" class="validate" required="" >
+				<input type="number" placeholder="Jumlah item" name="jum_item" id="jum_item" class="validate" required="" value="<?php echo $this->cartsewania->get_item($rowid)['jum_item']; ?>">
 			</div>		
 	</div>
 	<div class="modal-footer">		

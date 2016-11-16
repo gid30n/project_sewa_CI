@@ -76,6 +76,5 @@ class Order_model extends CI_Model {
                 }
                 $this->db->delete('tb_detail_order', array("id_ads" => $id));
                 return !$this->db->affected_rows() ? true : false;
-        }
-	
+        }        
 }

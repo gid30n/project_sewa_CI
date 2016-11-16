@@ -105,8 +105,8 @@
 					<div class="box white">
 						<ul class="collection">
 							<a href="<?php echo base_url("kategori/paket-pernikahan"); ?>" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">wc</i>Paket Pernikahan</a>
-							<a href="<?php echo base_url("kategori/paket-ulangtahun-anak"); ?>" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">cake</i>Paket Ulang Tahun Anak</a>
-							<a href="<?php echo base_url("kategori/paket-ulangtahun-remaja"); ?>" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">cake</i>Paket Ulang Tahun Remaja</a>
+							<a href="<?php echo base_url("kategori/paket-ulang-tahun"); ?>" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">cake</i>Paket Ulang Tahun Anak</a>
+							<a href="<?php echo base_url("kategori/paket-ulang-tahun"); ?>" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">cake</i>Paket Ulang Tahun Remaja</a>
 							<a href="<?php echo base_url("kategori/paket-acara-adat-bali"); ?>" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">local_activity</i>Paket Acara Adat Bali</a>
 							<a href="<?php echo base_url("kategori/paket-dekorasi"); ?>" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">color_lens</i>Paket Dekorasi</a>
 							<a href="<?php echo base_url("kategori/paket-catering"); ?>" class="collection-item col m6 s12 waves-effect teal-text"><i class="material-icons left">restaurant</i>Paket Catering</a>

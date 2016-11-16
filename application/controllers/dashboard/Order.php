@@ -11,6 +11,7 @@ class Order extends CI_Controller {
 		parent::__construct();
 		$this->load->model('profile_model');
 		$this->load->model('order_model');
+		$this->load->model('konsultasi_model');
 	}
 
 	public function index()
@@ -21,7 +22,9 @@ class Order extends CI_Controller {
 				'title' => "Sewania - Sewa Peralatan Pesta Online",
 				'content' => "backend/order-new",
 				'user' => $this->profile_model->get_user($ses_admin['id_user']),
-				'data_order' => $this->order_model->get_order("new")
+				'data_order' => $this->order_model->get_order("new"),
+				'jum_new_konsultasi' => $this->konsultasi_model->count_new_konsultasi(),
+				'jum_history_konsultasi' => $this->konsultasi_model->history_count_konsultasi()
 			);
 			$this->load->view('layout_backend/wrapper', $data);
 		}else{
@@ -35,8 +38,8 @@ class Order extends CI_Controller {
 			$data = array(
 				'title' => "Sewania - Sewa Peralatan Pesta Online",
 				'content' => "backend/order-new",
-				'user' => $this->profile_model->get_user($ses_admin['id_user']), 
-				'data_order' => $this->order_model->get_order("valid")
+				'user' => $this->profile_model->get_user($ses_admin['id_user']),				 
+				'data_order' => $this->order_model->get_order("valid"),
 			);
 			$this->load->view('layout_backend/wrapper', $data);
 		}else{
@@ -55,7 +58,9 @@ class Order extends CI_Controller {
 				'title' => "Sewania - Sewa Peralatan Pesta Online",
 				'content' => "backend/order",
 				'user' => $this->profile_model->get_user($ses_admin['id_user']),
-				'data_detail' => $data_detail
+				'data_detail' => $data_detail,
+				'jum_new_konsultasi' => $this->konsultasi_model->count_new_konsultasi(),
+				'jum_history_konsultasi' => $this->konsultasi_model->history_count_konsultasi()
 			);
 			$this->load->view('layout_backend/wrapper', $data);
 		}else{

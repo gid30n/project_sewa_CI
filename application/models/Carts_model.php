@@ -83,7 +83,8 @@ class Carts_model extends CI_Model {
                         unset($row['rowid']);
                         $this->db->insert('tb_detail_order', $row);
                         $id = $this->db->insert_id();
-                        $last_id[$i] = $id;    
+                        $last_id[$i] = $id;
+                            
                 }
                 // var_dump($last_id);
                 return $list_id;

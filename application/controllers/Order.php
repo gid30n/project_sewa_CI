@@ -40,10 +40,11 @@ class Order extends CI_Controller {
 		// }else{
 		// 	redirect('login','refresh');
 		// }
+		$ses_user = $this->session->userdata('user');
 		$data = array(
 			'title' => "Sewania - Sewa Peralatan Pesta Online",
 			'content' => "front/order", 
-			// 'user' => $user,
+			'user' => $this->profile_model->get_user($ses_user['id_user']),
 			'data' => $this->ads_model->get_ads_by_slug($slug)
 		);
 		$this->load->view('layout/wrapper', $data);

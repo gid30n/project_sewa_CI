@@ -24,9 +24,13 @@ class Kategori_admin extends CI_Controller {
 				if (!empty($kategori)) {
 					$id = $this->kategori_model->ambil_id_sub($kategori);
 					$id_kategori = $id[0]->id_kategori;
+					$new = "";
+					for ($i=0; $i < strlen($name) ; $i++) { 
+						$new .= strtolower(preg_replace('/\s/i', "-", $name[$i]));
+					}
 					$data  = array(
 						'name' => $name,
-						'slug' => strtolower($name),
+						'slug' => $new,
 						'id_sub_kategori' => $kategori,
 						'id_kategori' => $id_kategori,						
 					);
@@ -58,9 +62,13 @@ class Kategori_admin extends CI_Controller {
 			if ($this->kategori_model->cek_add_sub($name)) {
 				
 				if (isset($kategori)) {
+					$new = "";
+					for ($i=0; $i < strlen($name) ; $i++) { 
+						$new .= strtolower(preg_replace('/\s/i', "-", $name[$i]));
+					}
 					$data  = array(
 						'name' => $name,
-						'slug' => strtolower($name),
+						'slug' => $new,
 						'id_kategori' => $kategori
 					);
 					$this->kategori_model->add_sub_kategori($data);
