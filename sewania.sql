@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2016 at 02:04 AM
+-- Generation Time: Nov 16, 2016 at 03:06 PM
 -- Server version: 5.5.50-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.19
 
@@ -112,14 +112,13 @@ CREATE TABLE IF NOT EXISTS `tb_detail_order` (
   `id_ads` int(11) NOT NULL,
   `jum_item` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_detail_order`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `tb_detail_order`
 --
 
 INSERT INTO `tb_detail_order` (`id_detail_order`, `id_order`, `id_ads`, `jum_item`) VALUES
-(4, 10, 60, NULL),
 (5, 10, 61, 11);
 
 -- --------------------------------------------------------
@@ -240,21 +239,18 @@ INSERT INTO `tb_konsult` (`id_konsult`, `name`, `no_telp`, `acara`, `tamu`, `des
 CREATE TABLE IF NOT EXISTS `tb_order` (
   `id_order` int(11) NOT NULL AUTO_INCREMENT,
   `nama` text NOT NULL,
+  `jenis_kelamin` tinyint(1) NOT NULL,
   `no_telp` varchar(15) NOT NULL,
   `email` varchar(255) NOT NULL,
   `alamat` text NOT NULL,
   `ket` text NOT NULL,
   `date_order` datetime NOT NULL,
+  `date_sewa` date NOT NULL,
+  `date_kembali` date NOT NULL,
+  `ava` varchar(250) NOT NULL,
   `status_order` enum('new','process','valid','invalid','pending','success') NOT NULL,
   PRIMARY KEY (`id_order`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
-
---
--- Dumping data for table `tb_order`
---
-
-INSERT INTO `tb_order` (`id_order`, `nama`, `no_telp`, `email`, `alamat`, `ket`, `date_order`, `status_order`) VALUES
-(10, 'Dewa Mahendra', '10928172', 'dewa_g@rock.com', 'asddsd', 'dadadad', '2016-11-16 08:08:05', 'new');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 
@@ -315,7 +311,7 @@ CREATE TABLE IF NOT EXISTS `tb_sub_kategori` (
   `slug` text NOT NULL,
   `id_kategori` int(11) NOT NULL,
   PRIMARY KEY (`id_sub_kategori`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `tb_sub_kategori`
@@ -407,7 +403,7 @@ INSERT INTO `tb_users` (`id_user`, `first_name`, `last_name`, `email`, `no_telp`
 (2, 'Komang', 'Suryadana', 'suryadana80@gmail.com', '', '', '8821716db3b4a9e6708a792da936df9357bb9b455e1600354c54d2009e6deb4275fc1224d33989452af7214bfbccde878174fc56d562ecfcc6f68c08a4fbef4e8pzcODt1xyBIbsuUc9phVgFc4C5RaUTMD1SXm+EdLhA=', '', '0000-00-00 00:00:00', '2016-10-25 22:35:52', '127.0.0.1', -9, 0),
 (15, 'Mikel', 'Eric', 'pendekar_langit@protonmail.com', '', '', 'dd314dadda935008202a1d1028e923bc0d0bbd209f7731c81288a63004802f6b141177df154f46e49e898d602a315bd54e13046c92ce34ced5398003546e50e9Q5h49Ebb2KNtmxotuzWfhJZQzx2jhu6FKyGJByrUawM=', '', '2016-10-01 18:53:19', '2016-10-27 01:39:07', '127.0.0.1', 0, 0),
 (16, 'Pendekar', 'Langit', 'pendekar@protonmail.com', '', '', 'eb5f53336f92956e74c8c6d2cb5019001cf8dbd06f8f37f0b6f575e1c04c48710ca3ac41962e9598201a931de3d10aa30fad2149e701926a15de5962148ddc7cz/LpgcuVBLMAmJ5i190Lg4J4+iTCvIcj+N4LC8pTHXQ=', 'uploads/avatar/bdi_under_presaur1.jpg', '2016-10-24 02:48:25', '2016-10-25 22:56:03', '127.0.0.1', 1, 0),
-(20, 'Dewa', 'Mahendra', 'dewamah@gmail.com', '', '_bogeyman_', '105a9eade3fcfcf66a51164fe98908734108d14885d75efb031bcd0f7289f3b56871233050ed2692d343d7ab2ffdf8a6278f16a67c0ef3b04c3804c17a8c2330hu+iQjJyqmW1t5tXHRwF43kU2kpRILANwfjkCftsZD0=', 'assets/img/ava/1.png', '2016-10-30 08:55:17', '2016-11-16 08:42:28', '127.0.0.1', -9, 0),
+(20, 'Dewa', 'Mahendra', 'dewamah@gmail.com', '', '_bogeyman_', '105a9eade3fcfcf66a51164fe98908734108d14885d75efb031bcd0f7289f3b56871233050ed2692d343d7ab2ffdf8a6278f16a67c0ef3b04c3804c17a8c2330hu+iQjJyqmW1t5tXHRwF43kU2kpRILANwfjkCftsZD0=', 'assets/img/ava/1.png', '2016-10-30 08:55:17', '2016-11-16 20:58:17', '127.0.0.1', -9, 0),
 (21, 'AAA', 'BBB', 'slashrootctf@gmail.com', '081338315351', 'sasa', 'e605cd18e949254ff3f066f337ca6530c693f7ce64fe9f80feec77a47a3a9883faabb08b0a6a8ee624f3f84ff679273233e60800e9c14d7ea9b42a64094693d7zn6BBsGgWmQK4NMKEzZFBI7WDTlNGiCR/DxhhtFNQks=', 'assets/img/ava/1.png', '2016-11-05 10:39:06', '0000-00-00 00:00:00', '', 1, 0),
 (22, 'aadada', '[kasfksfklsjdfkj', 'dadabesar@yahoo.com', '09283908112213', 'dada', '5d4b0e1c28718360070ea75a75cf32cfa60f69f2152933ca7d397f602dc58e7362fa314992ab9a4e9428d41a2c344b04f40caf12c067eb90a16bcb028342f7968wrUfoWqNf/n2cvBqEU50KfKG0Z8TEZdXfH9Y7A2YWM=', 'assets/img/ava/1.png', '2016-11-05 10:44:23', '0000-00-00 00:00:00', '', 1, 0),
 (23, 'aaaaa', 'aaaaaaaaaaa', 'dadu69@gmail.com', '19823918938938', 'dadi', '579f3b4175c7b65b556b88e3c062f66aa0be69c12175193db4a8d466871c173eb1756ef91d7e879a7ff0f00ed7b668f2998a013e7ff1fec349c8baf937a1b9ddQUwVy43H/pO2S2To5c/memaICAlhYkHwA8+vcksrO8Y=', 'assets/img/ava/1.png', '2016-11-05 10:48:52', '0000-00-00 00:00:00', '', 1, 0),
