@@ -30,13 +30,21 @@
 										</div>
 									</div>
 								</div> -->
-								<div class="row">								
+								<div class="row">											
 									<?php foreach ($data_order as $row) { ?>
 										<div class="col s12 m4">										
 											<div class="card">
 												<div class="card-image">
 													<span class="pricetag teal">New</span>
-													<img src="<?php echo base_url(); ?>assets/img/ava/1.png">
+													<?php if (empty($row['ava'])): ?>
+														<img src="<?php echo base_url(); ?>assets/img/ava/1.png">
+													<?php else: ?>
+														<?php if ($row['jenis_kelamin'] === "Laki - Laki"): ?>
+															<img src="<?php echo base_url(); ?>assets/img/ava/1/<?php echo $row['ava']; ?>">
+														<?php else: ?>
+															<img src="<?php echo base_url(); ?>assets/img/ava/0/<?php echo $row['ava']; ?>">
+														<?php endif ?>														
+													<?php endif ?>													
 													<span class="card-title bening col s12"><b><?php echo $row['nama'];?></b></span>
 												</div>
 												<div class="card-content black-text">

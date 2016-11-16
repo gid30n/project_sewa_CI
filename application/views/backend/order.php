@@ -23,7 +23,7 @@
 </div>
 <div class="col s12 l9 right">
 	<div class="card white">
-		<div class="card-content">
+		<div class="card-content">		
 		<?php if($user['admin'] === "-9"){ ?>
 			<a href="<?php echo base_url("dashboard/order/validation/").$data_detail[0]['id_order'];?>" class="btn right"><i class="material-icons left">done</i>Validasi Order</a>
 		<?php }else{ ?>
@@ -70,6 +70,20 @@
 			</div>
 			<div class="col s9">
 				<p align="justify"><?php echo convert_date($data_detail[0]['date_order'], "d-m-Y H:i:s");?></p>
+			</div>
+			<hr>
+			<div class="col s3">
+				<h6>Tgl Sewa </h6>
+			</div>
+			<div class="col s9">
+				<p align="justify"><?php echo convert_date($data_detail[0]['date_sewa'], "d-m-Y");?></p>
+			</div>
+			<hr>
+			<div class="col s3">
+				<h6>Tgl Kembali </h6>
+			</div>
+			<div class="col s9">
+				<p align="justify"><?php echo convert_date($data_detail[0]['date_kembali'], "d-m-Y");?></p>
 			</div>
 			<hr>
 			<div class="col s3">

@@ -54,6 +54,12 @@ class Order_model extends CI_Model {
                         $res['date'] = convert_date($row['date_order'], "d/m/Y");
                         $query_detail = $this->db->get_where('tb_detail_order', array("id_order" => $row['id_order']));
                         $res['total_item'] = 0;
+                        $res['ava'] = $row['ava'];
+                        if ($row['jenis_kelamin'] === "1" ) {
+                            $res['jenis_kelamin'] = "Laki - Laki";
+                        }else{
+                            $res['jenis_kelamin'] = "Perempuan";
+                        }
                         foreach ($query_detail->result_array() as $row_detail) {
                                 $jum_item = $row_detail['jum_item'];
                                 $query_ads = $this->db->get_where('tb_ads', array('id_ads' => $row_detail['id_ads']));

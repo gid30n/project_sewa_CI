@@ -55,6 +55,16 @@
 										<input type="text" id="cus_nama" name="cus_nama" placeholder="Masukan Nama Anda" class="validate" required="">
 									</div>
 									<div class="col s12 m3">
+										<h6>Jenis Kelamin</h6>
+									</div>
+									<div class="col s12 m9">										
+									    <select name="jenis_kelamin">
+									      <option value="" disabled selected>Pilih Jenis Kelamin</option>
+									      <option value="0">Laki - Laki</option>
+									      <option value="1">Perempuan</option>									      
+									    </select>
+									</div>
+									<div class="col s12 m3">
 										<h6>No Telephone</h6>
 									</div>
 									<div class="col s12 m9">
@@ -141,3 +151,15 @@
 		});
 	}
 </script>
+<?php 
+	if(isset($msg_carts)){			
+		if(isset($msg_carts['status'])){
+			if($msg_carts['status']){
+				?><<script>swal({   title: "Terima Kasih ",   text: "<img src='assets/img/ico/order.png' class='responsive-img' />", html: true });</script><?php
+			}else{
+				?><script>sweetAlert('Opps!', '<?php echo $msg_carts["msg"];?>', 'error');</script><?php
+			}
+		}
+		$this->session->unset_userdata('msg_carts');		
+	}
+?>

@@ -108,6 +108,9 @@ class Carts extends CI_Controller {
 		$email = $this->input->post('cus_email', TRUE);
 		$alamat = $this->input->post("cus_alamat", TRUE);
 		$ket = $this->input->post("cus_descript", TRUE);
+		$tgl_sewa = $this->input->post("tgl_sewa", TRUE);
+		$tgl_kembali = $this->input->post("tgl_kembali", TRUE);
+		$jenis_kelamin = $this->input->post("jenis_kelamin", TRUE);
 
 		if (!isset($nama) && !isset($telp) && !isset($email) && !isset($alamat)) {
 			// redirect gagal
@@ -126,7 +129,7 @@ class Carts extends CI_Controller {
 
 		// prosess insert to order
 
-		$id_order = $this->carts_model->order(array("nama" => $nama, "no_telp" => $telp, "email" => $email, "alamat" => $alamat, "ket" => $ket, "date_order" => date("Y-m-d H:i:s"), "status_order" => "new"));
+		$id_order = $this->carts_model->order(array("nama" => $nama, "jenis_kelamin" => $jenis_kelamin, "no_telp" => $telp, "email" => $email, "alamat" => $alamat, "ket" => $ket, "date_order" => date("Y-m-d H:i:s"), "date_sewa" => $tgl_sewa, "date_kembali" => $tgl_kembali, "ava" => rand(1,2).".png","status_order" => "new"));
 		if (!isset($id_order)) {
 			// redirect gagal
 			$this->session->set_userdata('msg_carts', array('msg' => 'Silakan isi data diri sebelum melakukan checkout !.', 'status' => false));
