@@ -79,6 +79,21 @@ class Order extends CI_Controller {
 		}
 	}
 
+	public function validation($id_order){
+		if(!$this->session->userdata("user")){
+			redirect('login','refresh');
+		}
+
+		$ses_admin = $this->session->userdata('user');
+		
+		if (!isset($id_order)) {
+			redirect('dashboard/order','refresh');			
+		}
+
+		$this->order_model->validation($id_order);
+		redirect('dashboard/order','refresh');
+	}
+
 	public function history(){
 
 	}

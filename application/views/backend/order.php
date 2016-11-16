@@ -24,8 +24,11 @@
 <div class="col s12 l9 right">
 	<div class="card white">
 		<div class="card-content">
-			<!-- <?php var_dump($data_detail);?> -->
-		<a href="#!" class="btn right"><i class="material-icons left">done</i>Validasi Order</a>
+		<?php if($user['admin'] === "-9"){ ?>
+			<a href="<?php echo base_url("dashboard/order/validation/").$data_detail[0]['id_order'];?>" class="btn right"><i class="material-icons left">done</i>Validasi Order</a>
+		<?php }else{ ?>
+			<a href="<?php echo base_url("dashboard-cus/order/validation/").$data_detail[0]['id_order'];;?>" class="btn right"><i class="material-icons left">done</i>Validasi Order</a>
+		<?php };?>
 		<div class="col s12">
 			<div class="col s3">
 				<h6>Nama	</h6>
@@ -98,7 +101,7 @@
 									<tr>
 										<td><?php echo $i;?></td>
 										<td><?php echo convert_date($row['date_order'], "d/m/Y H:i:s");?></td>
-										<td><?php echo $row['title'];?></td>
+										<td><a href="<?php echo base_url('ads/').$row['slug'];?>" target="_blank"><?php echo $row['title'];?></a></td>
 										<td><?php echo $row['jum_item'];?></td>
 										<td><?php echo convert_rp($row['price']);?></td>
 										<td><a href="<?php echo base_url('dashboard-cus/order/delete/').$row['id_ads'].'/'.$row['id_order'];?>" class="btn red"><i class="material-icons">delete</i></a></td>

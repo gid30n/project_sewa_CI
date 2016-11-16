@@ -46,7 +46,7 @@ class Order_model extends CI_Model {
         public function get_order($status)
         {
                 $result = array();
-                $query_order = $this->db->get_where('tb_order', array("status_order" => "new"));
+                $query_order = $this->db->get_where('tb_order', array("status_order" => $status));
                 foreach ($query_order->result_array() as $row) {
                         $res = array();
                         $res['id'] = $row['id_order'];
@@ -76,5 +76,20 @@ class Order_model extends CI_Model {
                 }
                 $this->db->delete('tb_detail_order', array("id_ads" => $id));
                 return !$this->db->affected_rows() ? true : false;
-        }        
+        }   
+
+        public function validation($id_order){
+                $order = $this->db->get_where("tb_order", array("id_order" => $id_order));
+                $data_order = $order->row();
+                if($data_order->status_order === "new"){
+                        $this->db->where(array("id_order" => $id_order));
+                        $this->db->update('tb_order', array("status_order" => "valid"));
+                }else if ($data_order->status_order === "valid") {
+                        $this->db->where(array("id_order" => $id_order));
+                        $this->db->update('tb_order', array("status_order" => "proccess"));
+                }else{
+                         $this->db->where(array("id_order" => $id_order));
+                         $this->db->update('tb_order', array("status_order" => "success"));
+                }
+        }     
 }
