@@ -33,8 +33,8 @@
 						<div class="collapsible-header active ,m"><i class="material-icons">shopping_cart</i>Pesan</div>
 						<div class="collapsible-body">
 							<br>
-							<a href="#!" class="waves-effect"><i class="material-icons left">shopping_cart</i>Pesan<span class="new badge">99</span></a>			
-							<a href="#!" class="collection-item waves-effect"><i class="material-icons left">history</i>History Pesanan<span class="new badge teal white-text" data-badge-caption="recent">1337</span></a>
+							<a href="<?php echo base_url('dashboard-cus/order'); ?>" class="waves-effect"><i class="material-icons left">shopping_cart</i>Pesan<span class="new badge">99</span></a>			
+							<a href="<?php echo base_url('dashboard-cus/order/history'); ?>" class="collection-item waves-effect"><i class="material-icons left">history</i>History Pesanan<span class="new badge teal white-text" data-badge-caption="recent">1337</span></a>
 							<br>
 						</div>
 					</li>						

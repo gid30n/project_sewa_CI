@@ -73,6 +73,18 @@
 										<textarea name="cus_alamat" id="cus_alamat" placeholder="Masukan Alamat Anda" class="validate materialize-textarea" required=""></textarea>											
 									</div>
 									<div class="col s12 m3">
+										<h6>Tanggal Acara</h6>
+									</div>
+									<div class="col s12 m3">
+										<input type="date" class="datepicker" id="tgl_sewa" name="tgl_sewa" required="" placeholder="Masukan Tanggal Acara">
+									</div>
+									<div class="col s12 m3">
+										<h6>Tanggal Acara Selesai</h6>
+									</div>
+									<div class="col s12 m3">
+										<input type="date" class="validate datepicker" id="tgl_kembali" name="tgl_kembali" required="" placeholder="Masukan Tanggal Acara Selesai">
+									</div>
+									<div class="col s12 m3">
 										<h6>Hal Yang Perlu Kami Ketahui <sup class="grey-text">*kosongkan jika tidak ada</sup></h6>
 									</div>
 									<div class="col s12 m9">
