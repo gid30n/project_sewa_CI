@@ -30,13 +30,14 @@
 										</div>
 									</div>
 								</div> -->
-								<div class="row">
+								<div class="row">								
 									<?php foreach ($data_order as $row) { ?>
 										<div class="col s12 m4">										
 											<div class="card">
 												<div class="card-image">
+													<span class="pricetag teal">New</span>
 													<img src="<?php echo base_url(); ?>assets/img/ava/1.png">
-													<span class="card-title bening"><b><?php echo $row['nama'];?></b></span>
+													<span class="card-title bening col s12"><b><?php echo $row['nama'];?></b></span>
 												</div>
 												<div class="card-content black-text">
 													<a href="#!" class="black-text"><i class="small material-icons left">perm_contact_calendar</i><?php echo $row['date'];?></a><br>				              
