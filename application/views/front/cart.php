@@ -30,7 +30,12 @@
 											<td class="col s1"><?php echo $i;  $total_price += $ads['price']*$row['jum_item'];?></td>
 											<td class="col s3"><img src="<?php echo base_url().$ads['gallery'][0]['src'];?>" class="materialboxed col s12" style="padding:5%;"></td>
 											<td class="col s5"><h5 class="nama_order"><b><?php echo $ads['title'];?></b></h5></td>
-											<td class="col s3" style="padding:5%;"><a href="#edit" class="btn waves-effect left col s12 m6 modal-trigger" onclick="setForm('<?php $rowid = $row['rowid']; echo $row["rowid"];?>');"><i class="material-icons">edit</i></a><a href="<?php echo base_url("carts/delete/").$row['rowid'];?>" class="btn waves-effect red white-text right col s12 m6" onclick="return confirm('Apakah anda ingin menghapus order <?php echo $ads["title"];?> ?')"><i class="material-icons">delete</i></a></td>
+											<td class="col s3" style="padding:5%;">
+												<?php if (!empty($row['jum_item'])): ?>
+													<a href="#edit" class="btn waves-effect left col s12 m6 modal-trigger" onclick="update_cart('<?php $rowid = $row['rowid']; echo $row["rowid"];?>','<?php echo $this->cartsewania->get_item($rowid)['jum_item']; ?>');"><i class="material-icons">edit</i></a>				
+												<?php endif ?>
+													<a href="#!" class="btn waves-effect red white-text right col s12 m6" onclick="del_cart('<?php echo $row["rowid"]; ?>','<?php echo $ads["title"]; ?>')"><i class="material-icons">delete</i></a>								
+											</td>
 										</tr>
 										<?php $i++; } ?>																
 									</tbody>
@@ -92,9 +97,9 @@
 <div id="edit" class="modal">
 	<div class="modal-content">
 		<h4>Edit Jumlah Item</h4>
-		<?php echo form_open(base_url().'carts/edit/'.$rowid, array('id' => 'edit_form')); ?>		
+		<?php echo form_open("",array('id' => 'edit_form')); ?>		
 			<div class="col s12">
-				<input type="number" placeholder="Jumlah item" name="jum_item" id="jum_item" class="validate" required="" value="<?php echo $this->cartsewania->get_item($rowid)['jum_item'];  ?>">
+				<input type="number" placeholder="Jumlah item" name="jum_item" id="jum_item" class="validate" required="" >
 			</div>		
 	</div>
 	<div class="modal-footer">		
@@ -103,3 +108,24 @@
 		<?php form_close(); ?>
 	</div>
 </div>
+<script>
+	function update_cart(id,jum_item){		
+		$("#edit_form").attr("action", "<?php echo base_url('carts/edit/'); ?>"+id);
+		$(" #jum_item ").val(parseInt(jum_item));
+	}
+
+	function del_cart(id,title){
+		var link = "<?php echo base_url("carts/delete/") ?>"+id;			
+		swal({   
+			title: "Are you sure?",   
+			text: title+" Akan Dihapus Dari Cart!",   
+			type: "warning",   
+			showCancelButton: true,   
+			confirmButtonColor: "#DD6B55",   
+			confirmButtonText: "Yes, delete it!",   
+			closeOnConfirm: false 
+		}, function(){			   			
+			window.location = link;			
+		});
+	}
+</script>
