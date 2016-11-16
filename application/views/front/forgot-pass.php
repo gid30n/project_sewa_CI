@@ -9,8 +9,7 @@
 					<br/>
 					<div class="col s12">
 						<div class="row">
-						    <form class="col s12">
-						    <?php echo form_open('process-forgot', array("class" => "col s12"));?>
+							<?php echo form_open('process-forgot', array('class' => 'col s12'));?>
 						      <div class="row">
 						        <div class="input-field col s12">
 						          <i class="material-icons prefix">email</i>
