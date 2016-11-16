@@ -60,8 +60,8 @@
 									<div class="col s12 m9">										
 									    <select name="jenis_kelamin">
 									      <option value="" disabled selected>Pilih Jenis Kelamin</option>
-									      <option value="0">Laki - Laki</option>
-									      <option value="1">Perempuan</option>									      
+									      <option value="1">Laki - Laki</option>
+									      <option value="0">Perempuan</option>									      
 									    </select>
 									</div>
 									<div class="col s12 m3">

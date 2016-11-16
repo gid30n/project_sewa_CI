@@ -49,9 +49,8 @@
 		          <label for="icon_prefix">Email</label>
 		        </div>			
 		</div>
-		<div class="modal-footer">
-			<button type="cancel" class="red btn modal-close">Cancel</button>
-			<button type="submit" class="btn">Submit</button>
+		<div class="modal-footer">			
+			<button type="submit" class="btn modal-close">Submit</button>
 			<?php echo form_close(); ?>
 		</div>
 	</div>
