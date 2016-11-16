@@ -96,7 +96,13 @@ class Login extends CI_Controller {
 				** True condition
 				*/
 
+				$this->email->from("noreplay@sewania.com", 'Forgot Password | Sewania'); 
+				$this->email->to($email);
+				$this->email->subject('Email Test'); 
+				$this->email->message('Testing the email class.'); 
 
+         		//Send mail 
+				if($this->email->send()) 
 
 			}else{
 				$this->session->set_userdata('msg_forgot', array('msg' => 'Email anda tidak valid!.', 'status' => false));
