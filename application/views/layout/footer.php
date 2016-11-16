@@ -26,7 +26,7 @@
 				</div>
 				<div class="col m3 s12">
 					<a href="#!"><img src="<?php echo base_url();?>assets/img/logo/logo2.png" class="responsive-img" alt=""></a>					
-					<button class="btn btn-large teal waves-effect">SUBSCRIBE</button>
+					<a href="#subscribe" class="btn btn-large teal waves-effect modal-trigger">SUBSCRIBE</a>
 				</div>
 			</div>
 		</div>
@@ -37,6 +37,24 @@
 			</div>
 		</div>
 	</footer>
+	
+	<!-- Modal Structure -->
+	<div id="subscribe" class="modal bottom-sheet">
+		<div class="modal-content">
+			<h4>Masukan Email Anda dan Dapatkan Info Ter-update Dari Kami</h4>
+			<?php echo form_open('url'); ?>
+				<div class="input-field col s6">
+		          <i class="material-icons prefix">email</i>
+		          <input id="icon_prefix" type="text" class="validate" name="email_sub" id="email_sub">
+		          <label for="icon_prefix">Email</label>
+		        </div>			
+		</div>
+		<div class="modal-footer">
+			<button type="cancel" class="red btn modal-close">Cancel</button>
+			<button type="submit" class="btn">Submit</button>
+			<?php echo form_close(); ?>
+		</div>
+	</div>
 	<!-- end footer -->
 <script src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
 <script src="<?php echo base_url();?>assets/js/materialize-tag.js"></script>
