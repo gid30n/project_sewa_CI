@@ -73,10 +73,11 @@ class Order extends CI_Controller {
 			redirect('login','refresh');
 		}
 		$ses_admin = $this->session->userdata('user');
-
-		if ($this->order_model->del($id, $id_order)) {
-			redirect('/dashboard-cus/order/detail/'.$id_order,'refresh');
+		if (!isset($id) && !isset($id_order)) {
+			redirect('dashboard/order','refresh');
 		}
+		$this->order_model->del($id, $id_order);
+		redirect('/dashboard-cus/order/detail/'.$id_order,'refresh');
 	}
 
 	public function validation($id_order){

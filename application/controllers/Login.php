@@ -102,7 +102,9 @@ class Login extends CI_Controller {
 				$this->email->message('Testing the email class.'); 
 
          		//Send mail 
-				if($this->email->send()) 
+				if($this->email->send()) {
+					redirect('login','refresh');
+				}
 
 			}else{
 				$this->session->set_userdata('msg_forgot', array('msg' => 'Email anda tidak valid!.', 'status' => false));
