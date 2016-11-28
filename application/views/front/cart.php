@@ -86,7 +86,18 @@
 										<h6>Jenis Acara</h6>
 									</div>
 									<div class="col s12 m9">
-										<input type="text" id="cus_jenis_acara" name="cus_jenis_acara" placeholder="Masukan Jenis Acara Anda" class="validate" required="">
+										<select name="cus_jenis_acara" id="cus_jenis_acara" class="validate" required="">
+									      	<option value="" disabled selected>--- Pilih Acara ---</option>
+									      	<option value="1">Pernikahan</option>
+									      	<option value="2">Pesta Ulang Tahun Anak</option>
+									      	<option value="3">Pesta Ulang Tahun Remaja</option>
+									      	<option value="4">Festival</option>
+									      	<option value="5">Meeting</option>
+									      	<option value="6">Acara Adat</option>
+									      	<option value="7">Garden or Beach Party</option>
+									      	<option value="8">Live Concert</option>
+									      	<option value="9">Bazzar</option>
+									    </select>
 									</div>
 									<div class="col s12 m3">
 										<h6>Alamat Acara</h6>
