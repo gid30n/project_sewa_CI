@@ -3,10 +3,14 @@
 	    <div class="breadcrumb-wrapper container">
 	      	<div class="col s12">
 	        	<a href="#" class="breadcrumb"><i class="material-icons breadcrumb-home">home</i></a>
-	        	<a href="#" class="breadcrumb"><?php echo $data['kategori'];?></a>
+	        	<?php if ($data['kategori'] === "Peralatan Pesta"): ?>
+	        		<a href="<?php echo base_url(); ?>kategori#perlengkapan" class="breadcrumb"><?php echo $data['kategori'];?></a>
+	        	<?php else: ?>
+	        		<a href="<?php echo base_url(); ?>kategori#paket" class="breadcrumb"><?php echo $data['kategori'];?></a>
+	        	<?php endif ?>	        	
 	        	<a href="#" class="breadcrumb"><?php echo $data['sub_kategori'];?></a>
 	        	<a href="#" class="breadcrumb"><?php echo $data['super_sub_kategori'];?></a>
-	        	<a href="#" class="right back">Back to Results</a>
+	        	<a href="#" class="right back" onclick="history.go(-1)">Back to Results</a>
 	      	</div>
 	    </div>
 		<!-- end of breadcrumb -->
@@ -16,7 +20,7 @@
 				<!-- ads details content -->
 				<div class="col s12 m9">
 					<div class="ads-details-wrapper card white">
-						<h2 class="ads-details-title"> <?php echo $data['title'];?>
+						<h2 class="ads-details-title"> <b><?php echo $data['title'];?></b></h2>
 						<div class="divider"></div>
 						<div class="ads-details-info">
 							<span class="date"><i class="tiny material-icons valign-mid">access_time</i> <?php echo convert_date($data['date_publish'], "d-m-Y h:i A");?> </span> - <span class="category"><?php echo $data['super_sub_kategori'];?> </span>- <span class="item-location"><i class="tiny material-icons valign-mid">place</i> <?php $lokasi = ""; foreach ($data['lokasi'] as $row) { $lokasi .= $row.", "; }; echo $lokasi; ?> </span>

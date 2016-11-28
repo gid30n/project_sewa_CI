@@ -158,7 +158,7 @@ function deletes(){
 														    '</p>'+
 														'</div>'+
 														'<a href="#!" class="btn teal white-text col s5 btn-mar waves-effect"><i class="material-icons left">edit</i>Edit</a>'+
-														'<a href="#!" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>'+
+														'<a href="<?php echo base_url("peralatan/delete/").$row["slug"];?>" class="btn red white-text col s6 btn-mar waves-effect"><i class="material-icons left">delete</i>Delete</a>'+
 														'<a href="#!" class="btn orange white-text col s12 btn-mar waves-effect"><i class="material-icons left">share</i>Share</a>'+
 												    '</div>'+													    											
 											    '</div>'+

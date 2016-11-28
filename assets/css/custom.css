@@ -7,11 +7,17 @@
   }
 }
 
+.icon-kategori{
+  margin: 2px 15px 5px 5px;
+  height: 17px;
+}
+
 .collapsible{
   margin: 0px ;
 }
 .collection a.collection-item{
   color: black;
+  margin: 0px;
 }
 
 span.badge{

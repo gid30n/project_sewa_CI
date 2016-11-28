@@ -13,7 +13,7 @@
 							</div>
 							<div id="cart" class="col s12">	
 								<br>								
-								<table class="striped highlight">
+								<table class="striped highlight" id="tb_cart">
 									<thead>
 										<tr class="col s12">
 											<th data-field="no" class="col s1">No</th>
@@ -41,8 +41,12 @@
 									</tbody>
 								</table>
 								<h5>Total : <b><?php echo convert_rp($total_price);?></b></h5>
-								<sup><b>Klik Tab Checkout Untuk Melanjutkan Proses Order.</b></sup>					
-								<div class="row divider"></div>									
+								<sup id="sub_cart"><b>Klik Checkout Untuk Melanjutkan Proses Order.</b></sup>					
+								<div class="row divider"></div>
+								<div class="cart-action right" id="tombol2">
+									<a href="<?php echo base_url('kategori'); ?>" class="btn waves-effect">Sewa Yang Lain</a>
+									<button class="btn" onclick="checkout()">Checkout</button>
+								</div>									
 							</div>
 							<div id="checkout" class="col s12">
 								<h5><b>Data Customer</b></h5>
@@ -131,6 +135,18 @@
 	</div>
 </div>
 <script>
+	$(document).ready(function(){
+		$( 'a[href*="#checkout"]' ).hide();
+	});
+
+	function checkout(){
+		$( 'a[href*="#cart"]' ).text('Checkout');
+		$('#tb_cart').hide();
+		$('#checkout').show();
+		$('#sub_cart').hide();
+		$('#tombol2').hide();
+	}
+
 	function update_cart(id,jum_item){		
 		$("#edit_form").attr("action", "<?php echo base_url('carts/edit/'); ?>"+id);
 		$(" #jum_item ").val(parseInt(jum_item));

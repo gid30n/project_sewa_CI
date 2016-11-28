@@ -4,6 +4,21 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<meta name="google-site-verification" content="" />
+    <meta name="robots" content="index, follow">
+	<meta name="description" content="Sewania.com dalah tempat terbaik untuk mencari perlengkapan Pesta, Lihat Berbagai pilihan perlengkapan pesta yang sesuai dengan Acara anda .Atau, beritahu kami detail kebutuhan pestan anda dari dan kami akan merekomendasikan penyedia jasa untuk mengirimkan vendor-vendor terpercaya sesuai acara anda.">
+	<meta name="keywords" content="sewania"> 
+	
+	<meta property="og:title" content="Sewania.com | Paket Pesta | Perlengkapan Pesta" />
+	<meta property="og:image" content="<?php echo base_url();?>assets/img/logo/logo.png" />
+	<meta property="og:type" content="website">
+	<meta property="og:description" content="Sewania.com dalah tempat terbaik untuk mencari perlengkapan Pesta, Lihat Berbagai pilihan perlengkapan pesta yang sesuai dengan Acara anda .Atau, beritahu kami detail kebutuhan pestan anda dari dan kami akan merekomendasikan penyedia jasa untuk mengirimkan vendor-vendor terpercaya sesuai acara anda." />
+	<meta property="og:site_name" content="Sewania">
+
+
+
+
 	<title><?php echo $title;?></title>
 	<link rel="icon" href="<?php echo base_url();?>assets/img/logo/logo.png" type="image/png" sizes="16x16">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/materialize.min.css">	
@@ -25,6 +40,15 @@
 	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/table/plugin.dev.js"></script>
 	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/paste/plugin.dev.js"></script>
 	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/spellchecker/plugin.dev.js"></script>
+	<!-- cdn for modernizr, if you haven't included it already -->
+	<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+	<!-- polyfiller file to detect and load polyfills -->
+	<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+	<script>
+	  webshims.setOptions('waitReady', false);
+	  webshims.setOptions('forms-ext', {types: 'date'});
+	  webshims.polyfill('forms forms-ext');
+	</script>
     <script>
     <!-- bxSlider CSS file -->
 	<link href="<?php echo base_url();?>assets/css/bxslider.css" rel="stylesheet" />
