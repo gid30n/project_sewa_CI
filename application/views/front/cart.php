@@ -80,8 +80,16 @@
 									<div class="col s12 m9">
 										<input type="email" id="cus_email" name="cus_email" placeholder="Masukan Email Anda" class="validate" required="">
 									</div>
+									<h5><b>Informasi Sewa</b></h5>
+									<div class="row divider"></div>
 									<div class="col s12 m3">
-										<h6>Alamat</h6>
+										<h6>Jenis Acara</h6>
+									</div>
+									<div class="col s12 m9">
+										<input type="text" id="cus_jenis_acara" name="cus_jenis_acara" placeholder="Masukan Jenis Acara Anda" class="validate" required="">
+									</div>
+									<div class="col s12 m3">
+										<h6>Alamat Acara</h6>
 									</div>
 									<div class="col s12 m9">
 										<textarea name="cus_alamat" id="cus_alamat" placeholder="Masukan Alamat Anda" class="validate materialize-textarea" required=""></textarea>											
