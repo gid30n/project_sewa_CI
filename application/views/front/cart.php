@@ -80,8 +80,27 @@
 									<div class="col s12 m9">
 										<input type="email" id="cus_email" name="cus_email" placeholder="Masukan Email Anda" class="validate" required="">
 									</div>
+									<h5><b>Informasi Sewa</b></h5>
+									<div class="row divider"></div>
 									<div class="col s12 m3">
-										<h6>Alamat</h6>
+										<h6>Jenis Acara</h6>
+									</div>
+									<div class="col s12 m9">
+										<select name="cus_jenis_acara" id="cus_jenis_acara" class="validate" required="">
+									      	<option value="" disabled selected>--- Pilih Acara ---</option>
+									      	<option value="1">Pernikahan</option>
+									      	<option value="2">Pesta Ulang Tahun Anak</option>
+									      	<option value="3">Pesta Ulang Tahun Remaja</option>
+									      	<option value="4">Festival</option>
+									      	<option value="5">Meeting</option>
+									      	<option value="6">Acara Adat</option>
+									      	<option value="7">Garden or Beach Party</option>
+									      	<option value="8">Live Concert</option>
+									      	<option value="9">Bazzar</option>
+									    </select>
+									</div>
+									<div class="col s12 m3">
+										<h6>Alamat Acara</h6>
 									</div>
 									<div class="col s12 m9">
 										<textarea name="cus_alamat" id="cus_alamat" placeholder="Masukan Alamat Anda" class="validate materialize-textarea" required=""></textarea>											
