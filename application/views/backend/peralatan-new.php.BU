@@ -102,20 +102,62 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="input-field">
-									<div class="col m3 s12">
-										<label for="gambar" class="teal-text">Gambar Produk <sup class="red-text">*</sup></label>					
+								<div class="file-field input-field">
+									<div class="btn">
+										<span>File</span>
+										<input type="file" name="gallerys[]">
 									</div>
-									<div class="col m9 s12" id="gambar" >
-										<br class="hide-on-med-and-up">
-										<br class="hide-on-med-and-up">
-										<br class="hide-on-med-and-up">
-										<div class="dropzone" id="myDrop"></div>
-									</div>								
-								</div>															
+									<div class="file-path-wrapper">
+										<input class="file-path validate" type="text" placeholder="Upload gambar disini">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="file-field input-field">
+									<div class="btn">
+										<span>File</span>
+										<input type="file" name="gallerys[]">
+									</div>
+									<div class="file-path-wrapper">
+										<input class="file-path validate" type="text" placeholder="Upload gambar disini">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="file-field input-field">
+									<div class="btn">
+										<span>File</span>
+										<input type="file" name="gallerys[]">
+									</div>
+									<div class="file-path-wrapper">
+										<input class="file-path validate" type="text" placeholder="Upload gambar disini">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="file-field input-field">
+									<div class="btn">
+										<span>File</span>
+										<input type="file" name="gallerys[]">
+									</div>
+									<div class="file-path-wrapper">
+										<input class="file-path validate" type="text" placeholder="Upload gambar disini">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="file-field input-field">
+									<div class="btn">
+										<span>File</span>
+										<input type="file" name="gallerys[]">
+									</div>
+									<div class="file-path-wrapper">
+										<input class="file-path validate" type="text" placeholder="Upload gambar disini">
+									</div>
+								</div>
 							</div>
 							<div class="row center-align">
-								<button type="submit" class="btn" id="postArt">Posting</button>
+								<button type="submit" class="btn">Posting</button>
 							</div>
 						</div>
 					</div>	
@@ -142,7 +184,6 @@
 		</form>
 	</div>
 </div>
-
 <script>
 $(document).ready(function(){
 	$("#sub_kategori_event").hide();
