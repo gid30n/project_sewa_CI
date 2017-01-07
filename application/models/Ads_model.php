@@ -43,12 +43,12 @@ class Ads_model extends CI_Model {
 			$kategori = $this->db->get_where('tb_kategori', array("id_kategori" => $row_ads['id_kategori']));
 			$kat = $kategori->row();
 			$row_ads['kategori'] = $kat->name;
-			unset($row_ads['id_kategori']);
 
                         // fect sub kategori
 			$sub_kategori = $this->db->get_where('tb_sub_kategori', array("id_sub_kategori" => $row_ads['id_sub_kategori']));
 			$sub_kat = $sub_kategori->row();
 			$row_ads['sub_kategori'] = $sub_kat->name;
+			$row_ads['slug_sub_kategori'] = $sub_kat->slug;
 			unset($row_ads['id_sub_kategori']);
 
                         // fect super sub kategori

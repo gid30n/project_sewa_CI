@@ -5,24 +5,23 @@
 				<div class="col m3 s12">
 					<h5><b>INFORMASI</b></h5>					
 					<a href="<?php echo base_url(); ?>term" class="grey-text waves-effect ">Syarat & Ketentuan</a><br>
-					<a href="http://blog.sewania.com" class="grey-text waves-effect ">Blog</a><br>
-					<a href="<?php echo base_url(); ?>about-us" class="grey-text waves-effect ">Tentang Kami</a><br>
-					<a href="#!" class="grey-text waves-effect ">Lowongan</a><br>
+					<a href="http://www.sewania.com/blog" class="grey-text waves-effect ">Blog</a><br>
+					<a href="<?php echo base_url(); ?>about-us" class="grey-text waves-effect ">Tentang Kami</a><br>					
 				</div>
 				<div class="col m3 s12">
 					<h5><b>FOLLOW US</b></h5>
 					<center>
-					<a href="" class="grey-text col s3"><i class="fa fa-facebook fa-2x"></i></a>
+					<a href="https://www.facebook.com/sewania/?fref=ts" class="grey-text col s3"><i class="fa fa-facebook fa-2x"></i></a>
 					<a href="" class="grey-text col s3"><i class="fa fa-instagram fa-2x"></i></a>
 					<a href="" class="grey-text col s3"><i class="fa fa-google-plus fa-2x"></i></a>
-					<a href="" class="grey-text col s3"><i class="fa fa-youtube fa-2x"></i></a>					
+					<a href="https://www.youtube.com/channel/UCU17sUsQWej1tsLITsDx40w" class="grey-text col s3"><i class="fa fa-youtube fa-2x"></i></a>					
 				</div>
 				<div class="col m3 s12">
 					<h5><b>HELP</b></h5>
 					<a href="#!" class="grey-text waves-effect ">Cara Kerja ?</a><br>
 					<a href="#!" class="grey-text waves-effect ">Keamanan</a><br>
 					<a href="#!" class="grey-text waves-effect ">FAQ</a><br>
-					<a href="#!" class="grey-text waves-effect ">Kontak US</a><br>
+					<a href="contact-us" class="grey-text waves-effect ">Contact US</a><br>
 				</div>
 				<div class="col m3 s12">
 					<a href="#!"><img src="<?php echo base_url();?>assets/img/logo/logo2.png" class="responsive-img" alt=""></a>					
@@ -32,8 +31,8 @@
 		</div>
 		<div class="footer-copyright">
 			<div class="container grey-text">
-				© 2016 Design By LeakWEB
-				<a class="grey-text right" href="http://leakweb.github.io">LeakWEB Contact</a>
+				© 2017 Sewania
+				<a class="grey-text right" href="http://www.sewania.com/">sewania.com</a>
 			</div>
 		</div>
 	</footer>

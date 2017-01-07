@@ -69,6 +69,7 @@ $route['dashboard/konsultasi/update/(:num)'] = 'dashboard/konsultasi_admin/updat
 $route['dashboard/kategori/add/sub'] = 'dashboard/kategori_admin/post_sub';
 $route['dashboard/kategori/add/super-sub'] = 'dashboard/kategori_admin/post_super';
 $route['logout'] = 'login/logout';
+$route['contact-us'] = 'home/kontak';
 $route['forgot-pass'] = 'login/forgot_pass';
 $route['process-forgot'] = 'login/process_forgot';
 $route['dashboard'] = 'dashboard/profile';

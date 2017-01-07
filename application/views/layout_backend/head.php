@@ -4,13 +4,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 	<title><?php echo $title;?></title>
 	<link rel="icon" href="<?php echo base_url();?>assets/img/logo/logo.png" type="image/png" sizes="16x16">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/materialize.min.css">	
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/custom.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/pace.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	 
-	<link rel="stylesheet" href="<?= base_url('assets/css/dropzone.css'); ?>">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/swal.css">	
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
@@ -24,7 +24,8 @@
 	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/table/plugin.dev.js"></script>
 	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/paste/plugin.dev.js"></script>
 	<script src="<?php echo base_url();?>assets/js/tinymce/plugins/spellchecker/plugin.dev.js"></script>
-	<!-- cdn for modernizr, if you haven't included it already -->
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/materialize-tags.css">
+<!-- cdn for modernizr, if you haven't included it already -->
 	<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
 	<!-- polyfiller file to detect and load polyfills -->
 	<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
@@ -33,13 +34,11 @@
 	  webshims.setOptions('forms-ext', {types: 'date'});
 	  webshims.polyfill('forms forms-ext');
 	</script>
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/materialize-tags.css">
     <script>
 	    paceOptions = {
 	      elements: true
 	    };	    
-	</script>
-	<script src="<?= base_url('assets/js/dropzone.js'); ?>"></script>  
+	</script>  
 
 </head>
 <?php 

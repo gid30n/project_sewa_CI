@@ -121,26 +121,26 @@
 					<h4 class="teal-text center-align"><b>Kategori</b></h4>
 					<div class="box white">
 						<ul class="collection">
-							<a href="<?php echo base_url("kategori/tenda"); ?>" class="collection-item col m4 s12 wave-effect teal-text teal-text"><img src="assets/img/Icon/tent.png" class="left icon-kategori"> Tenda</a>
-							<a href="<?php echo base_url("kategori/kursi"); ?>" class="collection-item col m4 s12 wave-effect teal-text teal-text"><img src="assets/img/Icon/chair.png" class="left icon-kategori">Kursi</a>
-							<a href="<?php echo base_url("kategori/meja"); ?>" class="collection-item col m4 s12 wave-effect teal-text teal-text"><img src="assets/img/Icon/table.png" class="left icon-kategori">Meja</a>
-							<a href="<?php echo base_url("kategori/sound-system"); ?>" class="collection-item col m4 s12 wave-effect teal-text teal-text"><img src="assets/img/Icon/sound.png" class="left icon-kategori">Sound System</a>
-							<a href="<?php echo base_url("kategori/podium-mimbar"); ?>" class="collection-item col m4 s12 wave-effect teal-text teal-text"><img src="assets/img/Icon/stage.png" class="left icon-kategori">Podium/Mimbar</a>
-							<a href="<?php echo base_url("kategori/lighting"); ?>" class="collection-item col m4 s12 wave-effect teal-text teal-text"><img src="assets/img/Icon/light.png" class="left icon-kategori">Lighting</a>
-							<a href="<?php echo base_url("kategori/standing-ac"); ?>" class="collection-item col m4 s12 wave-effect teal-text teal-text"><img src="assets/img/Icon/ac.png" class="left icon-kategori">Standing AC</a>
-							<a href="<?php echo base_url("kategori/alat-musik"); ?>" class="collection-item col m4 s12 wave-effect teal-text teal-text"><img src="assets/img/Icon/music.png" class="left icon-kategori">Alat Musik</a>
-							<a href="<?php echo base_url("kategori/rigging"); ?>" class="collection-item col m4 s12 wave-effect teal-text teal-text"><img src="assets/img/Icon/riging.png" class="left icon-kategori">Riging</a>
-							<a href="<?php echo base_url("kategori/alat-catering"); ?>" class="collection-item col m4 s12 wave-effect teal-text"><img src="assets/img/Icon/eat.png" class="left icon-kategori">Alat Catering</a>
-							<a href="<?php echo base_url("kategori/genset"); ?>" class="collection-item col m4 s12 wave-effect teal-text"><img src="assets/img/Icon/genset.png" class="left icon-kategori">Genset</a>
-							<a href="<?php echo base_url("kategori/flooring"); ?>" class="collection-item col m4 s12 wave-effect teal-text"><img src="assets/img/Icon/floring.png" class="left icon-kategori">Flooring</a>
-							<a href="<?php echo base_url("kategori/tv-screen"); ?>" class="collection-item col m4 s12 wave-effect teal-text"><img src="assets/img/Icon/tv.png" class="left icon-kategori">TV/Screen</a>
-							<a href="<?php echo base_url("kategori/kendaraan-penganting"); ?>" class="collection-item col m4 s12 wave-effect teal-text"><img src="assets/img/Icon/car.png" class="left icon-kategori">Kendaraan Pengantin</a>		
-                            <a href="<?php echo base_url("kategori/dekorasi"); ?>" class="collection-item col m4 s12 wave-effect teal-text"><img src="assets/img/Icon/decor.png" class="left icon-kategori">Dekorasi</a>	
-                            <a href="<?php echo base_url("kategori/kartu-undangan"); ?>" class="collection-item col m4 s12 wave-effect teal-text"><img src="assets/img/Icon/card.png" class="left icon-kategori">Kartu Undangan</a>	
-                            <a href="<?php echo base_url("kategori/penghibur"); ?>" class="collection-item col m4 s12 wave-effect teal-text"><img src="assets/img/Icon/hiburan.png" class="left icon-kategori">Penghibur</a>	
-                            <a href="<?php echo base_url("kategori/tempat-acara"); ?>" class="collection-item col m4 s12 wave-effect teal-text"><img src="assets/img/Icon/tempat.png" class="left icon-kategori">Tempat Acara</a>	
-                            <a href="<?php echo base_url("kategori/make-up"); ?>" class="collection-item col m4 s12 wave-effect teal-text"><img src="assets/img/Icon/makeup.png" class="left icon-kategori">Make Up</a>	
-                            <a href="<?php echo base_url("kategori/pakaian-pengantin"); ?>" class="collection-item col m4 s12 wave-effect teal-text"><img src="assets/img/Icon/dres.png" class="left icon-kategori">Pakaian Pengantin</a>	
+						  <a href="<?php echo base_url("kategori/tenda"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/tent.png" class="left icon-kategori"> Tenda</a>
+							<a href="<?php echo base_url("kategori/kursi"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/chair.png" class="left icon-kategori">Kursi</a>
+							<a href="<?php echo base_url("kategori/meja"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/table.png" class="left icon-kategori">Meja</a>
+							<a href="<?php echo base_url("kategori/sound-system"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/sound.png" class="left icon-kategori">Sound System</a>
+							<a href="<?php echo base_url("kategori/podium-mimbar"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/stage.png" class="left icon-kategori">Podium/Mimbar</a>
+							<a href="<?php echo base_url("kategori/lighting"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/light.png" class="left icon-kategori">Lighting</a>
+							<a href="<?php echo base_url("kategori/standing-ac"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/ac.png" class="left icon-kategori">Pendingin</a>
+							<a href="<?php echo base_url("kategori/alat-musik"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/music.png" class="left icon-kategori">Alat Musik</a>
+							<a href="<?php echo base_url("kategori/rigging"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/riging.png" class="left icon-kategori">Riging</a>
+							<a href="<?php echo base_url("kategori/alat-catering"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/eat.png" class="left icon-kategori">Alat Catering</a>
+							<a href="<?php echo base_url("kategori/genset"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/genset.png" class="left icon-kategori">Genset</a>
+							<a href="<?php echo base_url("kategori/flooring"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/floring.png" class="left icon-kategori">Panggung</a>
+							<a href="<?php echo base_url("kategori/tv-screen"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/tv.png" class="left icon-kategori">Multimedia</a>
+							<a href="<?php echo base_url("kategori/kendaraan-penganting"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/car.png" class="left icon-kategori">Kendaraan Pengantin</a>		
+                            <a href="<?php echo base_url("kategori/dekorasi"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/decor.png" class="left icon-kategori">Dekorasi</a>	
+                            <a href="<?php echo base_url("kategori/kartu-undangan"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/card.png" class="left icon-kategori">Kartu Undangan</a>	
+                            <a href="<?php echo base_url("kategori/penghibur"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/hiburan.png" class="left icon-kategori">Penghibur</a>	
+                            <a href="<?php echo base_url("kategori/tempat-acara"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/tempat.png" class="left icon-kategori">Tempat Acara</a>	
+                            <a href="<?php echo base_url("kategori/make-up"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/makeup.png" class="left icon-kategori">Make Up</a>	
+                            <a href="<?php echo base_url("kategori/pakaian-pengantin"); ?>" class="collection-item col l4 m6 s12 wave-effect teal-text"><img src="assets/img/Icon/dres.png" class="left icon-kategori">Pakaian Pengantin</a>
 						</ul>
 					</div>
 					<h4 class="teal-text center-align"><b>TOP PERLENGKAPAN</b></h4>
@@ -187,25 +187,20 @@
 			for (var i = 0; i < data.length; i++) {
 				gallery = data[i].gallery;
 				$('#top_perlengkapan').append(
-					'<div class="col s12 m4">'+
-							'<div class="card hoverable">'+
-							    '<div class="card-image waves-effect waves-block waves-light">'+
-							     	'<img class="activator" src="'+'<?php echo base_url("images/?w=150&h=150&src="); ?>'+gallery[0].src+'">'+
-							    '</div>'+
-							    '<div class="card-content">'+
-							    	'<span class="card-title activator grey-text text-darken-4">'+data[i].title+'</span>'+
-							    	'<br>'+							      	
-							    	'<i class="tiny material-icons">room</i>'+data[i].lokasi+
-							      	'<div class="divider"></div>'+
-							      	'<span><b>'+data[i].price+'</b></span>'+																      
-							    '</div>'+
-							    '<div class="card-reveal">'+
-							    	'<span class="card-title grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">close</i></span>'+
-							    	'<p style="word-wrap: break-word"><?php echo mb_strimwidth("'+data[i].descript+'",0,250, "...."); ?></p>'+
-									'<p><a href="<?php echo base_url();?>ads/'+data[i].slug+'" class="btn waves-effect">Detail</a></p>'+
-							    '</div>'+
-							  '</div>'+
-							'</div>'	
+					'<div class="col s12 l4 m6">'+
+						'<div class="card hoverable">'+
+						    '<div class="card-image waves-effect waves-block waves-light">'+
+						     	'<a href="<?php echo base_url();?>ads/'+data[i].slug+'"><img height="250" class="activator" src="'+'<?php echo base_url(); ?>'+gallery[0].src+'"></a>'+
+						    '</div>'+
+						    '<div class="card-content">'+
+						    	'<a href="<?php echo base_url();?>ads/'+data[i].slug+'"><span class="card-title activator grey-text text-darken-4">'+data[i].title+'</span></a>'+
+						    	'<br>'+							      	
+						    	'<i class="tiny material-icons">room</i>'+data[i].lokasi+
+						      	'<div class="divider"></div>'+
+						      	'<span><b>'+data[i].price+'</b></span>'+																      
+						    '</div>'+						    
+						  '</div>'+
+						'</div>'	
 				);
 			}
 		}
@@ -216,25 +211,20 @@
 			for (var i = 0; i < data.length; i++) {
 				gallery = data[i].gallery;
 				$('#top_paket').append(
-					'<div class="col s12 m4">'+
-							'<div class="card hoverable">'+
-							    '<div class="card-image waves-effect waves-block waves-light">'+
-							     	'<img class="activator" src="'+'<?php echo base_url("images/?w=150&h=150&src="); ?>'+gallery[0].src+'">'+
-							    '</div>'+
-							    '<div class="card-content">'+
-							    	'<span class="card-title activator grey-text text-darken-4">'+data[i].title+'</span>'+
-							    	'<br>'+							      	
-							    	'<i class="tiny material-icons">room</i>'+data[i].lokasi+
-							      	'<div class="divider"></div>'+
-							      	'<span><b>'+data[i].price+'</b></span>'+																      
-							    '</div>'+
-							    '<div class="card-reveal">'+
-							    	'<span class="card-title grey-text text-darken-4">'+data[i].title+'<i class="material-icons right">close</i></span>'+
-							    	'<p style="word-wrap: break-word"><?php echo mb_strimwidth("'+data[i].descript+'",0,250, "...."); ?></p>'+
-									'<p><a href="<?php echo base_url();?>ads/'+data[i].slug+'" class="btn waves-effect">Detail</a></p>'+
-							    '</div>'+
-							  '</div>'+
-							'</div>'	
+					'<div class="col s12 l4 m6">'+
+						'<div class="card hoverable">'+
+						    '<div class="card-image waves-effect waves-block waves-light">'+
+						     	'<a href="<?php echo base_url();?>ads/'+data[i].slug+'"><img height="250" class="activator" src="'+'<?php echo base_url(); ?>'+gallery[0].src+'"></a>'+
+						    '</div>'+
+						    '<div class="card-content">'+
+						    	'<a href="<?php echo base_url();?>ads/'+data[i].slug+'"><span class="card-title activator grey-text text-darken-4">'+data[i].title+'</span></a>'+
+						    	'<br>'+							      	
+						    	'<i class="tiny material-icons">room</i>'+data[i].lokasi+
+						      	'<div class="divider"></div>'+
+						      	'<span><b>'+data[i].price+'</b></span>'+																      
+						    '</div>'+						    
+						  '</div>'+
+						'</div>'
 				);
 			}
 		}

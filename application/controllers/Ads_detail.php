@@ -9,8 +9,8 @@ class Ads_detail extends CI_Controller {
 	{
         // Call the CI_Model constructor
 		parent::__construct();
-		$this->load->model('profile_model');
-		$this->load->model('ads_model');
+		//$this->load->model('profile_model');
+		//$this->load->model('ads_model');
 	}
 	public function index()
 	{

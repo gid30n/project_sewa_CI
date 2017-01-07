@@ -105,6 +105,7 @@
 		<?php echo form_close(); ?>
 	</div>
 
+
 <script src="<?php echo base_url();?>assets/js/materialize.js"></script>
 <script src="<?php echo base_url();?>assets/js/materialize-tag.js"></script>
 <script src="<?php echo base_url();?>assets/js/typeahead.js"></script>
@@ -121,37 +122,6 @@
 		$this->session->unset_userdata('msg_kategori');		
 	}
 ?>
-
-<script>
-	$(document).ready(function() {
-	  var myDropzone = new Dropzone("div#myDrop", { 
-	  	url: "/file/post",
-	  	maxFilesize: 2,
-	  	addRemoveLinks: true,
-	    autoProcessQueue: false,
-	    acceptedFiles: ".jpeg,.jpg,.png",
-	    parallelUploads: 5,
-	    maxFiles: 5,
-	    init: function() {
-	      this.on('maxfilesexceeded', function(file) {
-	      	swal("Oops...", "Gambar melebihi batas maximal 5, sisa gambar akan dihapus..", "error");
-	        this.removeFile(file);
-	      });
-	    }
-	  });
-	  $('#postArt').click(function() {
-	    console.log('aaaa');
-	    if (myDropzone.getQueuedFiles().length > 0) {
-	      myDropzone.processQueue();
-	    } else {
-	      swal("Oops...", "Masih ada data yang belum terisi..", "error");
-	    }
-	  });
-	  myDropzone.on('queuecomplete', function() {
-	    myDropzone.removeAllFiles();
-	  });
-	});
-</script>
 
 <script>	
 	$(document).ready(function(){

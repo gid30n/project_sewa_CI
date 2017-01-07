@@ -2,19 +2,18 @@
 		<!-- breadcrumb -->
 	    <div class="breadcrumb-wrapper container">
 	      	<div class="col s12">
-	        	<a href="#" class="breadcrumb"><i class="material-icons breadcrumb-home">home</i></a>
+	        	<a href="<?php echo base_url();?>" class="breadcrumb"><i class="material-icons breadcrumb-home">home</i></a>
 	        	<?php if ($data['kategori'] === "Peralatan Pesta"): ?>
 	        		<a href="<?php echo base_url(); ?>kategori#perlengkapan" class="breadcrumb"><?php echo $data['kategori'];?></a>
 	        	<?php else: ?>
 	        		<a href="<?php echo base_url(); ?>kategori#paket" class="breadcrumb"><?php echo $data['kategori'];?></a>
-	        	<?php endif ?>	        	
-	        	<a href="#" class="breadcrumb"><?php echo $data['sub_kategori'];?></a>
+	        	<?php endif ?>	
+	        	<a href="<?php echo base_url('kategori/').$data['slug_sub_kategori'];?>" class="breadcrumb"><?php echo $data['sub_kategori'];?></a>
 	        	<a href="#" class="breadcrumb"><?php echo $data['super_sub_kategori'];?></a>
 	        	<a href="#" class="right back" onclick="history.go(-1)">Back to Results</a>
 	      	</div>
 	    </div>
 		<!-- end of breadcrumb -->
-
 		<div class="container">
 			<div class="row">
 				<!-- ads details content -->
@@ -35,14 +34,14 @@
               					</ul>
               					<div id="bx-pager">
 	              					<?php $i = 0; foreach ($gallery as $row) { ?>
-		              						<a class="thumb-item-link" data-slide-index="<?php echo $i;?>" href="<?php echo base_url().$row['src'];?>">
+		              						<a class="thumb-item-link" data-slide-index="<?php echo $i++;?>" href="<?php echo base_url().$row['src'];?>">
 		              							<img src="<?php echo base_url().$row['src'];?>" alt="<?php echo $row['alt'];?>" title="<?php echo $row['title'];?>" class="valign-mid"/>
 		              						</a> 
 	              					<?php }?>
               					</div>
 						</div>
 						<div class="ads-details-content">
-							<h5 class="list-title ads-details-title"><strong>Ads Details</strong></h5>
+							<h5 class="list-title ads-details-title"><strong>Description</strong></h5>
 							<div class="row">
 								<div class="col s12">
 									<?php echo $data['descript'];?>					                
@@ -61,7 +60,7 @@
                 		<p class="ads-details-title center-align" style="word-wrap: break-word;"><?php echo $data['user'];?></p>
                 		<p class="no-margin center-align">Brand: <strong><?php echo $data['brand'];?></strong></p>
                 		<!-- <p class="no-margin center-align">Location: <strong><?php echo $data['brand_loc'];?></strong></p>   -->              		
-                		<a class="waves-effect waves-light btn grey col s12 center-align" href="<?php echo base_url().'order/'.$data['slug'];?>"><i class="material-icons left hide-on-med-and-down">email</i>Order</a>		                		
+                		<a class="btn waves-effect waves-light col s12 center-align" href="<?php echo base_url().'order/'.$data['slug'];?>"><i class="material-icons left hide-on-med-and-down">email</i><center>Add To Cart</center></a>		                		
 					</div>					
 				</div>
 				<div class="col s12 m3">

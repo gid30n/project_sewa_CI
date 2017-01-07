@@ -167,7 +167,7 @@ main {
 	vertical-align: middle !important;
 }
 .pricetag {
-    background: none repeat scroll 0 0 #0094af;
+    background: none repeat scroll 0 0 #cc4354;
     border-radius: 3px 0 0 3px;
     color: #fff;
     font-size: 20px;
@@ -181,7 +181,7 @@ main {
 .pricetag:before {
     top: 100%;
     right: 0px;
-    border-top: 10px solid #007286;
+    border-top: 10px solid #cc4354;
     border-right: 10px solid transparent;
     content: '';
     position: absolute;

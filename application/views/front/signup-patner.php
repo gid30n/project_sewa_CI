@@ -14,7 +14,7 @@
 									<br class="hide-on-med-and-up">
 								</div>
 								<div class="col m9 s12">
-									<input type="text" id="first_name" class="validate" required="" name="first_name" placeholder="John" value="<?php if(isset($data['first_name'])){ echo $data['first_name']; } ?>">
+									<input type="text" id="first_name" class="validate" required="" name="first_name" placeholder="Surya" value="<?php if(isset($data['first_name'])){ echo $data['first_name']; } ?>">
 									<br class="hide-on-med-and-up">
 									<br class="hide-on-med-and-up">
 								</div>
@@ -26,7 +26,7 @@
 									<br class="hide-on-med-and-up">
 								</div>
 								<div class="col m9 s12">
-									<input type="text" id="last_name" class="validate" required="" name="last_name" placeholder="Smith" value="<?php if(isset($data['last_name'])){ echo $data['last_name']; } ?>">
+									<input type="text" id="last_name" class="validate" required="" name="last_name" placeholder="Darma" value="<?php if(isset($data['last_name'])){ echo $data['last_name']; } ?>">
 									<br class="hide-on-med-and-up">
 									<br class="hide-on-med-and-up">
 								</div>
@@ -37,7 +37,7 @@
 								</div>
 								<div class="col m9 s12">
 									<br class="hide-on-med-and-up">
-									<input type="text" id="acc_user" class="validate" required="" name="acc_user" placeholder="Sewania" value="<?php if(isset($data['acc_user'])){ echo $data['acc_user']; } ?>">																		
+									<input type="text" id="acc_user" class="validate" required="" name="acc_user" placeholder="Surya33" value="<?php if(isset($data['acc_user'])){ echo $data['acc_user']; } ?>">																		
 								</div>
 							</div>							
 							<div class="input-field col s12">
@@ -47,7 +47,7 @@
 									<br class="hide-on-med-and-up">
 								</div>
 								<div class="col m9 s12">
-									<input type="email" id="acc_email" class="validate" required="" name="acc_email" placeholder="johnsmith@email.com" value="<?php if(isset($data['acc_email'])){ echo $data['acc_email']; } ?>">
+									<input type="email" id="acc_email" class="validate" required="" name="acc_email" placeholder="suryadarma@email.com" value="<?php if(isset($data['acc_email'])){ echo $data['acc_email']; } ?>">
 									<br class="hide-on-med-and-up">
 									<br class="hide-on-med-and-up">
 								</div>
@@ -99,7 +99,7 @@
 									<br class="hide-on-med-and-up">
 								</div>
 								<div class="col m9 s12">
-									<input type="text" id="brand_name" class="validate" required="" name="brand_name" placeholder="Sewania" value="<?php if(isset($data['brand_name'])){ echo $data['brand_name']; }?>">
+									<input type="text" id="brand_name" class="validate" required="" name="brand_name" placeholder="Surya Dekorasi" value="<?php if(isset($data['brand_name'])){ echo $data['brand_name']; }?>">
 								</div>								
 							</div>
 							<div class="input-field col s12">
@@ -119,7 +119,7 @@
 									<br class="hide-on-med-and-up">
 								</div>
 								<div class="col m9 s12">
-									<input type="text" id="alamat_usaha" class="validate" required="" name="alamat_usaha" placeholder="Jln. Bla bla" value="<?php if(isset($data['address'])){ echo $data['address']; }?>">
+									<input type="text" id="alamat_usaha" class="validate" required="" name="alamat_usaha" placeholder="Jln. xxxxxxx" value="<?php if(isset($data['address'])){ echo $data['address']; }?>">
 								</div>								
 							</div>
 							<div class="input-field col s12">

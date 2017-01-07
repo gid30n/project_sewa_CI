@@ -6,8 +6,8 @@ class Carts extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('profile_model');
-		$this->load->model('carts_model');
+		//$this->load->model('profile_model');
+		//$this->load->model('carts_model');
 	}
 
 	public function index()
@@ -111,7 +111,6 @@ class Carts extends CI_Controller {
 		$tgl_sewa = $this->input->post("tgl_sewa", TRUE);
 		$tgl_kembali = $this->input->post("tgl_kembali", TRUE);
 		$jenis_kelamin = $this->input->post("jenis_kelamin", TRUE);
-		$jenis_acara = $this->input->post("jenis_acara", TRUE);
 
 		if (!isset($nama) && !isset($telp) && !isset($email) && !isset($alamat)) {
 			// redirect gagal

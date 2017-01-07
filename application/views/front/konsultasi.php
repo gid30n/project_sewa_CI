@@ -66,7 +66,7 @@
 									</div>
 								</div>
 								<div class="row">
-								<?php require_once 'tinymce.php';?>
+								<?php #require_once 'tinymce.php';?>
 									<div class="input-field">
 										<div class="col s12">
 											<label for="des_acara" class="teal-text left">Deskripsi Acara <sup class="red-text">*</sup></label>						<br>				

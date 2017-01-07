@@ -10,7 +10,7 @@ class Api extends CI_Controller {
 	{
         // Call the CI_Model constructor
 		parent::__construct();
-		$this->load->model('api_model');
+		//$this->load->model('api_model');
 	}
 
 	public function province()

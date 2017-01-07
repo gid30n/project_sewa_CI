@@ -13,7 +13,7 @@
 							</div>
 							<div id="cart" class="col s12">	
 								<br>								
-								<table class="striped highlight" id="tb_cart">
+								<table class="striped highlight" id="tablecart">
 									<thead>
 										<tr class="col s12">
 											<th data-field="no" class="col s1">No</th>
@@ -41,12 +41,13 @@
 									</tbody>
 								</table>
 								<h5>Total : <b><?php echo convert_rp($total_price);?></b></h5>
-								<sup id="sub_cart"><b>Klik Checkout Untuk Melanjutkan Proses Order.</b></sup>					
+								<!-- <sup><b>Klik Tab Checkout Untuk Melanjutkan Proses Order.</b> --></sup>					
 								<div class="row divider"></div>
-								<div class="cart-action right" id="tombol2">
+								<div class="cart-action right">
 									<a href="<?php echo base_url('kategori'); ?>" class="btn waves-effect">Sewa Yang Lain</a>
 									<button class="btn" onclick="checkout()">Checkout</button>
-								</div>									
+								</div>
+									
 							</div>
 							<div id="checkout" class="col s12">
 								<h5><b>Data Customer</b></h5>
@@ -80,27 +81,8 @@
 									<div class="col s12 m9">
 										<input type="email" id="cus_email" name="cus_email" placeholder="Masukan Email Anda" class="validate" required="">
 									</div>
-									<h5><b>Informasi Sewa</b></h5>
-									<div class="row divider"></div>
 									<div class="col s12 m3">
-										<h6>Jenis Acara</h6>
-									</div>
-									<div class="col s12 m9">
-										<select name="cus_jenis_acara" id="cus_jenis_acara" class="validate" required="">
-									      	<option value="" disabled selected>--- Pilih Acara ---</option>
-									      	<option value="1">Pernikahan</option>
-									      	<option value="2">Pesta Ulang Tahun Anak</option>
-									      	<option value="3">Pesta Ulang Tahun Remaja</option>
-									      	<option value="4">Festival</option>
-									      	<option value="5">Meeting</option>
-									      	<option value="6">Acara Adat</option>
-									      	<option value="7">Garden or Beach Party</option>
-									      	<option value="8">Live Concert</option>
-									      	<option value="9">Bazzar</option>
-									    </select>
-									</div>
-									<div class="col s12 m3">
-										<h6>Alamat Acara</h6>
+										<h6>Alamat</h6>
 									</div>
 									<div class="col s12 m9">
 										<textarea name="cus_alamat" id="cus_alamat" placeholder="Masukan Alamat Anda" class="validate materialize-textarea" required=""></textarea>											
@@ -118,7 +100,7 @@
 										<input type="date" class="validate datepicker" id="tgl_kembali" name="tgl_kembali" required="" placeholder="Masukan Tanggal Acara Selesai">
 									</div>
 									<div class="col s12 m3">
-										<h6>Hal Yang Perlu Kami Ketahui <sup class="grey-text">*kosongkan jika tidak ada</sup></h6>
+										<h6>Hal Yang Perlu Kami Ketahui <sup class="grey-text">*Isi  Detail Informasi Sewa Anda</sup></h6>
 									</div>
 									<div class="col s12 m9">
 										<textarea name="cus_descript" id="cus_descript" placeholder="Masukan Alamat Anda" class="materialize-textarea" required=""></textarea>											
@@ -154,18 +136,15 @@
 	</div>
 </div>
 <script>
-	$(document).ready(function(){
+        $(document).ready(function(){
 		$( 'a[href*="#checkout"]' ).hide();
 	});
 
 	function checkout(){
 		$( 'a[href*="#cart"]' ).text('Checkout');
-		$('#tb_cart').hide();
+		$('#tablecart').hide();
 		$('#checkout').show();
-		$('#sub_cart').hide();
-		$('#tombol2').hide();
 	}
-
 	function update_cart(id,jum_item){		
 		$("#edit_form").attr("action", "<?php echo base_url('carts/edit/'); ?>"+id);
 		$(" #jum_item ").val(parseInt(jum_item));
